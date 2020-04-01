@@ -26,9 +26,9 @@ The developer account should be linked to the Twitter account where you want to 
 
 # Introduction to LunarCRUSH - Social Listening For Crypto
 
-Head over to LunarCRUSH.com and setup an account.
+Head over to https://LunarCRUSH.com and setup an account.
 
-Create Account on LunarCRUSH
+Create Account on https://LunarCRUSH.com
 
 Next head to the developers section and click widgets.
 
