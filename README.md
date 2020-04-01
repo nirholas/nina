@@ -1,5 +1,7 @@
 # Build a Cryptocurrency News Twitter Bot with LunarCRUSH & Python
 
+ ![LunarCRUSH](https://everipedia-storage.s3.amazonaws.com/GalleryMediaItem/lang_en/lunarcrush/lunarcrush-social-listening-for-cryptopng.png)
+
 Imagine a Cryptocurrency Twitter Bot that posts tweets depending on the present cryptocurrency market activity. This is possible with Python, Tweepy, and LunarCRUSH. Keep reading this story and you will find out how to build a Twitter Bot with Python.
 
 The twitter bot pulls information from LunarCRUSH. The metrics for Bitcoin, Ethereum, Litecoin stored as formatted variables and tweeted out automatically every 30 minutes.
