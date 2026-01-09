@@ -11,7 +11,7 @@ import Editor from '@monaco-editor/react';
 import { useThemeStore } from '@/stores/themeStore';
 import PriceTicker from '@/components/PriceTicker';
 import { TopProtocolsWidget, TopYieldsWidget, TopChainsWidget, DeFiSummaryBar } from '@/components/DeFiWidgets';
-import WalletConnect from '@/components/WalletConnect';
+import { useWalletStore } from '@/stores/walletStore';
 import { FullStackPlayground, PlaygroundFile } from '@/components/FullStackPlayground';
 import LivePreview from '@/components/Playground/LivePreview';
 import TemplateSelector from '@/components/Playground/TemplateSelector';
@@ -289,6 +289,107 @@ const examples: Example[] = [
     icon: Sparkles,
   },
 ];
+
+// Simple inline wallet connect component (no modal overlay)
+function WalletConnectInline() {
+  const { address, isConnected, balance, disconnect, setWallet } = useWalletStore();
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const connectMetaMask = async () => {
+    setIsConnecting(true);
+    setError(null);
+
+    try {
+      if (typeof window.ethereum === 'undefined') {
+        throw new Error('MetaMask is not installed. Please install it from metamask.io');
+      }
+
+      const { BrowserProvider } = await import('ethers');
+      const provider = new BrowserProvider(window.ethereum);
+      const accounts = await provider.send('eth_requestAccounts', []);
+      
+      if (accounts.length === 0) {
+        throw new Error('No accounts found');
+      }
+
+      const network = await provider.getNetwork();
+      const signer = await provider.getSigner();
+      const userAddress = await signer.getAddress();
+      const userBalance = await provider.getBalance(userAddress);
+
+      setWallet({
+        address: userAddress,
+        chainId: Number(network.chainId),
+        balance: (Number(userBalance) / 1e18).toFixed(4),
+        isConnected: true,
+        provider: window.ethereum,
+      });
+    } catch (err: any) {
+      setError(err.message || 'Failed to connect wallet');
+    } finally {
+      setIsConnecting(false);
+    }
+  };
+
+  const truncateAddress = (addr: string) => 
+    `${addr.slice(0, 6)}...${addr.slice(-4)}`;
+
+  if (isConnected && address) {
+    return (
+      <div className="space-y-4">
+        <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+          <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+            <Check className="w-5 h-5 text-white" />
+          </div>
+          <div className="flex-1">
+            <p className="font-semibold text-green-800 dark:text-green-200">Connected!</p>
+            <p className="text-sm text-green-600 dark:text-green-400 font-mono">{truncateAddress(address)}</p>
+          </div>
+        </div>
+        {balance && (
+          <div className="flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+            <span className="text-sm text-gray-600 dark:text-gray-400">Balance</span>
+            <span className="font-semibold">{balance} ETH</span>
+          </div>
+        )}
+        <button
+          onClick={disconnect}
+          className="w-full py-2 px-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-medium transition-colors"
+        >
+          Disconnect
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        Connect your wallet to interact with Web3 examples (optional).
+      </p>
+      {error && (
+        <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-800 dark:text-red-200">
+          {error}
+        </div>
+      )}
+      <button
+        onClick={connectMetaMask}
+        disabled={isConnecting}
+        className="w-full btn-primary flex items-center justify-center gap-2 py-3"
+      >
+        <Wallet className="w-5 h-5" />
+        {isConnecting ? 'Connecting...' : 'Connect MetaMask'}
+      </button>
+      <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+        Don't have MetaMask?{' '}
+        <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
+          Download it here
+        </a>
+      </p>
+    </div>
+  );
+}
 
 export default function Homepage() {
   const { t } = useI18n();
@@ -602,11 +703,11 @@ contract HelloWorld {
         <div className="mb-12">
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold mb-2">Connect Your Wallet</h2>
-            <p className="text-gray-600 dark:text-gray-400">Real MetaMask integration - try connecting your wallet</p>
+            <p className="text-gray-600 dark:text-gray-400">Real MetaMask integration - try connecting your wallet (optional)</p>
           </div>
           <div className="max-w-md mx-auto">
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-              <WalletConnect />
+              <WalletConnectInline />
             </div>
           </div>
         </div>
