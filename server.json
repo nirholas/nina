@@ -1,1 +1,9 @@
-{"$schema":"https://registry.modelcontextprotocol.io/schema/server.json","name":"solidity-compiler","title":"Solidity Compiler IDE","description":"Browser Solidity compiler IDE - smart contract development testing deployment","repository":"https://github.com/nirholas/lyra-web3-playground","keywords":["solidity","compiler","ethereum"],"packages":[{"registry_name":"source","identifier":"https://github.com/nirholas/lyra-web3-playground"}]}
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.nirholas/solidity-compiler",
+  "title": "Solidity Compiler IDE",
+  "description": "Browser Solidity compiler IDE - smart contract development testing deploy",
+  "keywords": ["solidity", "compiler", "ide", "smart-contracts", "ethereum"],
+  "repository": {"url": "https://github.com/nirholas/lyra-web3-playground", "source": "github"},
+  "packages": [{"registryType": "source", "identifier": "https://github.com/nirholas/lyra-web3-playground"}]
+}
