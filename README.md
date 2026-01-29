@@ -10,7 +10,7 @@ LYRA WEB3 PLAYGROUND
 🌐 Website: https://lyra.works
 
 Copyright (c) 2024-2026 nirholas (nich)
-Licensed under MIT License
+Licensed under MIT License 
 
 NOTICE: This project contains embedded watermarks and attribution markers.
 Removal or modification of attribution constitutes violation of the license.
