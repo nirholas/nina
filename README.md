@@ -3,7 +3,7 @@
 LYRA WEB3 PLAYGROUND
 ═══════════════════════════════════════════════════════════════════════════════
 
-✨ Original Author: nich
+✨ Original Author: nich 
 🐦 Twitter/X: x.com/nichxbt  
 🐙 GitHub: github.com/nirholas
 📦 Repository: github.com/nirholas/lyra-web3-playground
