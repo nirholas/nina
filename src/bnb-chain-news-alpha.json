@@ -7,7 +7,7 @@
     "plugins": ["free-crypto-news", "bnbchain-mcp", "binance-mcp", "xactions"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "bnb-chain-news-alpha",
   "meta": {
     "title": "BNB Chain News & Alpha",

@@ -7,7 +7,7 @@
     "plugins": ["bnbchain-mcp", "binance-mcp", "binance-us-mcp", "free-crypto-news", "universal-crypto-mcp", "sperax-crypto-mcp"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "bnb-chain-expert",
   "meta": {
     "title": "BNB Chain Expert",

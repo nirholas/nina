@@ -5,7 +5,7 @@ From: Earth
 
 /* PROJECT */
 Name: BNB Chain AI Toolkit
-Repository: https://github.com/nirholas/bnb-agents
+Repository: https://github.com/nirholas/bnb-chain-toolkit
 Description: The most comprehensive open-source AI toolkit for BNB Chain
 Version: 2.0.0
 Last update: 2026-02-11

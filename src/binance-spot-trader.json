@@ -7,7 +7,7 @@
     "plugins": ["binance-mcp", "binance-us-mcp", "free-crypto-news", "bnbchain-mcp"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "binance-spot-trader",
   "meta": {
     "title": "Binance Spot Trader",

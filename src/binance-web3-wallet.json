@@ -7,7 +7,7 @@
     "plugins": ["binance-mcp", "bnbchain-mcp", "universal-crypto-mcp", "free-crypto-news"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "binance-web3-wallet",
   "meta": {
     "title": "Binance Web3 Wallet Expert",

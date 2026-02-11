@@ -105,6 +105,6 @@ Consolidated 14 independent repositories into one comprehensive AI toolkit for B
 
 ---
 
-[2.0.0]: https://github.com/nirholas/bnb-agents/compare/v1.0.0...v2.0.0
-[1.1.0]: https://github.com/nirholas/bnb-agents/releases/tag/v1.1.0
-[1.0.0]: https://github.com/nirholas/bnb-agents/releases/tag/v1.0.0
+[2.0.0]: https://github.com/nirholas/bnb-chain-toolkit/compare/v1.0.0...v2.0.0
+[1.1.0]: https://github.com/nirholas/bnb-chain-toolkit/releases/tag/v1.1.0
+[1.0.0]: https://github.com/nirholas/bnb-chain-toolkit/releases/tag/v1.0.0

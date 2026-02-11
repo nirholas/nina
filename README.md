@@ -20,11 +20,11 @@
 
 <br>
 
-<a href="https://github.com/nirholas/bnb-agents/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&labelColor=000" alt="MIT License" /></a>
-<a href="https://github.com/nirholas/bnb-agents/stargazers"><img src="https://img.shields.io/github/stars/nirholas/bnb-agents?style=for-the-badge&logo=github&color=yellow&labelColor=000" alt="Stars" /></a>
-<a href="https://github.com/nirholas/bnb-agents/network/members"><img src="https://img.shields.io/github/forks/nirholas/bnb-agents?style=for-the-badge&logo=github&color=purple&labelColor=000" alt="Forks" /></a>
-<a href="https://github.com/nirholas/bnb-agents/issues"><img src="https://img.shields.io/github/issues/nirholas/bnb-agents?style=for-the-badge&labelColor=000" alt="Issues" /></a>
-<a href="https://github.com/nirholas/bnb-agents"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge&labelColor=000" alt="PRs Welcome" /></a>
+<a href="https://github.com/nirholas/bnb-chain-toolkit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&labelColor=000" alt="MIT License" /></a>
+<a href="https://github.com/nirholas/bnb-chain-toolkit/stargazers"><img src="https://img.shields.io/github/stars/nirholas/bnb-chain-toolkit?style=for-the-badge&logo=github&color=yellow&labelColor=000" alt="Stars" /></a>
+<a href="https://github.com/nirholas/bnb-chain-toolkit/network/members"><img src="https://img.shields.io/github/forks/nirholas/bnb-chain-toolkit?style=for-the-badge&logo=github&color=purple&labelColor=000" alt="Forks" /></a>
+<a href="https://github.com/nirholas/bnb-chain-toolkit/issues"><img src="https://img.shields.io/github/issues/nirholas/bnb-chain-toolkit?style=for-the-badge&labelColor=000" alt="Issues" /></a>
+<a href="https://github.com/nirholas/bnb-chain-toolkit"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge&labelColor=000" alt="PRs Welcome" /></a>
 
 <br>
 
@@ -77,8 +77,8 @@ It's a single repository with **everything** you need to build AI-powered applic
 
 ```bash
 # Clone
-git clone https://github.com/nirholas/bnb-agents.git
-cd bnb-agents
+git clone https://github.com/nirholas/bnb-chain-toolkit.git
+cd bnb-chain-toolkit
 
 # Install & build
 bun install && bun run build
@@ -112,7 +112,7 @@ Add to your `claude_desktop_config.json`:
 ## 🏗️ Architecture
 
 ```
-bnb-agents/
+bnb-chain-toolkit/
 ├── agents/                     # 🤖 72+ AI Agent definitions
 │   ├── bnb-chain-agents/       #    30 BNB Chain-specific agents
 │   └── defi-agents/            #    42 general DeFi agents (18 languages)
@@ -369,7 +369,7 @@ Contributions are welcome! Whether it's a new agent, a bug fix, documentation im
 2. Create your branch: `git checkout -b feat/my-improvement`
 3. Commit: `git commit -m "✨ feat: add amazing feature"`
 4. Push: `git push origin feat/my-improvement`
-5. [Open a Pull Request](https://github.com/nirholas/bnb-agents/pulls)
+5. [Open a Pull Request](https://github.com/nirholas/bnb-chain-toolkit/pulls)
 
 > 📚 **Full guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
 
@@ -390,17 +390,17 @@ MIT © [nirholas](https://github.com/nirholas)
   <br>
   ⭐ <b>Found this useful? Star the repo!</b> ⭐<br>
   <sub>It helps others discover this project and keeps development active</sub><br><br>
-  <a href="https://github.com/nirholas/bnb-agents/stargazers">
-    <img src="https://img.shields.io/github/stars/nirholas/bnb-agents?style=social" alt="Star on GitHub">
+  <a href="https://github.com/nirholas/bnb-chain-toolkit/stargazers">
+    <img src="https://img.shields.io/github/stars/nirholas/bnb-chain-toolkit?style=social" alt="Star on GitHub">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://star-history.com/#nirholas/bnb-agents&Date">
+  <a href="https://star-history.com/#nirholas/bnb-chain-toolkit&Date">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nirholas/bnb-agents&type=Date&theme=dark" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nirholas/bnb-agents&type=Date" />
-      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=nirholas/bnb-agents&type=Date" width="600" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nirholas/bnb-chain-toolkit&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nirholas/bnb-chain-toolkit&type=Date" />
+      <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=nirholas/bnb-chain-toolkit&type=Date" width="600" />
     </picture>
   </a>
 </p>

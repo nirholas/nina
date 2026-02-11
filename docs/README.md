@@ -51,6 +51,6 @@ Start with the guide that matches your experience level:
 
 ## Quick Links
 
-- [GitHub Repository](https://github.com/nirholas/bnb-agents)
-- [Report a Bug](https://github.com/nirholas/bnb-agents/issues)
+- [GitHub Repository](https://github.com/nirholas/bnb-chain-toolkit)
+- [Report a Bug](https://github.com/nirholas/bnb-chain-toolkit/issues)
 - [MIT License](../LICENSE)

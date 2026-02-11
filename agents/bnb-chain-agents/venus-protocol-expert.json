@@ -7,7 +7,7 @@
     "plugins": ["bnbchain-mcp", "binance-mcp", "free-crypto-news"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "venus-protocol-expert",
   "meta": {
     "title": "Venus Protocol Expert",

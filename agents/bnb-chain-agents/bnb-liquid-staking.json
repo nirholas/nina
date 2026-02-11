@@ -7,7 +7,7 @@
     "plugins": ["bnbchain-mcp", "binance-mcp", "sperax-crypto-mcp", "free-crypto-news"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "bnb-liquid-staking",
   "meta": {
     "title": "BNB Liquid Staking Optimizer",

@@ -9,7 +9,7 @@ BNB Chain AI Toolkit is a monorepo containing AI agent definitions, MCP servers,
 ## Project Structure
 
 ```
-bnb-agents/
+bnb-chain-toolkit/
 ├── agents/                  # AI agent definitions (JSON)
 │   ├── bnb-chain-agents/    # 30 BNB Chain-specific agents
 │   └── defi-agents/         # 42 general DeFi agents

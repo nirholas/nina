@@ -1,6 +1,6 @@
 # BNB Chain AI Toolkit
 
-> https://github.com/nirholas/bnb-agents
+> https://github.com/nirholas/bnb-chain-toolkit
 
 The most comprehensive open-source AI toolkit for BNB Chain, BSC, opBNB, and the Binance ecosystem.
 
@@ -28,7 +28,7 @@ A monorepo with 72+ AI agents, 6 MCP servers (900+ tools), market data, DeFi too
 
 ## More Info
 
-- Documentation: https://github.com/nirholas/bnb-agents/tree/main/docs
-- Full context: https://github.com/nirholas/bnb-agents/blob/main/llms-full.txt
+- Documentation: https://github.com/nirholas/bnb-chain-toolkit/tree/main/docs
+- Full context: https://github.com/nirholas/bnb-chain-toolkit/blob/main/llms-full.txt
 - License: MIT
 

@@ -9,7 +9,7 @@ BNB Chain AI Toolkit contains AI agent definitions (JSON), MCP server implementa
 If you discover a security issue:
 
 1. **DO NOT** open a public GitHub issue
-2. Report via [GitHub Security Advisories](https://github.com/nirholas/bnb-agents/security/advisories/new) (preferred)
+2. Report via [GitHub Security Advisories](https://github.com/nirholas/bnb-chain-toolkit/security/advisories/new) (preferred)
 3. Or email the maintainer directly
 4. Include:
    - Description of the vulnerability

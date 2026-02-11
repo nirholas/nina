@@ -7,7 +7,7 @@
     "plugins": ["bnbchain-mcp", "binance-mcp", "sperax-crypto-mcp", "universal-crypto-mcp", "free-crypto-news"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "bnb-defi-aggregator",
   "meta": {
     "title": "BNB DeFi Aggregator",

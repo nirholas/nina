@@ -7,7 +7,7 @@
     "plugins": ["binance-mcp", "free-crypto-news", "bnbchain-mcp"]
   },
   "createdAt": "2026-02-11",
-  "homepage": "https://github.com/nirholas/bnb-agents",
+  "homepage": "https://github.com/nirholas/bnb-chain-toolkit",
   "identifier": "binance-futures-expert",
   "meta": {
     "title": "Binance Futures Expert",

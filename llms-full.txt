@@ -1,13 +1,13 @@
 # BNB Chain AI Toolkit — Full Documentation
 
-> https://github.com/nirholas/bnb-agents
+> https://github.com/nirholas/bnb-chain-toolkit
 
 The most comprehensive open-source AI toolkit for BNB Chain, BSC, opBNB, and the Binance ecosystem. 72+ AI agents, 6 MCP servers with 900+ tools, market data pipelines, DeFi tools, wallet utilities, and Web3 standards.
 
 ## Architecture
 
 ```
-bnb-agents/
+bnb-chain-toolkit/
 ├── agents/                     # 72+ AI Agent definitions
 │   ├── bnb-chain-agents/       # 30 BNB Chain-specific agents
 │   └── defi-agents/            # 42 general DeFi agents (18 languages)
@@ -181,8 +181,8 @@ BNB Smart Chain (BSC), opBNB, BNB Greenfield, Ethereum, Polygon, Arbitrum, Base,
 ## Quick Start
 
 ```bash
-git clone https://github.com/nirholas/bnb-agents.git
-cd bnb-agents
+git clone https://github.com/nirholas/bnb-chain-toolkit.git
+cd bnb-chain-toolkit
 bun install
 bun run build
 
@@ -208,5 +208,5 @@ cd mcp-servers/bnbchain-mcp && bun install && bun start
 
 ## License
 
-MIT — https://github.com/nirholas/bnb-agents/blob/main/LICENSE
+MIT — https://github.com/nirholas/bnb-chain-toolkit/blob/main/LICENSE
 

@@ -25,8 +25,8 @@ Before we start, make sure you have these installed on your computer:
 Open your terminal (Command Prompt on Windows, Terminal on Mac/Linux) and run:
 
 ```bash
-git clone https://github.com/nirholas/bnb-agents.git
-cd bnb-agents
+git clone https://github.com/nirholas/bnb-chain-toolkit.git
+cd bnb-chain-toolkit
 ```
 
 This downloads the entire toolkit to your computer.
@@ -107,7 +107,7 @@ Now add it to Claude Desktop by editing your `claude_desktop_config.json`:
   "mcpServers": {
     "bnbchain": {
       "command": "node",
-      "args": ["path/to/bnb-agents/mcp-servers/bnbchain-mcp/dist/index.js"],
+      "args": ["path/to/bnb-chain-toolkit/mcp-servers/bnbchain-mcp/dist/index.js"],
       "env": {
         "BSC_RPC_URL": "https://bsc-dataseed.binance.org"
       }
@@ -136,5 +136,5 @@ That's it! Claude can now interact with BNB Chain directly.
 ## Need Help?
 
 - **Something not working?** Check [Troubleshooting](troubleshooting.md)
-- **Found a bug?** [Open an issue](https://github.com/nirholas/bnb-agents/issues)
+- **Found a bug?** [Open an issue](https://github.com/nirholas/bnb-chain-toolkit/issues)
 - **Want to contribute?** Read [Contributing](../CONTRIBUTING.md)

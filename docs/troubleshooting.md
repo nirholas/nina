@@ -108,7 +108,7 @@ echo 'BINANCE_API_KEY=your-key' >> .env
 ### `bun run build` fails
 
 **Checklist:**
-1. Are you in the project root? (`/path/to/bnb-agents/`)
+1. Are you in the project root? (`/path/to/bnb-chain-toolkit/`)
 2. Did you run `bun install` first?
 3. Check for JSON syntax errors in `src/` files
 
@@ -211,8 +211,8 @@ const client = new CoinGecko({ cacheTtl: 60_000 }); // Cache for 60 seconds
 ## Still Stuck?
 
 1. Check the [FAQ](faq.md) for more common questions
-2. Search [existing issues](https://github.com/nirholas/bnb-agents/issues)
-3. [Open a new issue](https://github.com/nirholas/bnb-agents/issues/new) with:
+2. Search [existing issues](https://github.com/nirholas/bnb-chain-toolkit/issues)
+3. [Open a new issue](https://github.com/nirholas/bnb-chain-toolkit/issues/new) with:
    - What you expected to happen
    - What actually happened
    - Steps to reproduce

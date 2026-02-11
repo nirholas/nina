@@ -6,8 +6,8 @@ abstract: "The most comprehensive open-source AI toolkit for BNB Chain. 72+ AI a
 authors:
   - alias: nirholas
     name: nirholas
-repository-code: "https://github.com/nirholas/bnb-agents"
-url: "https://github.com/nirholas/bnb-agents"
+repository-code: "https://github.com/nirholas/bnb-chain-toolkit"
+url: "https://github.com/nirholas/bnb-chain-toolkit"
 license: MIT
 version: "2.0.0"
 date-released: "2026-02-11"

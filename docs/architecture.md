@@ -32,7 +32,7 @@ How everything in the BNB Chain AI Toolkit fits together.
 ## Directory Structure
 
 ```
-bnb-agents/
+bnb-chain-toolkit/
 │
 ├── agents/                          # AI Agent definitions
 │   ├── bnb-chain-agents/            # 30 BNB Chain-specific agents

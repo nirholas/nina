@@ -8,7 +8,7 @@ Thanks for your interest in contributing! Every contribution — from fixing a t
 
 ### 🐛 Report Bugs
 
-Found something broken? [Open an issue](https://github.com/nirholas/bnb-agents/issues/new) with:
+Found something broken? [Open an issue](https://github.com/nirholas/bnb-chain-toolkit/issues/new) with:
 - What you expected to happen
 - What actually happened
 - Steps to reproduce
@@ -47,8 +47,8 @@ The simplest contribution. It helps others discover the project.
 ### 1. Fork & Clone
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/bnb-agents.git
-cd bnb-agents
+git clone https://github.com/YOUR-USERNAME/bnb-chain-toolkit.git
+cd bnb-chain-toolkit
 bun install
 ```
 
@@ -90,7 +90,7 @@ git commit -m "♻️ refactor: simplify market data caching"
 git push origin feat/my-improvement
 ```
 
-Then [open a Pull Request](https://github.com/nirholas/bnb-agents/pulls) with:
+Then [open a Pull Request](https://github.com/nirholas/bnb-chain-toolkit/pulls) with:
 - Clear title describing the change
 - Description of what and why
 - Screenshots if relevant
@@ -123,7 +123,7 @@ bun run type-check
 ### Project Structure
 
 ```
-bnb-agents/
+bnb-chain-toolkit/
 ├── agents/          # Agent definitions (JSON)
 ├── mcp-servers/     # MCP server implementations
 ├── market-data/     # Market data libraries
