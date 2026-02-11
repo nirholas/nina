@@ -1,0 +1,9 @@
+# lyra-web3-playground
+
+> Free Solidity compiler & Web3 IDE with interactive tutorials. Learn blockchain development, deploy smart contracts to 8+ chains (Ethereum, Polygon, Base, Arbitrum, Solana). Templates for tokens, NFTs, DeFi, DAOs. Monaco Editor, AI assistance, WCAG accessible. Remix alternative. Gas optimization, MetaMask integration, open source. Beginner-friendly.
+
+## Links
+
+- Repository: https://github.com/nirholas/lyra-web3-playground
+- Author: https://github.com/nirholas
+- Full documentation: https://raw.githubusercontent.com/nirholas/lyra-web3-playground/main/llms-full.txt

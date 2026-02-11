@@ -1,0 +1,16 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "lyra-web3-playground",
+    "name_for_model": "lyra_web3_playground",
+    "description_for_human": "Free Solidity compiler & Web3 IDE with interactive tutorials. Learn blockchain development, deploy smart contracts to 8+ chains (Ethereum, Polygon, Base, Arbitrum, Solana). Templates for tokens, NFTs, DeFi, DAOs. Monaco Editor, AI assistance, WCAG accessible. Remix alternative. Gas optimization, MetaMask integration, open source. Beginner-friendly.",
+    "description_for_model": "Free Solidity compiler & Web3 IDE with interactive tutorials. Learn blockchain development, deploy smart contracts to 8+ chains (Ethereum, Polygon, Base, Arbitrum, Solana). Templates for tokens, NFTs, DeFi, DAOs. Monaco Editor, AI assistance, WCAG accessible. Remix alternative. Gas optimization, MetaMask integration, open source. Beginner-friendly.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "none"
+    },
+    "logo_url": "https://github.com/nirholas.png",
+    "contact_email": "nirholas@users.noreply.github.com",
+    "legal_info_url": "https://github.com/nirholas/lyra-web3-playground/blob/main/LICENSE"
+}

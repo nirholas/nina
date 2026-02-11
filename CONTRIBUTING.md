@@ -465,3 +465,7 @@ Thank you for contributing to making Web3 and AI more accessible to developers w
 ---
 
 **Happy Coding! 🚀**
+
+## Code of Conduct
+
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).

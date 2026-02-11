@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use lyra-web3-playground, please cite it as below."
+type: software
+title: "lyra-web3-playground"
+abstract: "Free Solidity compiler & Web3 IDE with interactive tutorials. Learn blockchain development, deploy smart contracts to 8+ chains (Ethereum, Polygon, Base, Arbitrum, Solana). Templates for tokens, NFTs, DeFi, DAOs. Monaco Editor, AI assistance, WCAG accessible. Remix alternative. Gas optimization, MetaMask integration, open source. Beginner-friendly."
+authors:
+  - alias: nirholas
+    name: nirholas
+repository-code: "https://github.com/nirholas/lyra-web3-playground"
+url: "https://github.com/nirholas/lyra-web3-playground"
+license: MIT
+version: "1.0.0"
+date-released: "2026-02-11"
+keywords:
+  - open-source
+  - nirholas
