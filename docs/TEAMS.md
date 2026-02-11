@@ -541,3 +541,4 @@ A: Yes, but monitor context limits. Teams consume more tokens than solo agents.
 
 Agent Teams transform AI from solo performer to collaborative ensemble. Start simple, experiment, refine.
 
+
