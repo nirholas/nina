@@ -1,0 +1,78 @@
+{
+  "ERC-8004 Agent Card": {
+    "prefix": "erc8004-agent-card",
+    "body": [
+      "{",
+      "  \"type\": \"https://eips.ethereum.org/EIPS/eip-8004#registration-v1\",",
+      "  \"name\": \"${1:My AI Agent}\",",
+      "  \"description\": \"${2:An autonomous AI agent}\",",
+      "  \"image\": \"${3:https://example.com/avatar.png}\",",
+      "  \"services\": [",
+      "    {",
+      "      \"name\": \"A2A\",",
+      "      \"endpoint\": \"${4:https://api.example.com/a2a}\",",
+      "      \"version\": \"0.3.0\"",
+      "    }",
+      "  ],",
+      "  \"x402Support\": false,",
+      "  \"active\": true,",
+      "  \"registrations\": [",
+      "    {",
+      "      \"agentId\": ${5:0},",
+      "      \"agentRegistry\": \"eip155:97:0x8004A818BFB912233c491871b3d84c89A494BD9e\"",
+      "    }",
+      "  ],",
+      "  \"supportedTrust\": [\"reputation\"]",
+      "}"
+    ],
+    "description": "ERC-8004 agent-card.json template"
+  },
+  "ERC-8004 Registration JSON": {
+    "prefix": "erc8004-registration",
+    "body": [
+      "{",
+      "  \"type\": \"https://eips.ethereum.org/EIPS/eip-8004#registration-v1\",",
+      "  \"name\": \"${1:Agent Name}\",",
+      "  \"description\": \"${2:Description}\",",
+      "  \"services\": [",
+      "    {",
+      "      \"name\": \"${3:A2A}\",",
+      "      \"endpoint\": \"${4:https://api.example.com}\",",
+      "      \"version\": \"${5:0.3.0}\"",
+      "    }",
+      "  ],",
+      "  \"x402Support\": ${6:false},",
+      "  \"active\": true,",
+      "  \"supportedTrust\": [\"${7:reputation}\"]",
+      "}"
+    ],
+    "description": "ERC-8004 registration metadata JSON template"
+  },
+  "AI Plugin Manifest": {
+    "prefix": "erc8004-ai-plugin",
+    "body": [
+      "{",
+      "  \"schema_version\": \"v1\",",
+      "  \"name_for_human\": \"${1:My Agent}\",",
+      "  \"name_for_model\": \"${2:my_agent}\",",
+      "  \"description_for_human\": \"${3:Human-readable description}\",",
+      "  \"description_for_model\": \"${4:Model-facing description}\",",
+      "  \"auth\": { \"type\": \"none\" },",
+      "  \"api\": {",
+      "    \"type\": \"openapi\",",
+      "    \"url\": \"${5:https://api.example.com/openapi.json}\",",
+      "    \"is_user_authenticated\": false",
+      "  },",
+      "  \"logo_url\": \"${6:https://example.com/logo.png}\",",
+      "  \"contact_email\": \"${7:contact@example.com}\",",
+      "  \"legal_info_url\": \"${8:https://example.com/legal}\",",
+      "  \"erc8004\": {",
+      "    \"chain\": \"BSC Testnet\",",
+      "    \"chainId\": 97,",
+      "    \"identityRegistry\": \"0x8004A818BFB912233c491871b3d84c89A494BD9e\"",
+      "  }",
+      "}"
+    ],
+    "description": "AI plugin manifest with ERC-8004 extension"
+  }
+}

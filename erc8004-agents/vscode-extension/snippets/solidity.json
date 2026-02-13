@@ -1,0 +1,76 @@
+{
+  "ERC-8004 Register Agent": {
+    "prefix": "erc8004-register",
+    "body": [
+      "// SPDX-License-Identifier: MIT",
+      "pragma solidity ^0.8.20;",
+      "",
+      "import {IIdentityRegistry} from \"@erc8004/contracts/IIdentityRegistry.sol\";",
+      "",
+      "contract AgentRegistrar {",
+      "    IIdentityRegistry public immutable registry;",
+      "",
+      "    constructor(address _registry) {",
+      "        registry = IIdentityRegistry(_registry);",
+      "    }",
+      "",
+      "    function registerAgent(string calldata agentURI) external returns (uint256) {",
+      "        return registry.register(agentURI);",
+      "    }",
+      "",
+      "    function updateAgentURI(uint256 agentId, string calldata newURI) external {",
+      "        registry.setAgentURI(agentId, newURI);",
+      "    }",
+      "}"
+    ],
+    "description": "ERC-8004 agent registration contract"
+  },
+  "ERC-8004 Submit Reputation": {
+    "prefix": "erc8004-reputation",
+    "body": [
+      "// SPDX-License-Identifier: MIT",
+      "pragma solidity ^0.8.20;",
+      "",
+      "interface IReputationRegistry {",
+      "    function submitFeedback(uint256 agentId, uint8 rating, string calldata comment) external;",
+      "    function getFeedbackCount(uint256 agentId) external view returns (uint256);",
+      "    function getAverageRating(uint256 agentId) external view returns (uint256);",
+      "}",
+      "",
+      "contract ReputationSubmitter {",
+      "    IReputationRegistry public immutable reputation;",
+      "",
+      "    constructor(address _reputation) {",
+      "        reputation = IReputationRegistry(_reputation);",
+      "    }",
+      "",
+      "    function rate(uint256 agentId, uint8 rating, string calldata comment) external {",
+      "        require(rating >= 1 && rating <= 5, \"Rating must be 1-5\");",
+      "        reputation.submitFeedback(agentId, rating, comment);",
+      "    }",
+      "}"
+    ],
+    "description": "ERC-8004 reputation submission contract"
+  },
+  "ERC-8004 Identity Interface": {
+    "prefix": "erc8004-interface",
+    "body": [
+      "// SPDX-License-Identifier: MIT",
+      "pragma solidity ^0.8.20;",
+      "",
+      "interface IIdentityRegistry {",
+      "    function register() external returns (uint256 agentId);",
+      "    function register(string calldata agentURI) external returns (uint256 agentId);",
+      "    function setAgentURI(uint256 agentId, string calldata newURI) external;",
+      "    function setMetadata(uint256 agentId, string calldata key, bytes calldata value) external;",
+      "    function getMetadata(uint256 agentId, string calldata key) external view returns (bytes memory);",
+      "    function getAgentWallet(uint256 agentId) external view returns (address);",
+      "    function tokenURI(uint256 tokenId) external view returns (string memory);",
+      "    function ownerOf(uint256 tokenId) external view returns (address);",
+      "    function balanceOf(address owner) external view returns (uint256);",
+      "    event Registered(uint256 indexed agentId, string agentURI, address indexed owner);",
+      "}"
+    ],
+    "description": "ERC-8004 Identity Registry interface"
+  }
+}

@@ -373,6 +373,14 @@ export default function NavBar() {
       label: t('nav.build'),
       items: [
         {
+          label: 'MCP Playground',
+          href: '/tool-playground',
+          icon: Wrench,
+          description: 'Execute 900+ MCP tools live in your browser',
+          badge: 'New',
+          iconColor: 'text-[#F0B90B]',
+        },
+        {
           label: t('nav.code_playground'),
           href: '/playground',
           icon: Terminal,

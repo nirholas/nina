@@ -1,0 +1,21 @@
+[package]
+name = "erc8004"
+version = "0.1.0"
+edition = "2021"
+authors = ["nich <nich@erc8004.agency>"]
+description = "Rust SDK for ERC-8004 Trustless AI Agent Registries"
+license = "Apache-2.0"
+repository = "https://github.com/nirholas/erc8004-agent-creator"
+keywords = ["erc8004", "ai-agents", "web3", "ethereum", "bnb-chain"]
+categories = ["api-bindings", "web-programming"]
+
+[dependencies]
+alloy = { version = "0.8", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+tokio = { version = "1", features = ["full"] }
+thiserror = "2"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }

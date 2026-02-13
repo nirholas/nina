@@ -1,0 +1,122 @@
+{
+  "name": "erc8004-mcp",
+  "description": "MCP server for ERC-8004 trustless AI agent on-chain identity. 11 tools for registering, discovering, and managing agents as ERC-721 NFTs across BSC, Ethereum, and EVM-compatible networks.",
+  "version": "1.0.0",
+  "homepage": "https://erc8004.agency",
+  "repository": "https://github.com/nirholas/erc8004-agent-creator",
+  "package": "@nirholas/erc8004-mcp",
+  "install": {
+    "npm": "npx @nirholas/erc8004-mcp",
+    "source": "cd mcp-server && npm install && npm run build && node dist/index.js"
+  },
+  "transport": "stdio",
+  "configuration": {
+    "env": {
+      "PRIVATE_KEY": {
+        "description": "Wallet private key (0x-prefixed) for write operations (register, set_uri, set_metadata, submit_reputation). Optional for read-only usage.",
+        "required": false
+      },
+      "RPC_URL": {
+        "description": "Override default RPC endpoint. Chain-specific RPCs are built in.",
+        "required": false
+      },
+      "CHAIN_ID": {
+        "description": "Default chain ID. Tools accept chain per-call.",
+        "required": false
+      }
+    },
+    "claude_desktop": {
+      "mcpServers": {
+        "erc8004": {
+          "command": "npx",
+          "args": ["@nirholas/erc8004-mcp"],
+          "env": {
+            "PRIVATE_KEY": "0xYOUR_PRIVATE_KEY"
+          }
+        }
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "register_agent",
+      "description": "Register a new ERC-8004 AI agent on-chain as an ERC-721 NFT",
+      "category": "identity"
+    },
+    {
+      "name": "get_agent",
+      "description": "Look up an agent by token ID",
+      "category": "identity"
+    },
+    {
+      "name": "list_agents",
+      "description": "List agents owned by an address",
+      "category": "identity"
+    },
+    {
+      "name": "get_agent_count",
+      "description": "Get total registered agents on a chain",
+      "category": "identity"
+    },
+    {
+      "name": "set_uri",
+      "description": "Update an agent's metadata URI",
+      "category": "identity"
+    },
+    {
+      "name": "search_agents",
+      "description": "Search agents by name, service, or metadata",
+      "category": "identity"
+    },
+    {
+      "name": "submit_reputation",
+      "description": "Submit on-chain reputation feedback",
+      "category": "reputation"
+    },
+    {
+      "name": "get_reputation",
+      "description": "Get reputation data for an agent",
+      "category": "reputation"
+    },
+    {
+      "name": "set_metadata",
+      "description": "Set on-chain key-value metadata for an agent",
+      "category": "metadata"
+    },
+    {
+      "name": "get_metadata",
+      "description": "Read an on-chain metadata value by key",
+      "category": "metadata"
+    },
+    {
+      "name": "batch_get_metadata",
+      "description": "Read multiple metadata values in one call",
+      "category": "metadata"
+    }
+  ],
+  "resources": [
+    {
+      "uri": "erc8004://chains",
+      "name": "chains",
+      "description": "All supported chain configurations with contract addresses",
+      "mimeType": "application/json"
+    }
+  ],
+  "supported_chains": [
+    { "name": "BSC Testnet", "chainId": 97 },
+    { "name": "BSC Mainnet", "chainId": 56 },
+    { "name": "Ethereum", "chainId": 1 },
+    { "name": "Sepolia", "chainId": 11155111 },
+    { "name": "Base Sepolia", "chainId": 84532 },
+    { "name": "Arbitrum Sepolia", "chainId": 421614 },
+    { "name": "Optimism Sepolia", "chainId": 11155420 },
+    { "name": "Polygon Amoy", "chainId": 80002 }
+  ],
+  "keywords": [
+    "erc-8004", "erc8004", "trustless-agents", "ai-agents", "on-chain-identity",
+    "agent-nft", "erc-721", "a2a-protocol", "mcp-server", "model-context-protocol",
+    "agent-discovery", "agent-reputation", "web3-ai", "defi-agents",
+    "autonomous-agents", "x402", "agent-registry", "bsc", "bnb-chain",
+    "ethereum", "multi-chain"
+  ]
+}

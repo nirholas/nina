@@ -8,6 +8,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 import { cn } from "@/lib/utils";
+import useI18n from '@/stores/i18nStore';
 import { Spotlight } from "@/components/ui/spotlight";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
@@ -138,6 +139,7 @@ const quickLinks = [
 ];
 
 export default function DocsPage() {
+  const { t } = useI18n();
   const [search, setSearch] = useState("");
 
   useSEO({
@@ -164,12 +166,11 @@ export default function DocsPage() {
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <TextGenerateEffect
-            words="Documentation"
+            words={t('docs.title')}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           />
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Everything you need to integrate 72+ AI agents, 6 MCP servers, and
-            900+ tools into your BNB Chain projects.
+            {t('docs.hero_subtitle')}
           </p>
 
           {/* Search */}
@@ -177,7 +178,7 @@ export default function DocsPage() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
               type="text"
-              placeholder="Search documentation..."
+              placeholder={t('docs.search_placeholder')}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className={cn(
@@ -201,13 +202,11 @@ export default function DocsPage() {
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0B90B]/20 text-[#F0B90B] text-sm font-medium mb-4">
                     <Rocket className="w-4 h-4" />
-                    Start Here
+                    {t('docs.start_here')}
                   </div>
-                  <h2 className="text-2xl font-bold mb-2">Quick Start Guide</h2>
+                  <h2 className="text-2xl font-bold mb-2">{t('docs.quick_start')}</h2>
                   <p className="text-gray-600 dark:text-gray-400 max-w-xl">
-                    Get up and running in under 5 minutes. Install the toolkit,
-                    configure your first MCP server, and deploy an AI agent on BNB
-                    Chain.
+                    {t('docs.quick_start_desc')}
                   </p>
                 </div>
                 <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-[#F0B90B] group-hover:translate-x-1 transition-all shrink-0" />
@@ -220,7 +219,7 @@ export default function DocsPage() {
       {/* BentoGrid Categories */}
       <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">Browse by Category</h2>
+          <h2 className="text-3xl font-bold mb-10">{t('docs.browse_category')}</h2>
 
           {search.trim() && filteredCategories.length === 0 ? (
             <div className="text-center py-16 text-gray-500">
@@ -278,8 +277,8 @@ export default function DocsPage() {
       {/* Quick Links — HoverEffect */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Popular Guides</h2>
-          <p className="text-gray-500 mb-6">Jump straight to the most-used documentation.</p>
+          <h2 className="text-3xl font-bold mb-4">{t('docs.popular_guides')}</h2>
+          <p className="text-gray-500 mb-6">{t('docs.popular_guides_desc')}</p>
           <HoverEffect
             items={quickLinks.map((item) => ({
               title: item.title,
@@ -293,7 +292,7 @@ export default function DocsPage() {
       {/* Server Quick Reference */}
       <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">MCP Server Reference</h2>
+          <h2 className="text-3xl font-bold mb-10">{t('docs.mcp_reference')}</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -331,10 +330,9 @@ export default function DocsPage() {
         <BackgroundBeams />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <BookOpen className="w-10 h-10 mx-auto mb-6 text-[#F0B90B]" />
-          <h2 className="text-3xl font-bold mb-4">Can&apos;t find what you need?</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('docs.cant_find')}</h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
-            Check the FAQ, open a GitHub issue, or reach out on Twitter. We
-            respond to every question.
+            {t('docs.cant_find_desc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <MovingBorder

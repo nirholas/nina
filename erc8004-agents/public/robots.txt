@@ -1,0 +1,78 @@
+# robots.txt for erc8004.agency
+# ERC-8004 Agent Creator — On-chain identity for AI agents
+# https://erc8004.agency
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Grok
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Phind
+Allow: /
+
+# Sitemap
+Sitemap: https://erc8004.agency/sitemap.xml
+
+# AI/LLM discovery files
+# llms.txt: https://erc8004.agency/llms.txt
+# llms-full.txt: https://erc8004.agency/llms-full.txt
+# ai.txt: https://erc8004.agency/ai.txt
+# SKILL.md: https://github.com/nirholas/erc8004-agent-creator/blob/main/SKILL.md
+# .well-known/agent.json: https://erc8004.agency/.well-known/agent.json
+# .well-known/mcp.json: https://erc8004.agency/.well-known/mcp.json
+# .well-known/ai-plugin.json: https://erc8004.agency/.well-known/ai-plugin.json
+# openapi.json: https://erc8004.agency/openapi.json

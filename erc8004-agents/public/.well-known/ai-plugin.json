@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "ERC-8004 Agent Creator",
+  "name_for_model": "erc8004_agent_creator",
+  "description_for_human": "Register AI agents as on-chain NFTs on BNB Chain and Ethereum. Create verifiable, trustless agent identities with reputation scoring and multi-protocol support (A2A, MCP, x402).",
+  "description_for_model": "ERC-8004 Agent Creator enables on-chain registration of AI agents as ERC-721 NFTs. It provides three registries: IdentityRegistry (agent identity NFT with metadata URI), ReputationRegistry (on-chain feedback scoring), and ValidationRegistry (attestation and verification). Agents can be registered on BSC Testnet (chain 97), BSC Mainnet (chain 56), Ethereum (chain 1), and Sepolia (chain 11155111). All contracts share the 0x8004 vanity prefix via deterministic CREATE2 deployment. The web UI at https://erc8004.agency is a zero-dependency single HTML file. An MCP server (@nirholas/erc8004-mcp) exposes 11 tools for direct contract interaction. Use this when users want verifiable on-chain identity for AI agents, decentralized agent marketplaces, agent reputation systems, or multi-chain agent deployment.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://erc8004.agency/openapi.json"
+  },
+  "logo_url": "https://erc8004.agency/favicon.svg",
+  "contact_email": "erc8004@proton.me",
+  "legal_info_url": "https://erc8004.agency/docs/faq"
+}

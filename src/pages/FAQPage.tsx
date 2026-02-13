@@ -8,6 +8,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 import { cn } from "@/lib/utils";
+import useI18n from '@/stores/i18nStore';
 import { Spotlight } from "@/components/ui/spotlight";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -214,6 +215,7 @@ function AccordionItem({
 }
 
 export default function FAQPage() {
+  const { t } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
   const [search, setSearch] = useState("");
@@ -245,8 +247,7 @@ export default function FAQPage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <TypewriterEffect words={heroWords} />
           <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Answers to common questions about the toolkit, MCP servers, AI
-            agents, tools, standards, and contributing.
+            {t('faq.hero_subtitle')}
           </p>
 
           {/* Search */}
@@ -254,7 +255,7 @@ export default function FAQPage() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
               type="text"
-              placeholder="Search questions..."
+              placeholder={t('faq.search_placeholder')}
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
@@ -341,10 +342,9 @@ export default function FAQPage() {
         <BackgroundBeams />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <Shield className="w-10 h-10 mx-auto mb-6 text-[#F0B90B]" />
-          <h2 className="text-3xl font-bold mb-4">Still have questions?</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('faq.still_questions')}</h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
-            Open an issue on GitHub or start a discussion. We respond to every
-            question.
+            {t('faq.still_questions_desc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <MovingBorder

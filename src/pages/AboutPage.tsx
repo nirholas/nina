@@ -7,6 +7,7 @@
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 import { cn } from "@/lib/utils";
+import useI18n from '@/stores/i18nStore';
 import { LampContainer } from "@/components/ui/lamp";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
@@ -107,6 +108,8 @@ const mcpHighlights = [
 ];
 
 export default function AboutPage() {
+  const { t } = useI18n();
+
   useSEO({
     title: "About",
     description:
@@ -120,12 +123,11 @@ export default function AboutPage() {
       <LampContainer className="min-h-[60vh] md:min-h-[70vh]">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <TextGenerateEffect
-            words="Built for BNB Chain. Built by nich."
+            words={t('about.hero_title')}
             className="text-4xl md:text-6xl font-bold tracking-tight"
           />
           <p className="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            The most comprehensive open-source AI toolkit for blockchain — 72+
-            agents, 6 MCP servers, 900+ tools, 2 open standards, and counting.
+            {t('about.hero_subtitle')}
           </p>
         </div>
       </LampContainer>
@@ -158,7 +160,7 @@ export default function AboutPage() {
       {/* Mission */}
       <section className="py-20 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Mission</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('about.mission')}</h2>
           <div className="space-y-6 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
             <p>
               I believe AI should be a force multiplier for every Web3
@@ -181,7 +183,7 @@ export default function AboutPage() {
       {/* Scrolling capabilities showcase */}
       <section className="py-20 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto px-6 mb-10">
-          <h2 className="text-3xl font-bold">What&apos;s Inside</h2>
+          <h2 className="text-3xl font-bold">{t('about.whats_inside')}</h2>
           <p className="mt-2 text-gray-500">
             A scrolling look at the depth of the toolkit.
           </p>
@@ -197,7 +199,7 @@ export default function AboutPage() {
       {/* MCP Servers Deep Dive */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">6 MCP Servers</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('about.mcp_servers')}</h2>
           <p className="text-gray-500 mb-10 max-w-2xl">
             Each server is production-ready, self-contained, and exposes hundreds
             of structured tools that AI assistants can call directly.
@@ -227,7 +229,7 @@ export default function AboutPage() {
       {/* Standards — BackgroundGradient cards */}
       <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">Open Standards</h2>
+          <h2 className="text-3xl font-bold mb-10">{t('about.open_standards')}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <BackgroundGradient className="rounded-2xl p-8 bg-white dark:bg-black">
               <div className="flex items-center gap-3 mb-4">
@@ -272,7 +274,7 @@ export default function AboutPage() {
       {/* Wallets + DeFi Tools — BackgroundGradient */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">Beyond Agents</h2>
+          <h2 className="text-3xl font-bold mb-10">{t('about.beyond_agents')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             <BackgroundGradient className="rounded-2xl p-6 bg-white dark:bg-black">
               <Wallet className="w-6 h-6 text-[#F0B90B] mb-4" />
@@ -311,7 +313,7 @@ export default function AboutPage() {
       {/* Author */}
       <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Author</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('about.author')}</h2>
           <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#F0B90B] to-yellow-600 flex items-center justify-center text-black text-2xl font-bold shrink-0">
               N
@@ -351,7 +353,7 @@ export default function AboutPage() {
       {/* Tech Stack — HoverEffect */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">Tech Stack</h2>
+          <h2 className="text-3xl font-bold mb-10">{t('about.tech_stack')}</h2>
           <HoverEffect
             items={techStack.map((tech) => ({
               title: tech.name,
@@ -375,7 +377,7 @@ export default function AboutPage() {
         </div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <Heart className="w-10 h-10 mx-auto mb-6 text-[#F0B90B]" />
-          <h2 className="text-3xl font-bold mb-4">Open Source, Always</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('about.open_source')}</h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
             BNB Chain AI Toolkit is released under the MIT License. Every agent
             definition, every MCP server, every tool — free to use, modify, and

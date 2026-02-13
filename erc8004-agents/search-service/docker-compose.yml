@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  search-service:
+    build: .
+    ports:
+      - "3100:3100"
+    environment:
+      PORT: "3100"
+      DB_PATH: /app/data/agents.db
+      POLL_INTERVAL: "15000"
+      # Override RPC URLs if needed:
+      # BSC_TESTNET_RPC: https://data-seed-prebsc-1-s1.binance.org:8545/
+      # BSC_RPC: https://bsc-dataseed1.binance.org/
+    volumes:
+      - search-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  search-data:

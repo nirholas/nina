@@ -1,0 +1,53 @@
+{
+  "name": "ERC-8004 Agent Creator",
+  "description": "The agent that creates agents. On-chain identity registration for AI agents as ERC-721 NFTs on BNB Chain, Ethereum, and EVM-compatible networks.",
+  "url": "https://erc8004.agency",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ERC-8004",
+    "url": "https://github.com/nirholas/erc8004-agent-creator"
+  },
+  "capabilities": {
+    "agent_registration": true,
+    "agent_discovery": true,
+    "reputation_management": true,
+    "metadata_management": true,
+    "multi_chain": true,
+    "protocols": ["a2a", "mcp", "oasf", "did", "ens", "x402"]
+  },
+  "supported_chains": [
+    { "name": "BSC Testnet", "chainId": 97, "status": "live" },
+    { "name": "BSC Mainnet", "chainId": 56, "status": "live" },
+    { "name": "Ethereum", "chainId": 1, "status": "live" },
+    { "name": "Sepolia", "chainId": 11155111, "status": "live" },
+    { "name": "Base Sepolia", "chainId": 84532, "status": "planned" },
+    { "name": "Arbitrum Sepolia", "chainId": 421614, "status": "planned" },
+    { "name": "Optimism Sepolia", "chainId": 11155420, "status": "planned" },
+    { "name": "Polygon Amoy", "chainId": 80002, "status": "planned" }
+  ],
+  "contracts": {
+    "identity_registry": {
+      "testnet": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "mainnet": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432"
+    },
+    "reputation_registry": {
+      "testnet": "0x8004B663056A597Dffe9eCcC1965A193B7388713",
+      "mainnet": "0x8004BAa17C55a88189AE136b182e5fdA19dE9b63"
+    },
+    "validation_registry": {
+      "testnet": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272"
+    }
+  },
+  "mcp_server": {
+    "package": "@nirholas/erc8004-mcp",
+    "install": "npx @nirholas/erc8004-mcp",
+    "tools_count": 11
+  },
+  "links": {
+    "web_ui": "https://erc8004.agency",
+    "github": "https://github.com/nirholas/erc8004-agent-creator",
+    "eip": "https://eips.ethereum.org/EIPS/eip-8004",
+    "contracts": "https://github.com/erc-8004/erc-8004-contracts",
+    "docs": "https://erc8004.agency/docs"
+  }
+}

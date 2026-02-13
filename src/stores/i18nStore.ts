@@ -139,11 +139,6 @@ export const baseTranslations: Record<string, string> = {
     'settings.notifications': 'Notifications',
     'settings.privacy': 'Privacy',
     
-    // Footer
-    'footer.rights': 'All rights reserved',
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
-    
     // Explore Page
     'explore.title': 'Explore the Community',
     'explore.subtitle': 'Discover shared projects, templates, and tutorials from developers around the world',
@@ -205,16 +200,44 @@ export const baseTranslations: Record<string, string> = {
     'home.how_it_works_sub': 'Give any AI model direct access to BNB Chain in three steps.',
     'home.step1.title': 'Pick an Agent',
     'home.step1.desc': 'Choose from 72+ pre-built agents — each one is a JSON file tuned for a specific protocol like PancakeSwap, Venus, or Binance Futures.',
+    'home.step1.link': 'Browse Agents',
     'home.step2.title': 'Connect MCP Servers',
     'home.step2.desc': 'Point Claude, ChatGPT, or any LLM at one of 6 MCP servers. Your AI can now read on-chain data, fetch prices, and interact with protocols.',
+    'home.step2.link': 'View Servers',
     'home.step3.title': 'Execute On-Chain',
     'home.step3.desc': '900+ tools across 60+ networks — swap tokens, check yields, audit contracts, track wallets. All through natural language.',
+    'home.step3.link': 'Read Docs',
     'home.explore': 'Explore the Toolkit',
+    'home.create_erc8004': 'Create ERC-8004 Agent',
+    'home.start_building': 'Start Building',
+    'home.star_github': 'Star on GitHub',
+    'home.mcp.badge': 'Model Context Protocol',
+    'home.mcp.title': '6 MCP Servers, 900+ Tools',
+    'home.mcp.subtitle': 'Give AI assistants direct blockchain access. Connect Claude, ChatGPT, or any LLM to BNB Chain, Binance, and 60+ networks.',
+    'home.agents.badge': '72+ Specialized Agents',
+    'home.agents.title': 'Pre-Built AI Agents for Every Protocol',
+    'home.agents.subtitle': 'From PancakeSwap trading to Venus lending, BNB staking to opBNB optimization — purpose-built agents for every major BNB Chain protocol.',
+    'home.quickstart.title': 'Get Started in 60 Seconds',
+    'home.quickstart.subtitle': "Clone, install, run. It's that simple.",
+    'home.chains.badge': 'Multi-Chain',
+    'home.chains.title': 'BNB Chain Networks',
+    'home.chains.subtitle': 'Purpose-built for the BNB Chain ecosystem.',
+    'home.defi.badge': 'Real-Time',
+    'home.defi.title': 'Live DeFi Data',
+    'home.defi.subtitle': 'Real-time market data from CoinGecko, DeFiLlama, and 200+ sources.',
+    'home.architecture.title': 'Repository Architecture',
+    'home.architecture.subtitle': 'A single monorepo with everything integrated and production-ready.',
+    'home.why.badge': 'Why This Toolkit',
+    'home.why.title': 'Why BNB Chain AI Toolkit?',
+    'home.cta.title': 'Ready to Build on BNB Chain?',
+    'home.cta.subtitle': '72+ agents, 6 MCP servers, 900+ tools. Open source. Start building now.',
 
     // Nav groups
     'nav.learn': 'Learn',
     'nav.build': 'Build',
     'nav.explore': 'Explore',
+    'nav.more': 'More',
+    'nav.docs_short': 'Docs',
     'nav.interactive_tutorials': 'Interactive Tutorials',
     'nav.examples_gallery': 'Examples Gallery',
     'nav.api_reference': 'API Reference',
@@ -224,6 +247,64 @@ export const baseTranslations: Record<string, string> = {
     'nav.contract_templates': 'Contract Templates',
     'nav.innovation_lab': 'Innovation Lab',
     'nav.markets': 'Markets',
+
+    // Footer
+    'footer.rights': 'All rights reserved',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
+    'footer.product': 'Product',
+    'footer.resources': 'Resources',
+    'footer.project': 'Project',
+    'footer.brand_description': '72+ AI agents, 6 MCP servers, and 900+ tools for BNB Chain and 60+ networks. Open source and community-driven.',
+    'footer.tutorials': 'Tutorials',
+    'footer.examples': 'Examples',
+    'footer.innovation_lab': 'Innovation Lab',
+    'footer.api_reference': 'API Reference',
+    'footer.changelog': 'Changelog',
+
+    // Docs Page
+    'docs.hero_subtitle': 'Everything you need to integrate 72+ AI agents, 6 MCP servers, and 900+ tools into your BNB Chain projects.',
+    'docs.start_here': 'Start Here',
+    'docs.quick_start': 'Quick Start Guide',
+    'docs.quick_start_desc': 'Get up and running in under 5 minutes. Install the toolkit, configure your first MCP server, and deploy an AI agent on BNB Chain.',
+    'docs.browse_category': 'Browse by Category',
+    'docs.popular_guides': 'Popular Guides',
+    'docs.popular_guides_desc': 'Jump straight to the most-used documentation.',
+    'docs.mcp_reference': 'MCP Server Reference',
+    'docs.cant_find': "Can't find what you need?",
+    'docs.cant_find_desc': 'Check the FAQ, open a GitHub issue, or reach out on Twitter. We respond to every question.',
+
+    // About Page
+    'about.hero_title': 'Built for BNB Chain. Built by nich.',
+    'about.hero_subtitle': 'The most comprehensive open-source AI toolkit for blockchain — 72+ agents, 6 MCP servers, 900+ tools, 2 open standards, and counting.',
+    'about.whats_inside': "What's Inside",
+    'about.mcp_servers': '6 MCP Servers',
+    'about.open_standards': 'Open Standards',
+    'about.beyond_agents': 'Beyond Agents',
+    'about.author': 'Author',
+    'about.tech_stack': 'Tech Stack',
+    'about.open_source': 'Open Source, Always',
+
+    // FAQ Page
+    'faq.hero_subtitle': 'Answers to common questions about the toolkit, MCP servers, AI agents, tools, standards, and contributing.',
+    'faq.search_placeholder': 'Search questions...',
+    'faq.still_questions': 'Still have questions?',
+    'faq.still_questions_desc': 'Open an issue on GitHub or start a discussion. We respond to every question.',
+
+    // Community Page
+    'community.hero_title': 'Join the Community',
+    'community.hero_subtitle': 'BNB Chain AI Toolkit is built in the open. 72+ agents, 6 MCP servers, 900+ tools — every contribution makes the ecosystem stronger.',
+    'community.contributing_to': "What You're Contributing To",
+    'community.ways_to_contribute': 'Ways to Contribute',
+    'community.contributors': 'Contributors',
+    'community.needs_help': 'What Needs Help',
+
+    // Sandbox Page
+    'sandbox.title': 'Code Sandbox',
+    'sandbox.subtitle': 'A world-class development environment. Write, compile, deploy, and test your code in real-time with instant previews and professional tools.',
+    'sandbox.web_sandbox': 'Web Sandbox',
+    'sandbox.solidity_ude': 'Solidity UDE',
+    'sandbox.start_template': 'Start from a Template',
 };
 
 // Loaded translations storage (populated from static JSON files)

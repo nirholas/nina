@@ -1,0 +1,47 @@
+{
+  "name": "@nirholas/erc8004-cli",
+  "version": "1.0.0",
+  "description": "CLI tool for ERC-8004 AI agent management — register, view, update, and discover agents on BSC and Ethereum.",
+  "license": "MIT",
+  "author": "nirholas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirholas/erc8004-agent-creator"
+  },
+  "bin": {
+    "erc8004": "./dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.1.0",
+    "ethers": "^6.9.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
+    "cli-table3": "^0.6.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.10",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  },
+  "keywords": [
+    "erc-8004",
+    "ai-agent",
+    "web3",
+    "bnb-chain",
+    "blockchain",
+    "cli"
+  ]
+}

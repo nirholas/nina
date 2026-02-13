@@ -1,0 +1,45 @@
+{
+  "ERC-8004 Register Agent (ethers.js)": {
+    "prefix": "erc8004-register",
+    "body": [
+      "const { ethers } = require('ethers');",
+      "",
+      "const IDENTITY_REGISTRY = '${1:0x8004A818BFB912233c491871b3d84c89A494BD9e}';",
+      "const ABI = [",
+      "  'function register(string agentURI) external returns (uint256)',",
+      "  'function tokenURI(uint256 tokenId) external view returns (string)',",
+      "  'function ownerOf(uint256 tokenId) external view returns (address)',",
+      "  'event Registered(uint256 indexed agentId, string agentURI, address indexed owner)',",
+      "];",
+      "",
+      "async function registerAgent(signer, agentURI) {",
+      "  const contract = new ethers.Contract(IDENTITY_REGISTRY, ABI, signer);",
+      "  const tx = await contract.register(agentURI);",
+      "  const receipt = await tx.wait();",
+      "  console.log('Registered in tx:', receipt.hash);",
+      "  return receipt;",
+      "}"
+    ],
+    "description": "Register an ERC-8004 agent using ethers.js (CommonJS)"
+  },
+  "ERC-8004 View Agent (ethers.js)": {
+    "prefix": "erc8004-view",
+    "body": [
+      "const { ethers } = require('ethers');",
+      "",
+      "const IDENTITY_REGISTRY = '${1:0x8004A818BFB912233c491871b3d84c89A494BD9e}';",
+      "const ABI = [",
+      "  'function tokenURI(uint256 tokenId) external view returns (string)',",
+      "  'function ownerOf(uint256 tokenId) external view returns (address)',",
+      "];",
+      "",
+      "async function viewAgent(provider, tokenId) {",
+      "  const contract = new ethers.Contract(IDENTITY_REGISTRY, ABI, provider);",
+      "  const owner = await contract.ownerOf(tokenId);",
+      "  const uri = await contract.tokenURI(tokenId);",
+      "  return { tokenId, owner, uri };",
+      "}"
+    ],
+    "description": "View an ERC-8004 agent using ethers.js (CommonJS)"
+  }
+}

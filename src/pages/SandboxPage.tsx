@@ -7,6 +7,7 @@
 import { useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
+import useI18n from '@/stores/i18nStore';
 import WebSandbox from '@/components/Sandbox/WebSandbox';
 import SoliditySandbox from '@/components/Sandbox/SoliditySandbox';
 import { Code2, FileCode, Layers, Sparkles, Zap, Globe, ArrowRight, Home } from 'lucide-react';
@@ -15,6 +16,8 @@ import { cn } from '@/utils/helpers';
 type SandboxType = 'web' | 'solidity' | null;
 
 export default function SandboxPage() {
+  const { t } = useI18n();
+
   useSEO({
     title: 'IDE - Online Solidity & Web Development',
     description: 'Free browser-based IDE for Solidity and web development. Compile smart contracts, deploy to testnets, and build full-stack dApps with live preview.',
@@ -80,13 +83,12 @@ export default function SandboxPage() {
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="text-white">
-              Code Sandbox
+              {t('sandbox.title')}
             </span>
           </h1>
           
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            A world-class development environment. Write, compile, deploy, and test
-            your code in real-time with instant previews and professional tools.
+            {t('sandbox.subtitle')}
           </p>
         </div>
 
@@ -111,7 +113,7 @@ export default function SandboxPage() {
             <div className="relative">
               <div className="flex items-center gap-3 mb-3">
                 <h2 className="text-2xl font-bold group-hover:text-white transition-colors">
-                  Web Sandbox
+                  {t('sandbox.web_sandbox')}
                 </h2>
                 <span className="px-2 py-0.5 bg-white/10 border border-white/20 rounded-full text-xs font-bold text-white">15 templates</span>
               </div>
@@ -174,7 +176,7 @@ export default function SandboxPage() {
             {/* Content */}
             <div className="relative">
               <h2 className="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">
-                Solidity UDE
+                {t('sandbox.solidity_ude')}
               </h2>
               <p className="text-gray-400 mb-6">
                 Build smart contracts with our professional Solidity development environment.
@@ -223,7 +225,7 @@ export default function SandboxPage() {
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-white">Start from a Template</h2>
+                <h2 className="text-2xl font-bold text-white">{t('sandbox.start_template')}</h2>
                 <p className="text-gray-400 mt-1">60+ ready-to-use templates across all categories</p>
               </div>
               <div className="flex items-center gap-2">

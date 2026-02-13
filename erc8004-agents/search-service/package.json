@@ -1,0 +1,39 @@
+{
+  "name": "erc8004-search-service",
+  "version": "0.1.0",
+  "description": "Search and discovery service for ERC-8004 agents across all EVM chains",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.6.0",
+    "ethers": "^6.13.0",
+    "minisearch": "^7.1.0",
+    "better-sqlite3": "^11.6.0",
+    "ws": "^8.18.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/ws": "^8.5.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "eslint": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "Apache-2.0",
+  "author": "nich <nich@erc8004.agency>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirholas/erc8004-agent-creator"
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ERC-8004 Agent Registry API",
+    "description": "On-chain interaction patterns for ERC-8004 trustless AI agent identity. This describes the contract interaction surface for the IdentityRegistry, ReputationRegistry, and ValidationRegistry deployed on BSC, Ethereum, and EVM-compatible networks. While the web UI is a static site, agents interact via direct JSON-RPC calls to the smart contracts.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "ERC-8004",
+      "url": "https://github.com/nirholas/erc8004-agent-creator"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "x-logo": {
+      "url": "https://erc8004.agency/favicon.svg"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+      "description": "BSC Testnet JSON-RPC"
+    },
+    {
+      "url": "https://bsc-dataseed.bnbchain.org",
+      "description": "BSC Mainnet JSON-RPC"
+    },
+    {
+      "url": "https://eth.llamarpc.com",
+      "description": "Ethereum Mainnet JSON-RPC"
+    },
+    {
+      "url": "https://rpc.sepolia.org",
+      "description": "Ethereum Sepolia JSON-RPC"
+    }
+  ],
+  "paths": {
+    "/register": {
+      "post": {
+        "operationId": "registerAgent",
+        "summary": "Register a new AI agent on-chain",
+        "description": "Calls IdentityRegistry.register() to mint an ERC-721 NFT as the agent's on-chain identity. Returns a transaction hash. The agentId is emitted in the Registered event.",
+        "tags": ["Identity"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "agentURI": {
+                    "type": "string",
+                    "description": "Metadata URI (HTTPS, IPFS, or data:application/json;base64,...)"
+                  },
+                  "metadata": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "metadataKey": { "type": "string" },
+                        "metadataValue": { "type": "string", "format": "byte" }
+                      }
+                    },
+                    "description": "Optional on-chain key-value metadata entries"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Transaction submitted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "transactionHash": { "type": "string" },
+                    "agentId": { "type": "string" },
+                    "blockNumber": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agent/{agentId}": {
+      "get": {
+        "operationId": "getAgent",
+        "summary": "Look up an agent by token ID",
+        "description": "Reads tokenURI, ownerOf, and metadata from the IdentityRegistry for a given agentId.",
+        "tags": ["Identity"],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Agent token ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Agent details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "agentId": { "type": "string" },
+                    "owner": { "type": "string" },
+                    "uri": { "type": "string" },
+                    "metadata": { "type": "object" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agents/{address}": {
+      "get": {
+        "operationId": "listAgents",
+        "summary": "List agents owned by an address",
+        "description": "Scans Transfer events and verifies current ownership to list all agents belonging to a wallet.",
+        "tags": ["Identity"],
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Owner wallet address (0x...)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of owned agents",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": { "type": "integer" },
+                    "agents": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "agentId": { "type": "string" },
+                          "uri": { "type": "string" },
+                          "metadata": { "type": "object" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reputation/{agentId}": {
+      "get": {
+        "operationId": "getReputation",
+        "summary": "Get reputation data for an agent",
+        "description": "Returns total feedback count, average score, and recent feedback entries from the ReputationRegistry.",
+        "tags": ["Reputation"],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reputation data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "totalFeedback": { "type": "integer" },
+                    "averageScore": { "type": "integer" },
+                    "recentFeedback": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "reviewer": { "type": "string" },
+                          "score": { "type": "integer" },
+                          "comment": { "type": "string" },
+                          "timestamp": { "type": "integer" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "submitReputation",
+        "summary": "Submit reputation feedback",
+        "description": "Submit scored feedback (-128 to +127) with a comment to the ReputationRegistry.",
+        "tags": ["Reputation"],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "score": { "type": "integer", "minimum": -128, "maximum": 127 },
+                  "comment": { "type": "string" }
+                },
+                "required": ["score", "comment"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Feedback submitted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "transactionHash": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/metadata/{agentId}/{key}": {
+      "get": {
+        "operationId": "getMetadata",
+        "summary": "Read on-chain metadata value",
+        "description": "Read a single key-value metadata entry from the IdentityRegistry.",
+        "tags": ["Metadata"],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Metadata key (e.g., version, a2a.endpoint, did)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metadata value",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "key": { "type": "string" },
+                    "value": { "type": "string" },
+                    "rawBytes": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "setMetadata",
+        "summary": "Set on-chain metadata",
+        "description": "Set a key-value metadata entry on the IdentityRegistry. Owner only.",
+        "tags": ["Metadata"],
+        "parameters": [
+          {
+            "name": "agentId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": { "type": "string" }
+                },
+                "required": ["value"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Metadata set",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "transactionHash": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Identity",
+      "description": "Agent identity registration and discovery via IdentityRegistry (ERC-721)"
+    },
+    {
+      "name": "Reputation",
+      "description": "On-chain reputation feedback via ReputationRegistry"
+    },
+    {
+      "name": "Metadata",
+      "description": "On-chain key-value metadata management"
+    }
+  ],
+  "externalDocs": {
+    "description": "ERC-8004 Documentation",
+    "url": "https://erc8004.agency/docs"
+  }
+}

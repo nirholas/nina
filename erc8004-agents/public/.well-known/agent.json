@@ -1,0 +1,67 @@
+{
+  "name": "ERC-8004 Agent Creator",
+  "description": "On-chain identity for AI agents — register, discover, and verify trustless autonomous agents as ERC-721 NFTs on BNB Chain, Ethereum, and EVM-compatible networks. The agent that creates agents.",
+  "url": "https://erc8004.agency",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ERC-8004",
+    "url": "https://github.com/nirholas/erc8004-agent-creator"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "authentication": {
+    "schemes": ["none"],
+    "credentials": null
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "register-agent",
+      "name": "Register AI Agent",
+      "description": "Register a new AI agent on-chain as an ERC-721 NFT with metadata URI, service endpoints (A2A, MCP, OASF), trust models, and on-chain key-value metadata.",
+      "tags": ["erc-8004", "registration", "nft", "identity", "on-chain"],
+      "examples": [
+        "Register my DeFi trading agent on BSC Testnet",
+        "Create an on-chain identity for my A2A agent",
+        "Mint an agent NFT with IPFS metadata"
+      ]
+    },
+    {
+      "id": "discover-agents",
+      "name": "Discover Agents",
+      "description": "Search and browse registered ERC-8004 agents across chains. Look up agents by token ID, list agents by wallet address, or search by name/service type.",
+      "tags": ["discovery", "search", "lookup", "browse"],
+      "examples": [
+        "How many agents are registered on BSC?",
+        "Show me all agents owned by 0x1234...",
+        "Search for DeFi agents on Ethereum"
+      ]
+    },
+    {
+      "id": "agent-reputation",
+      "name": "Agent Reputation",
+      "description": "Submit and query on-chain reputation feedback for agents. Scored -128 to +127 with comments, stored immutably on-chain.",
+      "tags": ["reputation", "feedback", "trust", "scoring"],
+      "examples": [
+        "What's the reputation of agent #42?",
+        "Submit positive feedback for this agent",
+        "Show me the highest rated agents"
+      ]
+    },
+    {
+      "id": "manage-metadata",
+      "name": "Manage Agent Metadata",
+      "description": "Set and read on-chain key-value metadata for agents. Common keys: version, a2a.endpoint, mcp.endpoint, did, ens, x402.enabled.",
+      "tags": ["metadata", "configuration", "endpoints"],
+      "examples": [
+        "Set the A2A endpoint for my agent",
+        "Read the DID associated with agent #42",
+        "Update my agent's version to 2.0.0"
+      ]
+    }
+  ]
+}

@@ -7,6 +7,7 @@
 import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 import { cn } from "@/lib/utils";
+import useI18n from '@/stores/i18nStore';
 import { SparklesCore } from "@/components/ui/sparkles";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
@@ -129,6 +130,8 @@ const difficultyColors: Record<string, string> = {
 };
 
 export default function CommunityPage() {
+  const { t } = useI18n();
+
   useSEO({
     title: "Community",
     description:
@@ -152,13 +155,11 @@ export default function CommunityPage() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <TextGenerateEffect
-            words="Join the Community"
+            words={t('community.hero_title')}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           />
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            BNB Chain AI Toolkit is built in the open. 72+ agents, 6 MCP
-            servers, 900+ tools — every contribution makes the ecosystem
-            stronger.
+            {t('community.hero_subtitle')}
           </p>
         </div>
       </section>
@@ -167,7 +168,7 @@ export default function CommunityPage() {
       <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold mb-6 text-center">
-            What You&apos;re Contributing To
+            {t('community.contributing_to')}
           </h2>
           <InfiniteMovingCards
             items={projectHighlights}
@@ -181,7 +182,7 @@ export default function CommunityPage() {
       {/* Ways to Contribute — BackgroundGradient cards */}
       <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">Ways to Contribute</h2>
+          <h2 className="text-3xl font-bold mb-10">{t('community.ways_to_contribute')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {contributeWays.map((item) => {
               const Icon = item.icon;
@@ -225,7 +226,7 @@ export default function CommunityPage() {
       {/* Contributors — 3D Card */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10">Contributors</h2>
+          <h2 className="text-3xl font-bold mb-10">{t('community.contributors')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {topContributors.map((contributor) => (
               <CardContainer key={contributor.name} containerClassName="py-0">
@@ -266,7 +267,7 @@ export default function CommunityPage() {
       {/* What Needs Help — HoverEffect + MovingBorder CTA */}
       <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">What Needs Help</h2>
+          <h2 className="text-3xl font-bold mb-4">{t('community.needs_help')}</h2>
           <p className="text-sm text-gray-500 mb-8">
             Good first issues and advanced tasks — pick what fits your skills.
           </p>

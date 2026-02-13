@@ -1,0 +1,38 @@
+services:
+  agent:
+    build: .
+    environment:
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - CHAIN=${CHAIN:-bsc-testnet}
+      - PORT=${PORT:-3000}
+      - DEV_MODE=${DEV_MODE:-false}
+    ports:
+      - "${PORT:-3000}:3000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Run multiple agents
+  analyst:
+    build: .
+    environment:
+      - PRIVATE_KEY=${ANALYST_PRIVATE_KEY}
+      - CHAIN=${CHAIN:-bsc-testnet}
+      - PORT=3001
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+
+  trader:
+    build: .
+    environment:
+      - PRIVATE_KEY=${TRADER_PRIVATE_KEY}
+      - CHAIN=${CHAIN:-bsc-testnet}
+      - PORT=3002
+    ports:
+      - "3002:3002"
+    restart: unless-stopped
