@@ -187,12 +187,12 @@ export default function ContractPlayground() {
       setCompileResult(result);
       
       if (result.success) {
-        const contractNames = result.contracts.map(c => c.name).join(', ');
-        const warningCount = result.warnings.length;
+        const contractNames = (result.contracts ?? []).map(c => c.name).join(', ');
+        const warningCount = (result.warnings ?? []).length;
         const warningMsg = warningCount > 0 ? ` (${warningCount} warning${warningCount > 1 ? 's' : ''})` : '';
         setDeploymentStatus(`✓ Compiled successfully: ${contractNames}${warningMsg}\n\nReady to deploy.`);
       } else {
-        const errorMessages = result.errors.map(e => e.formattedMessage || e.message).join('\n');
+        const errorMessages = (result.errors ?? []).map(e => e.formattedMessage || e.message).join('\n');
         throw new Error(errorMessages || 'Compilation failed');
       }
     } catch (err: any) {

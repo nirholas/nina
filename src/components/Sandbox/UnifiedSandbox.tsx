@@ -339,7 +339,7 @@ export default function UnifiedSandbox({
     
     if (result.success) {
       log('log', `✓ Compilation successful`);
-      log('log', `  ABI: ${result.abi.length} functions`);
+      log('log', `  ABI: ${(result.abi ?? []).length} functions`);
     } else {
       log('error', '✗ Compilation failed');
       errors.forEach(e => log('error', `  ${e}`));

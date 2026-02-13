@@ -175,8 +175,8 @@ export default function InteractiveSandbox() {
         runs: 200
       });
 
-      if (!result.success || result.contracts.length === 0) {
-        result.errors.forEach(err => addLog('error', err.message));
+      if (!result.success || (result.contracts ?? []).length === 0) {
+        (result.errors ?? []).forEach(err => addLog('error', err.message));
         setCompiledData(null);
         return;
       }
@@ -193,8 +193,8 @@ export default function InteractiveSandbox() {
       
       addLog('success', `✓ Compiled ${mainContract.name} successfully!`);
       
-      if (result.warnings.length > 0) {
-        result.warnings.forEach(warning => {
+      if ((result.warnings ?? []).length > 0) {
+        (result.warnings ?? []).forEach(warning => {
           addLog('warning', warning.message);
         });
       }

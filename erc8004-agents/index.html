@@ -31,7 +31,14 @@ Licensed under MIT License
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Ethers.js v6 -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js" crossorigin="anonymous"></script>
+  <script>
+    if (typeof ethers === 'undefined') {
+      document.addEventListener('DOMContentLoaded', () => {
+        document.body.innerHTML = '<div style="color:#fff;text-align:center;padding:80px 20px;font-family:sans-serif;"><h2>Failed to load ethers.js</h2><p style="margin-top:8px;color:#999;">Please check your internet connection and reload.</p><button onclick="location.reload()" style="margin-top:16px;padding:10px 20px;background:#F0B90B;color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:600;">Reload</button></div>';
+      });
+    }
+  </script>
 
   <style>
     /* ═══════════════════════════════════════════════════════════════════ */
@@ -876,6 +883,74 @@ Licensed under MIT License
     .uri-option.active .uri-option-title { color: var(--accent); }
 
     /* ═══════════════════════════════════════════════════════════════════ */
+    /* WALLET CONNECTED                                                     */
+    /* ═══════════════════════════════════════════════════════════════════ */
+    .wallet-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-disconnect {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 11px;
+      font-family: var(--font-sans);
+      transition: all var(--transition);
+    }
+    .btn-disconnect:hover {
+      border-color: var(--error);
+      color: var(--error);
+      background: rgba(239,68,68,0.08);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════ */
+    /* MAINNET WARNING                                                      */
+    /* ═══════════════════════════════════════════════════════════════════ */
+    .mainnet-warning {
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.25);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #fca5a5;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .mainnet-warning strong { color: #fca5a5; }
+    .mainnet-warning-icon { flex-shrink: 0; font-size: 16px; }
+
+    /* ═══════════════════════════════════════════════════════════════════ */
+    /* GAS ESTIMATE                                                         */
+    /* ═══════════════════════════════════════════════════════════════════ */
+    .gas-estimate {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .gas-estimate .spinner-sm {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    .gas-estimate-value {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════ */
     /* CONNECT PROMPT                                                      */
     /* ═══════════════════════════════════════════════════════════════════ */
     .connect-prompt {
@@ -987,6 +1062,7 @@ Licensed under MIT License
         <div class="header-actions">
           <div id="walletArea"></div>
         </div>
+        <div id="mainnetBanner" class="hidden"></div>
       </div>
     </header>
 
@@ -1027,6 +1103,11 @@ Licensed under MIT License
           <span class="network-dot mainnet"></span>
           BSC Mainnet
         </button>
+        <a href="https://www.bnbchain.org/en/testnet-faucet" target="_blank" rel="noopener"
+           style="margin-left:auto;font-size:12px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;"
+           onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+          🚰 Get Testnet BNB
+        </a>
       </div>
     </div>
 
@@ -1407,10 +1488,16 @@ Licensed under MIT License
     async function connectWallet() {
       if (!window.ethereum) {
         showToast('No wallet detected. Please install MetaMask or another Web3 wallet.', 'error');
+        // Open MetaMask install page
+        window.open('https://metamask.io/download/', '_blank');
         return;
       }
       try {
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        if (!accounts || accounts.length === 0) {
+          showToast('No accounts found. Please unlock your wallet.', 'error');
+          return;
+        }
         userAddress = accounts[0];
         provider = new ethers.BrowserProvider(window.ethereum);
         signer = await provider.getSigner();
@@ -1418,12 +1505,17 @@ Licensed under MIT License
         // Switch to correct network
         await ensureNetwork();
 
+        // Re-create provider/signer after network switch
+        provider = new ethers.BrowserProvider(window.ethereum);
+        signer = await provider.getSigner();
+
         // Setup contract
         const net = NETWORKS[currentNetwork];
         identityContract = new ethers.Contract(net.contracts.identity, IDENTITY_ABI, signer);
 
         renderWalletArea();
         updateUIForConnected();
+        updateMainnetWarning();
         showToast('Wallet connected successfully!', 'success');
 
         // Listen for account/network changes
@@ -1431,7 +1523,11 @@ Licensed under MIT License
         window.ethereum.on('chainChanged', () => location.reload());
       } catch (err) {
         console.error('Wallet connection error:', err);
-        showToast('Failed to connect wallet: ' + (err.message || err), 'error');
+        if (err.code === 4001) {
+          showToast('Connection request rejected.', 'error');
+        } else {
+          showToast('Failed to connect wallet: ' + (err.message || err), 'error');
+        }
       }
     }
 
@@ -1480,10 +1576,26 @@ Licensed under MIT License
       const area = document.getElementById('walletArea');
       if (userAddress) {
         const short = userAddress.slice(0, 6) + '...' + userAddress.slice(-4);
-        area.innerHTML = `<div class="wallet-connected"><span class="wallet-dot"></span>${short}</div>`;
+        area.innerHTML = `
+          <div class="wallet-actions">
+            <div class="wallet-connected"><span class="wallet-dot"></span>${short}</div>
+            <button class="btn-disconnect" onclick="disconnectWallet()" title="Disconnect wallet">✕</button>
+          </div>`;
       } else {
         area.innerHTML = `<button class="btn btn-primary btn-sm" onclick="connectWallet()">Connect Wallet</button>`;
       }
+    }
+
+    function disconnectWallet() {
+      userAddress = null;
+      signer = null;
+      identityContract = null;
+      if (window.ethereum) {
+        window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
+      }
+      renderWalletArea();
+      updateUIForDisconnected();
+      showToast('Wallet disconnected.', 'info');
     }
 
     function updateUIForConnected() {
@@ -1507,6 +1619,7 @@ Licensed under MIT License
       document.querySelectorAll('.network-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.network === network);
       });
+      updateMainnetWarning();
       if (userAddress) {
         await ensureNetwork();
         const net = NETWORKS[currentNetwork];
@@ -1514,6 +1627,21 @@ Licensed under MIT License
         loadMyAgents();
       }
       fetchAgentCount();
+    }
+
+    function updateMainnetWarning() {
+      const banner = document.getElementById('mainnetBanner');
+      if (currentNetwork === 'mainnet') {
+        banner.classList.remove('hidden');
+        banner.innerHTML = `
+          <div class="mainnet-warning" style="margin:12px auto;max-width:900px;">
+            <span class="mainnet-warning-icon">⚠️</span>
+            <div><strong>Mainnet Mode</strong> — Transactions use real BNB. Registration costs gas (~0.001-0.005 BNB). Use BSC Testnet first to test.</div>
+          </div>`;
+      } else {
+        banner.classList.add('hidden');
+        banner.innerHTML = '';
+      }
     }
 
     // ─── TAB SWITCHING ───
@@ -1529,6 +1657,7 @@ Licensed under MIT License
       // Validate current step before proceeding
       if (step > currentStep) {
         if (currentStep === 1 && !validateStep1()) return;
+        if (currentStep === 2 && !validateStep2()) return;
       }
 
       currentStep = step;
@@ -1551,8 +1680,11 @@ Licensed under MIT License
         line.classList.toggle('completed', i < step - 1);
       });
 
-      // Populate review on step 4
-      if (step === 4) populateReview();
+      // Populate review and estimate gas on step 4
+      if (step === 4) {
+        populateReview();
+        estimateGas();
+      }
 
       window.scrollTo({ top: 200, behavior: 'smooth' });
     }
@@ -1571,6 +1703,65 @@ Licensed under MIT License
         return false;
       }
       return true;
+    }
+
+    function validateStep2() {
+      const services = document.querySelectorAll('.service-entry');
+      let hasEndpoint = false;
+      services.forEach(entry => {
+        const endpoint = entry.querySelector('[data-field="endpoint"]').value.trim();
+        if (endpoint) hasEndpoint = true;
+      });
+      if (!hasEndpoint) {
+        showToast('Add at least one service endpoint for your agent.', 'error');
+        return false;
+      }
+      return true;
+    }
+
+    // ─── GAS ESTIMATION ───
+    async function estimateGas() {
+      const gasEl = document.getElementById('reviewGas');
+      if (!signer || !identityContract) {
+        gasEl.innerHTML = '<span style="color:var(--text-muted);">Connect wallet to estimate gas</span>';
+        return;
+      }
+
+      gasEl.innerHTML = '<span class="gas-estimate"><span class="spinner-sm"></span> Estimating...</span>';
+
+      try {
+        const json = buildRegistrationJson();
+        const uri = buildAgentUri(json);
+        const metadata = getMetadataEntries();
+
+        let gasEstimate;
+        if (metadata.length > 0) {
+          const metaTuples = metadata.map(m => ({
+            metadataKey: m.key,
+            metadataValue: ethers.toUtf8Bytes(m.value)
+          }));
+          gasEstimate = await identityContract['register(string,(string,bytes)[])'].estimateGas(uri, metaTuples);
+        } else if (uri) {
+          gasEstimate = await identityContract['register(string)'].estimateGas(uri);
+        } else {
+          gasEstimate = await identityContract['register()'].estimateGas();
+        }
+
+        const feeData = await provider.getFeeData();
+        const gasPrice = feeData.gasPrice || feeData.maxFeePerGas;
+        const costWei = gasEstimate * gasPrice;
+        const costBnb = ethers.formatEther(costWei);
+        const gasUnits = gasEstimate.toString();
+
+        gasEl.innerHTML = `
+          <span class="gas-estimate">
+            <span class="gas-estimate-value">~${parseFloat(costBnb).toFixed(6)} ${currentNetwork === 'mainnet' ? 'BNB' : 'tBNB'}</span>
+            <span style="color:var(--text-muted);">(${Number(gasUnits).toLocaleString()} gas)</span>
+          </span>`;
+      } catch (err) {
+        console.warn('Gas estimation failed:', err);
+        gasEl.innerHTML = '<span style="color:var(--text-muted);">Could not estimate gas — will be calculated on submit</span>';
+      }
     }
 
     // ─── SERVICE MANAGEMENT ───
@@ -1770,6 +1961,13 @@ Licensed under MIT License
         return;
       }
 
+      // Mainnet confirmation
+      if (currentNetwork === 'mainnet') {
+        if (!confirm('You are deploying to BSC Mainnet. This will cost real BNB. Continue?')) {
+          return;
+        }
+      }
+
       const btn = document.getElementById('deployBtn');
       btn.disabled = true;
       btn.innerHTML = '<span class="spinner"></span> Registering...';
@@ -1809,6 +2007,10 @@ Licensed under MIT License
 
         const receipt = await tx.wait();
 
+        if (receipt.status === 0) {
+          throw new Error('Transaction reverted on-chain');
+        }
+
         // Parse the Registered event to get agentId
         let agentId = null;
         for (const log of receipt.logs) {
@@ -1819,6 +2021,19 @@ Licensed under MIT License
               break;
             }
           } catch (e) { /* skip non-matching logs */ }
+        }
+
+        // Fallback: try Transfer event for agentId
+        if (!agentId) {
+          for (const log of receipt.logs) {
+            try {
+              const parsed = identityContract.interface.parseLog({ topics: log.topics, data: log.data });
+              if (parsed && parsed.name === 'Transfer' && parsed.args[0] === ethers.ZeroAddress) {
+                agentId = parsed.args[2].toString();
+                break;
+              }
+            } catch (e) { /* skip */ }
+          }
         }
 
         // If we used on-chain URI with "PENDING" agentId, update with real agentId
@@ -1841,7 +2056,16 @@ Licensed under MIT License
 
       } catch (err) {
         console.error('Deploy error:', err);
-        const msg = err.reason || err.message || 'Transaction failed';
+        let msg = 'Transaction failed';
+        if (err.code === 'ACTION_REJECTED' || err.code === 4001) {
+          msg = 'Transaction rejected by user';
+        } else if (err.code === 'INSUFFICIENT_FUNDS') {
+          msg = `Insufficient ${currentNetwork === 'mainnet' ? 'BNB' : 'tBNB'} for gas. Get testnet BNB from a faucet.`;
+        } else if (err.reason) {
+          msg = err.reason;
+        } else if (err.message) {
+          msg = err.message.substring(0, 200);
+        }
         showToast(msg, 'error');
         btn.disabled = false;
         btn.innerHTML = '🚀 Register Agent On-Chain';
@@ -1948,7 +2172,7 @@ Licensed under MIT License
 
       const agentsList = document.getElementById('agentsList');
       const agentCount = document.getElementById('agentCount');
-      agentsList.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);">Loading your agents...</div>';
+      agentsList.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);"><span class="spinner spinner-light" style="margin-right:8px;"></span>Loading your agents...</div>';
 
       try {
         const balance = await identityContract.balanceOf(userAddress);
@@ -1965,48 +2189,62 @@ Licensed under MIT License
           return;
         }
 
-        // Try to discover agent IDs by scanning Transfer events
+        // Discover agent IDs by scanning Transfer events (mint = from 0x0)
         const net = NETWORKS[currentNetwork];
         const readProvider = new ethers.JsonRpcProvider(net.rpcUrl);
         const readContract = new ethers.Contract(net.contracts.identity, IDENTITY_ABI, readProvider);
 
-        // Get Transfer events TO user (minting = from 0x0)
         const filter = readContract.filters.Transfer(ethers.ZeroAddress, userAddress);
         let events = [];
-        try {
-          events = await readContract.queryFilter(filter, -100000);
-        } catch (e) {
-          // If range too large, try smaller
+        
+        // Try progressively smaller block ranges (BSC RPCs limit range)
+        const ranges = [5000, 2000, 1000];
+        for (const range of ranges) {
           try {
-            events = await readContract.queryFilter(filter, -10000);
-          } catch (e2) {
-            console.warn('Could not query events:', e2);
+            events = await readContract.queryFilter(filter, -range);
+            break;
+          } catch (e) {
+            console.warn(`queryFilter with range -${range} failed:`, e.message);
           }
         }
 
-        const agentIds = events.map(e => e.args[2].toString());
+        // Verify current ownership — filter out transferred agents
+        const ownedAgentIds = [];
+        for (const e of events) {
+          const tokenId = e.args[2].toString();
+          try {
+            const owner = await readContract.ownerOf(tokenId);
+            if (owner.toLowerCase() === userAddress.toLowerCase()) {
+              ownedAgentIds.push(tokenId);
+            }
+          } catch (err) {
+            // Token may have been burned or doesn't exist
+            console.warn(`Could not verify ownership of #${tokenId}:`, err.message);
+          }
+        }
 
-        if (agentIds.length === 0 && count > 0) {
+        if (ownedAgentIds.length === 0 && count > 0) {
           agentsList.innerHTML = `
             <div style="text-align:center;padding:40px 20px;color:var(--text-muted);">
               <p>You own ${count} agent(s), but we couldn't load their details from recent blocks.</p>
-              <p style="margin-top:8px;font-size:12px;">Try checking <a href="${net.explorer}/address/${userAddress}" target="_blank" rel="noopener" style="color:var(--accent);">BscScan</a> for your agent NFTs.</p>
+              <p style="margin-top:8px;font-size:12px;">Your agents may have been registered longer ago. Check <a href="${net.explorer}/address/${userAddress}" target="_blank" rel="noopener" style="color:var(--accent);">BscScan</a> for your agent NFTs.</p>
             </div>
           `;
           return;
         }
 
         let html = '<div class="agent-cards">';
-        for (const id of agentIds) {
+        for (const id of ownedAgentIds) {
           let uri = '';
           let name = `Agent #${id}`;
+          let description = '';
           try {
             uri = await readContract.tokenURI(id);
-            // Try to parse the registration JSON
             if (uri.startsWith('data:application/json;base64,')) {
               const base64 = uri.replace('data:application/json;base64,', '');
               const decoded = JSON.parse(decodeURIComponent(escape(atob(base64))));
               if (decoded.name) name = decoded.name;
+              if (decoded.description) description = decoded.description;
             }
           } catch (e) { /* ignore parsing errors */ }
 
@@ -2014,6 +2252,7 @@ Licensed under MIT License
             <div class="agent-card">
               <div class="agent-card-id">Agent #${id}</div>
               <div style="font-weight:600;margin-bottom:4px;">${escapeHtml(name)}</div>
+              ${description ? `<div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;line-height:1.4;">${escapeHtml(description.substring(0, 120))}${description.length > 120 ? '...' : ''}</div>` : ''}
               <div class="agent-card-uri">${uri ? escapeHtml(uri.substring(0, 80)) + (uri.length > 80 ? '...' : '') : '<em>No URI set</em>'}</div>
               <div class="agent-card-actions">
                 <a class="btn btn-secondary btn-sm" href="${net.explorer}/token/${net.contracts.identity}?a=${id}" target="_blank" rel="noopener">View on BscScan</a>
@@ -2026,22 +2265,65 @@ Licensed under MIT License
 
       } catch (err) {
         console.error('Load agents error:', err);
-        agentsList.innerHTML = `<div style="text-align:center;padding:20px;color:var(--error);">Error loading agents: ${err.message}</div>`;
+        agentsList.innerHTML = `<div style="text-align:center;padding:20px;color:var(--error);">Error loading agents: ${escapeHtml(err.message)}</div>`;
       }
     }
 
     // ─── FETCH AGENT COUNT ───
     async function fetchAgentCount() {
+      const statEl = document.getElementById('statAgents');
       try {
         const net = NETWORKS[currentNetwork];
         const readProvider = new ethers.JsonRpcProvider(net.rpcUrl);
         const readContract = new ethers.Contract(net.contracts.identity, IDENTITY_ABI, readProvider);
-        const name = await readContract.name();
-        // We can't directly get total supply, but we can try to get version to verify contract is live
+        
+        // Verify contract is accessible
         const version = await readContract.getVersion();
-        document.getElementById('statAgents').textContent = version ? 'Live ✓' : '—';
+        
+        // Try to discover total agents by binary-searching tokenURI
+        // Token IDs start at 1 and increment, so find the highest existing ID
+        let lo = 1, hi = 1000, total = 0;
+        
+        // Quick probe: does token 1 exist?
+        try {
+          await readContract.ownerOf(1);
+          total = 1;
+        } catch (e) {
+          // No agents at all
+          statEl.textContent = '0';
+          return;
+        }
+        
+        // Binary search for highest token ID
+        // First, find an upper bound
+        let probe = 1;
+        while (probe <= 10000) {
+          try {
+            await readContract.ownerOf(probe);
+            total = probe;
+            probe *= 2;
+          } catch (e) {
+            break;
+          }
+        }
+        
+        // Binary search between total and probe
+        lo = total;
+        hi = probe;
+        while (lo < hi) {
+          const mid = Math.floor((lo + hi + 1) / 2);
+          try {
+            await readContract.ownerOf(mid);
+            lo = mid;
+          } catch (e) {
+            hi = mid - 1;
+          }
+        }
+        
+        statEl.textContent = lo.toString();
       } catch (err) {
         console.warn('Could not fetch agent stats:', err);
+        statEl.textContent = '—';
       }
     }
 

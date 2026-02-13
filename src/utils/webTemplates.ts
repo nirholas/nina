@@ -389,7 +389,7 @@ async function fetchYields() {
   try {
     const res = await fetch(API.yields);
     const data = await res.json();
-    const top = data.data.filter(p => p.apy > 0 && p.tvlUsd > 1000000).sort((a, b) => b.apy - a.apy).slice(0, 5);
+    const top = (data?.data ?? []).filter(p => p.apy > 0 && p.tvlUsd > 1000000).sort((a, b) => b.apy - a.apy).slice(0, 5);
     document.getElementById('yields-list').innerHTML = top.map(p => renderYield(p)).join('');
   } catch (e) {
     document.getElementById('yields-list').innerHTML = '<div class="error">Failed to load</div>';
@@ -1486,9 +1486,9 @@ async function fetchGasPrices() {
     
     if (data.status === '1' && data.result) {
       state.gasPrices = {
-        slow: parseInt(data.result.SafeGasPrice),
-        standard: parseInt(data.result.ProposeGasPrice),
-        fast: parseInt(data.result.FastGasPrice)
+        slow: parseInt(data.result.SafeGasPrice ?? '0', 10),
+        standard: parseInt(data.result.ProposeGasPrice ?? '0', 10),
+        fast: parseInt(data.result.FastGasPrice ?? '0', 10)
       };
       return true;
     }
@@ -1510,7 +1510,7 @@ async function fetchEthPrice() {
   try {
     const res = await fetch(ETH_PRICE_API);
     const data = await res.json();
-    state.ethPrice = data.ethereum.usd;
+    state.ethPrice = data?.ethereum?.usd ?? 2500;
   } catch (err) {
     console.error('Failed to fetch ETH price:', err);
     state.ethPrice = 2500; // Fallback

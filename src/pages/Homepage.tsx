@@ -12,6 +12,7 @@
 import { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
+import useI18n from '@/stores/i18nStore';
 import PriceTicker from '@/components/PriceTicker';
 import { TopProtocolsWidget, TopYieldsWidget, TopChainsWidget, DeFiSummaryBar } from '@/components/DeFiWidgets';
 import {
@@ -238,6 +239,7 @@ const claudeConfigCode = `{
 }`;
 
 export default function Homepage() {
+    const { t } = useI18n();
     useSEO({
         title: 'BNB Chain AI Toolkit — 72+ Agents, 6 MCP Servers, 900+ Tools',
         description: 'The most comprehensive open-source AI toolkit for BNB Chain. 72+ specialized agents, 6 MCP servers, 900+ tools, 60+ chains.',
@@ -283,7 +285,7 @@ export default function Homepage() {
 
                     {/* Sub-headline — sharper */}
                     <p className="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 max-w-lg mx-auto mb-12 leading-relaxed font-light tracking-wide">
-                        72+ AI Agents &middot; 6 MCP Servers &middot; 900+ Tools &middot; One Repo
+                        {t('home.hero.tagline')}
                     </p>
 
                     {/* CTA buttons — hierarchy: primary > secondary > tertiary */}
@@ -464,8 +466,8 @@ export default function Homepage() {
             <section className="py-20 md:py-28">
                 <div className="container mx-auto px-4">
                     <SectionHeading
-                        title="How It Works"
-                        subtitle="Give any AI model direct access to BNB Chain in three steps."
+                        title={t('home.how_it_works')}
+                        subtitle={t('home.how_it_works_sub')}
                     />
 
                     <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">

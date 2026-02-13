@@ -94,8 +94,9 @@ export default function ContractInteraction({ contract, onLog }: ContractInterac
       if (func.stateMutability === 'view' || func.stateMutability === 'pure') {
         // Read-only call
         result = await contractInstance[func.name](...args);
-        setResults(prev => ({ ...prev, [key]: result.toString() }));
-        onLog('success', `${func.name} returned: ${result.toString()}`);
+        const resultStr = result != null ? String(result) : 'void';
+        setResults(prev => ({ ...prev, [key]: resultStr }));
+        onLog('success', `${func.name} returned: ${resultStr}`);
       } else {
         // Transaction
         const tx = await contractInstance[func.name](...args);

@@ -189,7 +189,7 @@ class CoinGeckoService {
       const response = await fetch(`${COINGECKO_BASE}/search/trending`);
       if (!response.ok) throw new Error('Failed to fetch trending');
       const data = await response.json();
-      return data.coins.map((c: { item: TrendingCoin }) => c.item);
+      return (data.coins ?? []).map((c: { item: TrendingCoin }) => c.item);
     });
   }
 
