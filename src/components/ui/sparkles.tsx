@@ -150,4 +150,8 @@ export function SparklesCore({
   );
 }
 
+/** Alias used by the barrel export in index.ts */
+export { SparklesCore as Sparkles };
+export type { SparklesCoreProps as SparklesProps };
+
 export default SparklesCore;

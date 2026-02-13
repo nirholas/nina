@@ -548,7 +548,7 @@ export default function Homepage() {
                     />
 
                     <div className="max-w-4xl mx-auto">
-                        <BackgroundGradient className="rounded-2xl p-px">
+                        <BackgroundGradient className="rounded-2xl">
                             <div className="bg-[#0a0a0a] rounded-2xl p-6 md:p-8 font-mono text-sm text-neutral-300 leading-relaxed overflow-x-auto">
                                 <div className="text-[#F0B90B] mb-3 font-bold">bnb-chain-toolkit/</div>
                                 <div className="ml-4 space-y-1.5">

@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import { useSEO } from "@/hooks/useSEO";
 import { cn } from "@/lib/utils";
 import { Spotlight } from "@/components/ui/spotlight";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
 import {
   BookOpen,
   Search,
@@ -23,6 +25,12 @@ import {
   ArrowRight,
   Layers,
   BarChart3,
+  Bot,
+  Server,
+  FileText,
+  Eye,
+  Database,
+  Wrench,
 } from "lucide-react";
 
 interface DocCategory {
@@ -31,6 +39,7 @@ interface DocCategory {
   description: string;
   icon: React.ReactNode;
   articleCount: number;
+  highlight?: string;
 }
 
 const docCategories: DocCategory[] = [
@@ -38,63 +47,70 @@ const docCategories: DocCategory[] = [
     id: "getting-started",
     title: "Getting Started",
     description:
-      "Setup your environment, install dependencies, and build your first AI-powered Web3 project in minutes.",
+      "Install dependencies, configure your first MCP server, and deploy an AI agent on BNB Chain in under 5 minutes.",
     icon: <Rocket className="w-6 h-6" />,
     articleCount: 5,
+    highlight: "bun install && bun run build",
   },
   {
     id: "agents",
     title: "AI Agents",
     description:
-      "Explore 72+ pre-built agent definitions for PancakeSwap, Venus Protocol, BNB Staking, and more.",
-    icon: <Code2 className="w-6 h-6" />,
+      "72+ agent definitions — 30 for BNB Chain protocols (PancakeSwap, Venus, Lista DAO, Thena, Alpaca) + 42 general DeFi agents.",
+    icon: <Bot className="w-6 h-6" />,
     articleCount: 12,
+    highlight: "Portable JSON format",
   },
   {
     id: "mcp-servers",
     title: "MCP Servers",
     description:
-      "Configure and deploy 6 Model Context Protocol servers for BNB Chain, Binance, and universal crypto operations.",
-    icon: <Terminal className="w-6 h-6" />,
+      "6 production servers with 900+ tools. bnbchain-mcp (150+), binance-mcp (478+), universal-crypto-mcp (380+), agenti, ucai, and more.",
+    icon: <Server className="w-6 h-6" />,
     articleCount: 8,
+    highlight: "STDIO + SSE transport",
   },
   {
     id: "market-data",
     title: "Market Data",
     description:
-      "Integrate real-time price feeds from CoinGecko, DeFiLlama, and 200+ news sources for market intelligence.",
+      "Edge Runtime price feeds from CoinGecko and DeFiLlama. Crypto news from 200+ sources with 662K+ articles. Zero dependencies.",
     icon: <BarChart3 className="w-6 h-6" />,
     articleCount: 6,
+    highlight: "Free API, no auth required",
   },
   {
     id: "defi-tools",
     title: "DeFi Tools",
     description:
-      "Dust sweeper, token utilities, and composable DeFi building blocks for BNB Chain applications.",
+      "Gasless dust sweeper via ERC-4337 across 8 chains with MEV protection. Routes into Aave, Yearn, Beefy, Lido yields.",
     icon: <Zap className="w-6 h-6" />,
     articleCount: 4,
+    highlight: "CoW Protocol MEV protection",
   },
   {
     id: "wallets",
-    title: "Wallets",
+    title: "Wallet Toolkit",
     description:
-      "Offline wallet generation, HD wallets, vanity addresses, and secure transaction signing utilities.",
+      "57 tools across 5 MCP servers — HD wallets, BIP-39, vanity addresses, EIP-191/712 signing, EIP-1559 transactions. Fully offline.",
     icon: <Wallet className="w-6 h-6" />,
     articleCount: 5,
+    highlight: "348 tests, offline-capable",
   },
   {
     id: "standards",
-    title: "Standards",
+    title: "Open Standards",
     description:
-      "ERC-8004 for agent trust verification and W3AG for Web3 accessibility — two open standards for the ecosystem.",
+      "ERC-8004 for AI agent trust verification (deployed on Ethereum mainnet). W3AG for Web3 accessibility (50+ success criteria).",
     icon: <Shield className="w-6 h-6" />,
     articleCount: 3,
+    highlight: "ERC-8004 live on mainnet",
   },
   {
     id: "architecture",
     title: "Architecture",
     description:
-      "Repository structure, design decisions, monorepo layout, and how all the pieces fit together.",
+      "Monorepo structure, design decisions, component independence, and how all pieces compose together.",
     icon: <Layers className="w-6 h-6" />,
     articleCount: 4,
   },
@@ -102,10 +118,19 @@ const docCategories: DocCategory[] = [
     id: "troubleshooting",
     title: "Troubleshooting",
     description:
-      "Common issues, error solutions, FAQ, and debugging tips for every part of the toolkit.",
+      "Common issues, error solutions, debugging tips for MCP connections, agent loading, and chain interactions.",
     icon: <HelpCircle className="w-6 h-6" />,
     articleCount: 7,
   },
+];
+
+const quickLinks = [
+  { title: "Connect MCP to Claude Desktop", description: "Add bnbchain-mcp to your Claude config in 2 minutes", link: "/docs/mcp-servers", icon: <Terminal className="w-5 h-5" /> },
+  { title: "Browse All 72+ Agents", description: "PancakeSwap, Venus, Whale Tracker, Security Auditor, and 68 more", link: "/docs/agents", icon: <Bot className="w-5 h-5" /> },
+  { title: "Generate MCP from ABI", description: "Use ucai to create custom tools from any smart contract ABI", link: "/docs/mcp-servers", icon: <Code2 className="w-5 h-5" /> },
+  { title: "ERC-8004 Standard", description: "On-chain identity, reputation, and validation registries for AI agents", link: "/docs/standards", icon: <Shield className="w-5 h-5" /> },
+  { title: "Dust Sweeper Setup", description: "Consolidate small balances with gasless ERC-4337 transactions", link: "/docs/defi-tools", icon: <Wrench className="w-5 h-5" /> },
+  { title: "Market Data API", description: "Free crypto news API — curl https://cryptocurrency.cv/api/news", link: "/docs/market-data", icon: <Database className="w-5 h-5" /> },
 ];
 
 export default function DocsPage() {
@@ -138,8 +163,8 @@ export default function DocsPage() {
             Documentation
           </h1>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Everything you need to integrate AI agents, MCP servers, and Web3
-            tools into your BNB Chain projects.
+            Everything you need to integrate 72+ AI agents, 6 MCP servers, and
+            900+ tools into your BNB Chain projects.
           </p>
 
           {/* Search */}
@@ -165,35 +190,29 @@ export default function DocsPage() {
       {/* Quick Start */}
       <section className="px-6 pb-12">
         <div className="max-w-6xl mx-auto">
-          <Link
-            to="/docs/getting-started"
-            className={cn(
-              "group block rounded-2xl p-8",
-              "bg-gradient-to-r from-[#F0B90B]/10 to-[#F0B90B]/5",
-              "border border-[#F0B90B]/20 hover:border-[#F0B90B]/40",
-              "transition-all duration-200"
-            )}
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0B90B]/20 text-[#F0B90B] text-sm font-medium mb-4">
-                  <Rocket className="w-4 h-4" />
-                  Recommended
+          <BackgroundGradient className="rounded-2xl p-8 bg-white dark:bg-black">
+            <Link to="/docs/getting-started" className="group block">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0B90B]/20 text-[#F0B90B] text-sm font-medium mb-4">
+                    <Rocket className="w-4 h-4" />
+                    Start Here
+                  </div>
+                  <h2 className="text-2xl font-bold mb-2">Quick Start Guide</h2>
+                  <p className="text-gray-600 dark:text-gray-400 max-w-xl">
+                    Get up and running in under 5 minutes. Install the toolkit,
+                    configure your first MCP server, and deploy an AI agent on BNB
+                    Chain.
+                  </p>
                 </div>
-                <h2 className="text-2xl font-bold mb-2">Quick Start Guide</h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-xl">
-                  Get up and running in under 5 minutes. Install the toolkit,
-                  configure your first MCP server, and deploy an AI agent on BNB
-                  Chain.
-                </p>
+                <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-[#F0B90B] group-hover:translate-x-1 transition-all shrink-0" />
               </div>
-              <ArrowRight className="w-6 h-6 text-gray-400 group-hover:text-[#F0B90B] group-hover:translate-x-1 transition-all shrink-0" />
-            </div>
-          </Link>
+            </Link>
+          </BackgroundGradient>
         </div>
       </section>
 
-      {/* Categories Grid */}
+      {/* BentoGrid Categories */}
       <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-10">Browse by Category</h2>
@@ -212,40 +231,111 @@ export default function DocsPage() {
               </button>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {filteredCategories.map((cat) => (
-                <Link
-                  key={cat.id}
-                  to={`/docs/${cat.id}`}
-                  className={cn(
-                    "group rounded-2xl border border-gray-200 dark:border-white/10 p-6",
-                    "hover:border-[#F0B90B]/40 dark:hover:border-white/20",
-                    "bg-white dark:bg-black transition-all duration-200"
-                  )}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-gray-100 dark:bg-white/5 text-[#F0B90B] shrink-0">
-                      {cat.icon}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="font-semibold group-hover:text-[#F0B90B] transition-colors">
-                          {cat.title}
-                        </h3>
-                        <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-[#F0B90B] group-hover:translate-x-0.5 transition-all shrink-0" />
+            <BentoGrid className="md:auto-rows-[20rem]">
+              {filteredCategories.map((cat, i) => (
+                <Link key={cat.id} to={`/docs/${cat.id}`} className={i === 0 ? "md:col-span-2" : ""}>
+                  <BentoGridItem
+                    className="h-full cursor-pointer"
+                    title={
+                      <div className="flex items-center gap-2">
+                        <span>{cat.title}</span>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
                       </div>
-                      <p className="text-sm text-gray-500 line-clamp-2">
-                        {cat.description}
-                      </p>
-                      <span className="inline-block mt-3 text-xs text-gray-400">
-                        {cat.articleCount} articles
-                      </span>
-                    </div>
-                  </div>
+                    }
+                    description={
+                      <div>
+                        <p className="mb-3">{cat.description}</p>
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs text-gray-400">
+                            {cat.articleCount} articles
+                          </span>
+                          {cat.highlight && (
+                            <span className="px-2 py-0.5 text-xs rounded-full bg-[#F0B90B]/10 text-[#F0B90B] font-medium">
+                              {cat.highlight}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    }
+                    icon={
+                      <div className="p-2 rounded-xl bg-gray-100 dark:bg-white/5 text-[#F0B90B] w-fit">
+                        {cat.icon}
+                      </div>
+                    }
+                  />
                 </Link>
               ))}
-            </div>
+            </BentoGrid>
           )}
+        </div>
+      </section>
+
+      {/* Quick Links */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4">Popular Guides</h2>
+          <p className="text-gray-500 mb-10">Jump straight to the most-used documentation.</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {quickLinks.map((item) => (
+              <Link
+                key={item.title}
+                to={item.link}
+                className={cn(
+                  "group flex items-start gap-4 rounded-2xl border border-gray-200 dark:border-white/10 p-5",
+                  "hover:border-[#F0B90B]/40 dark:hover:border-white/20",
+                  "bg-white dark:bg-black transition-all duration-200"
+                )}
+              >
+                <div className="p-2 rounded-lg bg-gray-100 dark:bg-white/5 text-[#F0B90B] shrink-0">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-sm group-hover:text-[#F0B90B] transition-colors mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-gray-500">
+                    {item.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Server Quick Reference */}
+      <section className="py-20 px-6 bg-gray-50 dark:bg-[#0a0a0a]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-10">MCP Server Reference</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200 dark:border-white/10">
+                  <th className="text-left py-3 px-4 font-semibold">Server</th>
+                  <th className="text-left py-3 px-4 font-semibold">Tools</th>
+                  <th className="text-left py-3 px-4 font-semibold">Focus</th>
+                  <th className="text-left py-3 px-4 font-semibold">Language</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { name: "bnbchain-mcp", tools: "150+", focus: "BNB Chain + EVM — balances, transfers, security", lang: "TypeScript" },
+                  { name: "binance-mcp", tools: "478+", focus: "Spot, Futures, Margin, Options, Earn, Copy Trading", lang: "TypeScript" },
+                  { name: "binance-us-mcp", tools: "120+", focus: "US-regulated — spot, staking, OTC, custody", lang: "TypeScript" },
+                  { name: "universal-crypto-mcp", tools: "380+", focus: "60+ chains — DEX, DeFi, bridges, x402 payments", lang: "TypeScript" },
+                  { name: "agenti", tools: "380+", focus: "EVM + Solana — Flashbots MEV, Wormhole, LayerZero", lang: "TypeScript" },
+                  { name: "ucai", tools: "∞", focus: "Generate MCP tools from any smart contract ABI", lang: "Python" },
+                ].map((s) => (
+                  <tr key={s.name} className="border-b border-gray-100 dark:border-white/5 hover:bg-gray-50 dark:hover:bg-white/[0.02]">
+                    <td className="py-3 px-4 font-mono text-[#F0B90B] text-xs">{s.name}</td>
+                    <td className="py-3 px-4 font-bold">{s.tools}</td>
+                    <td className="py-3 px-4 text-gray-500">{s.focus}</td>
+                    <td className="py-3 px-4 text-gray-400">{s.lang}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 

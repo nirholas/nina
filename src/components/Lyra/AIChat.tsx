@@ -139,7 +139,7 @@ export const AIChatPanel = memo<AIChatPanelProps>(({
           </div>
         ) : (
           messages.map((msg) => (
-            <LyraChatMessage
+            <AIChatMessage
               key={msg.id}
               isAI={msg.role === 'assistant'}
               content={msg.content}

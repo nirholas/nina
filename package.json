@@ -1,10 +1,10 @@
 {
-  "name": "lyra-web3-playground",
+  "name": "bnb-chain-toolkit",
   "version": "0.1.0",
-  "description": "Lyra Web3 Playground - Learn blockchain development with interactive examples. Compile and deploy Solidity in your browser. Built by nich.",
+  "description": "BNB Chain AI Toolkit - 72+ AI agents, 6 MCP servers, 900+ tools for BNB Chain and 60+ networks. Built by nich.",
   "author": {
     "name": "nich (nirholas)",
-    "email": "nich@lyra.works",
+    "email": "nich@bnbchaintoolkit.com",
     "url": "https://github.com/nirholas"
   },
   "contributors": [
@@ -21,12 +21,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nirholas/lyra-web3-playground.git"
+    "url": "https://github.com/nirholas/bnb-chain-toolkit.git"
   },
   "bugs": {
-    "url": "https://github.com/nirholas/lyra-web3-playground/issues"
+    "url": "https://github.com/nirholas/bnb-chain-toolkit/issues"
   },
-  "homepage": "https://lyra.works/",
+  "homepage": "https://bnbchaintoolkit.com/",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/nirholas"

@@ -1,6 +1,8 @@
 /**
  * Barrel export for all Aceternity-inspired UI components.
  * Import from "@/components/ui" for convenient access.
+ *
+ * @module ui
  */
 
 // Components
@@ -8,10 +10,10 @@ export { Spotlight } from "./spotlight";
 export { BackgroundBeams } from "./background-beams";
 export { TextGenerateEffect } from "./text-generate-effect";
 export { BentoGrid, BentoGridItem } from "./bento-grid";
-export { CardHoverEffect } from "./card-hover-effect";
+export { HoverEffect } from "./card-hover-effect";
 export { MovingBorder } from "./moving-border";
 export { WavyBackground } from "./wavy-background";
-export { SparklesCore, Sparkles } from "./sparkles";
+export { SparklesCore } from "./sparkles";
 export { LampContainer, Lamp } from "./lamp";
 export { TypewriterEffect } from "./typewriter-effect";
 export { InfiniteMovingCards } from "./infinite-moving-cards";
@@ -25,13 +27,10 @@ export type { SpotlightProps } from "./spotlight";
 export type { BackgroundBeamsProps } from "./background-beams";
 export type { TextGenerateEffectProps } from "./text-generate-effect";
 export type { BentoGridProps, BentoGridItemProps } from "./bento-grid";
-export type {
-  CardHoverEffectProps,
-  HoverEffectItem,
-} from "./card-hover-effect";
+export type { HoverEffectProps, HoverEffectItem } from "./card-hover-effect";
 export type { MovingBorderProps } from "./moving-border";
 export type { WavyBackgroundProps } from "./wavy-background";
-export type { SparklesProps } from "./sparkles";
+export type { SparklesCoreProps } from "./sparkles";
 export type { LampProps } from "./lamp";
 export type {
   TypewriterEffectProps,
