@@ -79,7 +79,7 @@ function YieldCard({ pool }: { pool: YieldPool }) {
         </div>
       </div>
       <div className="text-right">
-        <div className="text-green-500 dark:text-green-400 font-semibold text-lg">{pool.apy?.toFixed(2)}%</div>
+        <div className="text-green-500 dark:text-green-400 font-semibold text-lg">{(pool.apy ?? 0).toFixed(2)}%</div>
         <div className="text-neutral-500 dark:text-neutral-500 text-xs">TVL: {formatTVL(pool.tvlUsd)}</div>
       </div>
     </div>
@@ -358,7 +358,7 @@ export function DeFiSummaryBar({ className = '' }: { className?: string }) {
         <div className="flex items-center gap-2">
           <span className="text-neutral-500 dark:text-neutral-500">Top Yield:</span>
           <span className="text-neutral-900 dark:text-white font-medium">{topYield.project}</span>
-          <span className="text-green-500 dark:text-green-400">{topYield.apy?.toFixed(2)}% APY</span>
+          <span className="text-green-500 dark:text-green-400">{(topYield.apy ?? 0).toFixed(2)}% APY</span>
         </div>
       )}
       

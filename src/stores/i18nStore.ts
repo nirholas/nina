@@ -6,9 +6,24 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { translateAllStrings, getCachedTranslations, clearTranslationCache } from '@/services/translation';
 
 export type Language = 'en' | 'es' | 'zh' | 'fr' | 'de' | 'ja' | 'ko' | 'pt' | 'ru' | 'ar';
+
+/**
+ * Lazy-load static locale JSON files.
+ * Vite will code-split each locale into its own chunk.
+ */
+const localeLoaders: Record<Exclude<Language, 'en'>, () => Promise<{ default: Record<string, string> }>> = {
+  es: () => import('@/locales/es.json'),
+  zh: () => import('@/locales/zh.json'),
+  fr: () => import('@/locales/fr.json'),
+  de: () => import('@/locales/de.json'),
+  ja: () => import('@/locales/ja.json'),
+  ko: () => import('@/locales/ko.json'),
+  pt: () => import('@/locales/pt.json'),
+  ru: () => import('@/locales/ru.json'),
+  ar: () => import('@/locales/ar.json'),
+};
 
 interface LanguageInfo {
   code: Language;
@@ -183,10 +198,36 @@ export const baseTranslations: Record<string, string> = {
     'error.not_found': 'Page not found',
     'error.network': 'Network error',
     'error.try_again': 'Try Again',
+
+    // Homepage
+    'home.hero.tagline': '72+ AI Agents · 6 MCP Servers · 900+ Tools · One Repo',
+    'home.how_it_works': 'How It Works',
+    'home.how_it_works_sub': 'Give any AI model direct access to BNB Chain in three steps.',
+    'home.step1.title': 'Pick an Agent',
+    'home.step1.desc': 'Choose from 72+ pre-built agents — each one is a JSON file tuned for a specific protocol like PancakeSwap, Venus, or Binance Futures.',
+    'home.step2.title': 'Connect MCP Servers',
+    'home.step2.desc': 'Point Claude, ChatGPT, or any LLM at one of 6 MCP servers. Your AI can now read on-chain data, fetch prices, and interact with protocols.',
+    'home.step3.title': 'Execute On-Chain',
+    'home.step3.desc': '900+ tools across 60+ networks — swap tokens, check yields, audit contracts, track wallets. All through natural language.',
+    'home.explore': 'Explore the Toolkit',
+
+    // Nav groups
+    'nav.learn': 'Learn',
+    'nav.build': 'Build',
+    'nav.explore': 'Explore',
+    'nav.interactive_tutorials': 'Interactive Tutorials',
+    'nav.examples_gallery': 'Examples Gallery',
+    'nav.api_reference': 'API Reference',
+    'nav.code_playground': 'Code Playground',
+    'nav.sandbox_ide': 'Sandbox IDE',
+    'nav.fullstack_builder': 'Full-Stack Builder',
+    'nav.contract_templates': 'Contract Templates',
+    'nav.innovation_lab': 'Innovation Lab',
+    'nav.markets': 'Markets',
 };
 
-// Dynamic translations storage (populated from API/cache)
-let dynamicTranslations: Record<Language, Record<string, string>> = {
+// Loaded translations storage (populated from static JSON files)
+let loadedTranslations: Record<Language, Record<string, string>> = {
   en: { ...baseTranslations },
   es: {},
   zh: {},
@@ -225,25 +266,24 @@ export const useI18n = create<I18nStore>()(
         document.documentElement.dir = langInfo?.rtl ? 'rtl' : 'ltr';
         document.documentElement.lang = lang;
         
-        // If English, no need to translate
+        // If English, no need to load anything
         if (lang === 'en') {
-          dynamicTranslations.en = { ...baseTranslations };
+          loadedTranslations.en = { ...baseTranslations };
           set({ isLoading: false });
           return;
         }
         
-        // Check cache first
-        const cached = getCachedTranslations(lang);
-        if (cached && Object.keys(cached).length > 0) {
-          dynamicTranslations[lang] = cached;
+        // If already loaded, use cached version
+        if (Object.keys(loadedTranslations[lang]).length > 0) {
           set({ isLoading: false });
           return;
         }
         
-        // Fetch translations from API
+        // Lazy-load the static JSON for this language
         try {
-          const translations = await translateAllStrings(baseTranslations, lang);
-          dynamicTranslations[lang] = translations;
+          const loader = localeLoaders[lang];
+          const mod = await loader();
+          loadedTranslations[lang] = mod.default;
           set({ isLoading: false });
         } catch (error: any) {
           console.error('Failed to load translations:', error);
@@ -254,9 +294,9 @@ export const useI18n = create<I18nStore>()(
       t: (key: string, params?: Record<string, string>) => {
         const { language } = get();
         
-        // Get translation from dynamic store, fall back to English, then to key
-        let text = dynamicTranslations[language]?.[key] 
-          || dynamicTranslations.en[key] 
+        // Get translation from loaded store, fall back to English, then to key
+        let text = loadedTranslations[language]?.[key] 
+          || loadedTranslations.en[key] 
           || baseTranslations[key]
           || key;
         
@@ -278,16 +318,18 @@ export const useI18n = create<I18nStore>()(
       
       refreshTranslations: async () => {
         const { language, setLanguage } = get();
-        clearTranslationCache();
+        // Reset cached translations for this language to force reload
+        if (language !== 'en') {
+          loadedTranslations[language] = {};
+        }
         await setLanguage(language);
       },
       
       clearCache: () => {
-        clearTranslationCache();
-        // Reset dynamic translations
-        Object.keys(dynamicTranslations).forEach(lang => {
+        // Reset all loaded translations except English
+        Object.keys(loadedTranslations).forEach(lang => {
           if (lang !== 'en') {
-            dynamicTranslations[lang as Language] = {};
+            loadedTranslations[lang as Language] = {};
           }
         });
       }
@@ -298,5 +340,16 @@ export const useI18n = create<I18nStore>()(
     }
   )
 );
+
+/**
+ * Initialize i18n — call once on app startup to load
+ * translations for the persisted language.
+ */
+export function initI18n() {
+  const { language, setLanguage } = useI18n.getState();
+  if (language !== 'en') {
+    setLanguage(language);
+  }
+}
 
 export default useI18n;

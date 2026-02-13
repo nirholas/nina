@@ -271,7 +271,7 @@ function YieldCard({ pool }: YieldCardProps) {
         </CardItem>
         <CardItem translateZ={50} className="w-full">
           <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
-            {pool.apy?.toFixed(2)}%
+            {(pool.apy ?? 0).toFixed(2)}%
           </div>
           {pool.apyBase !== undefined && pool.apyReward !== undefined && (pool.apyBase > 0 || pool.apyReward > 0) && (
             <div className="text-xs text-gray-500 dark:text-gray-400 mb-3">
@@ -304,7 +304,7 @@ interface ChainCardProps {
 }
 
 function ChainCard({ chain, index, totalTVL }: ChainCardProps) {
-  const percentage = ((chain.tvl / totalTVL) * 100).toFixed(2);
+  const percentage = ((chain.tvl / (totalTVL || 1)) * 100).toFixed(2);
   return (
     <BackgroundGradient className="rounded-[22px]" containerClassName="rounded-[22px] h-full">
       <div className="rounded-[22px] p-4 bg-white dark:bg-zinc-900 flex items-center gap-4">
@@ -493,7 +493,7 @@ function HeroSection() {
             <div className="flex items-center gap-2">
               <span className="text-gray-500 dark:text-gray-400">Active Coins:</span>
               <span className="font-semibold text-gray-900 dark:text-white">
-                {globalData.active_cryptocurrencies?.toLocaleString()}
+                {(globalData.active_cryptocurrencies ?? 0).toLocaleString()}
               </span>
             </div>
           </motion.div>
@@ -577,7 +577,7 @@ function TrendingMarquee() {
   const row1Items: InfiniteMovingCardItem[] = trending.slice(0, half).map((coin) => ({
     quote: `Rank #${coin.market_cap_rank ?? '\u2014'}`,
     name: coin.name,
-    title: coin.symbol.toUpperCase(),
+    title: (coin.symbol ?? '').toUpperCase(),
     icon: (
       <img src={coin.thumb} alt={coin.name} className="w-6 h-6 rounded-full" />
     ),
@@ -586,7 +586,7 @@ function TrendingMarquee() {
   const row2Items: InfiniteMovingCardItem[] = trending.slice(half).map((coin) => ({
     quote: `Rank #${coin.market_cap_rank ?? '\u2014'}`,
     name: coin.name,
-    title: coin.symbol.toUpperCase(),
+    title: (coin.symbol ?? '').toUpperCase(),
     icon: (
       <img src={coin.thumb} alt={coin.name} className="w-6 h-6 rounded-full" />
     ),

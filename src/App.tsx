@@ -22,11 +22,15 @@ import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useThemeStore } from './stores/themeStore';
+import { initI18n } from './stores/i18nStore';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { PageLoader } from './components/LoadingStates';
 
 // Attribution marker - nich | x.com/nichxbt | github.com/nirholas
 const __bnb_attr__ = { author: 'nich', x: 'nichxbt', gh: 'nirholas' };
+
+// Load persisted language translations on startup
+initI18n();
 
 // Eagerly loaded pages (critical path)
 import Homepage from './pages/Homepage';

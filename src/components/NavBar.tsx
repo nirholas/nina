@@ -35,6 +35,7 @@ import {
   Info,
 } from 'lucide-react';
 import { useThemeStore } from '@/stores/themeStore';
+import useI18n from '@/stores/i18nStore';
 import LanguageSelector from './LanguageSelector';
 import WalletButton from './WalletButton';
 import { useAnnounce, useFocusTrap } from './Accessibility';
@@ -307,6 +308,7 @@ function MobileAccordion({
 
 export default function NavBar() {
   const { mode, toggleTheme } = useThemeStore();
+  const { t } = useI18n();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -329,24 +331,24 @@ export default function NavBar() {
 
   const navGroups: NavGroup[] = [
     {
-      label: 'Learn',
+      label: t('nav.learn'),
       items: [
         {
-          label: 'Documentation',
+          label: t('nav.docs'),
           href: '/docs',
           icon: BookOpen,
           description: 'Comprehensive guides for agents, MCP servers & tools',
           iconColor: 'text-blue-500',
         },
         {
-          label: 'Interactive Tutorials',
+          label: t('nav.interactive_tutorials'),
           href: '/tutorials',
           icon: GraduationCap,
           description: 'Step-by-step BNB Chain integration walkthroughs',
           iconColor: 'text-emerald-500',
         },
         {
-          label: 'Examples Gallery',
+          label: t('nav.examples_gallery'),
           href: '/projects',
           icon: FileCode,
           description: 'Community projects and smart contract templates',
@@ -354,7 +356,7 @@ export default function NavBar() {
           iconColor: 'text-amber-500',
         },
         {
-          label: 'API Reference',
+          label: t('nav.api_reference'),
           href: '/docs/api',
           icon: Code,
           description: 'Complete API documentation and endpoints',
@@ -368,17 +370,17 @@ export default function NavBar() {
       },
     },
     {
-      label: 'Build',
+      label: t('nav.build'),
       items: [
         {
-          label: 'Code Playground',
+          label: t('nav.code_playground'),
           href: '/playground',
           icon: Terminal,
           description: 'Interactive code editor with live preview',
           iconColor: 'text-violet-500',
         },
         {
-          label: 'Sandbox IDE',
+          label: t('nav.sandbox_ide'),
           href: '/sandbox',
           icon: Sparkles,
           description: 'AI-powered BNB Chain dev environment',
@@ -386,14 +388,14 @@ export default function NavBar() {
           iconColor: 'text-pink-500',
         },
         {
-          label: 'Full-Stack Builder',
+          label: t('nav.fullstack_builder'),
           href: '/fullstack-demo',
           icon: Layers,
           description: 'Contract + Frontend on BNB Chain',
           iconColor: 'text-green-500',
         },
         {
-          label: 'Contract Templates',
+          label: t('nav.contract_templates'),
           href: '/playground',
           icon: FileCode,
           description: 'Pre-built smart contract templates for BSC',
@@ -410,10 +412,10 @@ export default function NavBar() {
       ],
     },
     {
-      label: 'Explore',
+      label: t('nav.explore'),
       items: [
         {
-          label: 'Innovation Lab',
+          label: t('nav.innovation_lab'),
           href: '/innovation',
           icon: FlaskConical,
           description: 'MCP tools & experimental features',
@@ -421,28 +423,28 @@ export default function NavBar() {
           iconColor: 'text-fuchsia-500',
         },
         {
-          label: 'Markets',
+          label: t('nav.markets'),
           href: '/markets',
           icon: TrendingUp,
           description: 'Live crypto prices and market data',
           iconColor: 'text-emerald-500',
         },
         {
-          label: 'Community',
+          label: t('nav.community'),
           href: '/community',
           icon: Users,
           description: 'Connect with builders and developers',
           iconColor: 'text-blue-500',
         },
         {
-          label: 'About',
+          label: t('nav.about'),
           href: '/about',
           icon: Info,
           description: 'Learn about BNB Chain AI Toolkit',
           iconColor: 'text-gray-400',
         },
         {
-          label: 'FAQ',
+          label: t('nav.faq'),
           href: '/faq',
           icon: HelpCircle,
           description: 'Frequently asked questions',

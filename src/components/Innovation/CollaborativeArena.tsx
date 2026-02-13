@@ -325,12 +325,12 @@ export default function CollaborativeArena({
         );
 
         // Show feedback
-        for (const fb of result.feedback.slice(0, 5)) {
+        for (const fb of (result.feedback ?? []).slice(0, 5)) {
           addMessage('system', fb, 'system');
         }
       } else {
         addMessage('system', `❌ Score: ${result.score}/100 — need 50+ to pass`, 'system');
-        for (const fb of result.feedback.filter(f => f.startsWith('❌') || f.startsWith('⚠️')).slice(0, 3)) {
+        for (const fb of (result.feedback ?? []).filter(f => f.startsWith('❌') || f.startsWith('⚠️')).slice(0, 3)) {
           addMessage('system', fb, 'hint');
         }
         onLog('error', `❌ Solution scored ${result.score}/100. Check the hints!`);

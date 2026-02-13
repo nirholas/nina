@@ -80,7 +80,7 @@ export default function SharedProjectPage() {
       
       // Load comments
       const commentsResult = await getComments(result.data.id);
-      setComments(commentsResult.data);
+      setComments(commentsResult.data ?? []);
       
       // Check if wallet has liked
       if (isConnected && address) {
@@ -213,7 +213,7 @@ export default function SharedProjectPage() {
     );
   }
 
-  const currentFile = project.files[activeFile];
+  const currentFile = project.files[activeFile] ?? project.files[0];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-black">
