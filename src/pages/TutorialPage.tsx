@@ -5,7 +5,7 @@
  */
 
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+
 import InteractiveTutorial from '@/components/Tutorial/InteractiveTutorial';
 import { tutorials } from '@/data/tutorials';
 import { useVisualFeedback } from '@/components/Accessibility/VisualFeedback';

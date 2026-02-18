@@ -34,7 +34,7 @@ import {
   Github,
 } from 'lucide-react';
 import { Spotlight, TextGenerateEffect, LampContainer, HoverEffect } from '@/components/ui';
-import { toolCatalog, toolCategories as standaloneCategories, allServersConfig } from '@/data/mcpServers';
+import { toolCatalog, allServersConfig } from '@/data/mcpServers';
 import { useSEO } from '@/hooks/useSEO';
 import { cn } from '@/lib/utils';
 

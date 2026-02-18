@@ -34,7 +34,7 @@ import {
   SparklesCore,
 } from '@/components/ui';
 import {
-  toolCatalog,
+  _toolCatalog,
   toolCategories,
   getFeaturedTools,
   getToolsByCategory,

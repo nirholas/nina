@@ -32,7 +32,7 @@ export default function InteractiveLearningPlayground() {
 
   const [viewMode, setViewMode] = useState<ViewMode>('tutorial');
   const [currentLevel, setCurrentLevel] = useState<DifficultyLevel>('beginner');
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [_currentStepIndex, setCurrentStepIndex] = useState(0);
   const [showSidebar, setShowSidebar] = useState(true);
   const [showTemplateSelector, setShowTemplateSelector] = useState(false);
 

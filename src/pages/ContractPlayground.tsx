@@ -30,7 +30,7 @@ import { copyToClipboard } from '@/utils/helpers';
 import { contractTemplates, type ContractTemplate, searchTemplates } from '@/utils/contractTemplates';
 import { useWalletStore } from '@/stores/walletStore';
 import { useThemeStore } from '@/stores/themeStore';
-import { BNBCompiler, type CompileOutput, CompiledContract } from '@/services/bnbCompiler';
+import { BNBCompiler, type CompileOutput } from '@/services/bnbCompiler';
 
 export default function ContractPlayground() {
   const { address, isConnected, chainId } = useWalletStore();
@@ -300,7 +300,7 @@ export default function ContractPlayground() {
     schedulePreviewUpdate();
   };
 
-  const renameFile = (oldName: string, newName: string) => {
+  const _renameFile = (oldName: string, newName: string) => {
     if (!newName.trim() || oldName === newName) return;
     if (files.some(f => f.name === newName)) return; // Name conflict
     setFiles(prev => prev.map(f => f.name === oldName ? { ...f, name: newName } : f));

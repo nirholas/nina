@@ -233,7 +233,7 @@ export const useAccessibilityStore = create<AccessibilityStore>()(
         }
       },
       
-      speak: (text, priority = 'polite') => {
+      speak: (text, _priority = 'polite') => {
         const { settings } = get();
         if (!settings.textToSpeech && !settings.autoReadAloud) return;
         

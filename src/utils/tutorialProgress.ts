@@ -8,7 +8,7 @@
  * Comprehensive tutorial progress tracking system with localStorage persistence
  */
 
-import type { TutorialProgress, LearningProgress, Achievement, TutorialCategory } from '@/types/tutorials';
+import type { TutorialProgress, LearningProgress, Achievement } from '@/types/tutorials';
 
 /**
  * Tutorial progress interface (re-exported for backward compatibility)

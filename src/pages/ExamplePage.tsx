@@ -382,7 +382,7 @@ contract CrossChainBridge is ReentrancyGuard, Ownable {
 };
 
 // Legacy mapping for backward compatibility
-const exampleComponents: Record<string, React.ComponentType> = Object.fromEntries(
+const _exampleComponents: Record<string, React.ComponentType> = Object.fromEntries(
   Object.entries(exampleMeta).map(([key, meta]) => [key, meta.component])
 );
 

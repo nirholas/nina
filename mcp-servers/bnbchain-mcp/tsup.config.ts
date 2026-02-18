@@ -35,9 +35,9 @@ export default defineConfig({
     options.alias = {
       '@': './src'
     }
-    // Inject CJS require shim for bundled packages that use require() for Node builtins
+    // Inject CJS compatibility shims for bundled packages that use require()/__dirname in ESM
     options.banner = {
-      js: "import { createRequire } from 'module'; const require = createRequire(import.meta.url);"
+      js: "import { createRequire } from 'module'; import { fileURLToPath as __tsup_fileURLToPath } from 'url'; import { dirname as __tsup_dirname } from 'path'; const require = createRequire(import.meta.url); const __filename = __tsup_fileURLToPath(import.meta.url); const __dirname = __tsup_dirname(__filename);"
     }
   }
 })

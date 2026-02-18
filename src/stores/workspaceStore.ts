@@ -241,7 +241,7 @@ export const useWorkspaceStore = create<WorkspaceState>()(
           }));
           
           return workspace.id;
-        } catch (error) {
+        } catch (_error) {
           throw new Error('Invalid workspace data');
         }
       }

@@ -32,7 +32,6 @@ import {
   Wrench,
   Shield,
   Terminal,
-  Code2,
   FileText,
   Languages,
 } from "lucide-react";

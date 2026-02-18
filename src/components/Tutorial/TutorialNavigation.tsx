@@ -63,7 +63,7 @@ export default function TutorialNavigation({
   const [bookmarked, setBookmarked] = useState(() => isBookmarked(tutorial.id));
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copied, setCopied] = useState(false);
-  const navigate = useNavigate();
+  const _navigate = useNavigate();
 
   const steps = tutorial.steps || tutorial.content || [];
   const progress = getProgress(tutorial.id);

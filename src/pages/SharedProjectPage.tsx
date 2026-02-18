@@ -7,7 +7,6 @@ import Editor from '@monaco-editor/react';
 import {
   ArrowLeft,
   Heart,
-  Eye,
   GitFork,
   MessageCircle,
   Share2,
@@ -22,7 +21,7 @@ import {
   Send,
   Wallet
 } from 'lucide-react';
-import { cn, truncateAddress } from '@/utils/helpers';
+import { cn } from '@/utils/helpers';
 import {
   getSharedProject,
   likeProject,

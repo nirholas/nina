@@ -133,6 +133,19 @@ export default [
       'no-console': 'off', // Allow console in server
     },
   },
+  // Demo, examples, API — Node CLI scripts that legitimately use console
+  {
+    files: ['demo/**/*.{ts,js}', 'examples/**/*.{ts,js}', 'api/**/*.{ts,js}'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      'no-console': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
   // Test files configuration
   {
     files: ['**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}', '**/test/**/*.{ts,tsx}'],
