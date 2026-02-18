@@ -21,7 +21,7 @@
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
     "lint": "eslint src --ext .ts",
-    "test": "ts-node --project tsconfig.test.json node_modules/.bin/mocha --require ts-node/register --timeout 120000 'test/**/*.test.ts'"
+    "test": "npx tsx --test test/*.test.ts"
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -37,7 +37,8 @@
     "@types/node": "^20.11.0",
     "mocha": "^10.7.0",
     "typescript": "^5.3.3",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2"
   },
   "keywords": [
     "erc-8004",

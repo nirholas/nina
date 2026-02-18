@@ -5,12 +5,11 @@
  * getWallet resolution, and import/export roundtrip.
  */
 
-/// <reference types="mocha" />
-
-import * as assert from 'assert';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as os from 'os';
+import { describe, it, beforeEach, afterEach } from 'node:test';
+import * as assert from 'node:assert/strict';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import * as os from 'node:os';
 import { ethers } from 'ethers';
 
 // ─── Test constants ─────────────────────────────────────────────────────────

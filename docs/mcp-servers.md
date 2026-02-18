@@ -305,34 +305,52 @@ You can run multiple MCP servers simultaneously:
 
 Now Claude can query BNB Chain, trade on Binance, and fetch market data — all in one conversation.
 
+**Example prompt when all three are connected:**
+
+> "Check the current BNB price, compare it to the 7-day average, and if it's more than 5% below the average, place a limit buy order for 1 BNB on Binance at the current price."
+
+Claude will use the BNB Chain MCP for on-chain data, market data for the 7-day history, and Binance MCP to place the order — all in one response.
+
 ---
 
 ## Security Best Practices
 
-1. **Never commit API keys or private keys** to your repository
-2. Use **read-only API keys** when you don't need trading
-3. Set **IP restrictions** on your Binance API keys
-4. Use **testnet** for development (`BSC_TESTNET_RPC_URL`)
-5. Start with **small amounts** when testing live trading
-6. Review the [Security Policy](../SECURITY.md) for more
+These are critical if you're using real funds. If you're just exploring, you can skip to the next section.
+
+| Practice | Why | How |
+|----------|-----|-----|
+| **Never commit API keys** | Anyone who finds them can use your accounts | Use `.env` files (already in `.gitignore`) |
+| **Use read-only API keys** first | Prevents accidental trades while learning | In Binance: uncheck "Enable Trading" when creating a key |
+| **Set IP restrictions** | Blocks unauthorized access even if keys leak | In Binance API settings: whitelist your IP |
+| **Start on testnet** | Use fake money while learning | Set `BSC_RPC_URL` to a testnet endpoint |
+| **Start with small amounts** | Limit potential losses from bugs or mistakes | Don't connect your main wallet until you're confident |
+| **Review transactions before confirming** | AI can make mistakes; you are the final check | MCP servers request confirmation for write operations |
+
+> **Full security reference:** [SECURITY.md](../SECURITY.md)
 
 ---
 
 ## Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| "Connection refused" | Make sure the server is running (`bun start`) |
-| "Invalid API key" | Check your environment variables are set correctly |
-| "Rate limited" | Add delays between requests, or upgrade your API plan |
-| "Transaction failed" | Check gas settings and wallet balance |
-| Server crash on start | Run `bun install` first, check Node.js version (18+) |
+| Problem | Likely Cause | Solution |
+|---------|-------------|---------|
+| "Connection refused" | Server not running | Run `bun start` in the server directory |
+| "Invalid API key" | Env var not set or typo | Check: `echo $BINANCE_API_KEY` — is it set? |
+| Claude doesn't show MCP tools | Config file error or Claude not restarted | Validate JSON in config file, fully restart Claude |
+| "Rate limited" | Too many requests | Add delays, use caching, or upgrade API plan |
+| "Transaction failed" | Insufficient gas or balance | Check wallet has enough BNB for gas fees |
+| Server crash on start | Missing dependencies | Run `bun install` first, verify Node.js 18+ |
+| "CORS error" | Server blocking your origin | Set `CORS_ORIGINS` env var — see [Troubleshooting](troubleshooting.md) |
+
+> **More help:** See the full [Troubleshooting](troubleshooting.md) guide for in-depth solutions.
 
 ---
 
 ## See Also
 
-- [Getting Started](getting-started.md) — Initial setup
-- [Agents](agents.md) — AI agents that use these servers
+- [Glossary](GLOSSARY.md) — Definitions for MCP, RPC, ABI, and other terms
+- [Getting Started](getting-started.md) — Initial setup walkthrough
+- [Agents](agents.md) — AI agents that use these servers (best when combined)
 - [Examples](examples.md) — Real-world usage patterns
+- [Architecture](architecture.md) — How MCP servers fit in the overall system
 - [Troubleshooting](troubleshooting.md) — More debugging help

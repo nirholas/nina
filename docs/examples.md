@@ -1,21 +1,37 @@
 # Examples
 
-Real-world usage patterns for the BNB Chain AI Toolkit.
+Real-world usage patterns for the BNB Chain AI Toolkit, organized by difficulty.
+
+> **How to use this page:** Each example lists what you need, shows the code or conversation, and explains what happens. Start with Beginner and work up.
+
+| Difficulty | What It Means |
+|:----------:|--------------|
+| 🟢 Beginner | No coding needed, or very simple commands |
+| 🟡 Intermediate | Some setup required, basic code |
+| 🔴 Advanced | Multiple components, scripting, or on-chain operations |
 
 ---
 
-## Beginner Examples
+## 🟢 Beginner Examples
 
-### Check Your BNB Balance
+### Check a BNB Balance (No Code)
 
-**What you need:** BNB Chain MCP server
+**What you need:** BNB Chain MCP server connected to Claude Desktop (see [Getting Started](getting-started.md#your-first-mcp-server))
 
-Ask Claude: *"What's the BNB balance of 0x1234...?"*
+**How it works:**
 
-Behind the scenes:
+> **You:** What's the BNB balance of 0xF977814e90dA44bFA03b6295A0616a897441aceC?
+>
+> **Claude:** That address holds 1,234,567.89 BNB (approximately $768 million at current prices). This appears to be a Binance cold wallet.
+
+**Behind the scenes:**
 ```
-You → Claude → BNB Chain MCP → BSC RPC → Balance: 1.5 BNB
+Your question → Claude → get_balance tool → BSC RPC → Real balance → Claude's answer
 ```
+
+**What you learned:** Claude didn't guess. It called the MCP server, which queried the actual blockchain, and returned a real number.
+
+---
 
 ### Get Today's Crypto Prices
 
@@ -26,8 +42,10 @@ import { CoinGecko } from '@nirholas/crypto-market-data';
 
 const prices = await CoinGecko.getPrices(['bitcoin', 'binancecoin', 'ethereum']);
 console.log(prices);
-// { bitcoin: 95000, binancecoin: 620, ethereum: 3200 }
+// Expected output: { bitcoin: 95000, binancecoin: 620, ethereum: 3200 }
 ```
+
+**What you learned:** The market data library fetches real-time prices with one function call. No API key needed for basic usage.
 
 ### Read the Latest Crypto News
 
@@ -41,13 +59,28 @@ cd market-data/crypto-news && bun start
 curl http://localhost:3000/api/news/latest | jq '.[0:5] | .[].title'
 ```
 
+**Expected output:** A list of 5 recent crypto headlines.
+
 ---
 
-## Intermediate Examples
+### Check Market Sentiment (No Code)
+
+**What you need:** BNB Chain MCP server connected to Claude
+
+> **You:** What's the current crypto market sentiment? Is it a good time to buy?
+>
+> **Claude:** The Fear & Greed Index is currently at 35 (Fear). The BNB price is down 3.2% over the past 7 days. Major BNB Chain protocols show stable TVL. While "fear" periods have historically been favorable for long-term buying, this is not financial advice — always assess your own risk tolerance.
+
+**What you learned:** Claude combines multiple data sources (sentiment index, price history, TVL) into a single coherent answer.
+
+---
+
+## 🟡 Intermediate Examples
 
 ### Set Up a Portfolio Tracking Agent
 
 **What you need:** Agents + Market Data components
+**Time:** 5 minutes
 
 1. Load the portfolio agent:
 ```bash
@@ -64,18 +97,29 @@ cat agents/defi-agents/src/portfolio-analyst.json | jq '.systemRole'
 ### Swap Tokens on PancakeSwap via AI
 
 **What you need:** BNB Chain MCP + PancakeSwap Trader agent
+**Time:** 10 minutes (first time setup), 30 seconds after that
 
 1. Start the MCP server
 2. Load the PancakeSwap agent
 3. Ask: *"Swap 0.1 BNB for CAKE on PancakeSwap"*
 
+**What happens step by step:**
+
 The AI will:
-- Get the current price quote
-- Check slippage
-- Ask for your confirmation
-- Execute the swap
+1. Get the current price quote from PancakeSwap
+2. Calculate expected output and check slippage
+3. Show you the trade details and **ask for your confirmation**
+4. Only after you say "yes" — execute the swap
+5. Return the transaction hash so you can verify on BscScan
+
+> **Safety note:** The AI always asks for confirmation before executing on-chain transactions. If you're nervous, use testnet first.
+
+---
 
 ### Monitor BNB Chain DeFi TVL
+
+**What you need:** Market Data component
+**Time:** 2 minutes
 
 ```typescript
 import { DeFiLlama } from '@nirholas/crypto-market-data';
@@ -85,14 +129,26 @@ const protocols = ['pancakeswap', 'venus', 'alpaca-finance', 'biswap'];
 for (const p of protocols) {
   const tvl = await DeFiLlama.getProtocolTvl(p);
   console.log(`${p}: $${(tvl / 1e9).toFixed(2)}B`);
+```
+
+**Expected output:**
+```
+pancakeswap: $2.15B
+venus: $1.83B
+alpaca-finance: $0.32B
+biswap: $0.08B
+```
 }
 ```
 
 ---
 
-## Advanced Examples
+## 🔴 Advanced Examples
 
 ### Multi-Server AI Trading Setup
+
+**What you need:** Multiple API keys, Claude Desktop
+**Time:** 15-20 minutes
 
 Run all servers together for a complete AI trading terminal:
 
@@ -194,35 +250,58 @@ console.log('Agent registered on-chain!');
 
 ## Integration Patterns
 
-### Pattern 1: Read-Only Intelligence
+These three patterns represent increasing levels of automation and risk. Start with Pattern 1 and work up as you gain confidence.
+
+### Pattern 1: Read-Only Intelligence (Safest)
 
 ```
 News API → AI Agent → Human-readable insights
 ```
 
-No blockchain writes. Safe for exploration and learning.
+**Use when:** You want analysis and insights without any risk. No blockchain writes, no trades, no wallet connections.
 
-### Pattern 2: Monitored Trading
+**Example prompts:**
+- "Analyze the top 5 BNB Chain protocols by TVL"
+- "What's the market sentiment today?"
+- "Compare PancakeSwap vs Uniswap volume over the past week"
+
+### Pattern 2: Monitored Trading (Recommended)
 
 ```
 Market Data → AI Agent → Trade Recommendation → Human Approval → Exchange API
 ```
 
-AI suggests, human approves. Good for learning and trust-building.
+**Use when:** You want AI to find opportunities but you make the final call. AI suggests, human approves. Good for learning and trust-building.
 
-### Pattern 3: Autonomous Agent
+**Example prompts:**
+- "If BNB drops below $600, draft a limit buy order for me to review"
+- "Find the best yield opportunities on BSC and show me before I deposit"
+- "Scan my portfolio and suggest rebalancing moves — don't execute anything"
+
+### Pattern 3: Autonomous Agent (Expert Only)
 
 ```
 Market Data + Chain Data → AI Agent → Automated Execution → Exchange/Chain
 ```
 
-Fully automated. Only for experienced users with proper risk management.
+**Use when:** You're experienced, understand the risks, and have proper safeguards (slippage limits, position size limits, stop losses). Fully automated — the AI acts without asking.
+
+**Example prompts:**
+- "Auto-compound my Venus lending rewards every 24 hours"
+- "Run a grid trading strategy: buy every 2% dip, sell every 3% rise, max position 5 BNB"
+- "Sweep dust tokens across all chains weekly and consolidate into USDC on BSC"
+
+> **Warning:** Pattern 3 involves real money moving automatically. Never use Pattern 3 without thoroughly testing on testnet first. Start with tiny amounts. Set strict limits. Monitor logs.
 
 ---
 
 ## See Also
 
-- [Getting Started](getting-started.md) — Initial setup
-- [Agents](agents.md) — All available agents
+- [Glossary](GLOSSARY.md) — Definitions for terms used in these examples
+- [Getting Started](getting-started.md) — Install and set up the toolkit
+- [Agents](agents.md) — All 78 available agents
+- [MCP Servers](mcp-servers.md) — Server setup and configuration
+- [FAQ](faq.md) — Common questions
+- [Troubleshooting](troubleshooting.md) — When examples don't work as expected
 - [MCP Servers](mcp-servers.md) — Server setup details
 - [Troubleshooting](troubleshooting.md) — When things go wrong

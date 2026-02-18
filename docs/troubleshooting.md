@@ -1,6 +1,33 @@
 # Troubleshooting
 
-Step-by-step solutions for common problems.
+Step-by-step solutions for every known issue. Each problem includes the symptom, cause, and fix.
+
+> **Quick diagnosis:** Use Ctrl+F (Cmd+F on Mac) to search for the error message you're seeing.
+> **Don't know a term?** Check the [Glossary](GLOSSARY.md).
+
+---
+
+## How to Diagnose Problems
+
+Before looking for specific errors, try these diagnostic steps:
+
+```bash
+# 1. Check your tools are installed and recent enough
+node --version    # Need v18+
+bun --version     # Any version
+git --version     # Any version
+
+# 2. Check you're in the right directory
+pwd               # Should end with /bnb-chain-toolkit
+
+# 3. Check dependencies are installed
+ls node_modules/  # Should not be empty
+
+# 4. Check the build ran successfully
+ls public/index.json  # Should exist and not be empty
+```
+
+If any of these fail, the fix is in the relevant section below.
 
 ---
 
