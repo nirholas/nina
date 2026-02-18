@@ -21,6 +21,7 @@ import { truncateAddress, formatBalance } from '@/utils/helpers';
 import { cn } from '@/utils/helpers';
 
 // ── BSC Chain Definitions ──────────────────────────────────────────────
+// eslint-disable-next-line react-refresh/only-export-components
 export const BSC_MAINNET = {
   chainId: 56,
   chainIdHex: '0x38',
@@ -30,6 +31,7 @@ export const BSC_MAINNET = {
   nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const BSC_TESTNET = {
   chainId: 97,
   chainIdHex: '0x61',

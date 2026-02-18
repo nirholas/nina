@@ -13,6 +13,7 @@ interface AnnouncerContextType {
 
 const AnnouncerContext = createContext<AnnouncerContextType | null>(null);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAnnouncer() {
   const context = useContext(AnnouncerContext);
   if (!context) {
@@ -99,6 +100,7 @@ export function AnnouncerProvider({ children }: AnnouncerProviderProps) {
 /**
  * Hook for announcing page transitions
  */
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAnnouncePageChange(pageName: string) {
   const { announce } = useAnnouncer();
   

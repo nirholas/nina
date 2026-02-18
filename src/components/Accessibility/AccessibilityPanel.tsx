@@ -149,6 +149,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
               aria-selected={activeTab === tab.id}
               aria-controls={`panel-${tab.id}`}
               onClick={() => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 setActiveTab(tab.id as any);
                 speak(tab.label);
               }}
@@ -251,6 +252,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'x-large', label: 'Extra Large (20px)' },
                     { value: 'xx-large', label: 'Huge (24px)' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('fontSize', v as any)}
                 />
                 <SelectSetting
@@ -262,6 +264,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'monospace', label: 'Monospace' },
                     { value: 'sans-serif', label: 'Simple Sans-Serif' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('fontFamily', v as any)}
                 />
                 <SelectSetting
@@ -272,6 +275,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'relaxed', label: 'Relaxed (1.75x)' },
                     { value: 'loose', label: 'Loose (2x)' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('lineHeight', v as any)}
                 />
                 <SelectSetting
@@ -282,6 +286,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'wide', label: 'Wide' },
                     { value: 'wider', label: 'Extra Wide' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('letterSpacing', v as any)}
                 />
               </SettingGroup>
@@ -301,6 +306,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'more', label: 'Enhanced' },
                     { value: 'maximum', label: 'Maximum' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('contrastLevel', v as any)}
                   disabled={!settings.highContrast}
                 />
@@ -314,6 +320,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'tritanopia', label: 'Tritanopia (Blue-Blind)' },
                     { value: 'achromatopsia', label: 'Achromatopsia (Grayscale)' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('colorBlindMode', v as any)}
                 />
                 <ToggleSetting
@@ -333,6 +340,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'large', label: 'Large' },
                     { value: 'x-large', label: 'Extra Large' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('cursorSize', v as any)}
                 />
                 <SelectSetting
@@ -343,6 +351,7 @@ export default function AccessibilityPanel({ isOpen, onClose }: AccessibilityPan
                     { value: 'enhanced', label: 'Enhanced (Thicker outline)' },
                     { value: 'maximum', label: 'Maximum (High contrast box)' },
                   ]}
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   onChange={(v) => updateSetting('focusIndicator', v as any)}
                 />
               </SettingGroup>

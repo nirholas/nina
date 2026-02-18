@@ -83,7 +83,8 @@ async function main() {
     }
   });
   const agentId = transferEvent
-    ? identity.interface.parseLog(transferEvent)!.args.tokenId
+    ? // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      identity.interface.parseLog(transferEvent)!.args.tokenId
     : null;
   console.log(`  Agent ID: ${agentId}`);
   console.log(`  Block: ${receipt1.blockNumber}`);
