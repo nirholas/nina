@@ -68,8 +68,13 @@ export function keccak256(data: string): string {
 
 /**
  * Compute address from private key.
+ * If private key is empty/falsy, generates a random dev wallet.
  */
 export function privateKeyToAddress(privateKey: string): string {
+  if (!privateKey) {
+    const wallet = ethers.Wallet.createRandom();
+    return wallet.address;
+  }
   const wallet = new ethers.Wallet(privateKey);
   return wallet.address;
 }

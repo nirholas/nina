@@ -6,8 +6,12 @@
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
-import { registerEVM } from "@/evm/index.js"
+// EVM modules (blocks, contracts, tokens, swap, staking, etc.)
+import { registerEVM } from "@/evm.js"
+// Greenfield decentralized storage
 import { registerGnfd } from "@/gnfd/index.js"
+// Sperax protocol (USDs, SPA, veSPA, Demeter — 72 tools)
+import { registerSperax } from "@/sperax/index.js"
 import Logger from "@/utils/logger.js"
 
 // Create and start the MCP server
@@ -20,8 +24,9 @@ export const startServer = () => {
     })
 
     // Register all resources, tools, and prompts
-    registerEVM(server)
-    registerGnfd(server)
+    registerEVM(server)     // EVM core + modules (defi, news, market-data, social, dex-analytics, governance, utils)
+    registerGnfd(server)    // Greenfield storage
+    registerSperax(server)  // Sperax protocol
     return server
   } catch (error) {
     Logger.error("Failed to initialize server:", error)

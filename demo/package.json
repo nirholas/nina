@@ -1,0 +1,16 @@
+{
+  "name": "bnb-chain-toolkit-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "demo": "npx tsx run-demo.ts",
+    "demo:agent": "npx tsx run-agent-demo.ts"
+  },
+  "dependencies": {
+    "ethers": "^6.16.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.6.0"
+  }
+}
