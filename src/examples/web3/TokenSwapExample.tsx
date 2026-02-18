@@ -90,9 +90,9 @@ export default function TokenSwapExample() {
       
       setFromAmount('');
       setToAmount('');
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Swap error:', err);
-      setError(err.message || 'Failed to execute swap');
+      setError(err instanceof Error ? err.message : 'Failed to execute swap');
     } finally {
       setIsSwapping(false);
     }

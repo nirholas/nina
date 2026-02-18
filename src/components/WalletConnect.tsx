@@ -77,9 +77,9 @@ export default function WalletConnect({ onClose, onConnect }: WalletConnectProps
       // Notify parent component of successful connection
       onConnect?.();
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Failed to connect wallet:', err);
-      setError(err.message || 'Failed to connect wallet');
+      setError(err instanceof Error ? err.message : 'Failed to connect wallet');
     } finally {
       setIsConnecting(false);
     }

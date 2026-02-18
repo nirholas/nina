@@ -26,7 +26,6 @@
 <a href="https://github.com/nirholas/bnb-chain-toolkit/issues"><img src="https://img.shields.io/github/issues/nirholas/bnb-chain-toolkit?style=for-the-badge&labelColor=000" alt="Issues" /></a>
 <a href="https://github.com/nirholas/bnb-chain-toolkit"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge&labelColor=000" alt="PRs Welcome" /></a>
 <a href="https://bnb-chain-toolkit.vercel.app/"><img src="https://img.shields.io/badge/demo-live-00C853?style=for-the-badge&logo=vercel&labelColor=000" alt="Live Demo" /></a>
-<a href="HACKATHON.md"><img src="https://img.shields.io/badge/hackathon-Good%20Vibes%20Only-F0B90B?style=for-the-badge&labelColor=000" alt="Good Vibes Only" /></a>
 <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnirholas%2Fbnb-chain-toolkit&project-name=bnb-chain-toolkit&repository-name=bnb-chain-toolkit"><img src="https://vercel.com/button" alt="Deploy with Vercel" /></a>
 
 <br>
@@ -155,35 +154,7 @@ ERC-8004 contracts are deployed and verified on **BSC Mainnet**, **BSC Testnet**
 > All addresses share the deterministic `0x8004` vanity prefix (CREATE2 via SAFE Singleton Factory).
 > Full 24-chain deployment list: [`erc8004-agents/docs/contracts.md`](erc8004-agents/docs/contracts.md) | Machine-readable: [`bsc.address`](bsc.address)
 
----
-
-## 🏆 Hackathon
-
-Built for the **BNB Chain "Good Vibes Only: OpenClaw Edition"** hackathon — Track 1: Agent.
-
-> **[Full Submission → HACKATHON.md](HACKATHON.md)** | **[Live Demo →](https://bnb-chain-toolkit.vercel.app/)**
-
-### What Makes This Unique
-
-| # | Feature | Details |
-|---|---------|---------|
-| 1 | **Comprehensive Coverage** | No other project covers the entire BNB Chain AI stack |
-| 2 | **Production-Ready MCP** | 6 servers, 1,100+ tools, ready for Claude and other LLMs |
-| 3 | **Original Standards** | ERC-8004 (agent trust) and W3AG (accessibility) |
-| 4 | **Real DeFi Tooling** | Dust sweeper, market data, wallet toolkit |
-| 5 | **78 Specialized Agents** | Purpose-built for every major BNB protocol |
-| 6 | **30+ Languages** | Global accessibility with 30+ translations |
-
-### Hackathon Submission Docs
-
-| Document | Description |
-|----------|-------------|
-| [`HACKATHON.md`](HACKATHON.md) | **Primary submission document** — on-chain proof, architecture, reproduction steps |
-| [`bsc.address`](bsc.address) | Deployed contract addresses (JSON) |
-| [`docs/PROJECT.md`](docs/PROJECT.md) | Problem, solution, impact, roadmap |
-| [`docs/TECHNICAL.md`](docs/TECHNICAL.md) | Architecture, setup, demo guide |
-| [`docs/AI_BUILD_LOG.md`](docs/AI_BUILD_LOG.md) | How AI was used to build this |
-| [`docs/EXTRAS.md`](docs/EXTRAS.md) | Demo video, slides, live links |
+> ⚠️ **Note:** Smart contracts in `standards/erc-8004/contracts/` are reference implementations and have **not been formally audited**. Do not deploy to mainnet without an independent security audit.
 
 ---
 

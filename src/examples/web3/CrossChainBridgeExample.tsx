@@ -28,7 +28,7 @@ export default function CrossChainBridgeExample() {
   const [selectedBridge, setSelectedBridge] = useState<Bridge | null>(null);
   const [selectedToken, setSelectedToken] = useState('');
   const [amount, setAmount] = useState('');
-  const [transfers, setTransfers] = useState<any[]>([]);
+  const [transfers, setTransfers] = useState<{ id: number; bridge: string; token: string; amount: number; status: string; timestamp: number }[]>([]);
 
   const handleBridge = () => {
     if (!selectedBridge || !selectedToken || !amount) {

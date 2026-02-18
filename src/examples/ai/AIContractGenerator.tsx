@@ -125,9 +125,9 @@ contract SimpleEscrow {
       const sanitizedPrompt = prompt.replace(/[^\w\s.,!?-]/g, '').substring(0, 200);
       const codeWithPrompt = `// Generated from prompt: "${sanitizedPrompt}"\n\n${selectedTemplate}`;
       setGeneratedCode(codeWithPrompt);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Generation error:', err);
-      setError(err.message || 'Failed to generate contract');
+      setError(err instanceof Error ? err.message : 'Failed to generate contract');
     } finally {
       setIsGenerating(false);
     }

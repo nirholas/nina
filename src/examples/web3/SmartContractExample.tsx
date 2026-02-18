@@ -134,7 +134,7 @@ contract SimpleNFT {
 export default function SmartContractExample() {
   const { isConnected, chainId } = useWalletStore();
   const { mode } = useThemeStore();
-  const editorRef = useRef<any>(null);
+  const editorRef = useRef<unknown>(null);
 
   const [code, setCode] = useState(SAMPLE_CONTRACT);
   const [isCompiling, setIsCompiling] = useState(false);
@@ -166,9 +166,9 @@ export default function SmartContractExample() {
       }
 
       setCompilationResult('✅ Compilation successful! Contract is ready to deploy.');
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Compilation error:', err);
-      setError(err.message || 'Compilation failed');
+      setError(err instanceof Error ? err.message : 'Compilation failed');
     } finally {
       setIsCompiling(false);
     }
@@ -210,9 +210,9 @@ export default function SmartContractExample() {
 
       setDeployedContracts([newContract, ...deployedContracts]);
       setCompilationResult(`✅ Contract deployed successfully at ${mockAddress}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Deployment error:', err);
-      setError(err.message || 'Deployment failed');
+      setError(err instanceof Error ? err.message : 'Deployment failed');
     } finally {
       setIsDeploying(false);
     }

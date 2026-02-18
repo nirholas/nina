@@ -87,8 +87,8 @@ export default function WalletConnectExample() {
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: `0x${network.chainId.toString(16)}` }],
       });
-    } catch (switchError: any) {
-      if (switchError.code === 4902) {
+    } catch (switchError: unknown) {
+      if ((switchError as { code?: number })?.code === 4902) {
         try {
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',

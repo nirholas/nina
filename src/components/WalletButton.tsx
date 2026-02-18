@@ -108,9 +108,9 @@ export default function WalletButton() {
       // Listeners
       window.ethereum.on('accountsChanged', handleAccountsChanged);
       window.ethereum.on('chainChanged', handleChainChanged);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Wallet connect error:', err);
-      setError(err.message || 'Failed to connect wallet');
+      setError(err instanceof Error ? err.message : 'Failed to connect wallet');
     } finally {
       setIsConnecting(false);
     }
@@ -158,9 +158,9 @@ export default function WalletButton() {
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: chainIdHex }],
       });
-    } catch (switchError: any) {
+    } catch (switchError: unknown) {
       // Chain not added yet — add it
-      if (switchError.code === 4902) {
+      if ((switchError as { code?: number })?.code === 4902) {
         const chain =
           chainIdHex === BSC_MAINNET.chainIdHex ? BSC_MAINNET : BSC_TESTNET;
         await window.ethereum.request({

@@ -5,7 +5,7 @@
  */
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import Editor from '@monaco-editor/react';
+import Editor, { type OnMount } from '@monaco-editor/react';
 import {
   Play,
   ChevronLeft,
@@ -81,9 +81,9 @@ export default function InteractiveTutorial({ tutorial, onComplete }: Interactiv
   const [copied, setCopied] = useState(false);
   const [viewMode, setViewMode] = useState<'split' | 'code' | 'preview'>('split');
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [annotations, setAnnotations] = useState<any[]>([]);
+  const [annotations, setAnnotations] = useState<CodeAnnotation[]>([]);
   
-  const editorRef = useRef<any>(null);
+  const editorRef = useRef<unknown>(null);
   const currentStep = tutorial.steps[currentStepIndex];
 
   const persistProgress = useCallback((updater: (prev: TutorialProgress) => TutorialProgress) => {
@@ -96,7 +96,7 @@ export default function InteractiveTutorial({ tutorial, onComplete }: Interactiv
   const generateAnnotations = (codeContent: string) => {
     // Parse code and generate inline annotations
     const lines = codeContent.split('\n');
-    const newAnnotations: any[] = [];
+    const newAnnotations: CodeAnnotation[] = [];
     
     lines.forEach((line, index) => {
       // Detect important patterns and add annotations
@@ -157,7 +157,7 @@ export default function InteractiveTutorial({ tutorial, onComplete }: Interactiv
     }
   }, [currentStepIndex, activeLanguage, progressState.codeSnapshots, currentStep]);
 
-  const handleEditorMount = (editor: any, monaco: any) => {
+  const handleEditorMount: OnMount = (editor, monaco) => {
     editorRef.current = editor;
     
     // Add inline decorations for annotations

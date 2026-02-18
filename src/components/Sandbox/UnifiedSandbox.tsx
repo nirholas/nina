@@ -48,11 +48,24 @@ interface ConsoleMessage {
   timestamp: Date;
 }
 
+interface ABIParam {
+  name: string;
+  type: string;
+}
+
+interface ABIEntry {
+  type: string;
+  name: string;
+  inputs: ABIParam[];
+  outputs: ABIParam[];
+  stateMutability: string;
+}
+
 interface CompilationResult {
   success: boolean;
   errors: string[];
   warnings: string[];
-  abi: any[];
+  abi: ABIEntry[];
   bytecode: string;
   gasEstimate: string;
 }
@@ -61,7 +74,7 @@ interface DeployedContract {
   id: string;
   name: string;
   address: string;
-  abi: any[];
+  abi: ABIEntry[];
   deployedAt: Date;
 }
 
@@ -268,8 +281,8 @@ export default function UnifiedSandbox({
   
   const clearConsole = () => setConsole([]);
   
-  const parseABI = (code: string): any[] => {
-    const abi: any[] = [];
+  const parseABI = (code: string): ABIEntry[] => {
+    const abi: ABIEntry[] = [];
     const funcRegex = /function\s+(\w+)\s*\(([^)]*)\)\s*(public|external|internal|private)?\s*(view|pure|payable)?\s*(returns\s*\(([^)]*)\))?/g;
     let match;
     
@@ -362,9 +375,9 @@ export default function UnifiedSandbox({
     log('log', `  Gas: ${compilationResult.gasEstimate}`);
   };
   
-  const callFunction = async (contractId: string, func: any, _isWrite: boolean) => {
+  const callFunction = async (contractId: string, func: ABIEntry, _isWrite: boolean) => {
     const inputs = functionInputs[contractId]?.[func.name] || {};
-    const args = func.inputs.map((i: any) => inputs[i.name] || '');
+    const args = func.inputs.map((i: ABIParam) => inputs[i.name] || '');
     
     log('info', `Calling ${func.name}(${args.join(', ')})...`);
     await new Promise(resolve => setTimeout(resolve, 300));

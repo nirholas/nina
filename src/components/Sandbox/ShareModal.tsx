@@ -231,7 +231,7 @@ export default function ShareModal({ isOpen, onClose, projectData, onShare }: Sh
                   {categories.map((cat) => (
                     <button
                       key={cat.id}
-                      onClick={() => setCategory(cat.id as any)}
+                      onClick={() => setCategory(cat.id as typeof category)}
                       className={cn(
                         "flex items-center gap-2 p-3 rounded-lg border-2 transition-colors text-left",
                         category === cat.id
