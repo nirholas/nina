@@ -612,42 +612,6 @@ export default function ContractPlayground() {
             </button>
           </div>
 
-          {/* Empty state - shown when no code loaded */}
-          {!code && !selectedTemplate && !error && (
-            <div className="flex-1 flex items-center justify-center p-8">
-              <div className="text-center max-w-md">
-                <div className="w-16 h-16 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center mx-auto mb-6">
-                  <Code2 className="w-8 h-8 text-gray-400 dark:text-neutral-500" />
-                </div>
-                <h2 className="text-xl font-bold mb-2">Start Building</h2>
-                <p className="text-gray-500 dark:text-neutral-400 mb-6 text-sm">
-                  Select a template from the sidebar, use the AI generator to describe your contract, or create a new .sol file to start from scratch.
-                </p>
-                <div className="flex items-center justify-center gap-3">
-                  <button
-                    onClick={() => setShowSidebar(true)}
-                    className="px-4 py-2.5 text-sm font-semibold rounded-lg bg-black text-white dark:bg-white dark:text-black hover:bg-[#0a0a0a] dark:hover:bg-gray-200 transition-all flex items-center gap-2"
-                  >
-                    <LayoutTemplate className="w-4 h-4" />
-                    Browse Templates
-                  </button>
-                  <button
-                    onClick={() => {
-                      const solFile = { name: 'Contract.sol', content: '// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract MyContract {\n    \n}' };
-                      setFiles(prev => [...prev, solFile]);
-                      setSelectedFile('Contract.sol');
-                      setCode(solFile.content);
-                    }}
-                    className="px-4 py-2.5 text-sm font-medium rounded-lg border border-gray-300 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 transition-all flex items-center gap-2"
-                  >
-                    <FileCode className="w-4 h-4" />
-                    New Contract
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
           {/* Error/Status Messages */}
           {(error || deploymentStatus || compilerLog.length > 0) && (
             <div className="px-4 pt-3 space-y-2">
@@ -680,7 +644,42 @@ export default function ContractPlayground() {
             </div>
           )}
 
-          {/* Editor / Multi-file Playground */}
+          {/* Empty state - shown when no Solidity code loaded */}
+          {!code && !selectedTemplate && !error ? (
+            <div className="flex-1 flex items-center justify-center p-8">
+              <div className="text-center max-w-md">
+                <div className="w-16 h-16 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center mx-auto mb-6">
+                  <Code2 className="w-8 h-8 text-gray-400 dark:text-neutral-500" />
+                </div>
+                <h2 className="text-xl font-bold mb-2">Start Building</h2>
+                <p className="text-gray-500 dark:text-neutral-400 mb-6 text-sm">
+                  Select a template from the sidebar, use the AI generator to describe your contract, or create a new .sol file to start from scratch.
+                </p>
+                <div className="flex items-center justify-center gap-3">
+                  <button
+                    onClick={() => setShowSidebar(true)}
+                    className="px-4 py-2.5 text-sm font-semibold rounded-lg bg-black text-white dark:bg-white dark:text-black hover:bg-[#0a0a0a] dark:hover:bg-gray-200 transition-all flex items-center gap-2"
+                  >
+                    <LayoutTemplate className="w-4 h-4" />
+                    Browse Templates
+                  </button>
+                  <button
+                    onClick={() => {
+                      const solFile = { name: 'Contract.sol', content: '// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract MyContract {\n    \n}' };
+                      setFiles(prev => [...prev, solFile]);
+                      setSelectedFile('Contract.sol');
+                      setCode(solFile.content);
+                    }}
+                    className="px-4 py-2.5 text-sm font-medium rounded-lg border border-gray-300 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-neutral-800 transition-all flex items-center gap-2"
+                  >
+                    <FileCode className="w-4 h-4" />
+                    New Contract
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+          /* Editor / Multi-file Playground */
           <div className="flex-1 overflow-hidden flex">
             {/* Left: Editor area with file tabs */}
             <div className={`${showPreview ? 'w-1/2' : 'flex-1'} border-r border-gray-200 dark:border-neutral-800 flex flex-col bg-white dark:bg-neutral-950`}>
@@ -827,6 +826,7 @@ export default function ContractPlayground() {
             </div>
             )}
           </div>
+          )}
 
           {/* Footer Info */}
           {selectedTemplate && (

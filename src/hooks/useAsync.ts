@@ -200,7 +200,7 @@ export function useDebouncedAsync<T, Args extends unknown[] = []>(
         }, delay);
       });
     },
-    [asyncHook.execute, delay]
+    [asyncHook, delay]
   );
 
   // Cleanup timeout on unmount
@@ -251,7 +251,7 @@ export function usePollingAsync<T>(
         clearInterval(intervalRef.current);
       }
     };
-  }, [enabled, interval]); // Intentionally not including execute to avoid infinite loop
+  }, [enabled, interval]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return asyncHook;
 }

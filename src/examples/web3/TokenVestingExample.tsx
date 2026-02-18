@@ -4,7 +4,7 @@
  * 💫 Every expert was once a beginner 📚
  */
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Lock, Clock, Unlock } from 'lucide-react';
 import { useInlineNotification } from '@/examples/shared/InlineNotification';
 
@@ -48,9 +48,10 @@ export default function TokenVestingExample() {
     cliff: '90',
   });
 
-  const calculateVestedAmount = useMemo(() => (schedule: VestingSchedule): number => {
-    const currentTime = Date.now();
-    const elapsedTime = currentTime - schedule.startTime;
+  const [now] = useState(() => Date.now());
+
+  const calculateVestedAmount = (schedule: VestingSchedule): number => {
+    const elapsedTime = now - schedule.startTime;
     const elapsedDays = elapsedTime / 86400000;
 
     // Check if cliff period has passed
@@ -206,7 +207,7 @@ export default function TokenVestingExample() {
           const vested = calculateVestedAmount(schedule);
           const releasable = calculateReleasableAmount(schedule);
           const vestedPercentage = (vested / schedule.totalAmount) * 100;
-          const elapsedDays = Math.floor((Date.now() - schedule.startTime) / 86400000);
+          const elapsedDays = Math.floor((now - schedule.startTime) / 86400000);
           const isCliffActive = elapsedDays < schedule.cliffDuration;
 
           return (

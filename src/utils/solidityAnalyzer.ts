@@ -263,7 +263,7 @@ const VULN_PATTERNS: VulnPattern[] = [
     confidence: 0.91,
     check: (code, lines) => {
       const line = lines.findIndex(l =>
-        /\.call[\s({\[]/.test(l) && !/bool\s+success/.test(l) && !l.trim().startsWith('//')
+        /\.call[\s({[]/.test(l) && !/bool\s+success/.test(l) && !l.trim().startsWith('//')
       );
       return { found: line !== -1, line: line + 1 };
     },

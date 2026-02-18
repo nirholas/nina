@@ -5,6 +5,7 @@ import { serve } from "@hono/node-server";
 import { z } from "zod";
 import { zValidator } from "@hono/zod-validator";
 import { getRedis } from "../utils/redis.js";
+import { cacheGet, cacheSet } from "../utils/redis.js";
 
 import { scanAllChains, getWalletTokenBalancesAlchemy } from "../services/wallet.service.js";
 import { filterDustTokens } from "../services/validation.service.js";
@@ -26,6 +27,9 @@ import {
   consolidateExecuteMiddleware,
 } from "./middleware/x402.js";
 import { getEndpointPrice } from "../services/payments/pricing.js";
+import { addSweepExecuteJob, addConsolidationJob } from "../queue/index.js";
+import { getConsolidationEngine } from "../services/consolidation/index.js";
+import { randomUUID } from "crypto";
 
 const app = new Hono();
 
@@ -215,14 +219,83 @@ if (x402Receiver) {
     "/api/sweep/quote",
     quotePaymentMiddleware(x402Receiver),
     async (c) => {
-      // TODO: Implement sweep quote generation
-      // This will call 1inch/Jupiter/Li.Fi for swap quotes
-      return c.json({ message: "Not implemented yet" }, 501);
+      try {
+        const body = await c.req.json();
+        const walletAddress = body.wallet as `0x${string}`;
+        const chains = (body.chains || ["ethereum", "base", "arbitrum", "polygon", "bsc"]) as string[];
+
+        // Scan for dust tokens across specified chains
+        const dustByChain: Record<string, any[]> = {};
+        let totalValueUsd = 0;
+
+        for (const chain of chains) {
+          try {
+            const balances = await getWalletTokenBalancesAlchemy(
+              walletAddress,
+              chain as Exclude<SupportedChain, "solana">
+            );
+            const dustTokens = await filterDustTokens(balances);
+            dustByChain[chain] = dustTokens;
+            totalValueUsd += dustTokens.reduce((sum: number, d: any) => sum + d.usdValue, 0);
+          } catch {
+            dustByChain[chain] = [];
+          }
+        }
+
+        // Get price for the endpoint itself
+        const endpointPrice = getEndpointPrice("sweep_quote");
+
+        return c.json({
+          wallet: walletAddress,
+          dust: dustByChain,
+          totalValueUsd: totalValueUsd.toFixed(2),
+          sweepableChains: Object.keys(dustByChain).filter(k => dustByChain[k].length > 0),
+          estimatedGasUsd: Object.keys(dustByChain).filter(k => dustByChain[k].length > 0).length * 0.05,
+          endpointCost: endpointPrice,
+          expiresAt: Date.now() + 5 * 60 * 1000, // 5 minutes
+        });
+      } catch (error) {
+        console.error("Error generating sweep quote:", error);
+        return c.json({ error: "Failed to generate sweep quote" }, 500);
+      }
     }
   );
 } else {
   app.post("/api/sweep/quote", async (c) => {
-    return c.json({ message: "Not implemented yet" }, 501);
+    try {
+      const body = await c.req.json();
+      const walletAddress = body.wallet as `0x${string}`;
+      const chains = (body.chains || ["ethereum", "base", "arbitrum", "polygon", "bsc"]) as string[];
+
+      const dustByChain: Record<string, any[]> = {};
+      let totalValueUsd = 0;
+
+      for (const chain of chains) {
+        try {
+          const balances = await getWalletTokenBalancesAlchemy(
+            walletAddress,
+            chain as Exclude<SupportedChain, "solana">
+          );
+          const dustTokens = await filterDustTokens(balances);
+          dustByChain[chain] = dustTokens;
+          totalValueUsd += dustTokens.reduce((sum: number, d: any) => sum + d.usdValue, 0);
+        } catch {
+          dustByChain[chain] = [];
+        }
+      }
+
+      return c.json({
+        wallet: walletAddress,
+        dust: dustByChain,
+        totalValueUsd: totalValueUsd.toFixed(2),
+        sweepableChains: Object.keys(dustByChain).filter(k => dustByChain[k].length > 0),
+        estimatedGasUsd: Object.keys(dustByChain).filter(k => dustByChain[k].length > 0).length * 0.05,
+        expiresAt: Date.now() + 5 * 60 * 1000,
+      });
+    } catch (error) {
+      console.error("Error generating sweep quote:", error);
+      return c.json({ error: "Failed to generate sweep quote" }, 500);
+    }
   });
 }
 
@@ -233,14 +306,118 @@ if (x402Receiver) {
     "/api/sweep/execute",
     sweepPaymentMiddleware(x402Receiver),
     async (c) => {
-      // TODO: Implement sweep execution
-      // This will use the account abstraction layer
-      return c.json({ message: "Not implemented yet" }, 501);
+      try {
+        const body = await c.req.json();
+        const { wallet, quoteId, signature, gasToken } = body;
+
+        if (!wallet || !quoteId || !signature) {
+          return c.json({ error: "Missing required fields: wallet, quoteId, signature" }, 400);
+        }
+
+        // Get the quote from cache
+        const quote = await cacheGet<any>(`quote:${quoteId}`);
+        if (!quote) {
+          return c.json({ error: "Quote not found or expired" }, 404);
+        }
+
+        if (quote.expiresAt < Date.now()) {
+          return c.json({ error: "Quote expired" }, 410);
+        }
+
+        // Create sweep and queue execution
+        const sweepId = randomUUID();
+        const tokens = (quote.tokens || []).filter((t: any) => t.canSweep !== false);
+
+        const job = await addSweepExecuteJob({
+          userId: wallet,
+          sweepId,
+          quoteId,
+          walletAddress: wallet,
+          signature,
+          tokens: tokens.map((t: any) => ({
+            address: String(t.address),
+            chain: String(t.chain),
+            amount: String(t.amount),
+          })),
+          outputToken: quote.destination?.token,
+          outputChain: quote.destination?.chain,
+          gasToken,
+        });
+
+        await cacheSet(`sweep:status:${sweepId}`, {
+          status: "pending",
+          jobId: job.id,
+          createdAt: Date.now(),
+        }, 3600);
+
+        return c.json({
+          sweepId,
+          status: "pending",
+          jobId: job.id,
+          message: "Sweep execution started",
+          statusUrl: `/api/sweep/${sweepId}/status`,
+        });
+      } catch (error) {
+        console.error("Error executing sweep:", error);
+        return c.json({ error: "Failed to execute sweep" }, 500);
+      }
     }
   );
 } else {
   app.post("/api/sweep/execute", async (c) => {
-    return c.json({ message: "Not implemented yet" }, 501);
+    try {
+      const body = await c.req.json();
+      const { wallet, quoteId, signature, gasToken } = body;
+
+      if (!wallet || !quoteId || !signature) {
+        return c.json({ error: "Missing required fields: wallet, quoteId, signature" }, 400);
+      }
+
+      const quote = await cacheGet<any>(`quote:${quoteId}`);
+      if (!quote) {
+        return c.json({ error: "Quote not found or expired" }, 404);
+      }
+
+      if (quote.expiresAt < Date.now()) {
+        return c.json({ error: "Quote expired" }, 410);
+      }
+
+      const sweepId = randomUUID();
+      const tokens = (quote.tokens || []).filter((t: any) => t.canSweep !== false);
+
+      const job = await addSweepExecuteJob({
+        userId: wallet,
+        sweepId,
+        quoteId,
+        walletAddress: wallet,
+        signature,
+        tokens: tokens.map((t: any) => ({
+          address: String(t.address),
+          chain: String(t.chain),
+          amount: String(t.amount),
+        })),
+        outputToken: quote.destination?.token,
+        outputChain: quote.destination?.chain,
+        gasToken,
+      });
+
+      await cacheSet(`sweep:status:${sweepId}`, {
+        status: "pending",
+        jobId: job.id,
+        createdAt: Date.now(),
+      }, 3600);
+
+      return c.json({
+        sweepId,
+        status: "pending",
+        jobId: job.id,
+        message: "Sweep execution started",
+        statusUrl: `/api/sweep/${sweepId}/status`,
+      });
+    } catch (error) {
+      console.error("Error executing sweep:", error);
+      return c.json({ error: "Failed to execute sweep" }, 500);
+    }
   });
 }
 
@@ -251,13 +428,60 @@ if (x402Receiver) {
     "/api/consolidate/execute",
     consolidateExecuteMiddleware(x402Receiver),
     async (c) => {
-      // TODO: Implement consolidation execution
-      return c.json({ message: "Not implemented yet" }, 501);
+      try {
+        const body = await c.req.json();
+        const { planId, userId, userAddress, signature } = body;
+
+        if (!planId || !userAddress) {
+          return c.json({ error: "Missing required fields: planId, userAddress" }, 400);
+        }
+
+        const engine = getConsolidationEngine();
+        const result = await engine.execute({
+          planId,
+          userId: userId || userAddress,
+          userAddress,
+          signature,
+        });
+
+        return c.json(JSON.parse(
+          JSON.stringify(result, (_, value) =>
+            typeof value === "bigint" ? value.toString() : value
+          )
+        ));
+      } catch (error) {
+        console.error("Error executing consolidation:", error);
+        return c.json({ error: "Failed to execute consolidation" }, 500);
+      }
     }
   );
 } else {
   app.post("/api/consolidate/execute", async (c) => {
-    return c.json({ message: "Not implemented yet" }, 501);
+    try {
+      const body = await c.req.json();
+      const { planId, userId, userAddress, signature } = body;
+
+      if (!planId || !userAddress) {
+        return c.json({ error: "Missing required fields: planId, userAddress" }, 400);
+      }
+
+      const engine = getConsolidationEngine();
+      const result = await engine.execute({
+        planId,
+        userId: userId || userAddress,
+        userAddress,
+        signature,
+      });
+
+      return c.json(JSON.parse(
+        JSON.stringify(result, (_, value) =>
+          typeof value === "bigint" ? value.toString() : value
+        )
+      ));
+    } catch (error) {
+      console.error("Error executing consolidation:", error);
+      return c.json({ error: "Failed to execute consolidation" }, 500);
+    }
   });
 }
 

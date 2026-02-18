@@ -4,7 +4,7 @@
  * 💫 Your potential is limitless 🌌
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Sprout, TrendingUp, Clock, Coins } from 'lucide-react';
 
 interface Pool {
@@ -21,24 +21,26 @@ export default function YieldFarmingExample() {
   const [selectedPool, setSelectedPool] = useState<string>('');
   const [stakeAmount, setStakeAmount] = useState('');
   const [stakedPositions, setStakedPositions] = useState<{ [key: string]: { amount: number; timestamp: number; rewards: number } }>({});
+  const [now, setNow] = useState(() => Date.now());
 
-  const pools: Pool[] = [
+  const pools: Pool[] = useMemo(() => [
     { id: 'eth-usdc', name: 'ETH-USDC', token0: 'ETH', token1: 'USDC', apy: 45.5, tvl: 12500000, rewardToken: 'FARM' },
     { id: 'eth-dai', name: 'ETH-DAI', token0: 'ETH', token1: 'DAI', apy: 38.2, tvl: 8900000, rewardToken: 'FARM' },
     { id: 'wbtc-eth', name: 'WBTC-ETH', token0: 'WBTC', token1: 'ETH', apy: 52.3, tvl: 15200000, rewardToken: 'FARM' },
     { id: 'usdc-dai', name: 'USDC-DAI', token0: 'USDC', token1: 'DAI', apy: 18.7, tvl: 22300000, rewardToken: 'FARM' },
-  ];
+  ], []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      
+      const currentTime = Date.now();
+      setNow(currentTime);
       // Calculate rewards for all positions
       setStakedPositions(prevPositions => {
         const updated = { ...prevPositions };
         Object.entries(prevPositions).forEach(([poolId, position]) => {
           const pool = pools.find(p => p.id === poolId);
           if (pool) {
-            const timeElapsed = (Date.now() - position.timestamp) / 1000; // in seconds
+            const timeElapsed = (currentTime - position.timestamp) / 1000; // in seconds
             const rewardRate = (pool.apy / 100) / (365 * 24 * 60 * 60); // per second
             updated[poolId] = {
               ...position,
@@ -62,7 +64,7 @@ export default function YieldFarmingExample() {
     } else {
       newPositions[selectedPool] = {
         amount: parseFloat(stakeAmount),
-        timestamp: Date.now(),
+        timestamp: now,
         rewards: 0
       };
     }
@@ -81,7 +83,7 @@ export default function YieldFarmingExample() {
     const newPositions = { ...stakedPositions };
     if (newPositions[poolId]) {
       newPositions[poolId].rewards = 0;
-      newPositions[poolId].timestamp = Date.now();
+      newPositions[poolId].timestamp = now;
       setStakedPositions(newPositions);
     }
   };
@@ -203,7 +205,7 @@ export default function YieldFarmingExample() {
               const pool = pools.find(p => p.id === poolId);
               if (!pool) return null;
 
-              const stakingDuration = (Date.now() - position.timestamp) / 1000; // in seconds
+              const stakingDuration = (now - position.timestamp) / 1000; // in seconds
               const hours = Math.floor(stakingDuration / 3600);
               const minutes = Math.floor((stakingDuration % 3600) / 60);
               const seconds = Math.floor(stakingDuration % 60);

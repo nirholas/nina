@@ -47,12 +47,9 @@ export function TutorialProgressWidget({
   className = '' 
 }: TutorialProgressWidgetProps) {
   const [stats, setStats] = useState(() => getLearningStats());
-  const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const [achievements, setAchievements] = useState<Achievement[]>(() => getAllAchievements());
 
-  useEffect(() => {
-    setStats(getLearningStats());
-    setAchievements(getAllAchievements());
-  }, []);
+  // Refresh stats when component mounts (already initialized via useState)
 
   if (variant === 'minimal') {
     return (
@@ -376,11 +373,7 @@ interface InProgressListProps {
 }
 
 export function InProgressList({ onTutorialClick, className = '' }: InProgressListProps) {
-  const [tutorialIds, setTutorialIds] = useState<string[]>([]);
-
-  useEffect(() => {
-    setTutorialIds(getTutorialsInProgress());
-  }, []);
+  const [tutorialIds] = useState<string[]>(() => getTutorialsInProgress());
 
   if (tutorialIds.length === 0) {
     return (

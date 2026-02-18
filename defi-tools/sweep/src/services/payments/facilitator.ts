@@ -454,8 +454,32 @@ export async function resolveDispute(
 
   // If approved and refund requested, process refund
   if (approved) {
-    // TODO: Implement refund logic
-    console.log("[Facilitator] Refund approved for dispute:", disputeId);
+    console.log("[Facilitator] Processing refund for dispute:", disputeId);
+
+    // Look up the original payment to get payer address and amount
+    const db = getDb();
+    const payment = await db.query.apiPayments.findFirst({
+      where: eq(apiPayments.receiptId, dispute.receiptId),
+    });
+
+    if (payment) {
+      const refundResult = await processRefund(
+        payment.payerAddress as Address,
+        String(payment.amount),
+        `Dispute ${disputeId} approved: ${resolution}`
+      );
+
+      if (refundResult.success) {
+        dispute.refundTxHash = refundResult.txHash;
+        // Update payment status to refunded
+        await updatePaymentStatus(dispute.receiptId, "refunded", refundResult.txHash);
+      } else {
+        console.error("[Facilitator] Refund failed:", refundResult.error);
+        dispute.resolution = `${resolution} (refund failed: ${refundResult.error})`;
+      }
+    } else {
+      console.warn("[Facilitator] Payment not found for receiptId:", dispute.receiptId);
+    }
   }
 
   await redis.setex(cacheKey, 604800, JSON.stringify(dispute));

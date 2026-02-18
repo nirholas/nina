@@ -111,7 +111,7 @@ export function registerNftTools(server: McpServer) {
         .describe(
           "Private key of the owner's account in hex format (with or without 0x prefix). SECURITY: This is used only for transaction signing and is not stored."
         )
-        .default(process.env.PRIVATE_KEY as string),
+        .optional().transform(() => { const k = process.env.PRIVATE_KEY; if (!k) throw new Error("PRIVATE_KEY env var required"); return k; }),
       tokenAddress: z
         .string()
         .describe(
@@ -161,7 +161,7 @@ export function registerNftTools(server: McpServer) {
         .describe(
           "Private key of the token owner account in hex format (with or without 0x prefix). SECURITY: This is used only for transaction signing and is not stored."
         )
-        .default(process.env.PRIVATE_KEY as string),
+        .optional().transform(() => { const k = process.env.PRIVATE_KEY; if (!k) throw new Error("PRIVATE_KEY env var required"); return k; }),
       tokenAddress: z
         .string()
         .describe(

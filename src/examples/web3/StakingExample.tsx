@@ -19,27 +19,29 @@ interface StakingPool {
 
 export default function StakingExample() {
   const { notify, NotificationArea } = useInlineNotification();
-  const pools: StakingPool[] = [
+  const pools: StakingPool[] = useMemo(() => [
     { id: '1', name: 'Flexible Staking', apy: 5.5, minStake: 0.1, lockPeriod: 0, totalStaked: 1250000 },
     { id: '2', name: '30-Day Lock', apy: 12.5, minStake: 1, lockPeriod: 30, totalStaked: 850000 },
     { id: '3', name: '90-Day Lock', apy: 18.8, minStake: 5, lockPeriod: 90, totalStaked: 2100000 },
     { id: '4', name: '365-Day Lock', apy: 25.0, minStake: 10, lockPeriod: 365, totalStaked: 3500000 },
-  ];
+  ], []);
 
   const [stakeAmount, setStakeAmount] = useState('');
   const [selectedPool, setSelectedPool] = useState('');
   const [stakedPositions, setStakedPositions] = useState<{ [key: string]: { amount: number; timestamp: number; rewards: number } }>({});
+  const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      
+      const currentTime = Date.now();
+      setNow(currentTime);
       // Calculate rewards
       setStakedPositions(prevPositions => {
         const updated = { ...prevPositions };
         Object.entries(prevPositions).forEach(([poolId, position]) => {
           const pool = pools.find(p => p.id === poolId);
           if (pool) {
-            const timeElapsed = (Date.now() - position.timestamp) / 1000;
+            const timeElapsed = (currentTime - position.timestamp) / 1000;
             const rewardRate = (pool.apy / 100) / (365 * 24 * 60 * 60);
             updated[poolId] = {
               ...position,
@@ -69,7 +71,7 @@ export default function StakingExample() {
     } else {
       newPositions[selectedPool] = {
         amount: parseFloat(stakeAmount),
-        timestamp: Date.now(),
+        timestamp: now,
         rewards: 0
       };
     }
@@ -83,7 +85,7 @@ export default function StakingExample() {
     const position = stakedPositions[poolId];
     
     if (pool && position) {
-      const elapsed = (Date.now() - position.timestamp) / (86400000);
+      const elapsed = (now - position.timestamp) / (86400000);
       if (pool.lockPeriod > 0 && elapsed < pool.lockPeriod) {
         notify(`Lock period not complete. ${(pool.lockPeriod - elapsed).toFixed(1)} days remaining.`, 'warning');
         return;
@@ -99,7 +101,7 @@ export default function StakingExample() {
     const newPositions = { ...stakedPositions };
     if (newPositions[poolId]) {
       newPositions[poolId].rewards = 0;
-      newPositions[poolId].timestamp = Date.now();
+      newPositions[poolId].timestamp = now;
       setStakedPositions(newPositions);
     }
   };
@@ -226,7 +228,7 @@ export default function StakingExample() {
               const pool = pools.find(p => p.id === poolId);
               if (!pool) return null;
 
-              const elapsed = (Date.now() - position.timestamp) / 86400000;
+              const elapsed = (now - position.timestamp) / 86400000;
               const isLocked = pool.lockPeriod > 0 && elapsed < pool.lockPeriod;
 
               return (

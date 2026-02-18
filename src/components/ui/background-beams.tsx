@@ -4,7 +4,7 @@
  * ray/light-beam effect behind page content. Uses randomized paths with
  * framer-motion for staggered opacity and stroke animations.
  */
-import React, { useId } from "react";
+import React, { useId, useMemo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
@@ -31,6 +31,10 @@ const BEAM_PATHS = [
 export function BackgroundBeams({ className }: BackgroundBeamsProps) {
   const uid = useId();
   const prefersReducedMotion = usePrefersReducedMotion();
+  const beamDurations = useMemo(
+    () => BEAM_PATHS.map(() => 4 + Math.random() * 4),
+    []
+  );
 
   return (
     <div
@@ -76,13 +80,13 @@ export function BackgroundBeams({ className }: BackgroundBeamsProps) {
                 ? { duration: 0 }
                 : {
                     pathLength: {
-                      duration: 4 + Math.random() * 4,
+                      duration: beamDurations[i],
                       repeat: Infinity,
                       repeatType: "loop",
                       delay: i * 0.3,
                     },
                     opacity: {
-                      duration: 4 + Math.random() * 4,
+                      duration: beamDurations[i],
                       repeat: Infinity,
                       repeatType: "loop",
                       delay: i * 0.3,
