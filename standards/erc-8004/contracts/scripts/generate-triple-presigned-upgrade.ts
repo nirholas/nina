@@ -99,8 +99,18 @@ async function main() {
   // Get MinimalUUPS artifact for upgradeToAndCall
   const minimalUUPSArtifact = await hre.artifacts.readArtifact("MinimalUUPS");
 
-  // Gas settings
-  const gasPrice = parseGwei("20"); // 20 gwei
+  // Gas settings — configurable via GAS_PRICE_GWEI env var, otherwise auto-detected from the network
+  let gasPrice: bigint;
+  if (process.env.GAS_PRICE_GWEI) {
+    gasPrice = parseGwei(process.env.GAS_PRICE_GWEI);
+    console.log(`Using gas price from GAS_PRICE_GWEI env: ${process.env.GAS_PRICE_GWEI} gwei`);
+  } else {
+    const networkGasPrice = await publicClient.getGasPrice();
+    // Add 20% buffer over current network gas price
+    gasPrice = (networkGasPrice * 120n) / 100n;
+    console.log(`Using auto-detected gas price: ${Number(gasPrice) / 1e9} gwei (network: ${Number(networkGasPrice) / 1e9} gwei + 20% buffer)`);
+  }
+  console.log("");
 
   // Encode initialize() calls for each implementation
   const identityInitData = encodeFunctionData({

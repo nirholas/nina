@@ -54,6 +54,16 @@ export const CONTRACT_ADDRESSES: Record<string, {
     reputation: '0x8004BAa17C55a88189AE136b182e5fdA19dE9b63',
     validation: '0x8004Cb1BF31DAf7788923b405b754f57acEB4272',
   },
+  'opbnb-testnet': {
+    identity: '0x8004A818BFB912233c491871b3d84c89A494BD9e',
+    reputation: '0x8004B663056A597Dffe9eCcC1965A193B7388713',
+    validation: '0x8004Cb1BF31DAf7788923b405b754f57acEB4272',
+  },
+  'opbnb-mainnet': {
+    identity: '0x8004A169FB4a3325136EB29fA0ceB6D2e539a432',
+    reputation: '0x8004BAa17C55a88189AE136b182e5fdA19dE9b63',
+    validation: '0x8004Cb1BF31DAf7788923b405b754f57acEB4272',
+  },
   'eth-sepolia': {
     identity: '0x8004A818BFB912233c491871b3d84c89A494BD9e',
     reputation: '0x8004B663056A597Dffe9eCcC1965A193B7388713',

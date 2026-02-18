@@ -105,6 +105,8 @@
   "supported_chains": [
     { "name": "BSC Testnet", "chainId": 97 },
     { "name": "BSC Mainnet", "chainId": 56 },
+    { "name": "opBNB Testnet", "chainId": 5611 },
+    { "name": "opBNB", "chainId": 204 },
     { "name": "Ethereum", "chainId": 1 },
     { "name": "Sepolia", "chainId": 11155111 },
     { "name": "Base Sepolia", "chainId": 84532 },

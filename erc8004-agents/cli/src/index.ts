@@ -36,7 +36,7 @@ program
   .description('Register a new ERC-8004 agent (interactive)')
   .option('-n, --name <name>', 'Agent name')
   .option('-d, --desc <description>', 'Agent description')
-  .option('-c, --chain <chain>', 'Chain (bsc-testnet, bsc-mainnet, eth-sepolia, eth-mainnet)')
+  .option('-c, --chain <chain>', 'Chain (bsc-testnet, bsc-mainnet, opbnb-testnet, opbnb-mainnet, eth-sepolia, eth-mainnet)')
   .option('-k, --key <privateKey>', 'Private key (or set ERC8004_PRIVATE_KEY env)')
   .option('-u, --uri <uri>', 'Agent URI (HTTPS URL or will generate data URI)')
   .action(registerCommand);

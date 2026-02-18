@@ -14,7 +14,11 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js",
+    "start": "node dist/main.js",
+    "start:dev": "npx tsx src/main.ts",
+    "start:simple": "npx tsx examples/simple-agent/index.ts",
+    "start:defi": "npx tsx examples/defi-agent/index.ts",
+    "start:paid": "npx tsx examples/paid-agent/index.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint src/",

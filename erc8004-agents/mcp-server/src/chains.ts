@@ -63,6 +63,28 @@ export const CHAINS: Record<string, ChainConfig> = {
     testnet: false,
   },
 
+  // ─── opBNB ───
+  'opbnb-testnet': {
+    name: 'opBNB Testnet',
+    chainId: 5611,
+    rpcUrl: 'https://opbnb-testnet-rpc.bnbchain.org',
+    explorer: 'https://testnet.opbnbscan.com',
+    currency: { name: 'tBNB', symbol: 'tBNB', decimals: 18 },
+    contracts: { ...TESTNET_CONTRACTS },
+    agentRegistry: `eip155:5611:${TESTNET_CONTRACTS.identity}`,
+    testnet: true,
+  },
+  'opbnb-mainnet': {
+    name: 'opBNB',
+    chainId: 204,
+    rpcUrl: 'https://opbnb-mainnet-rpc.bnbchain.org',
+    explorer: 'https://opbnbscan.com',
+    currency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+    contracts: { ...MAINNET_CONTRACTS },
+    agentRegistry: `eip155:204:${MAINNET_CONTRACTS.identity}`,
+    testnet: false,
+  },
+
   // ─── Ethereum ───
   'ethereum': {
     name: 'Ethereum Mainnet',

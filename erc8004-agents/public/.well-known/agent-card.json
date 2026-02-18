@@ -18,6 +18,8 @@
   "supported_chains": [
     { "name": "BSC Testnet", "chainId": 97, "status": "live" },
     { "name": "BSC Mainnet", "chainId": 56, "status": "live" },
+    { "name": "opBNB", "chainId": 204, "network": "opbnb-mainnet", "status": "live" },
+    { "name": "opBNB Testnet", "chainId": 5611, "network": "opbnb-testnet", "status": "live" },
     { "name": "Ethereum", "chainId": 1, "status": "live" },
     { "name": "Sepolia", "chainId": 11155111, "status": "live" },
     { "name": "Base Sepolia", "chainId": 84532, "status": "planned" },

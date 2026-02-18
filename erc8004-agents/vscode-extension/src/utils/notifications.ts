@@ -73,6 +73,8 @@ export async function pickChain(): Promise<string | undefined> {
   const items: vscode.QuickPickItem[] = [
     { label: 'BSC Testnet', description: 'Chain ID: 97', detail: 'bsc-testnet' },
     { label: 'BSC Mainnet', description: 'Chain ID: 56', detail: 'bsc-mainnet' },
+    { label: 'opBNB Testnet', description: 'Chain ID: 5611', detail: 'opbnb-testnet' },
+    { label: 'opBNB', description: 'Chain ID: 204', detail: 'opbnb-mainnet' },
     { label: 'Ethereum Sepolia', description: 'Chain ID: 11155111', detail: 'eth-sepolia' },
     { label: 'Ethereum Mainnet', description: 'Chain ID: 1', detail: 'eth-mainnet' },
   ];

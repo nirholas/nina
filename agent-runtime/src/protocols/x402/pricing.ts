@@ -5,7 +5,7 @@
  */
 
 import type { X402PricingConfig, TokenConfig } from './types.js';
-import { BSC_TOKENS, BSC_TESTNET_TOKENS } from './types.js';
+import { BSC_TOKENS, BSC_TESTNET_TOKENS, OPBNB_TOKENS, OPBNB_TESTNET_TOKENS } from './types.js';
 import type { PricingConfig } from '../erc8004/types.js';
 
 export class PricingManager {
@@ -87,7 +87,13 @@ export class PricingManager {
    * Resolve a token address from symbol based on chain.
    */
   private resolveTokenAddress(symbol: string): string | undefined {
-    const tokens = this.chainId === 97 ? BSC_TESTNET_TOKENS : BSC_TOKENS;
+    const tokensByChain: Record<number, Record<string, TokenConfig>> = {
+      97: BSC_TESTNET_TOKENS,
+      56: BSC_TOKENS,
+      5611: OPBNB_TESTNET_TOKENS,
+      204: OPBNB_TOKENS,
+    };
+    const tokens = tokensByChain[this.chainId] ?? BSC_TOKENS;
     return tokens[symbol.toUpperCase()]?.address;
   }
 

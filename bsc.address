@@ -1,0 +1,58 @@
+{
+  "projectName": "BNB Chain AI Toolkit",
+  "networks": [
+    {
+      "name": "BSC Mainnet",
+      "chainId": 56,
+      "contracts": [
+        {
+          "name": "ERC-8004 IdentityRegistry",
+          "address": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+          "explorerLink": "https://bscscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+          "description": "On-chain AI agent identity registry — ERC-721 NFTs representing agent identities"
+        },
+        {
+          "name": "ERC-8004 ReputationRegistry",
+          "address": "0x8004BAa17C55a88189AE136b182e5fdA19dE9b63",
+          "explorerLink": "https://bscscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63",
+          "description": "On-chain reputation system for AI agents — feedback scores and reviews"
+        }
+      ]
+    },
+    {
+      "name": "BSC Testnet",
+      "chainId": 97,
+      "contracts": [
+        {
+          "name": "ERC-8004 IdentityRegistry",
+          "address": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+          "explorerLink": "https://testnet.bscscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e",
+          "description": "On-chain AI agent identity registry (testnet)"
+        },
+        {
+          "name": "ERC-8004 ReputationRegistry",
+          "address": "0x8004B663056A597Dffe9eCcC1965A193B7388713",
+          "explorerLink": "https://testnet.bscscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713",
+          "description": "On-chain reputation system for AI agents (testnet)"
+        },
+        {
+          "name": "ERC-8004 ValidationRegistry",
+          "address": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+          "explorerLink": "https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+          "description": "On-chain validation registry for AI agent credentials (testnet)"
+        }
+      ]
+    }
+  ],
+  "additionalChains": "Contracts deployed on 22 chains total — see erc8004-agents/docs/contracts.md for full list",
+  "firstTransaction": {
+    "network": "BSC Testnet",
+    "txHash": "0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962",
+    "explorerLink": "https://testnet.bscscan.com/tx/0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962",
+    "description": "First ERC-8004 contract deployment on BSC Testnet"
+  },
+  "frontendUrl": "https://bnb-chain-toolkit.vercel.app/",
+  "agentCreatorUrl": "https://erc8004.agency/",
+  "mcpWebBuilder": "https://mcp.ucai.tech",
+  "notes": "All contracts use deterministic CREATE2 deployment via SAFE Singleton Factory. All addresses share the 0x8004 vanity prefix. Contracts are verified on all respective block explorers."
+}

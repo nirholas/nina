@@ -797,7 +797,7 @@ Agent 2,Does more,MCP,https://agent2.com</pre>
 
 // ─── CHAIN CONFIGS ───
 const CHAIN_FAMILIES = [
-  { label: 'BNB Chain', chains: ['bsc-testnet','bsc-mainnet'] },
+  { label: 'BNB Chain', chains: ['bsc-testnet','bsc-mainnet','opbnb-testnet','opbnb-mainnet'] },
   { label: 'Ethereum', chains: ['eth-sepolia','eth-mainnet'] },
   { label: 'Base', chains: ['base-sepolia','base-mainnet'] },
   { label: 'Arbitrum', chains: ['arb-sepolia','arb-mainnet'] },
@@ -822,6 +822,8 @@ const MAINNET_CONTRACTS = {
 const CHAINS = {
   'bsc-testnet':    { name:'BSC Testnet',       chainId:97,        chainIdHex:'0x61',       rpcUrl:'https://data-seed-prebsc-1-s1.bnbchain.org:8545', explorer:'https://testnet.bscscan.com',     currency:{name:'tBNB',symbol:'tBNB',decimals:18}, icon:'🟡', testnet:true,  contracts:TESTNET_CONTRACTS, faucet:'https://www.bnbchain.org/en/testnet-faucet' },
   'bsc-mainnet':    { name:'BSC Mainnet',       chainId:56,        chainIdHex:'0x38',       rpcUrl:'https://bsc-dataseed.bnbchain.org',               explorer:'https://bscscan.com',              currency:{name:'BNB',symbol:'BNB',decimals:18},   icon:'🟡', testnet:false, contracts:MAINNET_CONTRACTS },
+  'opbnb-testnet':  { name:'opBNB Testnet',     chainId:5611,      chainIdHex:'0x15eb',     rpcUrl:'https://opbnb-testnet-rpc.bnbchain.org',          explorer:'https://testnet.opbnbscan.com',    currency:{name:'tBNB',symbol:'tBNB',decimals:18}, icon:'🟡', testnet:true,  contracts:TESTNET_CONTRACTS, faucet:'https://www.bnbchain.org/en/testnet-faucet' },
+  'opbnb-mainnet':  { name:'opBNB',             chainId:204,       chainIdHex:'0xcc',       rpcUrl:'https://opbnb-mainnet-rpc.bnbchain.org',          explorer:'https://opbnbscan.com',            currency:{name:'BNB',symbol:'BNB',decimals:18},   icon:'🟡', testnet:false, contracts:MAINNET_CONTRACTS },
   'eth-sepolia':    { name:'Ethereum Sepolia',  chainId:11155111,  chainIdHex:'0xaa36a7',   rpcUrl:'https://rpc.sepolia.org',                         explorer:'https://sepolia.etherscan.io',      currency:{name:'SepoliaETH',symbol:'ETH',decimals:18}, icon:'🔷', testnet:true, contracts:TESTNET_CONTRACTS, faucet:'https://sepoliafaucet.com' },
   'eth-mainnet':    { name:'Ethereum Mainnet',  chainId:1,         chainIdHex:'0x1',        rpcUrl:'https://eth.llamarpc.com',                        explorer:'https://etherscan.io',              currency:{name:'ETH',symbol:'ETH',decimals:18},   icon:'🔷', testnet:false, contracts:MAINNET_CONTRACTS },
   'base-sepolia':   { name:'Base Sepolia',      chainId:84532,     chainIdHex:'0x14a34',    rpcUrl:'https://sepolia.base.org',                        explorer:'https://sepolia.basescan.org',      currency:{name:'ETH',symbol:'ETH',decimals:18},   icon:'🔵', testnet:true,  contracts:TESTNET_CONTRACTS, faucet:'https://www.coinbase.com/faucets/base-ethereum-goerli-faucet' },

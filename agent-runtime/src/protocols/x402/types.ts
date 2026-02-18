@@ -162,3 +162,29 @@ export const BSC_TESTNET_TOKENS: Record<string, TokenConfig> = {
     chainId: 97,
   },
 };
+
+// ─── Common token addresses on opBNB ───────────────────────────────
+
+export const OPBNB_TOKENS: Record<string, TokenConfig> = {
+  USDT: {
+    symbol: 'USDT',
+    address: '0x9e5AAC1Ba1a2e6aEd6b32689DFcF62A509Ca96f3',
+    decimals: 18,
+    chainId: 204,
+  },
+  FDUSD: {
+    symbol: 'FDUSD',
+    address: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb',
+    decimals: 18,
+    chainId: 204,
+  },
+};
+
+export const OPBNB_TESTNET_TOKENS: Record<string, TokenConfig> = {
+  USDT: {
+    symbol: 'USDT',
+    address: '0x337610d27c682E347C9cD60BD4b3b107C9d34dDd',
+    decimals: 18,
+    chainId: 5611,
+  },
+};

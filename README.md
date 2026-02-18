@@ -111,6 +111,61 @@ Add to your `claude_desktop_config.json`:
 
 ---
 
+## 🔗 Onchain Proof
+
+ERC-8004 contracts are deployed and verified on **BSC Mainnet**, **BSC Testnet**, and **20 additional chains** (22 total).
+
+### BSC Mainnet (Chain ID: 56)
+
+| Contract | Address | Explorer |
+|----------|---------|----------|
+| **IdentityRegistry** | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` | [BscScan →](https://bscscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432) |
+| **ReputationRegistry** | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` | [BscScan →](https://bscscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63) |
+
+### BSC Testnet (Chain ID: 97)
+
+| Contract | Address | Explorer |
+|----------|---------|----------|
+| **IdentityRegistry** | `0x8004A818BFB912233c491871b3d84c89A494BD9e` | [BscScan →](https://testnet.bscscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e) |
+| **ReputationRegistry** | `0x8004B663056A597Dffe9eCcC1965A193B7388713` | [BscScan →](https://testnet.bscscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713) |
+| **ValidationRegistry** | `0x8004Cb1BF31DAf7788923b405b754f57acEB4272` | [BscScan →](https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272) |
+
+> 📋 **First deployment TX:** [`0xfc55d83d...dc1962`](https://testnet.bscscan.com/tx/0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962) on BSC Testnet
+>
+> All addresses share the deterministic `0x8004` vanity prefix (CREATE2 via SAFE Singleton Factory).
+> Full 22-chain deployment list: [`erc8004-agents/docs/contracts.md`](erc8004-agents/docs/contracts.md) | Machine-readable: [`bsc.address`](bsc.address)
+
+---
+
+## 🏆 Hackathon
+
+Built for the **BNB Chain "Good Vibes Only: OpenClaw Edition"** hackathon — Track 1: Agent.
+
+> **[Live Demo →](https://bnb-chain-toolkit.vercel.app/)**
+
+### What Makes This Unique
+
+| # | Feature | Details |
+|---|---------|---------|
+| 1 | **Comprehensive Coverage** | No other project covers the entire BNB Chain AI stack |
+| 2 | **Production-Ready MCP** | 6 servers, 900+ tools, ready for Claude and other LLMs |
+| 3 | **Original Standards** | ERC-8004 (agent trust) and W3AG (accessibility) |
+| 4 | **Real DeFi Tooling** | Dust sweeper, market data, wallet toolkit |
+| 5 | **72+ Specialized Agents** | Purpose-built for every major BNB protocol |
+| 6 | **30+ Languages** | Global accessibility with 30+ translations |
+
+### Hackathon Submission Docs
+
+| Document | Description |
+|----------|-------------|
+| [`bsc.address`](bsc.address) | Deployed contract addresses (JSON) |
+| [`docs/PROJECT.md`](docs/PROJECT.md) | Problem, solution, impact, roadmap |
+| [`docs/TECHNICAL.md`](docs/TECHNICAL.md) | Architecture, setup, demo guide |
+| [`docs/AI_BUILD_LOG.md`](docs/AI_BUILD_LOG.md) | How AI was used to build this |
+| [`docs/EXTRAS.md`](docs/EXTRAS.md) | Demo video, slides, live links |
+
+---
+
 ## 🏗️ Architecture
 
 ```
@@ -335,25 +390,6 @@ bun run build
 | [FAQ](docs/faq.md) | Everyone | Common questions |
 | [Troubleshooting](docs/troubleshooting.md) | Everyone | Problem solving |
 | [Awesome List](docs/awesome.md) | Everyone | Curated resources |
-
----
-
-## 🏆 Hackathon
-
-Built for the **BNB Chain "Good Vibes Only: OpenClaw Edition"** hackathon — Track 1: Agent.
-
-> **[Live Demo →](https://bnb-chain-toolkit.vercel.app/)**
-
-### What Makes This Unique
-
-| # | Feature | Details |
-|---|---------|---------|
-| 1 | **Comprehensive Coverage** | No other project covers the entire BNB Chain AI stack |
-| 2 | **Production-Ready MCP** | 6 servers, 900+ tools, ready for Claude and other LLMs |
-| 3 | **Original Standards** | ERC-8004 (agent trust) and W3AG (accessibility) |
-| 4 | **Real DeFi Tooling** | Dust sweeper, market data, wallet toolkit |
-| 5 | **72+ Specialized Agents** | Purpose-built for every major BNB protocol |
-| 6 | **30+ Languages** | Global accessibility with 30+ translations |
 
 ---
 
