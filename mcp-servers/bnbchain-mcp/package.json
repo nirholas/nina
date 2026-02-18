@@ -73,6 +73,8 @@
     "access": "public"
   },
   "overrides": {
-    "elliptic": ">=6.6.2"
+    "elliptic": ">=6.6.1",
+    "esbuild": ">=0.25.0",
+    "fast-xml-parser": ">=4.5.3"
   }
 }
