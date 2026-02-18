@@ -2,7 +2,7 @@ services:
   agent:
     build: .
     environment:
-      - PRIVATE_KEY=${PRIVATE_KEY}
+      - PRIVATE_KEY=${PRIVATE_KEY:?PRIVATE_KEY must be set}
       - CHAIN=${CHAIN:-bsc-testnet}
       - PORT=${PORT:-3000}
       - DEV_MODE=${DEV_MODE:-false}
@@ -20,7 +20,7 @@ services:
   analyst:
     build: .
     environment:
-      - PRIVATE_KEY=${ANALYST_PRIVATE_KEY}
+      - PRIVATE_KEY=${ANALYST_PRIVATE_KEY:?ANALYST_PRIVATE_KEY must be set}
       - CHAIN=${CHAIN:-bsc-testnet}
       - PORT=3001
     ports:
@@ -30,7 +30,7 @@ services:
   trader:
     build: .
     environment:
-      - PRIVATE_KEY=${TRADER_PRIVATE_KEY}
+      - PRIVATE_KEY=${TRADER_PRIVATE_KEY:?TRADER_PRIVATE_KEY must be set}
       - CHAIN=${CHAIN:-bsc-testnet}
       - PORT=3002
     ports:

@@ -55,8 +55,8 @@ export default function AIAssistant({ onLog }: AIAssistantProps) {
       if (result.explanation) {
         onLog('info', `AI: ${result.explanation}`);
       }
-    } catch (error: any) {
-      onLog('error', `AI generation failed: ${error.message}`);
+    } catch (error: unknown) {
+      onLog('error', `AI generation failed: ${error instanceof Error ? error.message : String(error)}`);
       setResponse('');
     } finally {
       setIsLoading(false);
@@ -76,8 +76,8 @@ export default function AIAssistant({ onLog }: AIAssistantProps) {
       const result = await explainCode({ code: activeFile.content });
       setResponse(result.explanation);
       onLog('success', 'Code explanation generated!');
-    } catch (error: any) {
-      onLog('error', `AI explanation failed: ${error.message}`);
+    } catch (error: unknown) {
+      onLog('error', `AI explanation failed: ${error instanceof Error ? error.message : String(error)}`);
       setResponse('');
     } finally {
       setIsLoading(false);
@@ -97,8 +97,8 @@ export default function AIAssistant({ onLog }: AIAssistantProps) {
       const result = await generateTests({ code: activeFile.content });
       setResponse(result.tests);
       onLog('success', 'Test suite generated!');
-    } catch (error: any) {
-      onLog('error', `Test generation failed: ${error.message}`);
+    } catch (error: unknown) {
+      onLog('error', `Test generation failed: ${error instanceof Error ? error.message : String(error)}`);
       setResponse('');
     } finally {
       setIsLoading(false);

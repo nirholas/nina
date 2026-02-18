@@ -150,3 +150,17 @@ screenshot*
 *.p12
 *.pfx
 *.keystore
+
+# Backup files
+*.bak
+
+# Gradle build cache
+.gradle/
+
+# Backup files
+*.bak
+*.orig
+
+# Test reports
+**/playwright-report/
+**/test-results/

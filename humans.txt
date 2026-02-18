@@ -7,7 +7,7 @@ From: Earth
 Name: BNB Chain AI Toolkit
 Repository: https://github.com/nirholas/bnb-chain-toolkit
 Description: The most comprehensive open-source AI toolkit for BNB Chain
-Version: 2.0.0
+Version: 0.1.0
 Last update: 2026-02-11
 Language: English
 License: MIT

@@ -17,7 +17,6 @@ COPY . .
 RUN bun run build
 
 # Production stage
-# Production stage
 FROM nginx:1-alpine
 
 # Copy custom nginx config

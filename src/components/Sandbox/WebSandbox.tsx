@@ -758,7 +758,7 @@ setInterval(() => {
 export default function WebSandbox({
   initialFiles = DEFAULT_FILES,
   title = 'Web Sandbox',
-  _description,
+  description: _description,
   readOnly = false,
   showHeader = true,
   defaultLayout = 'horizontal'
@@ -1080,7 +1080,7 @@ export default function WebSandbox({
     });
     
     editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyF, () => {
-      setSearchOpen(true);
+      _setSearchOpen(true);
     });
   };
   

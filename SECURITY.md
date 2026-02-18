@@ -10,13 +10,14 @@ If you discover a security issue:
 
 1. **DO NOT** open a public GitHub issue
 2. Report via [GitHub Security Advisories](https://github.com/nirholas/bnb-chain-toolkit/security/advisories/new) (preferred)
-3. Or email the maintainer directly
+3. Or email the maintainer directly at **security@bnb-chain-toolkit.vercel.app**
 4. Include:
    - Description of the vulnerability
    - Steps to reproduce
    - Potential impact
    - Suggested fix (if any)
 5. Allow reasonable time for a fix before public disclosure
+6. We will acknowledge receipt within **48 hours** and aim to provide a fix or mitigation within **7 days**
 
 ## Security Considerations
 

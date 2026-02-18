@@ -1,10 +1,9 @@
 {
   "name": "bnb-chain-toolkit",
-  "version": "0.1.0",
+  "version": "2.0.0",
 "description": "BNB Chain AI Toolkit - 78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain and 60+ networks. Built by nich.",
   "author": {
     "name": "nich (nirholas)",
-    "email": "nich@bnb-chain-toolkit.vercel.app",
     "url": "https://github.com/nirholas"
   },
   "contributors": [
@@ -36,9 +35,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --max-warnings 650",
-    "lint:fix": "eslint . --fix --max-warnings 650",
-    "test": "vitest",
+    "lint": "eslint . --max-warnings 100",
+    "lint:fix": "eslint . --fix --max-warnings 100",
+    "test": "vitest run",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "test:locale": "vitest run tests/locales.test.ts",

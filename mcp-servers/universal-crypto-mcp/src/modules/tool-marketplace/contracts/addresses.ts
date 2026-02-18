@@ -23,7 +23,10 @@ export interface ContractAddresses {
   usdsToken: `0x${string}`;
 }
 
-// TODO(nich): Update with deployed addresses
+// WARNING: Marketplace contracts are not yet deployed.
+// These are placeholder addresses — do NOT use in production until replaced with real deployments.
+const PLACEHOLDER_ADDRESS = '0x40252CFDF8B20Ed757D61ff157719F33Ec332402' as const;
+
 export const CONTRACT_ADDRESSES: Record<ChainId, ContractAddresses> = {
   // Arbitrum One (Mainnet)
   42161: {
@@ -78,6 +81,13 @@ export function getContractAddresses(chainId: ChainId): ContractAddresses {
   const addresses = CONTRACT_ADDRESSES[chainId];
   if (!addresses) {
     throw new Error(`Unsupported chain ID: ${chainId}`);
+  }
+  // Guard against using undeployed placeholder addresses
+  if (addresses.toolRegistry === PLACEHOLDER_ADDRESS) {
+    throw new Error(
+      `Tool marketplace contracts are not yet deployed on ${getChainName(chainId)}. ` +
+      `Update addresses.ts with real contract addresses before use.`
+    );
   }
   return addresses;
 }

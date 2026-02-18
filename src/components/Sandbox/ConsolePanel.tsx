@@ -145,7 +145,7 @@ export default function ConsolePanel({ logs, onClear }: ConsolePanelProps) {
           {filterOptions.map(option => (
             <button
               key={option.value}
-              onClick={() => setFilter(option.value as any)}
+              onClick={() => setFilter(option.value as typeof filter)}
               className={`px-2 py-1 text-xs rounded flex items-center gap-1 ${
                 filter === option.value
                   ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'

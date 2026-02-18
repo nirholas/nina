@@ -71,7 +71,7 @@ export default function CodeSnippetManager({
           text: snippet.description,
           url: window.location.href
         });
-    } catch (_err) {
+      } catch (_err) {
         console.log('Share cancelled');
       }
     } else {

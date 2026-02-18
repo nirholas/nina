@@ -82,24 +82,11 @@ function jsonrpcRequest(method: string, params?: Record<string, unknown>) {
 // Users can also add custom endpoints.
 
 export const DEFAULT_ENDPOINTS: MCPServerEndpoint[] = [
-  {
-    id: 'bnbchain-local',
-    name: 'BNB Chain MCP (Local)',
-    url: 'http://localhost:3001/mcp',
-    description: 'Local bnbchain-mcp server — run: npx @nirholas/bnb-chain-mcp@latest --http',
-  },
-  {
-    id: 'universal-local',
-    name: 'Universal Crypto MCP (Local)',
-    url: 'http://localhost:3002/mcp',
-    description: 'Local universal-crypto-mcp — run: npx @nirholas/universal-crypto-mcp --http',
-  },
-  {
-    id: 'agenti-local',
-    name: 'Agenti (Local)',
-    url: 'http://localhost:3003/mcp',
-    description: 'Local agenti server — run: npx @nirholas/agenti --http',
-  },
+  // Add your deployed MCP server endpoints here, or use the UI to add custom endpoints.
+  // For local development, start your MCP server and add it manually:
+  //   BNB Chain MCP:       npx @nirholas/bnb-chain-mcp@latest --http  (default: http://localhost:3001/mcp)
+  //   Universal Crypto MCP: npx @nirholas/universal-crypto-mcp --http  (default: http://localhost:3002/mcp)
+  //   Agenti:               npx @nirholas/agenti --http               (default: http://localhost:3003/mcp)
 ];
 
 // ─── Hook ────────────────────────────────────────────────────────────────────

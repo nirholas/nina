@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.nirholas/defi-agents",
-  "title": "DeFi Agents Library",
-  "description": "AI Agents library for DeFi, trading, portfolio management, yield optimization, and blockchain automation. Index of specialized agents.",
+  "name": "io.github.nirholas/bnb-chain-toolkit",
+  "title": "BNB Chain AI Toolkit",
+  "description": "78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain and 60+ networks.",
   "license": "MIT",
   "authors": [
     {
@@ -11,13 +11,13 @@
     }
   ],
   "repository": {
-    "url": "https://github.com/nirholas/defi-agents",
+    "url": "https://github.com/nirholas/bnb-chain-toolkit",
     "source": "github"
   },
-  "version": "1.42.0",
+  "version": "0.1.0",
   "links": {
-    "homepage": "https://github.com/nirholas/defi-agents",
-    "bugs": "https://github.com/nirholas/defi-agents/issues",
+    "homepage": "https://bnb-chain-toolkit.vercel.app/",
+    "bugs": "https://github.com/nirholas/bnb-chain-toolkit/issues",
     "npm": "https://www.npmjs.com/package/@nirholas/ai-agents-library"
   },
   "icons": [
@@ -30,7 +30,7 @@
     {
       "registryType": "npm",
       "identifier": "@nirholas/ai-agents-library",
-      "version": "1.42.0",
+      "version": "0.1.0",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"

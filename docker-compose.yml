@@ -12,7 +12,7 @@ services:
       - "3000:80"
     environment:
       - NODE_ENV=production
-      - VITE_API_URL=http://localhost:3001/api
+      - VITE_API_URL=${VITE_API_URL:?Set VITE_API_URL to your production backend URL}
     depends_on:
       - backend
     restart: unless-stopped
@@ -37,7 +37,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - CORS_ORIGIN=http://localhost:3000
+      - CORS_ORIGIN=${CORS_ORIGIN:?Set CORS_ORIGIN to your production frontend URL}
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
@@ -52,7 +52,9 @@ services:
   redis:
     image: redis:7-alpine
     # Security: Bind to localhost only and require password
-    command: redis-server --requirepass ${REDIS_PASSWORD:-changeme} --bind 127.0.0.1
+    # IMPORTANT: Set REDIS_PASSWORD in your environment — server will not start without it
+    command: >-
+      sh -c 'if [ -z "$REDIS_PASSWORD" ]; then echo "ERROR: REDIS_PASSWORD must be set" && exit 1; fi && redis-server --requirepass "$REDIS_PASSWORD" --bind 127.0.0.1'
     ports:
       - "127.0.0.1:6379:6379"
     volumes:

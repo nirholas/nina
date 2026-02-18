@@ -51,9 +51,17 @@ interface Log {
   timestamp: number;
 }
 
+interface AbiItem {
+  type: string;
+  name?: string;
+  inputs?: { name: string; type: string }[];
+  outputs?: { name: string; type: string }[];
+  stateMutability?: string;
+}
+
 interface DeployedContract {
   address: string;
-  abi: any[];
+  abi: AbiItem[];
   network: string;
   transactionHash: string;
 }
@@ -79,7 +87,7 @@ export default function InteractiveSandbox() {
   
   const [isCompiling, setIsCompiling] = useState(false);
   const [isDeploying, setIsDeploying] = useState(false);
-  const [compiledData, setCompiledData] = useState<any>(null);
+  const [compiledData, setCompiledData] = useState<{ bytecode: string; abi: Record<string, unknown>[]; name: string; allContracts: unknown[] } | null>(null);
   const [deployedContract, setDeployedContract] = useState<DeployedContract | null>(null);
   const [logs, setLogs] = useState<Log[]>([]);
   const [solcVersion, setSolcVersion] = useState('0.8.20');
@@ -89,7 +97,7 @@ export default function InteractiveSandbox() {
   const previewTimer = useRef<number | null>(null);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
-  const editorRef = useRef<any>(null);
+  const editorRef = useRef<unknown>(null);
   const workspace = getCurrentWorkspace();
   const activeFile = getActiveFile();
 
@@ -142,7 +150,7 @@ export default function InteractiveSandbox() {
     }, 300);
   };
 
-  const handleEditorMount = (editor: any) => {
+  const handleEditorMount = (editor: unknown) => {
     editorRef.current = editor;
   };
 
@@ -202,8 +210,8 @@ export default function InteractiveSandbox() {
       if (mainContract.gasEstimates) {
         addLog('info', `Gas estimate: ${mainContract.gasEstimates.creation.totalCost} (deployment)`);
       }
-    } catch (error: any) {
-      addLog('error', `Compilation failed: ${error.message}`);
+    } catch (error: unknown) {
+      addLog('error', `Compilation failed: ${error instanceof Error ? error.message : String(error)}`);
       setCompiledData(null);
     } finally {
       setIsCompiling(false);
@@ -278,11 +286,11 @@ export default function InteractiveSandbox() {
       }
 
       setActivePanel('interaction');
-    } catch (error: any) {
-      if (error.code === 'ACTION_REJECTED') {
+    } catch (error: unknown) {
+      if (error instanceof Error && 'code' in error && (error as { code: string }).code === 'ACTION_REJECTED') {
         addLog('warning', 'Transaction rejected by user');
       } else {
-        addLog('error', `Deployment failed: ${error.message}`);
+        addLog('error', `Deployment failed: ${error instanceof Error ? error.message : String(error)}`);
       }
     } finally {
       setIsDeploying(false);

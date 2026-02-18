@@ -10,8 +10,8 @@ const getTranslateUrl = () => {
     // In production, use Vercel serverless function
     return '/api/translate';
   }
-  // In development, use local Express server
-  return (import.meta.env.VITE_API_URL || 'http://localhost:3001/api') + '/translate';
+  // In development, use local Express server (or relative path if env not set)
+  return (import.meta.env.VITE_API_URL || '/api') + '/translate';
 };
 
 const CACHE_KEY = 'bnb-toolkit-translations-cache';

@@ -18,10 +18,18 @@ import {
 import { useWalletStore } from '@/stores/walletStore';
 
 
+interface AbiItem {
+  type: string;
+  name?: string;
+  inputs?: { name: string; type: string }[];
+  outputs?: { name: string; type: string }[];
+  stateMutability?: string;
+}
+
 interface ContractInteractionProps {
   contract: {
     address: string;
-    abi: any[];
+    abi: AbiItem[];
     network: string;
     transactionHash: string;
   } | null;
@@ -30,8 +38,8 @@ interface ContractInteractionProps {
 
 interface FunctionCall {
   name: string;
-  inputs: any[];
-  outputs: any[];
+  inputs: { name: string; type: string }[];
+  outputs: { name: string; type: string }[];
   stateMutability: string;
 }
 
@@ -39,19 +47,19 @@ export default function ContractInteraction({ contract, onLog }: ContractInterac
   const { provider } = useWalletStore();
   const [functions, setFunctions] = useState<FunctionCall[]>([]);
   const [expandedFunction, setExpandedFunction] = useState<string | null>(null);
-  const [inputValues, setInputValues] = useState<Record<string, any>>({});
-  const [results, setResults] = useState<Record<string, any>>({});
+  const [inputValues, setInputValues] = useState<Record<string, string>>({});
+  const [results, setResults] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     if (contract?.abi) {
       const funcs = contract.abi
-        .filter((item: any) => item.type === 'function')
-        .map((item: any) => ({
-          name: item.name,
+        .filter((item: AbiItem) => item.type === 'function')
+        .map((item: AbiItem) => ({
+          name: item.name || '',
           inputs: item.inputs || [],
           outputs: item.outputs || [],
-          stateMutability: item.stateMutability
+          stateMutability: item.stateMutability || 'nonpayable'
         }));
       setFunctions(funcs);
     }
@@ -79,7 +87,7 @@ export default function ContractInteraction({ contract, onLog }: ContractInterac
       const contractInstance = new ethers.Contract(contract.address, contract.abi, signer);
 
       // Collect input values
-      const args = func.inputs.map((input: any) => {
+      const args = func.inputs.map((input: { name: string; type: string }) => {
         const value = inputValues[`${func.name}_${input.name}`] || '';
         // Try to parse the value appropriately
         if (input.type.includes('uint') || input.type.includes('int')) {
@@ -90,11 +98,11 @@ export default function ContractInteraction({ contract, onLog }: ContractInterac
 
       onLog('info', `Calling ${func.name}(${args.join(', ')})...`);
 
-      let result: any;
+      let result: unknown;
       if (func.stateMutability === 'view' || func.stateMutability === 'pure') {
         // Read-only call
         result = await contractInstance[func.name](...args);
-        const resultStr = result != null ? String(result) : 'void';
+        const resultStr = result !== null && result !== undefined ? String(result) : 'void';
         setResults(prev => ({ ...prev, [key]: resultStr }));
         onLog('success', `${func.name} returned: ${resultStr}`);
       } else {
@@ -108,9 +116,10 @@ export default function ContractInteraction({ contract, onLog }: ContractInterac
         }));
         onLog('success', `Transaction confirmed: ${tx.hash}`);
       }
-    } catch (error: any) {
-      onLog('error', `${func.name} failed: ${error.message}`);
-      setResults(prev => ({ ...prev, [key]: `Error: ${error.message}` }));
+    } catch (error: unknown) {
+      const msg = error instanceof Error ? error.message : String(error);
+      onLog('error', `${func.name} failed: ${msg}`);
+      setResults(prev => ({ ...prev, [key]: `Error: ${msg}` }));
     } finally {
       setLoading(prev => ({ ...prev, [key]: false }));
     }
@@ -214,7 +223,7 @@ export default function ContractInteraction({ contract, onLog }: ContractInterac
                     {/* Inputs */}
                     {func.inputs.length > 0 && (
                       <div className="mb-4 space-y-2">
-                        {func.inputs.map((input: any, idx: number) => (
+                        {func.inputs.map((input: { name: string; type: string }, idx: number) => (
                           <div key={idx}>
                             <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                               {input.name || `param${idx}`}
