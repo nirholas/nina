@@ -53,7 +53,7 @@ const faqs: FAQItem[] = [
   {
     question: "What is BNB Chain AI Toolkit?",
     answer:
-      "BNB Chain AI Toolkit is an open-source collection of 72+ AI agent definitions, 6 Model Context Protocol (MCP) servers, and 900+ composable tools designed for the BNB Chain ecosystem and 60+ other blockchain networks. It includes market data feeds (662K+ news articles), a gasless Dust Sweeper, a 57-tool offline wallet toolkit, and two open standards (ERC-8004 and W3AG). It enables AI assistants like Claude, GPT, and Gemini to interact with DeFi protocols, manage wallets, analyze market data, and execute on-chain operations out of the box.",
+      "BNB Chain AI Toolkit is an open-source collection of 78 AI agent definitions, 6 Model Context Protocol (MCP) servers, and 900+ composable tools designed for the BNB Chain ecosystem and 60+ other blockchain networks. It includes market data feeds (662K+ news articles), a gasless Dust Sweeper, a 57-tool offline wallet toolkit, and two open standards (ERC-8004 and W3AG). It enables AI assistants like Claude, GPT, and Gemini to interact with DeFi protocols, manage wallets, analyze market data, and execute on-chain operations out of the box.",
     category: "general",
   },
   {
@@ -83,7 +83,7 @@ const faqs: FAQItem[] = [
   {
     question: "What AI agents are included?",
     answer:
-      "The toolkit includes 72+ agent definitions in two categories: 30 BNB Chain-specific agents (PancakeSwap, Venus Protocol, Lista DAO, Thena, Alpaca Finance, BNB Staking, opBNB, Greenfield, BSC Whale Tracker, MEV Gas Expert, and more) plus 42 general DeFi agents (Airdrop Hunter, MEV Protection Advisor, IL Calculator, DEX Route Optimizer, Yield Analyst, Risk Scoring Engine, Token Unlock Tracker, and more). Each agent is a portable JSON definition that works in any compatible AI framework.",
+      "The toolkit includes 78 agent definitions in two categories: 30 BNB Chain-specific agents (PancakeSwap, Venus Protocol, Lista DAO, Thena, Alpaca Finance, BNB Staking, opBNB, Greenfield, BSC Whale Tracker, MEV Gas Expert, and more) plus 42 general DeFi agents (Airdrop Hunter, MEV Protection Advisor, IL Calculator, DEX Route Optimizer, Yield Analyst, Risk Scoring Engine, Token Unlock Tracker, and more). Each agent is a portable JSON definition that works in any compatible AI framework.",
     category: "agents",
   },
   {
@@ -223,7 +223,7 @@ export default function FAQPage() {
   useSEO({
     title: "FAQ",
     description:
-      "Frequently asked questions about BNB Chain AI Toolkit — 72+ agents, 6 MCP servers, 900+ tools, ERC-8004, W3AG, and how to contribute.",
+      "Frequently asked questions about BNB Chain AI Toolkit — 78 agents, 6 MCP servers, 900+ tools, ERC-8004, W3AG, and how to contribute.",
     path: "/faq",
   });
 

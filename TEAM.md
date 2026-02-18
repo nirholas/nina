@@ -10,7 +10,7 @@
 
 ## About
 
-This project was built as a solo effort — from architecture design to implementation, documentation, and deployment. Every component (72+ agents, 6 MCP servers, market data, DeFi tools, wallets, and standards) was designed and built by nich.
+This project was built as a solo effort — from architecture design to implementation, documentation, and deployment. Every component (78 agents, 6 MCP servers, market data, DeFi tools, wallets, and standards) was designed and built by nich.
 
 ---
 

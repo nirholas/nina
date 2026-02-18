@@ -168,11 +168,6 @@ export default function FullStackPlayground({
     }
   };
 
-  // Update live preview
-  useEffect(() => {
-    updatePreview();
-  }, [files, contractState, contractAddress]);
-
   const updatePreview = () => {
     const htmlFile = files.find(f => f.language === 'html');
     const cssFile = files.find(f => f.language === 'css');
@@ -228,6 +223,11 @@ export default function FullStackPlayground({
 
     setPreviewContent(content);
   };
+
+  // Update live preview
+  useEffect(() => {
+    updatePreview();
+  }, [files, contractState, contractAddress]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Listen for console messages from iframe
   useEffect(() => {

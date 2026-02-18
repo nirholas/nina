@@ -61,7 +61,7 @@ const docCategories: DocCategory[] = [
     id: "agents",
     title: "AI Agents",
     description:
-      "72+ agent definitions — 30 for BNB Chain protocols (PancakeSwap, Venus, Lista DAO, Thena, Alpaca) + 42 general DeFi agents.",
+      "78 agent definitions — 30 for BNB Chain protocols (PancakeSwap, Venus, Lista DAO, Thena, Alpaca) + 42 general DeFi agents.",
     icon: <Bot className="w-6 h-6" />,
     articleCount: 12,
     highlight: "Portable JSON format",
@@ -131,7 +131,7 @@ const docCategories: DocCategory[] = [
 
 const quickLinks = [
   { title: "Connect MCP to Claude Desktop", description: "Add bnbchain-mcp to your Claude config in 2 minutes", link: "/docs/mcp-servers", icon: <Terminal className="w-5 h-5" /> },
-  { title: "Browse All 72+ Agents", description: "PancakeSwap, Venus, Whale Tracker, Security Auditor, and 68 more", link: "/docs/agents", icon: <Bot className="w-5 h-5" /> },
+  { title: "Browse All 78 Agents", description: "PancakeSwap, Venus, Whale Tracker, Security Auditor, and 68 more", link: "/docs/agents", icon: <Bot className="w-5 h-5" /> },
   { title: "Generate MCP from ABI", description: "Use ucai to create custom tools from any smart contract ABI", link: "/docs/mcp-servers", icon: <Code2 className="w-5 h-5" /> },
   { title: "ERC-8004 Standard", description: "On-chain identity, reputation, and validation registries for AI agents", link: "/docs/standards", icon: <Shield className="w-5 h-5" /> },
   { title: "Dust Sweeper Setup", description: "Consolidate small balances with gasless ERC-4337 transactions", link: "/docs/defi-tools", icon: <Wrench className="w-5 h-5" /> },

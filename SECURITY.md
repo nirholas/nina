@@ -53,6 +53,86 @@ If you discover a security issue:
 - Never transmits private keys over the network
 - Verify wallet operations independently before trusting them with significant funds
 
+## Security Controls
+
+### CORS Configuration
+
+All HTTP servers restrict cross-origin requests. By default, only same-origin requests are allowed in production. Configure allowed origins via environment variables:
+
+| Component | Environment Variable | Default |
+|-----------|---------------------|---------|
+| Agent Runtime | `CORS_ORIGINS` | Same-origin (wildcard only in dev mode) |
+| Translate API | `CORS_ORIGIN` | No cross-origin allowed |
+| BNBChain MCP | `CORS_ORIGINS` | Same-origin |
+| Universal Crypto MCP | `CORS_ORIGINS` | Same-origin |
+| Agenti MCP | `CORS_ORIGINS` | Same-origin |
+| Search Service | `CORS_ORIGINS` | Same-origin |
+
+Set comma-separated origins for multiple domains:
+```bash
+CORS_ORIGINS="https://app.example.com,https://admin.example.com"
+```
+
+### Content Security Policy (CSP)
+
+The nginx configuration enforces a strict CSP:
+- `default-src 'self'` — Only same-origin resources
+- `script-src 'self'` — No inline scripts or `eval()`
+- `style-src 'self' 'unsafe-inline'` — Inline styles only for framework compatibility
+- `img-src 'self' data: https:` — Images from same-origin, data URIs, and HTTPS
+- `connect-src 'self' https:` — API calls to same-origin and HTTPS endpoints
+- `Permissions-Policy` restricts camera, microphone, and geolocation
+- `Referrer-Policy: strict-origin-when-cross-origin`
+
+### Rate Limiting
+
+The server applies rate limiting on all routes. In production, rate limiters validate `X-Forwarded-For` headers to correctly identify clients behind reverse proxies.
+
+Enable proxy trust when running behind a load balancer:
+```bash
+TRUST_PROXY=true
+```
+
+### Input Validation
+
+- **Deploy route** — Network names are validated against an allowlist; bytecode must match hex format; ABI must be an array; constructor args are limited to 20
+- **IPFS route** — CID format is validated (CIDv0 and CIDv1); content uploads are limited to 5 MB
+- **Search service** — SQL LIKE metacharacters (`%`, `_`, `\`) are escaped in user queries
+- **Auto-submit scripts** — Git branch names and agent names are validated against `^[a-zA-Z0-9_-]+$`; shell commands use `execFileSync` with argument arrays (no string interpolation)
+
+### XSS Prevention
+
+All user-controlled data rendered into HTML uses safe DOM APIs (`textContent`, `createElement`, `appendChild`) instead of `innerHTML`. This applies to:
+- Web template generation (avatar URLs, NFT names, user listings)
+- VS Code extension webviews (wallet status display)
+
+### Docker Hardening
+
+- **Nginx container** — Runs as non-root `nginx` user with minimal file permissions
+- **Agent runtime** — Runs as non-root `appuser` (UID 1001)
+- **Redis** — Requires password authentication; binds to localhost only
+
+Configure Redis credentials:
+```bash
+REDIS_PASSWORD=your-secure-password
+```
+
+### WebSocket & Cache Limits
+
+- **WebSocket connections** — Maximum 1,000 concurrent connections per search service instance (configurable via `MAX_WS_CONNECTIONS`)
+- **In-memory cache** — Maximum 10,000 entries with LRU-style eviction (configurable via `MAX_CACHE_SIZE`)
+
+### Error Handling
+
+Stack traces are never exposed to clients in production. To enable stack traces for debugging:
+```bash
+SHOW_STACK_TRACES=true
+```
+
+### API Key Protection
+
+API keys and secrets are masked in log output (showing only first and last 4 characters). The wallet toolkit displays security warnings when outputting private keys or mnemonics to stdout.
+
 ## Best Practices
 
 1. **Use testnet first** for all development and testing
@@ -62,6 +142,21 @@ If you discover a security issue:
 5. **Never commit secrets** — use environment variables or `.env` files
 6. **Start small** — test with minimal amounts before scaling up
 7. **Verify independently** — cross-check any financial calculations
+8. **Configure CORS** — set explicit `CORS_ORIGINS` in production; never use wildcard
+9. **Enable proxy trust** — set `TRUST_PROXY=true` when behind a reverse proxy/load balancer
+10. **Set Redis password** — always set `REDIS_PASSWORD` in production
+
+## Environment Variables Reference
+
+| Variable | Component | Description |
+|----------|-----------|-------------|
+| `CORS_ORIGINS` | MCP servers, Agent Runtime, Search Service | Comma-separated allowed origins |
+| `CORS_ORIGIN` | Translate API | Single allowed origin |
+| `TRUST_PROXY` | Server | Enable `X-Forwarded-For` trust (`true`/`false`) |
+| `SHOW_STACK_TRACES` | Server | Expose stack traces in errors (`true`/`false`) |
+| `REDIS_PASSWORD` | Docker Compose | Redis authentication password |
+| `MAX_WS_CONNECTIONS` | Search Service | Max WebSocket connections (default: 1000) |
+| `MAX_CACHE_SIZE` | Search Service | Max cache entries (default: 10000) |
 
 ## Supported Versions
 

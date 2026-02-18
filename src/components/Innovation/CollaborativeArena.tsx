@@ -268,16 +268,6 @@ export default function CollaborativeArena({
     onLog('info', `⏱️ You have ${selectedChallenge.timeLimit} seconds!`);
   };
 
-  // Timer
-  useEffect(() => {
-    if (timeRemaining !== null && timeRemaining > 0) {
-      const timer = setTimeout(() => setTimeRemaining(timeRemaining - 1), 1000);
-      return () => clearTimeout(timer);
-    } else if (timeRemaining === 0) {
-      endChallenge(false);
-    }
-  }, [timeRemaining]);
-
   const endChallenge = (success: boolean) => {
     if (success) {
       const earnedScore = challenge?.bounty || 0;
@@ -291,6 +281,16 @@ export default function CollaborativeArena({
     setChallenge(null);
     setTimeRemaining(null);
   };
+
+  // Timer
+  useEffect(() => {
+    if (timeRemaining !== null && timeRemaining > 0) {
+      const timer = setTimeout(() => setTimeRemaining(timeRemaining - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (timeRemaining === 0) {
+      endChallenge(false);
+    }
+  }, [timeRemaining]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const addMessage = (sender: string, message: string, type: 'chat' | 'system' | 'hint' | 'achievement') => {
     setMessages(prev => [

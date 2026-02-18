@@ -92,13 +92,6 @@ export default function UniversalLivePreview({
 
   const previewType = getPreviewType();
 
-  // Update HTML/JS/CSS preview
-  useEffect(() => {
-    if (previewType === 'html') {
-      updateHtmlPreview();
-    }
-  }, [htmlTab?.code, cssTab?.code, jsTab?.code, previewType]);
-
   const updateHtmlPreview = () => {
     try {
       setError(null);
@@ -138,6 +131,13 @@ export default function UniversalLivePreview({
       setError(err.message || 'Failed to render preview');
     }
   };
+
+  // Update HTML/JS/CSS preview
+  useEffect(() => {
+    if (previewType === 'html') {
+      updateHtmlPreview();
+    }
+  }, [htmlTab?.code, cssTab?.code, jsTab?.code, previewType]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Load Pyodide for Python execution
   const loadPyodide = async () => {

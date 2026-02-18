@@ -6,11 +6,11 @@ The most comprehensive open-source AI toolkit for BNB Chain, BSC, opBNB, and the
 
 ## What It Is
 
-A monorepo with 72+ AI agents, 6 MCP servers (900+ tools), market data, DeFi tools, wallets, and Web3 standards — all for building AI-powered blockchain applications.
+A monorepo with 78 AI agents, 6 MCP servers (900+ tools), market data, DeFi tools, wallets, and Web3 standards — all for building AI-powered blockchain applications.
 
 ## Components
 
-- agents/ — 72+ AI agent definitions (30 BNB Chain + 42 DeFi)
+- agents/ — 78 AI agent definitions (36 BNB Chain + 42 DeFi)
 - mcp-servers/ — 6 Model Context Protocol servers
 - market-data/ — CoinGecko, DeFiLlama, 200+ news sources
 - defi-tools/ — Multi-chain dust sweeper

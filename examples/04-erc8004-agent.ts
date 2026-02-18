@@ -61,7 +61,7 @@ try {
       result: {
         greeting: `Hello, ${text}! I'm an ERC-8004 agent powered by the BNB Chain AI Toolkit.`,
         toolkit: {
-          agents: "72+",
+          agents: "78",
           mcpServers: 6,
           tools: "900+",
           chains: "60+",

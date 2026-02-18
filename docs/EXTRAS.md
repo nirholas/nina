@@ -37,7 +37,7 @@ Together these five documents cover: **Problem → Solution → Architecture →
 
 | Deployment | URL | Description |
 |---|---|---|
-| Agent Browser | https://bnb-chain-toolkit.vercel.app/ | Browse 72+ AI agent definitions |
+| Agent Browser | https://bnb-chain-toolkit.vercel.app/ | Browse 78 AI agent definitions |
 | ERC-8004 Agent Creator | https://erc8004.agency/ | Register AI agents as on-chain NFTs |
 | UCAI Web Builder | https://mcp.ucai.tech | Convert any ABI to an MCP server |
 | GitHub Repo | https://github.com/nirholas/bnb-chain-toolkit | Full source code |
@@ -91,7 +91,7 @@ Together these five documents cover: **Problem → Solution → Architecture →
 
 | Metric | Count |
 |--------|------:|
-| AI Agents | 72+ |
+| AI Agents | 78 |
 | MCP Servers | 6 |
 | Total Tools | 900+ |
 | Supported Chains | 60+ |

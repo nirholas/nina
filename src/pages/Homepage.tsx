@@ -78,7 +78,7 @@ const featuredAgents = [
 ];
 
 const heroStats = [
-    { label: 'Agents', value: '72+', Icon: Bot },
+    { label: 'Agents', value: '78', Icon: Bot },
     { label: 'Tools', value: '900+', Icon: Wrench },
     { label: 'Chains', value: '60+', Icon: Network },
     { label: 'MCP Servers', value: '6', Icon: Server },
@@ -90,7 +90,7 @@ const whyReasons = [
     { title: 'Production-Ready MCP', description: '6 servers, 900+ tools, ready for Claude and other LLMs today', link: '#' },
     { title: 'Original Standards', description: 'ERC-8004 for agent trust and W3AG for Web3 accessibility', link: '#' },
     { title: 'Real DeFi Tooling', description: 'Dust sweeper, market data, wallet toolkit — not just demos', link: '#' },
-    { title: '72+ Specialized Agents', description: 'Purpose-built for every major BNB Chain protocol', link: '#' },
+    { title: '78 Specialized Agents', description: 'Purpose-built for every major BNB Chain protocol', link: '#' },
     { title: '30+ Languages', description: 'Global accessibility with translations for worldwide reach', link: '#' },
 ];
 
@@ -243,8 +243,8 @@ export default function Homepage() {
         },
     ], [t]);
     useSEO({
-        title: 'BNB Chain AI Toolkit — 72+ Agents, 6 MCP Servers, 900+ Tools',
-        description: 'The most comprehensive open-source AI toolkit for BNB Chain. 72+ specialized agents, 6 MCP servers, 900+ tools, 60+ chains.',
+        title: 'BNB Chain AI Toolkit — 78 Agents, 6 MCP Servers, 900+ Tools',
+        description: 'The most comprehensive open-source AI toolkit for BNB Chain. 78 specialized agents, 6 MCP servers, 900+ tools, 60+ chains.',
     });
 
     return (
@@ -709,7 +709,7 @@ export default function Homepage() {
                             <div className="bg-[#0a0a0a] rounded-2xl p-6 md:p-8 font-mono text-sm text-neutral-300 leading-relaxed overflow-x-auto border border-white/[0.04]">
                                 <div className="text-[#F0B90B] mb-3 font-extrabold tracking-tight text-base">bnb-chain-toolkit/</div>
                                 <div className="ml-4 space-y-1.5">
-                                    <div><span className="text-blue-400">├── agents/</span><span className="text-neutral-600 ml-4"># 72+ AI Agent definitions</span></div>
+                                    <div><span className="text-blue-400">├── agents/</span><span className="text-neutral-600 ml-4"># 78 AI Agent definitions</span></div>
                                     <div className="ml-4 text-neutral-500">
                                         <div>├── bnb-chain-agents/ <span className="text-neutral-600"># 30 BNB-specific agents</span></div>
                                         <div>└── defi-agents/ <span className="text-neutral-600"># 42 general DeFi agents</span></div>

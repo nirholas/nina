@@ -575,7 +575,7 @@ export default function AgentBrowserPage() {
   useSEO({
     title: 'Agent Browser',
     description:
-      '72+ AI agents for BNB Chain, DeFi, trading, security, and more. Browse, filter, and deploy agents with MCP server connections.',
+      '78 AI agents for BNB Chain, DeFi, trading, security, and more. Browse, filter, and deploy agents with MCP server connections.',
     path: '/agents',
   });
 
@@ -685,7 +685,7 @@ export default function AgentBrowserPage() {
               <Bot className="h-8 w-8 text-[#F0B90B]" />
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-              <span className="text-[#F0B90B]">72+</span> AI Agents
+              <span className="text-[#F0B90B]">78</span> AI Agents
             </h1>
             <TextGenerateEffect
               words="Browse, filter, and deploy specialized AI agents for BNB Chain, DeFi, trading, security, and more — each with curated system prompts,  opening questions, and MCP server connections."
@@ -701,7 +701,7 @@ export default function AgentBrowserPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {[
-              { label: 'Agents', value: '72+', icon: Bot },
+              { label: 'Agents', value: '78', icon: Bot },
               { label: 'Categories', value: `${Object.keys(CATEGORY_COUNTS).length}`, icon: Layers },
               { label: 'MCP Servers', value: '6', icon: Server },
               { label: 'Collections', value: '2', icon: FolderOpen },

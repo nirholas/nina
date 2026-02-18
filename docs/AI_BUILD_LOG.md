@@ -2,7 +2,7 @@
 
 > A document of AI tooling used throughout BNB Chain AI Toolkit development.
 
-There's something deeply recursive about this project: **I used AI to build an AI toolkit.** The MCP servers that give AI models blockchain access were themselves built with AI assistance. The 72+ agents that help users interact with DeFi were defined with AI help. The documentation you're reading right now was drafted by AI. This isn't just using AI as a productivity tool — it's AI building its own infrastructure.
+There's something deeply recursive about this project: **I used AI to build an AI toolkit.** The MCP servers that give AI models blockchain access were themselves built with AI assistance. The 78 agents that help users interact with DeFi were defined with AI help. The documentation you're reading right now was drafted by AI. This isn't just using AI as a productivity tool — it's AI building its own infrastructure.
 
 ---
 
@@ -24,9 +24,9 @@ These aren't boilerplate files. Each one contains project-specific instructions 
 
 ## How AI Was Used — By Component
 
-### 1. AI Agent Definitions (72+ agents)
+### 1. AI Agent Definitions (78 agents)
 
-The core of this project is 72+ AI agent definitions split across [`agents/bnb-chain-agents/`](../agents/bnb-chain-agents/) (30 BNB Chain-specific agents) and [`agents/defi-agents/`](../agents/defi-agents/) (42 general DeFi agents).
+The core of this project is 78 AI agent definitions split across [`agents/bnb-chain-agents/`](../agents/bnb-chain-agents/) (36 BNB Chain-specific agents) and [`agents/defi-agents/`](../agents/defi-agents/) (42 general DeFi agents).
 
 - I used AI to generate the initial `systemRole` prompts for every agent — describing each agent's persona, expertise boundaries, and behavioral guidelines
 - Each agent's opening questions and conversation flows were AI-drafted, then I curated them to ensure they matched real user needs (e.g., the PancakeSwap expert knows about v3 concentrated liquidity, not just generic DEX talk)
@@ -165,7 +165,7 @@ The following files serve as direct evidence of continuous AI tool usage through
 | --- | --- | --- | --- |
 | Dec 21, 2025 | v1.0.0 | Initial release — 57 agents, build pipeline, 18 languages | AI generated agent definitions and translations |
 | Dec 21, 2025 | v1.1.0 | Added master agent (58 total) | AI helped design the unified agent combining 16 plugin features |
-| Feb 11, 2026 | v2.0.0 | Monorepo transformation — 72+ agents, 6 MCP servers, 900+ tools | AI-intensive consolidation of 14 repos; scaffolded all MCP servers |
+| Feb 11, 2026 | v2.0.0 | Monorepo transformation — 78 agents, 6 MCP servers, 900+ tools | AI-intensive consolidation of 14 repos; scaffolded all MCP servers |
 | Feb 2026 | — | Hackathon submission | All submission docs AI-drafted from structured prompts || Feb 18, 2026 | v2.1.0 — opBNB + hackathon polish | opBNB chain support (24 chains), CLI expanded to 26 chains, agent runtime showcase, enhanced judges guide |
 ---
 

@@ -1,7 +1,7 @@
 /**
  * Example 01 — Agent Discovery
  *
- * Browse all 72+ AI agents in the toolkit, filter by tag,
+ * Browse all 78 AI agents in the toolkit, filter by tag,
  * and inspect their capabilities.
  *
  * Usage:

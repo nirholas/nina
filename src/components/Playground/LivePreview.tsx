@@ -37,10 +37,6 @@ export default function LivePreview({
     full: { width: '100%', label: 'Full', icon: <Monitor className="w-4 h-4" /> }
   };
 
-  useEffect(() => {
-    updatePreview();
-  }, [html, css, javascript]);
-
   const updatePreview = () => {
     try {
       setError(null);
@@ -115,6 +111,10 @@ export default function LivePreview({
       console.error('Preview error:', err);
     }
   };
+
+  useEffect(() => {
+    updatePreview();
+  }, [html, css, javascript]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleRefresh = () => {
     setIsRefreshing(true);

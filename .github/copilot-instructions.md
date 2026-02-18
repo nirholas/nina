@@ -1,10 +1,10 @@
 # BNB Chain AI Toolkit
 
-> 72+ AI agents, 6 MCP servers, 900+ tools for BNB Chain and 60+ networks.
+> 78 AI agents, 6 MCP servers, 900+ tools for BNB Chain and 60+ networks.
 
 ## Structure
 
-- `agents/` — 72+ AI agent definitions (JSON)
+- `agents/` — 78 AI agent definitions (JSON)
 - `mcp-servers/` — 6 MCP servers (TypeScript + Python)
 - `market-data/` — Price feeds and news aggregation
 - `defi-tools/` — Dust sweeper and DeFi utilities

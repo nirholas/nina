@@ -33,11 +33,11 @@ If you wanted an AI to help you with crypto:
 
 ## The Main Components (In Plain English)
 
-### 1. AI Agents (72+)
+### 1. AI Agents (78)
 
 **What they are:** Pre-built "personality profiles" for AI assistants. Each one is specialized for a specific crypto task.
 
-**Real-world analogy:** Think of hiring 72 different financial experts. One knows everything about PancakeSwap (a crypto exchange), another is a staking specialist, another tracks whale wallets, and so on.
+**Real-world analogy:** Think of hiring 78 different financial experts. One knows everything about PancakeSwap (a crypto exchange), another is a staking specialist, another tracks whale wallets, and so on.
 
 **Example agents:**
 - 🥞 **PancakeSwap Trader** — Helps you trade tokens on PancakeSwap

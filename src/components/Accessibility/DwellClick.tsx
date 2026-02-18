@@ -17,6 +17,20 @@ export default function DwellClick() {
   const startTimeRef = useRef<number>(0);
   const animationRef = useRef<number>(0);
 
+  const cancelDwell = useCallback(() => {
+    if (dwellElement) {
+      dwellElement.removeAttribute('data-dwell-active');
+    }
+    setDwellElement(null);
+    setProgress(0);
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+  }, [dwellElement]);
+
   const startDwell = useCallback((element: HTMLElement, x: number, y: number) => {
     if (!settings.dwellClick) return;
 
@@ -61,21 +75,7 @@ export default function DwellClick() {
     };
 
     animationRef.current = requestAnimationFrame(animate);
-  }, [settings.dwellClick, settings.dwellTime]);
-
-  const cancelDwell = useCallback(() => {
-    if (dwellElement) {
-      dwellElement.removeAttribute('data-dwell-active');
-    }
-    setDwellElement(null);
-    setProgress(0);
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-    }
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-  }, [dwellElement]);
+  }, [settings.dwellClick, settings.dwellTime, cancelDwell]);
 
   useEffect(() => {
     if (!settings.dwellClick) {

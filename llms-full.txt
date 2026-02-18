@@ -2,15 +2,15 @@
 
 > https://github.com/nirholas/bnb-chain-toolkit
 
-The most comprehensive open-source AI toolkit for BNB Chain, BSC, opBNB, and the Binance ecosystem. 72+ AI agents, 6 MCP servers with 900+ tools, market data pipelines, DeFi tools, wallet utilities, and Web3 standards.
+The most comprehensive open-source AI toolkit for BNB Chain, BSC, opBNB, and the Binance ecosystem. 78 AI agents, 6 MCP servers with 900+ tools, market data pipelines, DeFi tools, wallet utilities, and Web3 standards.
 
 ## Architecture
 
 ```
 bnb-chain-toolkit/
-├── agents/                     # 72+ AI Agent definitions
-│   ├── bnb-chain-agents/       # 30 BNB Chain-specific agents
-│   └── defi-agents/            # 42 general DeFi agents (18 languages)
+├── agents/                     # 78 AI Agent definitions
+│   ├── bnb-chain-agents/       # 36 BNB Chain-specific agents
+│   └── defi-agents/            # 42 general DeFi agents (30+ languages)
 ├── mcp-servers/                # 6 Model Context Protocol servers
 │   ├── bnbchain-mcp/           # BNB Chain + EVM (100+ tools)
 │   ├── binance-mcp/            # Binance.com (478+ tools)
@@ -31,9 +31,9 @@ bnb-chain-toolkit/
 └── docs/                       # Comprehensive documentation
 ```
 
-## AI Agents (72+)
+## AI Agents (78)
 
-### BNB Chain Agents (30)
+### BNB Chain Agents (36)
 
 Purpose-built for the BNB Chain ecosystem:
 - PancakeSwap Trader — DEX trading, liquidity, yield farming

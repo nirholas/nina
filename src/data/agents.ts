@@ -4,7 +4,7 @@
  * 💫 Every bug fixed is a lesson learned 🎓
  *
  * Static agent data for the Explore page.
- * All 72+ agents organized by group and category.
+ * All 78 agents organized by group and category.
  */
 
 // ---------------------------------------------------------------------------

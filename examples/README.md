@@ -20,7 +20,7 @@ bun run examples/03-mcp-client-demo.ts
 
 | # | Script | Description | Needs Keys? |
 |---|--------|-------------|-------------|
-| 01 | [agent-discovery](01-agent-discovery.ts) | Browse all 72+ AI agents, filter by tag, inspect capabilities | No |
+| 01 | [agent-discovery](01-agent-discovery.ts) | Browse all 78 AI agents, filter by tag, inspect capabilities | No |
 | 02 | [market-data](02-market-data.ts) | Live BNB/BTC/ETH prices and 24h market overview | No |
 | 03 | [mcp-client-demo](03-mcp-client-demo.ts) | Simulates MCP tool calls (balance, gas, token info) | No |
 | 04 | [erc8004-agent](04-erc8004-agent.ts) | Start an ERC-8004 agent with A2A protocol support | Optional |

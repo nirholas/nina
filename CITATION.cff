@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use BNB Chain AI Toolkit, please cite it as below."
 type: software
 title: "BNB Chain AI Toolkit"
-abstract: "The most comprehensive open-source AI toolkit for BNB Chain. 72+ AI agents, 6 MCP servers with 900+ tools, market data, DeFi tools, wallet utilities, and Web3 standards."
+abstract: "The most comprehensive open-source AI toolkit for BNB Chain. 78 AI agents, 6 MCP servers with 900+ tools, market data, DeFi tools, wallet utilities, and Web3 standards."
 authors:
   - alias: nirholas
     name: nirholas

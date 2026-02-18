@@ -1,6 +1,6 @@
 # BNB Chain AI Toolkit — Development Guidelines
 
-> 72+ AI agents, 6 MCP servers, 900+ tools for BNB Chain, BSC, opBNB, and 60+ networks.
+> 78 AI agents, 6 MCP servers, 900+ tools for BNB Chain, BSC, opBNB, and 60+ networks.
 
 ## Project Overview
 
@@ -11,7 +11,7 @@ BNB Chain AI Toolkit is a monorepo containing AI agent definitions, MCP servers,
 ```
 bnb-chain-toolkit/
 ├── agents/                  # AI agent definitions (JSON)
-│   ├── bnb-chain-agents/    # 30 BNB Chain-specific agents
+│   ├── bnb-chain-agents/    # 36 BNB Chain-specific agents
 │   └── defi-agents/         # 42 general DeFi agents
 ├── mcp-servers/             # 6 Model Context Protocol servers
 │   ├── bnbchain-mcp/        # BNB Chain + EVM (TypeScript)

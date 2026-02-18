@@ -566,7 +566,7 @@ export default function MCPServersPage() {
               aria-label="Explore all AI agents"
             >
               <Compass className="h-4 w-4" aria-hidden="true" />
-              Explore 72+ AI Agents
+              Explore 78 AI Agents
             </Link>
           </div>
         </motion.div>

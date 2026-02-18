@@ -65,12 +65,12 @@ BNB Chain AI Toolkit is a monorepo that provides everything a developer needs to
 
 ### 2.1 Single Monorepo with Everything Integrated
 
-One repository. 72+ AI agents, 6 MCP servers, 900+ tools, market data services, DeFi utilities, wallet operations, and Web3 standards — all MIT licensed, all designed to work together.
+One repository. 78 AI agents, 6 MCP servers, 900+ tools, market data services, DeFi utilities, wallet operations, and Web3 standards — all MIT licensed, all designed to work together.
 
 ```
 bnb-chain-toolkit/
-├── agents/           # 72+ AI agent definitions (JSON)
-│   ├── bnb-chain-agents/   # 30 BNB Chain-specific agents
+├── agents/           # 78 AI agent definitions (JSON)
+│   ├── bnb-chain-agents/   # 36 BNB Chain-specific agents
 │   └── defi-agents/        # 42 general DeFi agents
 ├── mcp-servers/      # 6 Model Context Protocol servers
 │   ├── bnbchain-mcp/       # BNB Chain + EVM (TypeScript)

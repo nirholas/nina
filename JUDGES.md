@@ -43,7 +43,7 @@ That's it. The frontend works without any API keys.
 ### 1. Agent Explorer (2 min)
 
 On the live demo or local dev server:
-- Browse **72+ AI agents** organized by category
+- Browse **78 AI agents** organized by category
 - Click any agent to see its full JSON definition
 - Notice the depth: each agent has specialized prompts, tools, and configurations
 - Check localized versions in `locales/` — **30+ languages**

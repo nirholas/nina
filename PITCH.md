@@ -2,7 +2,7 @@
 
 ## One-liner
 
-**BNB Chain AI Toolkit** gives AI assistants superpowers on the blockchain — 72+ agents, 6 MCP servers, and 900+ tools in one open-source repo.
+**BNB Chain AI Toolkit** gives AI assistants superpowers on the blockchain — 78 agents, 6 MCP servers, and 900+ tools in one open-source repo.
 
 ---
 
@@ -29,7 +29,7 @@ AI is transforming every industry — except Web3. Today, if you want an AI assi
 - Works across **60+ chains** with a unified interface
 
 **For BNB Chain users:**
-- **72+ specialized AI agents** — ask questions in plain English, get expert DeFi answers
+- **78 specialized AI agents** — ask questions in plain English, get expert DeFi answers
 - Agents for every major protocol: PancakeSwap, Venus, staking, bridging, NFTs
 - Available in **30+ languages**
 
@@ -44,7 +44,7 @@ AI is transforming every industry — except Web3. Today, if you want an AI assi
 
 | Metric | Value |
 |--------|-------|
-| AI Agents | 72+ |
+| AI Agents | 78 |
 | MCP Servers | 6 |
 | Tools | 900+ |
 | Supported Chains | 60+ |

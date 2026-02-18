@@ -285,7 +285,7 @@ All addresses share the `0x8004` vanity prefix:
 - [ERC-8004 Agent Creator](https://erc8004.agency) — Zero-dependency web UI
 - [ERC-8004 Contracts](https://github.com/erc-8004/erc-8004-contracts) — Solidity source
 - [EIP-8004 Specification](https://eips.ethereum.org/EIPS/eip-8004) — Ethereum standard
-- [BNB Chain AI Toolkit](https://github.com/nirholas/bnb-chain-toolkit) — 72+ AI agents, 6 MCP servers
+- [BNB Chain AI Toolkit](https://github.com/nirholas/bnb-chain-toolkit) — 78 AI agents, 6 MCP servers
 
 ## License
 

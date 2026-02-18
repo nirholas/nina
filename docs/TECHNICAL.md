@@ -1,6 +1,6 @@
 # Technical Document — BNB Chain AI Toolkit
 
-> Hackathon submission: 72+ AI agents, 6 MCP servers, 900+ tools for BNB Chain and 60+ networks.
+> Hackathon submission: 78 AI agents, 6 MCP servers, 900+ tools for BNB Chain and 60+ networks.
 
 ---
 
@@ -20,7 +20,7 @@ BNB Chain AI Toolkit is a monorepo with **7 major components**:
 
 | Component | Count | Description |
 |-----------|-------|-------------|
-| **AI Agents** | 72+ | JSON-defined agent personas for LLMs |
+| **AI Agents** | 78 | JSON-defined agent personas for LLMs |
 | **MCP Servers** | 6 | Model Context Protocol bridges to blockchains |
 | **Market Data** | 2 libraries | Price feeds + news aggregation (200+ sources) |
 | **DeFi Tools** | 1 (dust sweeper) | Multi-chain token sweeping utility |
@@ -36,8 +36,8 @@ flowchart TB
         UI[Agent Browser UI]
         Preview[Agent Preview]
     end
-    subgraph Agents["AI Agents (72+)"]
-        BNB[30 BNB Chain Agents]
+    subgraph Agents["AI Agents (78)"]
+        BNB[36 BNB Chain Agents]
         DeFi[42 DeFi Agents]
     end
     subgraph MCP["MCP Servers (6)"]
@@ -93,7 +93,7 @@ sequenceDiagram
 
 #### AI Agents (`agents/`)
 
-- **30 BNB Chain agents** — PancakeSwap trading, Venus lending, BNB staking, BSC security audit, opBNB L2, Greenfield storage, and more.
+- **36 BNB Chain agents** — PancakeSwap trading, Venus lending, BNB staking, BSC security audit, opBNB L2, Greenfield storage, and more.
 - **42 DeFi agents** — General-purpose agents for trading, bridging, yield farming, portfolio management across 60+ networks.
 - Each agent is a self-contained **JSON file** with: system prompt, MCP server connections, opening questions, and metadata.
 - Build pipeline: `src/*.json` → schema validation → `public/index.json` (searchable API).
@@ -270,7 +270,7 @@ curl -X POST http://localhost:3000/mcp -d '{"method":"tools/list"}'
 #### Step 1: Browse the Agent Catalog
 
 1. Open [https://bnb-chain-toolkit.vercel.app/](https://bnb-chain-toolkit.vercel.app/)
-2. Browse the **72+ agent catalog** — filter by BNB Chain or DeFi.
+2. Browse the **78 agent catalog** — filter by BNB Chain or DeFi.
 3. Click any agent to preview its system prompt, MCP server connections, and opening questions.
 
 #### Step 2: Explore the ERC-8004 Agent Creator
@@ -294,7 +294,7 @@ curl -X POST http://localhost:3000/mcp -d '{"method":"tools/list"}'
 
 ### Expected Outcomes
 
-- **Agent browser**: All 72+ agents display with full configs (system prompt, MCP connections, opening questions).
+- **Agent browser**: All 78 agents display with full configs (system prompt, MCP connections, opening questions).
 - **MCP servers**: Combined 900+ tools across 6 servers.
 - **On-chain**: Contracts verified on BscScan, deterministic addresses via CREATE2.
 - **Agent registration**: Mints an ERC-721 NFT representing the agent's on-chain identity.
@@ -306,7 +306,7 @@ journey
     title Judge Demo Flow
     section Browse
       Open live demo: 5: Judge
-      Browse 72+ agents: 5: Judge
+      Browse 78 agents: 5: Judge
       Preview agent config: 5: Judge
     section Verify Onchain
       Open BscScan: 5: Judge

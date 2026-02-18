@@ -4,38 +4,71 @@ Implementation of the ERC-8004 protocol for agent discovery and trust through re
 
 ### Contract Addresses
 
-#### Ethereum Mainnet
+All contracts are deployed via the **SAFE Singleton Factory** (CREATE2) producing **identical vanity addresses** on every chain. See [full 24-chain deployment list](../../../erc8004-agents/docs/contracts.md).
+
+> All addresses share the `0x8004` vanity prefix.
+
+#### Mainnet Addresses (All Mainnets)
+
+| Contract | Address |
+|---|---|
+| **IdentityRegistry** | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` |
+| **ReputationRegistry** | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` |
+
+#### Testnet Addresses (All Testnets)
+
+| Contract | Address |
+|---|---|
+| **IdentityRegistry** | `0x8004A818BFB912233c491871b3d84c89A494BD9e` |
+| **ReputationRegistry** | `0x8004B663056A597Dffe9eCcC1965A193B7388713` |
+| **ValidationRegistry** | `0x8004Cb1BF31DAf7788923b405b754f57acEB4272` |
+
+#### BSC Mainnet (Chain ID: 56)
+- **IdentityRegistry**: [`0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`](https://bscscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432)
+- **ReputationRegistry**: [`0x8004BAa17C55a88189AE136b182e5fdA19dE9b63`](https://bscscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63)
+
+#### BSC Testnet (Chain ID: 97)
+- **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://testnet.bscscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
+- **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://testnet.bscscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
+- **ValidationRegistry**: [`0x8004Cb1BF31DAf7788923b405b754f57acEB4272`](https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272)
+
+#### opBNB Mainnet (Chain ID: 204)
+- **IdentityRegistry**: [`0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`](https://opbnbscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432)
+- **ReputationRegistry**: [`0x8004BAa17C55a88189AE136b182e5fdA19dE9b63`](https://opbnbscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63)
+
+#### opBNB Testnet (Chain ID: 5611)
+- **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://testnet.opbnbscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
+- **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://testnet.opbnbscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
+- **ValidationRegistry**: [`0x8004Cb1BF31DAf7788923b405b754f57acEB4272`](https://testnet.opbnbscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272)
+
+#### Ethereum Mainnet (Chain ID: 1)
 - **IdentityRegistry**: [`0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`](https://etherscan.io/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432)
 - **ReputationRegistry**: [`0x8004BAa17C55a88189AE136b182e5fdA19dE9b63`](https://etherscan.io/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63)
 
-
-#### Ethereum Sepolia
+#### Ethereum Sepolia (Chain ID: 11155111)
 - **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://sepolia.etherscan.io/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
 - **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://sepolia.etherscan.io/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
+- **ValidationRegistry**: [`0x8004Cb1BF31DAf7788923b405b754f57acEB4272`](https://sepolia.etherscan.io/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272)
 
-#### Base Sepolia
-- **IdentityRegistry**: to be deployed
-- **ReputationRegistry**: to be deployed
+#### Base Sepolia (Chain ID: 84532)
+- **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://sepolia.basescan.org/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
+- **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://sepolia.basescan.org/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
 
-#### Linea Sepolia
-- **IdentityRegistry**: to be deployed
-- **ReputationRegistry**: to be deployed
+#### Polygon Amoy (Chain ID: 80002)
+- **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://amoy.polygonscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
+- **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://amoy.polygonscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
 
-#### Polygon Amoy
-- **IdentityRegistry**: to be deployed
-- **ReputationRegistry**: to be deployed
+#### Arbitrum Sepolia (Chain ID: 421614)
+- **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://sepolia.arbiscan.io/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
+- **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://sepolia.arbiscan.io/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
 
-#### Hedera Testnet
-- **IdentityRegistry**: to be deployed
-- **ReputationRegistry**: to be deployed
+#### Optimism Sepolia (Chain ID: 11155420)
+- **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://sepolia-optimism.etherscan.io/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
+- **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://sepolia-optimism.etherscan.io/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
 
-#### HyperEVM Testnet
-- **IdentityRegistry**: to be deployed
-- **ReputationRegistry**: to be deployed
-
-#### SKALE Base Sepolia Testnet
-- **IdentityRegistry**: to be deployed
-- **ReputationRegistry**: to be deployed
+#### Avalanche Fuji (Chain ID: 43113)
+- **IdentityRegistry**: [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://testnet.snowtrace.io/address/0x8004A818BFB912233c491871b3d84c89A494BD9e)
+- **ReputationRegistry**: [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://testnet.snowtrace.io/address/0x8004B663056A597Dffe9eCcC1965A193B7388713)
 
 
 ## About

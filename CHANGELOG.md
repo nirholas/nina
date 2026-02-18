@@ -25,6 +25,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **HACKATHON.md** — Complete on-chain proof table with opBNB testnet + mainnet
 - **Docker support** — Server environment configuration for docker-compose
 
+### Security
+
+#### Critical
+
+- **Command injection fix** — `auto-submit.ts` scripts (both copies) replaced `execSync` with `execFileSync` using argument arrays; added strict regex validation (`^[a-zA-Z0-9_-]+$`) for agent names and branch names
+
+#### High
+
+- **CORS hardening** — All HTTP servers (agent runtime, MCP servers, translate API, search service) now restrict cross-origin requests via `CORS_ORIGINS` / `CORS_ORIGIN` environment variables; wildcard only in dev mode
+- **XSS prevention** — Replaced `innerHTML` assignments with safe DOM APIs (`textContent`, `createElement`, `appendChild`) in web templates (3 locations) and VS Code extension webview
+- **Input validation** — Deploy route enforces network allowlist, hex bytecode format, ABI array check, and constructor args limit (max 20); IPFS route validates CID format and enforces 5 MB content limit
+- **SQL injection mitigation** — Search service escapes LIKE metacharacters (`%`, `_`, `\`) in user queries
+
+#### Medium
+
+- **Docker hardening** — Nginx and agent-runtime containers run as non-root users; Redis requires password and binds to localhost only
+- **CSP tightening** — Removed `unsafe-eval` from nginx Content-Security-Policy; added `Permissions-Policy` and `strict-origin-when-cross-origin` referrer policy
+- **Rate limiter fix** — Enabled `X-Forwarded-For` validation in production for all 4 rate limiters; proxy trust is now opt-in via `TRUST_PROXY` env var
+- **Error handler** — Stack traces no longer leak in production; opt-in via `SHOW_STACK_TRACES` env var
+- **API key masking** — Deploy marketplace script now masks API keys in log output
+
+#### Low
+
+- **WebSocket limits** — Search service enforces max 1,000 concurrent WebSocket connections (configurable via `MAX_WS_CONNECTIONS`)
+- **Cache limits** — In-memory cache capped at 10,000 entries with LRU-style eviction (configurable via `MAX_CACHE_SIZE`)
+- **Wallet warnings** — Python wallet toolkit displays security warnings when outputting private keys or mnemonics
+
 ---
 
 ## [2.0.0] - 2026-02-11
@@ -35,7 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Consolidated 14 independent repositories into one comprehensive AI toolkit for BNB Chain:
 
-**AI Agents (72+)**
+**AI Agents (78)**
 - 30 BNB Chain-specific agents (PancakeSwap, Venus, staking, bridging, etc.)
 - 42 general DeFi agents with 18-language support
 

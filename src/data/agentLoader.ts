@@ -3,7 +3,7 @@
  * BNB CHAIN AI TOOLKIT — Agent Data Loader
  * ═══════════════════════════════════════════════════════════════════════════
  *
- * Loads and parses all 72+ agent JSON files from both directories,
+ * Loads and parses all 78 agent JSON files from both directories,
  * extracting capabilities, key facts, MCP tools, and system role sections.
  *
  * @module agentLoader

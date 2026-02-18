@@ -80,19 +80,6 @@ export default function AICodeWhisperer({
     "🌊 Simulating edge cases..."
   ];
 
-  // Real-time AI Analysis
-  useEffect(() => {
-    if (predictiveMode && code) {
-      analysisInterval.current = setTimeout(() => {
-        analyzeCode(code);
-      }, 1000); // Debounce
-    }
-
-    return () => {
-      if (analysisInterval.current) clearTimeout(analysisInterval.current);
-    };
-  }, [code, predictiveMode]);
-
   const analyzeCode = async (contractCode: string) => {
     setIsAnalyzing(true);
     // Cycle through thinking phrases based on code hash for determinism
@@ -233,6 +220,19 @@ export default function AICodeWhisperer({
     }
   };
 
+  // Real-time AI Analysis
+  useEffect(() => {
+    if (predictiveMode && code) {
+      analysisInterval.current = setTimeout(() => {
+        analyzeCode(code);
+      }, 1000); // Debounce
+    }
+
+    return () => {
+      if (analysisInterval.current) clearTimeout(analysisInterval.current);
+    };
+  }, [code, predictiveMode]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Voice Commands — Real Web Speech API integration
   const toggleVoiceControl = useCallback(() => {
     const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -287,7 +287,7 @@ export default function AICodeWhisperer({
       setIsListening(false);
       onLog('info', '🔇 Voice control deactivated');
     }
-  }, [isListening, onLog]);
+  }, [isListening, onLog]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const executeVoiceCommand = (command: string) => {
     setVoiceCommands(prev => [...prev, { command, timestamp: Date.now(), executed: true }]);

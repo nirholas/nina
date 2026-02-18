@@ -1,0 +1,59 @@
+{
+  "network": "BSC Testnet",
+  "chainId": 97,
+  "deployedAt": "2026-02-18T00:00:00.000Z",
+  "deploymentType": "vanity CREATE2 via SAFE Singleton Factory",
+  "verifiedOnChain": true,
+  "contracts": {
+    "IdentityRegistry": {
+      "proxy": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "implementation": "0x7274e874ca62410a93bd8bf61c69d8045e399c02",
+      "version": "2.0.0",
+      "status": "live"
+    },
+    "ReputationRegistry": {
+      "proxy": "0x8004B663056A597Dffe9eCcC1965A193B7388713",
+      "implementation": "0x16e0fa7f7c56b9a767e34b192b51f921be31da34",
+      "version": "2.0.0",
+      "status": "live"
+    },
+    "ValidationRegistry": {
+      "proxy": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+      "implementation": "0xdb31f5d9167f8ebc8b30fbbf814c4d297c2d7f99",
+      "version": "2.0.0",
+      "status": "live"
+    }
+  },
+  "safeFactory": "0x914d7Fec6aaC8cd542e72Bca78B30650d45643d7",
+  "ownership": {
+    "identityRegistry": "0x1611E27BE13feb93242Bf57914872eA63f9E64DC",
+    "reputationRegistry": "0x1611E27BE13feb93242Bf57914872eA63f9E64DC",
+    "validationRegistry": "0x8888d0A88ef8302dfa4BA53c41c2fE3c4E486f42"
+  },
+  "crossReferences": {
+    "reputationToIdentity": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+    "validationToIdentity": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+  },
+  "firstTransaction": {
+    "txHash": "0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962",
+    "from": "0xa010e277e3181fcb597914fbe39cf6d4c59a5f16",
+    "to": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+    "block": 89703948,
+    "status": "SUCCESS"
+  },
+  "explorerLinks": {
+    "identity": "https://testnet.bscscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e",
+    "reputation": "https://testnet.bscscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713",
+    "validation": "https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+    "firstTx": "https://testnet.bscscan.com/tx/0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962"
+  },
+  "verification": {
+    "proxyBytecodes": "all_present",
+    "versions": "all_2.0.0",
+    "implementations": "all_upgraded",
+    "crossReferences": "all_correct",
+    "verifiedAt": "2026-02-18T00:00:00.000Z",
+    "verifiedBy": "verify-vanity.ts"
+  },
+  "notes": "Contracts deployed via deterministic CREATE2 with 0x8004 vanity prefix. Deployed on 24 chains total (8 testnets + 16 mainnets). All using SAFE Singleton Factory."
+}

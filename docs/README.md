@@ -19,7 +19,7 @@ Start with the guide that matches your experience level:
 | Guide | Description |
 |-------|-------------|
 | [Architecture](architecture.md) | How all the pieces fit together (with diagrams) |
-| [AI Agents](agents.md) | Complete guide to all 72+ agents |
+| [AI Agents](agents.md) | Complete guide to all 78 agents |
 | [MCP Servers](mcp-servers.md) | Setting up the 6 MCP servers |
 
 ## Component Guides

@@ -31,7 +31,7 @@
 
 <br>
 
-<img src="https://img.shields.io/badge/agents-72+-F0B90B?style=for-the-badge&labelColor=000" alt="Agents" />
+<img src="https://img.shields.io/badge/agents-78-F0B90B?style=for-the-badge&labelColor=000" alt="Agents" />
 <img src="https://img.shields.io/badge/MCP%20servers-6-7C3AED?style=for-the-badge&labelColor=000" alt="MCP Servers" />
 <img src="https://img.shields.io/badge/tools-900+-00B4D8?style=for-the-badge&labelColor=000" alt="Tools" />
 <img src="https://img.shields.io/badge/chains-60+-22C55E?style=for-the-badge&labelColor=000" alt="Chains" />
@@ -61,7 +61,7 @@
 
 It's a single repository with **everything** you need to build AI-powered applications on BNB Chain — agents, blockchain connectors, market data, DeFi tools, wallets, and Web3 standards. All open source.
 
-**In plain English:** Imagine giving Claude or ChatGPT a crypto wallet, a trading terminal, and 72 expert advisors. That's what this toolkit does.
+**In plain English:** Imagine giving Claude or ChatGPT a crypto wallet, a trading terminal, and 78 expert advisors. That's what this toolkit does.
 
 > **New to crypto or AI?** Start with our [What Is This?](docs/what-is-this.md) guide — written for non-technical people.
 
@@ -71,7 +71,7 @@ It's a single repository with **everything** you need to build AI-powered applic
 |---------|----------|
 | Fragmented BNB Chain tooling | **Single repo** with everything integrated |
 | AI can't interact with blockchains | **6 MCP servers** give AI direct chain access |
-| Complex DeFi interactions | **72+ specialized agents** for every protocol |
+| Complex DeFi interactions | **78 specialized agents** for every protocol |
 | Multi-chain complexity | **60+ chain support** with unified interfaces |
 | No accessibility standards | **W3AG + ERC-8004** for inclusive Web3 |
 
@@ -171,7 +171,7 @@ Built for the **BNB Chain "Good Vibes Only: OpenClaw Edition"** hackathon — Tr
 | 2 | **Production-Ready MCP** | 6 servers, 900+ tools, ready for Claude and other LLMs |
 | 3 | **Original Standards** | ERC-8004 (agent trust) and W3AG (accessibility) |
 | 4 | **Real DeFi Tooling** | Dust sweeper, market data, wallet toolkit |
-| 5 | **72+ Specialized Agents** | Purpose-built for every major BNB protocol |
+| 5 | **78 Specialized Agents** | Purpose-built for every major BNB protocol |
 | 6 | **30+ Languages** | Global accessibility with 30+ translations |
 
 ### Hackathon Submission Docs
@@ -191,9 +191,9 @@ Built for the **BNB Chain "Good Vibes Only: OpenClaw Edition"** hackathon — Tr
 
 ```
 bnb-chain-toolkit/
-├── agents/                     # 🤖 72+ AI Agent definitions
-│   ├── bnb-chain-agents/       #    30 BNB Chain-specific agents
-│   └── defi-agents/            #    42 general DeFi agents (18 languages)
+├── agents/                     # 🤖 78 AI Agent definitions
+│   ├── bnb-chain-agents/       #    36 BNB Chain-specific agents
+│   └── defi-agents/            #    42 general DeFi agents (30+ languages)
 │
 ├── mcp-servers/                # 🔌 6 Model Context Protocol servers
 │   ├── bnbchain-mcp/           #    BNB Chain + EVM (100+ tools)
@@ -226,12 +226,12 @@ bnb-chain-toolkit/
 
 ## 🧩 Components
 
-### 🤖 AI Agents (72+)
+### 🤖 AI Agents (78)
 
 Pre-built agent definitions for every major BNB Chain protocol and DeFi use case.
 
 <details>
-<summary><b>BNB Chain Agents (30)</b> — Click to expand</summary>
+<summary><b>BNB Chain Agents (36)</b> — Click to expand</summary>
 
 | Agent | Description |
 |-------|-------------|
@@ -245,7 +245,7 @@ Pre-built agent definitions for every major BNB Chain protocol and DeFi use case
 | **opBNB Scaling Expert** | L2 gas optimization |
 | **Greenfield Storage** | Decentralized storage on BNB Greenfield |
 | **Thena DEX Expert** | ve(3,3) DEX trading on Thena |
-| + 20 more... | Full ecosystem coverage |
+| + 26 more... | Full ecosystem coverage |
 
 </details>
 
@@ -436,7 +436,7 @@ MIT © [nirholas](https://github.com/nirholas)
 
 <p align="center">
   <b>Built with 🔶 for BNB Chain</b><br>
-  <sub>72+ agents · 6 MCP servers · 900+ tools · 60+ chains · 30+ languages</sub>
+  <sub>78 agents · 6 MCP servers · 900+ tools · 60+ chains · 30+ languages</sub>
 </p>
 
 <p align="center">
