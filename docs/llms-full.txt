@@ -1,0 +1,1319 @@
+# BNB Chain AI Toolkit — Complete Documentation
+
+> https://github.com/nirholas/bnb-chain-toolkit
+> Live Demo: https://bnb-chain-toolkit.vercel.app/
+> Agent Creator: https://erc8004.agency/
+> License: MIT
+
+The most comprehensive open-source AI toolkit for BNB Chain, BSC, opBNB, and the Binance ecosystem. 78 AI agents, 6 MCP servers with 1,100+ tools, market data pipelines, DeFi tools, wallet utilities, and Web3 standards.
+
+---
+
+## Table of Contents
+
+1. [What Is This?](#what-is-this)
+2. [Architecture](#architecture)
+3. [Getting Started](#getting-started)
+4. [AI Agents (78)](#ai-agents-78)
+5. [MCP Servers (6)](#mcp-servers-6)
+6. [Market Data](#market-data)
+7. [DeFi Tools](#defi-tools)
+8. [Wallets](#wallets)
+9. [Standards](#standards)
+10. [Examples](#examples)
+11. [Supported Networks](#supported-networks)
+12. [On-Chain Deployments](#on-chain-deployments)
+13. [FAQ](#faq)
+14. [Troubleshooting](#troubleshooting)
+15. [Glossary](#glossary)
+16. [Resources](#resources)
+
+---
+
+## What Is This?
+
+BNB Chain AI Toolkit is a free, open-source collection of tools that lets AI assistants (like Claude, ChatGPT, and others) interact with cryptocurrency and blockchain technology.
+
+Without this toolkit, if you ask Claude "What's the price of BNB?", it guesses based on old training data. With this toolkit, Claude can actually look it up — in real time, from the blockchain itself. It goes much further than prices. The AI can check wallet balances, execute trades, analyze DeFi protocols, sweep leftover tokens, bridge assets between chains, and more.
+
+The toolkit gives AI hands, not just a brain.
+
+### Why This Toolkit?
+
+| Problem | Solution |
+|---------|----------|
+| Fragmented BNB Chain tooling | Single repo with everything integrated |
+| AI can't interact with blockchains | 6 MCP servers give AI direct chain access |
+| Complex DeFi interactions | 78 specialized agents for every protocol |
+| Multi-chain complexity | Multi-chain support with unified interfaces |
+| No accessibility standards | W3AG + ERC-8004 for inclusive Web3 |
+| No AI agent identity standard | ERC-8004 on-chain agent registry on 24 chains |
+
+### How It All Works Together
+
+```
+ ┌──────────┐       ┌──────────────┐       ┌────────────┐       ┌────────────┐
+ │   You    │──────▶│   Claude     │──────▶│ MCP Server │──────▶│ Blockchain │
+ │          │       │ + AI Agent   │       │            │       │  (BSC)     │
+ │ "What's  │       │              │       │ Calls the  │       │            │
+ │  my BNB  │       │ Uses the     │       │ blockchain │       │ Returns    │
+ │  balance?"│      │ wallet agent │       │ RPC node   │       │ 1.5 BNB    │
+ └──────────┘       └──────────────┘       └────────────┘       └────────────┘
+                           │                                           │
+                           │◀──────────────────────────────────────────┘
+                           │
+                     "Your balance is 1.5 BNB ($930.00)"
+```
+
+Step by step:
+1. You type a question in natural language
+2. Claude (the AI) interprets your question and picks the right agent and tool
+3. The MCP Server translates Claude's request into a blockchain query
+4. The Blockchain returns the real data
+5. Claude formats the answer in plain English and responds to you
+
+This all happens in about 1-2 seconds.
+
+---
+
+## Architecture
+
+The toolkit is a monorepo (one repository containing many independent projects) with six main component groups. Each group can be used independently, but they're designed to work together.
+
+```
+bnb-chain-toolkit/
+├── agents/                     # 78 AI Agent definitions
+│   ├── bnb-chain-agents/       #    36 BNB Chain-specific agents
+│   └── defi-agents/            #    42 general DeFi agents (30+ languages)
+├── mcp-servers/                # 6 Model Context Protocol servers
+│   ├── bnbchain-mcp/           #    BNB Chain + EVM (466+ tools)
+│   ├── binance-mcp/            #    Binance.com (554+ tools)
+│   ├── binance-us-mcp/         #    Binance.US (US compliance)
+│   ├── universal-crypto-mcp/   #    Multi-network (59+ tools)
+│   ├── agenti/                 #    Universal EVM + Solana
+│   └── ucai/                   #    ABI-to-MCP generator (Python)
+├── market-data/                # Market data & news
+│   ├── crypto-market-data/     #    CoinGecko, DeFiLlama, Fear & Greed
+│   └── crypto-news/            #    200+ sources, 150+ endpoints
+├── defi-tools/                 # DeFi utilities
+│   └── sweep/                  #    Multi-chain dust sweeper
+├── wallets/                    # Wallet tooling
+│   └── ethereum-wallet-toolkit/#    Offline-capable, BSC compatible
+├── standards/                  # Web3 standards
+│   ├── erc-8004/               #    Agent discovery & trust protocol
+│   └── w3ag/                   #    Web3 Accessibility Guidelines
+├── erc8004-agents/             # Agent registry platform
+├── agent-runtime/              # Production-ready execution runtime
+├── locales/                    # 30+ language translations
+└── docs/                       # Comprehensive documentation
+```
+
+### Component Diagram
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                     BNB Chain AI Toolkit                      │
+├──────────────┬──────────────┬──────────────┬─────────────────┤
+│   AI Agents  │ MCP Servers  │  Market Data │   DeFi Tools    │
+│   (78)       │   (6)        │  (2)         │   + Wallets     │
+│              │              │              │   + Standards    │
+│  BNB Chain   │  bnbchain    │  prices      │   sweep         │
+│  agents (36) │  binance     │  news        │   wallet-tk     │
+│  DeFi        │  binance-us  │  sentiment   │   ERC-8004      │
+│  agents (42) │  universal   │              │   W3AG          │
+│              │  agenti      │              │                 │
+│              │  ucai        │              │                 │
+└──────┬───────┴──────┬───────┴──────┬───────┴────────┬────────┘
+       │              │              │                │
+       ▼              ▼              ▼                ▼
+   Claude/GPT    Blockchains     CoinGecko      Smart Contracts
+   Copilot       BSC, opBNB      DeFiLlama      on BSC/Ethereum
+   Any LLM       50+ chains     200+ sources
+```
+
+### Data Flow
+
+Agent Discovery Flow (build):
+  User installs toolkit → bun run build → Reads src/*.json → Validates against schema/ → Generates public/index.json → Available as JSON API
+
+MCP Server Flow (runtime):
+  AI Assistant (e.g., Claude) → MCP Protocol (stdio or HTTP+SSE) → MCP Server (e.g., bnbchain-mcp) → JSON-RPC / REST → Blockchain RPC Node → Smart Contract or Chain State → Response back to AI
+
+Market Data Flow:
+  crypto-market-data library → CoinGecko API (Prices, market caps, volume) + DeFiLlama API (TVL, protocol data, yields) + Fear & Greed (Market sentiment) → Cached response with TTL → Your application / AI agent
+
+### Technology Stack
+
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| Agent Definitions | JSON + JSON Schema | Portable, schema-validated agent configs |
+| MCP Servers | TypeScript / Node.js | AI-to-blockchain bridges |
+| UCAI Generator | Python | ABI-to-MCP code generation |
+| Market Data | TypeScript (zero-dep) | Price feeds + news aggregation |
+| Smart Contracts | Solidity / Foundry | ERC-8004 on-chain identity |
+| Wallet Toolkit | TypeScript | Offline-capable wallet operations |
+| Frontend | React 19 + Vite + Tailwind | Agent browser UI |
+| Build System | bun | Fast builds and script execution |
+| Translations | JSON (i18n) | 30+ language support |
+| Schema | JSON Schema | Agent definition validation |
+| Deployment | Vercel / Docker / Nginx | Production hosting |
+
+### Design Principles
+
+1. Modular — Use only what you need, skip the rest
+2. Standard Protocols — MCP for AI, JSON Schema for validation, Solidity for contracts
+3. Chain Agnostic — Built for BNB Chain but works with 50+ networks
+4. Offline Capable — Wallet operations and agent definitions work without internet
+5. Multi-Language — 30+ translations for global accessibility
+6. AI-First — Optimized for LLM comprehension, not just human consumption
+7. Secure by Default — CORS locked, non-root containers, input validation everywhere
+8. No Code in Agents — Agent definitions are inert JSON, never executable code
+
+### Security Architecture
+
+- All Docker containers run as non-root users
+- Redis requires password authentication and binds to 127.0.0.1
+- No secrets in container images — all credentials via environment variables
+- MCP servers are read-heavy — write operations require explicit user confirmation
+- Agent definitions are inert JSON — no code execution, safe to inspect and share
+- Smart contracts use CREATE2 deterministic deployment via SAFE Singleton Factory
+- All contracts verified on block explorers (BscScan, Etherscan, etc.)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+| Tool | Version | Install |
+|------|---------|---------|
+| Git | Any | https://git-scm.com/ |
+| Node.js | 18+ | https://nodejs.org/ |
+| bun | Any | https://bun.sh/ |
+
+You do NOT need: a crypto wallet, any cryptocurrency, API keys, or Docker for basic usage.
+
+### Install & Build
+
+```bash
+git clone https://github.com/nirholas/bnb-chain-toolkit.git
+cd bnb-chain-toolkit
+bun install
+bun run build
+```
+
+`bun run build` processes all 78 agent definitions and creates a searchable index at `public/index.json`.
+
+### Verify Installation
+
+```bash
+cat public/index.json | head -5
+```
+
+Expected output: JSON with agent data starting with `{ "agents": [ ...`.
+
+### Start Any MCP Server
+
+```bash
+cd mcp-servers/bnbchain-mcp
+bun install
+bun run build
+bun start
+```
+
+### Connect to Claude Desktop
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "bnbchain": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/bnbchain-mcp"],
+      "env": {
+        "BSC_RPC_URL": "https://bsc-dataseed.binance.org"
+      }
+    }
+  }
+}
+```
+
+Config file locations:
+- macOS: ~/Library/Application Support/Claude/claude_desktop_config.json
+- Windows: %APPDATA%\Claude\claude_desktop_config.json
+- Linux: ~/.config/Claude/claude_desktop_config.json
+
+Restart Claude Desktop completely, then try asking:
+  "What's the BNB balance of address 0xF977814e90dA44bFA03b6295A0616a897441aceC?"
+
+### Optional API Keys
+
+| API Key | What It Unlocks | How to Get One |
+|---------|----------------|---------------|
+| COINGECKO_API_KEY | Higher rate limits for price data | coingecko.com/api (free tier available) |
+| BINANCE_API_KEY + BINANCE_SECRET_KEY | Trading on Binance exchange | binance.com API management |
+| PRIVATE_KEY | On-chain write operations (sending tokens, swaps) | Export from your wallet |
+
+### Development Commands
+
+```bash
+bun install           # Install dependencies
+bun run build         # Build agent index (src/ → public/index.json)
+bun run dev           # Start frontend at http://localhost:5173
+bun run format        # Format agent JSONs
+bun run lint          # Lint TypeScript
+bun run test          # Run tests
+bun run type-check    # Type checking
+```
+
+### Docker
+
+```bash
+docker-compose up
+# Frontend: http://localhost:3000
+# Backend:  http://localhost:3001
+```
+
+---
+
+## AI Agents (78)
+
+Pre-configured personality definitions for AI assistants. Each agent is a JSON file containing a specific role, system prompt, tool access, domain-specific context, and opening questions. Load an agent into your AI assistant and it becomes a specialist.
+
+### Agent JSON Format
+
+```json
+{
+  "identifier": "unique-agent-id",
+  "author": "nirholas",
+  "createdAt": "2025-12-21",
+  "meta": {
+    "title": "Agent Display Name",
+    "description": "One-line description",
+    "tags": ["defi", "trading", "bnb"],
+    "avatar": "🥞",
+    "category": "trading"
+  },
+  "config": {
+    "model": "gpt-4o",
+    "temperature": 0.7,
+    "maxTokens": 4096
+  },
+  "systemRole": "You are a specialized AI agent that..."
+}
+```
+
+### BNB Chain Agents (36)
+
+Purpose-built for the BNB Chain ecosystem. Located in `agents/bnb-chain-agents/`.
+
+| # | Agent | What It Does |
+|---|-------|-------------|
+| 1 | PancakeSwap Trader | DEX trading, liquidity, yield farming on PancakeSwap v3 |
+| 2 | Venus Protocol Expert | Lending, borrowing, liquidation on Venus |
+| 3 | BNB Staking Advisor | Liquid staking optimization across validators |
+| 4 | Binance Earn Specialist | Savings, staking, Launchpool yields |
+| 5 | Binance Earn Advisor | Personalized Binance Earn recommendations |
+| 6 | Binance Futures Expert | Futures trading strategies on Binance |
+| 7 | Binance Spot Trader | Spot trading execution on Binance |
+| 8 | BNB Chain Expert | General BNB Chain ecosystem knowledge |
+| 9 | BNB DeFi Aggregator | Cross-protocol DeFi aggregation on BNB Chain |
+| 10 | BEP-20 Token Analyst | Token security, smart money tracking |
+| 11 | Binance Copy Trading | Mirror top performers' strategies |
+| 12 | Greenfield Storage | Decentralized storage on BNB Greenfield |
+| 13 | Thena DEX Expert | ve(3,3) DEX trading on Thena |
+| 14 | BNB Liquid Staking | stkBNB, BNBx, ankrBNB strategies |
+| 15 | BSC NFT Specialist | NFT trading and analysis on BSC |
+| 16 | Binance Launchpad | IEO and token sale participation |
+| 17 | opBNB Gaming Expert | GameFi on opBNB |
+| 18 | BSC MEV Protection | Front-running protection strategies |
+| 19 | BNB Chain Governance | DAO voting and proposals |
+| 20 | BSC Smart Contract Auditor | Contract security analysis |
+| 21 | BNB Chain News Alpha | Real-time BNB Chain news, alpha signals |
+| 22 | BNB Cross-Chain Bridge | Cross-chain bridging between BSC and other networks |
+| 23 | BNB RWA Stablecoin Expert | Real-world asset tokenization and stablecoins |
+| 24 | BNB Token Launcher | Token creation and launch strategies on BSC |
+| 25 | BSC Developer | Smart contract development on BSC |
+| 26 | BSC Portfolio Tracker | Portfolio tracking across BSC protocols |
+| 27 | BSC Whale Tracker | Smart money and whale wallet monitoring |
+| 28 | BscScan Analytics | On-chain analytics via BscScan |
+| 29 | CZ / Binance Expert | Binance ecosystem knowledge and history |
+| 30 | Lista DAO Expert | Lista DAO lending and liquid staking |
+| 31 | opBNB L2 Expert | Layer 2 scaling on opBNB |
+| 32 | BNB Agent Builder | Building and deploying AI agents for BNB Chain |
+| 33 | Binance Margin Expert | Margin trading strategies on Binance |
+| 34 | Binance Web3 Wallet | Binance Web3 Wallet operations |
+| 35 | Alpaca Finance Expert | Leveraged yield farming on Alpaca Finance |
+| 36 | BNB Bridge Expert | Cross-chain bridging (BSC ↔ opBNB ↔ L2s) |
+
+### General DeFi Agents (42)
+
+Cross-chain agents that work on any supported network. Located in `agents/defi-agents/`.
+
+| Category | Count | Description |
+|----------|:-----:|---------|
+| Portfolio Management | 8 | Tracking, rebalancing, tax optimization, risk |
+| Trading Automation | 7 | Grid trading, DCA, arbitrage, signals |
+| Yield Optimization | 6 | Auto-compounding, IL protection, rotation |
+| Risk & Security | 5 | Auditing, rug detection, exposure |
+| Market Intelligence | 5 | Sentiment, whale tracking, analytics |
+| DeFi Protocols | 6 | Lending, DEX, derivatives |
+| Infrastructure | 5 | Bridge, gas, RPC, indexing |
+
+### How to Use an Agent
+
+Option 1 — Claude Desktop (easiest):
+  1. Choose an agent from the lists above
+  2. Find the agent file (e.g., agents/bnb-chain-agents/pancakeswap-trader.json)
+  3. Open the file and copy the systemRole field
+  4. In Claude Desktop, create a new Project → click "Instructions" → paste the text
+  5. Start chatting — Claude now behaves like that agent
+
+Option 2 — Any AI Platform:
+  Copy the systemRole value and use it as a system prompt in ChatGPT (Custom Instructions), Claude (Projects → Instructions), Gemini, or any LLM API.
+
+Option 3 — JSON API:
+  After running `bun run build`, all agents are available at public/index.json.
+
+### Creating Your Own Agent
+
+```bash
+cp agents/bnb-chain-agents/agent-template.json agents/bnb-chain-agents/my-agent.json
+# Edit the file with your identifier, title, description, and systemRole
+bun run build
+```
+
+### Agent + MCP Server Combinations
+
+| Agent | + MCP Server | Result |
+|-------|-------------|--------|
+| PancakeSwap Trader | BNB Chain MCP | AI can quote and execute real DEX trades |
+| Binance Futures Expert | Binance MCP | AI can place and manage futures positions |
+| Portfolio Tracker | Universal Crypto MCP | AI tracks holdings across 50+ chains |
+| Security Auditor | BNB Chain MCP | AI can read contract code and check on-chain data |
+| BNB Chain News Alpha | Crypto News MCP | AI cross-references news with on-chain activity |
+
+Without an MCP server, agents give theoretical advice. With an MCP server, they access real-time data and execute actions.
+
+### Multi-Language Support
+
+DeFi agents support 30+ languages: English, Chinese (Simplified), Japanese, Korean, Spanish, French, German, Portuguese (BR), Russian, Arabic, Turkish, Vietnamese, Thai, Hindi, Polish, Italian, Dutch, Indonesian, Czech, Danish, Finnish, Greek, Hebrew, Hungarian, Malay, Norwegian, Romanian, Serbian, Swedish, Ukrainian.
+
+---
+
+## MCP Servers (6)
+
+Model Context Protocol servers give AI assistants direct blockchain access. MCP is an open standard (created by Anthropic) — think of it as USB for AI.
+
+| Assistant | MCP Support |
+|-----------|:-----------:|
+| Claude Desktop | Yes |
+| Claude Code | Yes |
+| GitHub Copilot | Yes |
+| Cursor | Yes |
+| Windsurf | Yes |
+| Any MCP client | Yes |
+
+### 1. BNB Chain MCP (bnbchain-mcp)
+
+Location: mcp-servers/bnbchain-mcp/
+Tools: 466+
+Best for: BNB Smart Chain (BSC), opBNB, BNB Greenfield, Sperax Protocol, and 10+ EVM chains
+
+Capabilities:
+- Token Operations — Transfer BNB/BEP-20, check balances, approve tokens
+- DEX Trading — Swap on PancakeSwap, add/remove liquidity
+- Smart Contracts — Deploy, read, write, verify contracts
+- Chain Data — Block info, transaction history, gas prices
+- BNB Greenfield — Upload/download files, manage buckets
+- Staking — Delegate BNB, check rewards, validator info
+- Market Data — CoinGecko prices, OHLCV, trending tokens
+- DeFi Analytics — DefiLlama TVL, yields, fees, protocols
+- Social Sentiment — LunarCrush metrics, influencers, trending
+- DEX Analytics — GeckoTerminal pools, trades, OHLCV
+- Sperax Protocol — USDs, SPA, veSPA, Demeter vaults (72 tools)
+
+Setup:
+```bash
+cd mcp-servers/bnbchain-mcp
+npm install && npm run build
+```
+
+Claude Desktop config:
+```json
+{
+  "mcpServers": {
+    "bnbchain": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/bnbchain-mcp"],
+      "env": {
+        "PRIVATE_KEY": "your-private-key-here"
+      }
+    }
+  }
+}
+```
+
+Environment Variables:
+| Variable | Required | Description |
+|----------|----------|-------------|
+| PRIVATE_KEY | For writes | Wallet private key (for transactions) |
+| COINGECKO_API_KEY | No | CoinGecko Pro API key |
+| LUNARCRUSH_API_KEY | No | LunarCrush social sentiment API key |
+| CRYPTOCOMPARE_API_KEY | No | CryptoCompare social data API key |
+| COINSTATS_API_KEY | No | CoinStats API key |
+| UNIVERSAL_CRYPTO_API_KEY | No | Tatum / Universal Crypto API key |
+| ARBITRUM_RPC_URL | No | Arbitrum RPC for Sperax module |
+| PORT | No | HTTP/SSE server port (default: 3001) |
+| LOG_LEVEL | No | Logging level (DEBUG, INFO, WARN, ERROR) |
+
+### 2. Binance Exchange MCP (binance-mcp)
+
+Location: mcp-servers/binance-mcp/
+Tools: 554+
+Best for: Trading on Binance.com, portfolio management, market data
+
+Capabilities:
+- Spot Trading — Place orders, cancel orders, order history
+- Futures Trading — Open/close positions, set leverage, funding rates
+- Margin Trading — Borrow, repay, margin transfers
+- Portfolio — Balances, P&L, asset allocation
+- Market Data — Order books, candlesticks, ticker data
+- Staking & Earn — Stake, savings, Launchpool
+- NFTs — Browse, buy, list NFTs
+- Sub-Accounts — Create, manage, transfer between
+
+Claude Desktop config:
+```json
+{
+  "mcpServers": {
+    "binance": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/binance-mcp"],
+      "env": {
+        "BINANCE_API_KEY": "your-api-key",
+        "BINANCE_SECRET_KEY": "your-secret-key"
+      }
+    }
+  }
+}
+```
+
+Environment Variables:
+| Variable | Required | Description |
+|----------|----------|-------------|
+| BINANCE_API_KEY | Yes | Binance API key |
+| BINANCE_SECRET_KEY | Yes | Binance API secret |
+
+### 3. Binance US MCP (binance-us-mcp)
+
+Location: mcp-servers/binance-us-mcp/
+Best for: US-based users who need regulatory compliance
+
+Same as Binance MCP but connects to Binance.US servers with US-compliant endpoints. Supports spot trading, staking, and wallet management.
+
+### 4. Universal Crypto MCP (universal-crypto-mcp)
+
+Location: mcp-servers/universal-crypto-mcp/
+Tools: 59+
+Networks: 50+
+Best for: Multi-chain DeFi, cross-chain operations
+
+Capabilities:
+- Multi-Chain DEX — Swap on any chain via aggregators
+- Cross-Chain Bridging — Bridge tokens between 50+ networks
+- DeFi Protocols — Interact with lending, yield, derivatives
+- Automated Trading — Set up strategies across chains
+- Portfolio Tracking — Unified view across all chains
+
+Supported Networks: BSC, opBNB, Ethereum, Polygon, Arbitrum, Base, Optimism, Avalanche, Fantom, Gnosis, zkSync, Scroll, Linea, Mantle, Celo, Moonbeam, Harmony, Cronos, Aurora, NEAR, Solana, and 40+ more.
+
+### 5. Agenti
+
+Location: mcp-servers/agenti/
+Best for: Simple EVM + Solana access with AI-to-AI payment support
+
+Capabilities:
+- All EVM chains: BSC, Ethereum, Polygon, Arbitrum, Base, Optimism
+- Solana network support
+- x402 payment protocol for AI-to-AI transactions
+- Smart contract deployment and interaction
+
+### 6. UCAI (ABI-to-MCP Generator)
+
+Location: mcp-servers/ucai/
+Best for: Converting any smart contract into an MCP server
+
+Takes a smart contract's ABI and automatically generates an MCP server that exposes every contract function as a tool.
+
+```bash
+pip install ucai
+ucai generate --abi ./MyContract.json --chain bsc --output ./my-mcp-server
+cd my-mcp-server && python server.py
+```
+
+### Using Multiple Servers Together
+
+```json
+{
+  "mcpServers": {
+    "bnbchain": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/bnbchain-mcp"],
+      "env": { "BSC_RPC_URL": "https://bsc-dataseed.binance.org" }
+    },
+    "binance": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/binance-mcp"],
+      "env": {
+        "BINANCE_API_KEY": "your-key",
+        "BINANCE_SECRET_KEY": "your-secret"
+      }
+    },
+    "market-data": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/crypto-market-data"]
+    }
+  }
+}
+```
+
+### Tool Count Summary
+
+| Category | Count | Source |
+|----------|------:|--------|
+| BNB Chain + EVM on-chain tools | 466+ | bnbchain-mcp |
+| Binance exchange tools | 554+ | binance-mcp |
+| Cross-chain DeFi tools | 59+ | universal-crypto-mcp |
+| EVM chain tools | 58+ | agenti |
+| ABI-to-MCP generation | Dynamic | ucai |
+| Market data endpoints | 150+ | crypto-news + crypto-market-data |
+| Wallet operations | 20+ | ethereum-wallet-toolkit |
+| Total | 1,100+ | |
+
+---
+
+## Market Data
+
+### Crypto Market Data (crypto-market-data)
+
+Location: market-data/crypto-market-data/
+Zero-dependency TypeScript library for fetching cryptocurrency market data.
+
+Features:
+- CoinGecko — Prices, market caps, trading volume, historical data
+- DeFiLlama — Total Value Locked (TVL), protocol data, yields
+- Fear & Greed Index — Market sentiment (0-100 scale)
+- Smart caching with configurable TTL
+- Automatic rate limiting with retry
+- Edge Runtime compatible (Cloudflare Workers, Vercel Edge)
+
+```typescript
+import { CoinGecko, DeFiLlama, FearAndGreed } from '@nirholas/crypto-market-data';
+
+const btc = await CoinGecko.getPrice('bitcoin');
+console.log(`BTC: $${btc.usd}`);
+
+const bnbTvl = await DeFiLlama.getProtocolTvl('binance');
+console.log(`BNB Chain TVL: $${bnbTvl}`);
+
+const sentiment = await FearAndGreed.getIndex();
+console.log(`Market sentiment: ${sentiment.value} (${sentiment.classification})`);
+```
+
+Available Methods:
+| Provider | Method | Description |
+|----------|--------|-------------|
+| CoinGecko | getPrice(id) | Current price in USD |
+| CoinGecko | getMarketData(id) | Full market data (cap, volume, supply) |
+| CoinGecko | getHistorical(id, days) | Historical prices |
+| CoinGecko | getTrending() | Trending coins |
+| CoinGecko | search(query) | Search for coins |
+| DeFiLlama | getProtocolTvl(name) | TVL for a protocol |
+| DeFiLlama | getChainTvl(chain) | TVL for a chain |
+| DeFiLlama | getYields() | Yield farming opportunities |
+| FearAndGreed | getIndex() | Current fear/greed score |
+| FearAndGreed | getHistorical(days) | Historical sentiment |
+
+### Crypto News (crypto-news)
+
+Location: market-data/crypto-news/
+200+ source news aggregator with 150+ REST API endpoints.
+
+Features:
+- 200+ news sources (CoinDesk, CoinTelegraph, The Block, Decrypt, etc.)
+- 150+ REST API endpoints
+- Real-time news streaming
+- Sentiment analysis per article
+- MCP server included for AI integration
+- CLI tool for terminal-based reading
+
+```bash
+cd market-data/crypto-news
+bun install && bun start
+# API available at http://localhost:3000
+```
+
+API Endpoints:
+- GET /api/news/latest — Latest headlines
+- GET /api/news/search?q=bnb+chain — Search for BNB Chain news
+- GET /api/news/category/defi — News by category
+- GET /api/news/sentiment?q=bitcoin — Sentiment analysis
+- GET /api/news/trending — Trending topics
+
+MCP Server config:
+```json
+{
+  "mcpServers": {
+    "crypto-news": {
+      "command": "node",
+      "args": ["market-data/crypto-news/dist/mcp-server.js"]
+    }
+  }
+}
+```
+
+---
+
+## DeFi Tools
+
+### Dust Sweeper
+
+Location: defi-tools/sweep/
+
+"Dust" refers to tiny token balances left in your wallet — often worth just cents or a few dollars each. The Dust Sweeper:
+
+1. Scans your wallet across 8 chains for tokens below a threshold (e.g., $5)
+2. Identifies which tokens have liquidity (can be sold)
+3. Batch swaps them into a single asset (stablecoin or yield position)
+4. Bridges assets cross-chain to a single destination via 6 bridge providers
+5. Reports total recovered value
+
+Supported Chains: BNB Smart Chain (56), Ethereum (1), Polygon (137), Arbitrum (42161), Base (8453), Optimism (10), Avalanche (43114), Fantom (250).
+
+```bash
+cd defi-tools/sweep
+bun install
+
+# Scan for dust (read-only, safe)
+bun run scan --wallet 0xYourAddress --chain bsc
+
+# Sweep dust tokens into USDC
+bun run sweep --wallet 0xYourAddress --chain bsc --target USDC
+```
+
+### API Server
+
+The sweep tool includes a Hono-based REST API server with x402 micropayments:
+
+| Endpoint | Method | Cost (x402) | Description |
+|----------|--------|-------------|-------------|
+| /api/wallet/:address/balances | GET | Free | Get token balances across all chains |
+| /api/wallet/:address/dust | GET | Free | Identify sweepable dust tokens |
+| /api/price | GET | Free | Get validated token price |
+| /api/sweep/quote | POST | $0.05 | Generate sweep quote with route optimization |
+| /api/sweep/execute | POST | $0.10 | Execute a sweep (queues BullMQ job) |
+| /api/consolidate/execute | POST | $0.25 | Multi-chain consolidation execution |
+| /api/bridge/quote | GET | — | Get cross-chain bridge quotes |
+| /api/defi/* | Various | — | DeFi protocol interactions |
+
+### Cross-Chain Bridge Aggregator
+
+| Provider | Protocol | Typical Speed | Chains |
+|----------|----------|---------------|--------|
+| Across | Intent-based | ~2 min | ETH, ARB, OP, BASE, POLY |
+| Stargate | LayerZero | ~3 min | ETH, ARB, OP, BASE, POLY, BSC, AVAX |
+| Hop | Bonder network | ~3 min | ETH, ARB, OP, POLY |
+| cBridge | Celer | ~5 min | ETH, ARB, OP, POLY, BSC |
+| Socket | Aggregator | ~5 min | Multi-chain |
+| Synapse | AMM pools | ~5 min | ETH, ARB, OP, BASE, POLY, BSC, AVAX |
+
+### Queue Workers (BullMQ)
+
+| Worker | Purpose |
+|--------|---------|
+| Sweep Execute | Executes token approvals + swaps via viem |
+| Sweep Track | Monitors transaction confirmations on-chain |
+| Bridge Execute | Submits cross-chain bridge transactions |
+| Bridge Track | Polls bridge providers for completion status |
+| Subscription Monitor | Auto-sweeps for subscription users |
+
+### Payment Facilitator (x402)
+
+- USDC on Base — All payments settle in USDC on Base chain
+- TransferWithAuthorization — Gasless payment approvals
+- Dispute resolution — File disputes, admin review, automated refunds
+- External facilitator support — Optional delegation to hosted x402 facilitator
+
+### Configuration
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| threshold | 5.00 | Max value ($) to consider as dust |
+| targetToken | USDC | Token to consolidate into |
+| chains | All | Which chains to sweep |
+| slippage | 1.0 | Max slippage percentage |
+| dryRun | true | Preview without executing |
+
+### Environment Variables
+
+| Variable | Purpose | Required |
+|----------|---------|----------|
+| REDIS_URL | BullMQ queue backend | Yes (for API/workers) |
+| RPC_BASE | Base chain RPC for payments | No |
+| FACILITATOR_PRIVATE_KEY | Direct settlement key | No |
+| X402_FACILITATOR_URL | External facilitator URL | No |
+| ALCHEMY_API_KEY | Token balance scanning | Recommended |
+
+### Safety Features
+
+- Dry run by default — Won't execute trades unless explicitly enabled
+- Whitelist/blacklist — Never sell specific tokens
+- Slippage protection — Skips tokens with bad liquidity
+- Gas estimation — Only sweeps if profit > gas cost
+- Rate limiting — Redis-based per-IP rate limiting (100 req/min)
+- Price validation — Multi-source price verification before execution
+
+---
+
+## Wallets
+
+### Ethereum Wallet Toolkit
+
+Location: wallets/ethereum-wallet-toolkit/
+Offline-capable, BSC-compatible wallet operations.
+
+| Feature | Description | Needs Internet? |
+|---------|-------------|:--------------:|
+| HD Wallet Generation | Create wallets from seed phrases (BIP-39/44) | No |
+| Vanity Addresses | Generate addresses with custom prefixes | No |
+| Message Signing | Sign messages (EIP-191, EIP-712) | No |
+| Transaction Signing | Sign transactions (legacy + EIP-1559) | No |
+| Keystore Files | Import/export Keystore V3 format | No |
+| Balance Checking | Check token balances | Yes |
+| Transaction Broadcasting | Send signed transactions | Yes |
+
+```bash
+cd wallets/ethereum-wallet-toolkit
+bun install
+```
+
+```typescript
+import { generateWallet, signTransaction } from '@nirholas/wallet-toolkit';
+
+// Generate a new wallet
+const wallet = generateWallet();
+console.log('Address:', wallet.address);
+console.log('Mnemonic:', wallet.mnemonic);
+
+// Sign a transaction offline
+const signedTx = signTransaction({
+  to: '0xRecipientAddress',
+  value: '1000000000000000000', // 1 BNB in wei
+  chainId: 56, // BSC mainnet
+  gasLimit: 21000,
+  gasPrice: '5000000000', // 5 Gwei
+}, privateKey);
+```
+
+MCP Server config:
+```json
+{
+  "mcpServers": {
+    "wallet": {
+      "command": "node",
+      "args": ["wallets/ethereum-wallet-toolkit/dist/mcp-server.js"]
+    }
+  }
+}
+```
+
+Security Best Practices:
+1. Generate wallets offline — Disconnect from internet first
+2. Store mnemonics physically — Write on paper, store in a safe
+3. Never share private keys — With anyone, ever, for any reason
+4. Use hardware wallets for large amounts
+5. Test with small amounts first
+6. Verify addresses character by character before sending
+
+---
+
+## Standards
+
+### ERC-8004: Agent Discovery & Trust
+
+Location: standards/erc-8004/
+
+An Ethereum standard for on-chain AI agent discovery and trust. It defines smart contracts that let AI agents:
+1. Register themselves on the blockchain
+2. Discover other agents
+3. Build reputation through verified interactions
+4. Establish trust without centralized authorities
+
+Smart Contracts (in standards/erc-8004/contracts/):
+- IdentityRegistryUpgradeable.sol — Main registry for agent registration
+- ReputationRegistryUpgradeable.sol — Trust attestation and reputation
+- ValidationRegistryUpgradeable.sol — Validation and attestation registry
+
+Agents are registered as ERC-721 NFTs with built-in reputation scoring. Each registered agent gets:
+- A unique on-chain identity (NFT)
+- Immutable metadata (capabilities, version, author)
+- A reputation score updated by verified interactions
+- Cross-chain portability via standard ERC-721 interfaces
+
+Simplified interface:
+```solidity
+interface IIdentityRegistry {
+    function registerAgent(
+        string calldata name,
+        string calldata description,
+        string calldata endpoint,
+        bytes calldata metadata
+    ) external returns (uint256 agentId);
+
+    function getAgent(uint256 agentId) external view returns (Agent memory);
+    function attestTrust(uint256 agentId, uint8 score) external;
+    function getReputation(uint256 agentId) external view returns (uint256);
+}
+```
+
+Deployed on 24 chains with deterministic 0x8004 vanity addresses via CREATE2:
+- BSC Mainnet, BSC Testnet, opBNB Mainnet, opBNB Testnet
+- Ethereum Mainnet, Ethereum Sepolia
+- Base, Arbitrum, Optimism, Polygon, Avalanche
+- Linea, Scroll, zkSync Era, Mantle, Fantom, Gnosis, Celo, Moonbeam
+- And more (mainnets + testnets)
+
+Demo Agent (standards/erc-8004/demo-agent/): Reference implementation for registering agents on-chain, querying the registry, and submitting trust attestations.
+
+### W3AG: Web3 Accessibility Guidelines
+
+Location: standards/w3ag/
+
+The first open standard for making Web3 applications accessible to people with disabilities. Modeled after WCAG but specifically designed for crypto and DeFi.
+
+Principles:
+- Perceivable — Users can perceive all information (alt text for charts, captions for videos)
+- Operable — Users can operate all controls (keyboard navigation, no time limits)
+- Understandable — Users can understand content (plain language, consistent design)
+- Robust — Works with assistive technology (ARIA labels, semantic HTML)
+
+Conformance Levels:
+- Level A — Minimum accessibility (basic usability for all)
+- Level AA — Standard accessibility (recommended for all projects)
+- Level AAA — Enhanced accessibility (best possible experience)
+
+Included React Components:
+```tsx
+import { GasEstimator, NetworkSwitcher, TokenApprovalDialog } from '@w3ag/react';
+
+<GasEstimator chainId={56} transaction={tx} />
+<NetworkSwitcher currentChain={56} onSwitch={handleSwitch} />
+<TokenApprovalDialog token={token} spender={spender} amount={amount} />
+```
+
+Testing Checklist:
+- All interactive elements are keyboard accessible
+- Token amounts are announced by screen readers
+- Gas estimates include alternative text
+- Error messages are descriptive and actionable
+- Network switching is operable without a mouse
+- Transaction confirmation has sufficient time
+- Color is not the only indicator of status
+
+---
+
+## Examples
+
+### Beginner: Check a BNB Balance (No Code)
+
+With BNB Chain MCP connected to Claude Desktop:
+  You: "What's the BNB balance of 0xF977814e90dA44bFA03b6295A0616a897441aceC?"
+  Claude: "That address holds 1,234,567.89 BNB (approximately $768 million). This appears to be a Binance cold wallet."
+
+### Beginner: Get Crypto Prices
+
+```typescript
+import { CoinGecko } from '@nirholas/crypto-market-data';
+const prices = await CoinGecko.getPrices(['bitcoin', 'binancecoin', 'ethereum']);
+```
+
+### Intermediate: Swap Tokens on PancakeSwap via AI
+
+With BNB Chain MCP + PancakeSwap Trader agent:
+  You: "Swap 0.1 BNB for CAKE on PancakeSwap"
+  AI: Gets price quote → Calculates expected output → Shows trade details → Asks for confirmation → Executes swap → Returns transaction hash
+
+### Intermediate: Monitor BNB Chain DeFi TVL
+
+```typescript
+import { DeFiLlama } from '@nirholas/crypto-market-data';
+const protocols = ['pancakeswap', 'venus', 'alpaca-finance', 'biswap'];
+for (const p of protocols) {
+  const tvl = await DeFiLlama.getProtocolTvl(p);
+  console.log(`${p}: $${(tvl / 1e9).toFixed(2)}B`);
+}
+```
+
+### Advanced: Multi-Server AI Trading Setup
+
+```json
+{
+  "mcpServers": {
+    "bnbchain": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/bnbchain-mcp"],
+      "env": { "BSC_RPC_URL": "https://bsc-dataseed.binance.org", "PRIVATE_KEY": "${BSC_PRIVATE_KEY}" }
+    },
+    "binance": {
+      "command": "npx",
+      "args": ["-y", "@nirholas/binance-mcp"],
+      "env": { "BINANCE_API_KEY": "${BINANCE_KEY}", "BINANCE_SECRET_KEY": "${BINANCE_SECRET}" }
+    },
+    "market": { "command": "node", "args": ["market-data/crypto-market-data/dist/mcp-server.js"] },
+    "news": { "command": "node", "args": ["market-data/crypto-news/dist/mcp-server.js"] }
+  }
+}
+```
+
+### Advanced: Convert Any Contract to an AI Tool
+
+```bash
+curl "https://api.bscscan.com/api?module=contract&action=getabi&address=0xContractAddress" \
+  | jq -r '.result' > MyContract.json
+cd mcp-servers/ucai
+ucai generate --abi ./MyContract.json --chain bsc --output ./my-contract-mcp
+cd my-contract-mcp && python server.py
+```
+
+### Advanced: Register an Agent On-Chain (ERC-8004)
+
+```typescript
+import { ethers } from 'ethers';
+import { IdentityRegistry__factory } from '@erc-8004/contracts';
+
+const provider = new ethers.JsonRpcProvider('https://bsc-dataseed.binance.org');
+const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+const registry = IdentityRegistry__factory.connect(REGISTRY_ADDRESS, wallet);
+
+const tx = await registry.registerAgent(
+  'My Trading Agent',
+  'Automated BNB/USDT grid trading bot',
+  'https://my-agent.example.com/mcp',
+  ethers.toUtf8Bytes(JSON.stringify({ version: '1.0', capabilities: ['trade', 'analyze'] }))
+);
+await tx.wait();
+```
+
+### Integration Patterns
+
+Pattern 1 — Read-Only Intelligence (Safest):
+  News API → AI Agent → Human-readable insights
+  No blockchain writes, no trades, no wallet connections.
+
+Pattern 2 — Monitored Trading (Recommended):
+  Market Data → AI Agent → Trade Recommendation → Human Approval → Exchange API
+  AI suggests, human approves.
+
+Pattern 3 — Autonomous Agent (Expert Only):
+  Market Data + Chain Data → AI Agent → Automated Execution → Exchange/Chain
+  Fully automated. Test on testnet first. Start with tiny amounts.
+
+---
+
+## Supported Networks
+
+Primary Focus:
+| Network | Type | Status |
+|---------|------|:------:|
+| BNB Smart Chain (BSC) | L1 | Supported |
+| opBNB | L2 | Supported |
+| BNB Greenfield | Storage | Supported |
+
+Also Supported (via Universal Crypto MCP, Agenti, and more):
+Ethereum, Polygon, Arbitrum, Base, Optimism, Avalanche, Fantom, Gnosis, zkSync Era, Scroll, Linea, Mantle, Celo, Moonbeam, Harmony, Cronos, Aurora, NEAR, Solana, and 40+ more.
+
+---
+
+## On-Chain Deployments
+
+ERC-8004 contracts are deployed and verified on 24 chains. All addresses share the 0x8004 vanity prefix deployed via CREATE2 through the SAFE Singleton Factory.
+
+### BSC Mainnet (Chain ID: 56)
+- IdentityRegistry: 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
+  https://bscscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
+- ReputationRegistry: 0x8004BAa17C55a88189AE136b182e5fdA19dE9b63
+  https://bscscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63
+
+### BSC Testnet (Chain ID: 97)
+- IdentityRegistry: 0x8004A818BFB912233c491871b3d84c89A494BD9e
+  https://testnet.bscscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e
+- ReputationRegistry: 0x8004B663056A597Dffe9eCcC1965A193B7388713
+  https://testnet.bscscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713
+- ValidationRegistry: 0x8004Cb1BF31DAf7788923b405b754f57acEB4272
+  https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272
+
+### opBNB Mainnet (Chain ID: 204)
+- IdentityRegistry: 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
+  https://opbnbscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
+- ReputationRegistry: 0x8004BAa17C55a88189AE136b182e5fdA19dE9b63
+  https://opbnbscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63
+
+### opBNB Testnet (Chain ID: 5611)
+- IdentityRegistry: 0x8004A818BFB912233c491871b3d84c89A494BD9e
+  https://testnet.opbnbscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e
+- ReputationRegistry: 0x8004B663056A597Dffe9eCcC1965A193B7388713
+  https://testnet.opbnbscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713
+- ValidationRegistry: 0x8004Cb1BF31DAf7788923b405b754f57acEB4272
+  https://testnet.opbnbscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272
+
+### Ethereum Mainnet (Chain ID: 1)
+- IdentityRegistry: 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
+- ReputationRegistry: 0x8004BAa17C55a88189AE136b182e5fdA19dE9b63
+
+### Ethereum Sepolia (Chain ID: 11155111)
+- IdentityRegistry: 0x8004A818BFB912233c491871b3d84c89A494BD9e
+- ReputationRegistry: 0x8004B663056A597Dffe9eCcC1965A193B7388713
+
+Also deployed on: Base, Arbitrum, Optimism, Polygon, Avalanche, Linea, Scroll, zkSync Era, Mantle, Fantom, Gnosis, Celo, Moonbeam (mainnets + testnets).
+
+First deployment TX: 0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962 on BSC Testnet
+  https://testnet.bscscan.com/tx/0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962
+
+Note: Smart contracts in standards/erc-8004/contracts/ are reference implementations and have NOT been formally audited. Do not deploy to mainnet without an independent security audit.
+
+---
+
+## FAQ
+
+### General
+
+Q: What is this project?
+A: BNB Chain AI Toolkit is an open-source collection of AI agents, MCP servers, market data tools, DeFi utilities, wallet tools, and Web3 standards — all focused on the BNB Chain ecosystem. It gives AI assistants the ability to interact with blockchains.
+
+Q: Do I need to know how to code?
+A: It depends. Using pre-built agents (copy-paste system prompt) and starting MCP servers (terminal commands) require no coding. Extending servers or deploying contracts requires TypeScript/Solidity knowledge.
+
+Q: Is this free?
+A: Yes. MIT license. Some external services (CoinGecko Pro, Binance exchange) have their own pricing.
+
+Q: Which AI assistants does this work with?
+A: Claude Desktop, Claude Code, GitHub Copilot, Cursor, Windsurf, and any MCP-compatible client. Agents work with any LLM (ChatGPT, Gemini, etc.) via system prompts.
+
+Q: Which blockchains are supported?
+A: Primary: BNB Smart Chain (BSC), opBNB, BNB Greenfield. Also: Ethereum, Polygon, Arbitrum, Base, Optimism, Avalanche, Solana, and 50+ more.
+
+Q: Can I use this without BNB Chain?
+A: Yes. Universal Crypto MCP supports 50+ chains. Market data works for all cryptocurrencies. DeFi agents work cross-chain. Wallet toolkit works with any EVM chain.
+
+### Security
+
+Q: Is it safe to use?
+A: The toolkit is open source and auditable. Write operations require confirmation. Dry run by default. No stored secrets. Start with testnet and small amounts.
+
+Q: Does this store my private keys?
+A: No. Private keys are provided via environment variables and never stored, logged, or transmitted.
+
+Q: Has the code been audited?
+A: Not formally. The code is open source for anyone to review. Security reports welcome via SECURITY.md.
+
+### Technical
+
+Q: What's the difference between agents, MCP servers, and tools?
+A: Agent = personality/expertise definition (JSON text). MCP Server = running program connecting AI to external data. Tool = single action an MCP server can perform. They work together but also independently.
+
+Q: What Node.js version do I need?
+A: Node.js 18 or higher.
+
+Q: Can I use npm instead of bun?
+A: Yes. Replace `bun install` with `npm install` and `bun start` with `npm start`.
+
+---
+
+## Troubleshooting
+
+### Installation Issues
+
+`bun: command not found` — Install bun: `curl -fsSL https://bun.sh/install | bash` then restart terminal.
+
+`bun install` fails with permission errors — Don't use sudo. Delete node_modules and retry: `rm -rf node_modules && bun install`
+
+Node.js version too old — Errors about unsupported syntax. Fix: `nvm install 18 && nvm use 18`
+
+### MCP Server Issues
+
+Server won't start:
+1. Check you're in the right directory (cd mcp-servers/<server-name>)
+2. Run bun install first
+3. Check required environment variables are set
+4. Check port availability (lsof -i :3000)
+
+Claude doesn't show MCP tools:
+1. Validate JSON in config file (jq . claude_desktop_config.json)
+2. Fully restart Claude Desktop (Cmd+Q / right-click tray → Quit)
+3. Check server is running (ps aux | grep mcp)
+
+"Rate limited" — Add delays, use caching, or upgrade API plan.
+
+"Invalid API key" — Check: echo $BINANCE_API_KEY — is it set?
+
+### Build Issues
+
+`bun run build` fails:
+1. Check you're in the project root
+2. Run bun install first
+3. Validate JSON files: `for f in src/*.json; do jq . "$f" > /dev/null 2>&1 || echo "Invalid: $f"; done`
+
+### Network Issues
+
+"Connection refused" to blockchain — Try alternative RPC:
+  BSC_RPC_URL="https://bsc-dataseed1.binance.org" or "https://rpc.ankr.com/bsc"
+
+Transactions stuck or failing:
+1. Sufficient balance? Check wallet has enough BNB for gas
+2. Gas price adequate? BSC usually needs 3-5 Gwei minimum
+3. Nonce correct? If resubmitting, use same nonce with higher gas
+
+### Security Configuration
+
+CORS errors — Set allowed origins: `export CORS_ORIGINS="https://your-app.example.com"`
+
+Rate limiter behind proxy — Enable: `export TRUST_PROXY=true`
+
+Redis "NOAUTH" errors — Set: `export REDIS_PASSWORD=your-secure-password`
+
+WebSocket connection rejected (code 1013) — Increase: `export MAX_WS_CONNECTIONS=2000`
+
+---
+
+## Glossary
+
+### Basics
+
+Blockchain — A digital ledger shared across thousands of computers. Once written, can't be changed.
+Token — A digital asset on a blockchain (coins, stablecoins, utility tokens).
+Wallet — Software that stores your private keys for sending/receiving tokens.
+Transaction (TX) — An action recorded on the blockchain (costs gas).
+Gas — The fee paid to use a blockchain, paid in the chain's native token.
+Address — Unique identifier on a blockchain (e.g., 0x1234...abcd).
+Private Key — Secret code proving wallet ownership. Never share it.
+Seed Phrase — 12 or 24 words that regenerate your private key. Store offline.
+
+### Blockchain & Crypto
+
+BNB Chain — Family of blockchains by Binance: BSC (L1), opBNB (L2), Greenfield (storage).
+BSC — BNB Smart Chain, the main chain for DeFi. EVM-compatible.
+EVM — Ethereum Virtual Machine, the engine running smart contracts on Ethereum and compatible chains.
+Smart Contract — A program on the blockchain that runs automatically when conditions are met.
+DeFi — Decentralized Finance: trading, lending, borrowing, staking on blockchains.
+DEX — Decentralized Exchange (PancakeSwap, Uniswap). Trade from your wallet directly.
+CEX — Centralized Exchange (Binance, Coinbase). Company holds your funds.
+TVL — Total Value Locked in a DeFi protocol. Measures popularity and trust.
+Liquidity — How easily a token can be traded without moving its price.
+Slippage — Price difference between expected and actual trade execution.
+Dust — Tiny leftover token balances, often worth pennies.
+Bridge — Tool that moves tokens between different blockchains.
+NFT — Non-Fungible Token. Unique digital asset on the blockchain.
+RPC — Remote Procedure Call. How software talks to blockchain nodes.
+ABI — Application Binary Interface. Instruction manual for a smart contract.
+BEP-20 — Token standard on BNB Smart Chain (like ERC-20 on Ethereum).
+Wei / Gwei — Smallest units of BNB/ETH. 1 BNB = 10^18 wei.
+Layer 2 (L2) — Secondary blockchain for faster/cheaper transactions (opBNB for BSC).
+Airdrop — Free tokens sent to your wallet.
+Yield Farming — Moving tokens between protocols to maximize returns.
+APY — Annual Percentage Yield including compound interest.
+Impermanent Loss — Risk when providing DEX liquidity if prices change significantly.
+ve(3,3) — Tokenomics model: lock tokens for voting power and protocol fees.
+
+### AI & Agent Terms
+
+AI Agent — A software personality defined by instructions that shapes AI behavior.
+System Prompt — Hidden instructions given to an AI before conversation starts.
+LLM — Large Language Model (Claude, ChatGPT, Gemini).
+MCP — Model Context Protocol. Universal standard connecting AI to external tools.
+MCP Server — Running program exposing tools via MCP protocol.
+MCP Tool — Single action an MCP server performs (e.g., get_balance, swap_tokens).
+Hallucination — When AI makes up incorrect information. MCP tools reduce this.
+Temperature — AI creativity setting. Low (0-0.3) = precise. High (0.7-1.0) = creative.
+Context Window — How much text AI can "remember" in one conversation.
+
+### Standards
+
+ERC-8004 — On-chain AI agent identity standard proposed by this project.
+W3AG — Web3 Accessibility Guidelines proposed by this project.
+CREATE2 — Deploys contracts to predictable addresses. Used for 0x8004 prefix.
+ERC-721 — NFT standard. ERC-8004 agents are minted as ERC-721 NFTs.
+x402 — Machine-to-machine micropayment protocol over HTTP.
+
+### Infrastructure
+
+Monorepo — Single repository containing multiple projects.
+Docker — Packages software into isolated containers.
+Redis — Fast in-memory database (used for caching, rate limiting).
+BullMQ — Job queue system (used by Dust Sweeper for background processing).
+Hono — Lightweight web framework (Dust Sweeper API).
+viem — TypeScript library for EVM blockchain interaction.
+
+---
+
+## Resources
+
+### Project Links
+
+- GitHub: https://github.com/nirholas/bnb-chain-toolkit
+- Live Demo: https://bnb-chain-toolkit.vercel.app/
+- Agent Creator (ERC-8004): https://erc8004.agency/
+- ERC-8004 Specification: erc8004.md
+- llms.txt (summary): llms.txt
+- Full context: This file
+
+### npm Packages
+
+- BNB Chain MCP: npx -y @nirholas/bnbchain-mcp
+- Universal Crypto MCP: npx -y @nirholas/universal-crypto-mcp
+
+### BNB Chain Official
+
+- BNB Chain Documentation: https://docs.bnbchain.org/
+- BNB Chain GitHub: https://github.com/bnb-chain
+- BSCScan: https://bscscan.com/
+- opBNBScan: https://opbnbscan.com/
+- PancakeSwap: https://pancakeswap.finance/
+- Venus Protocol: https://venus.io/
+
+### MCP (Model Context Protocol)
+
+- MCP Specification: https://modelcontextprotocol.io/specification
+- MCP TypeScript SDK: https://github.com/modelcontextprotocol/typescript-sdk
+- MCP Python SDK: https://github.com/modelcontextprotocol/python-sdk
+- Claude Desktop MCP Guide: https://docs.anthropic.com/en/docs/agents-and-tools/mcp
+
+### Documentation Index
+
+| Document | Description |
+|----------|-------------|
+| docs/what-is-this.md | Plain-English project overview |
+| docs/GLOSSARY.md | All terms explained simply |
+| docs/getting-started.md | Step-by-step setup guide |
+| docs/architecture.md | System design and data flows |
+| docs/agents.md | Complete agent catalog (78 agents) |
+| docs/mcp-servers.md | 6 MCP servers setup and configuration |
+| docs/market-data.md | Price feeds and news APIs |
+| docs/defi-tools.md | Dust sweeper and DeFi utilities |
+| docs/wallets.md | Wallet generation and signing |
+| docs/standards.md | ERC-8004 and W3AG specifications |
+| docs/examples.md | Real-world usage patterns |
+| docs/faq.md | Common questions |
+| docs/troubleshooting.md | Problem solving |
+| docs/awesome.md | Curated BNB Chain AI resources |
+| docs/TECHNICAL.md | Full technical deep-dive |
+| docs/PROJECT.md | Project document with roadmap |
+
+---
+
+## License
+
+MIT — https://github.com/nirholas/bnb-chain-toolkit/blob/main/LICENSE
+
+78 agents · 6 MCP servers · 1,100+ tools · 30+ languages · 24 on-chain deployments

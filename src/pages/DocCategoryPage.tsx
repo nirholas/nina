@@ -9,23 +9,16 @@ import {
   BookOpen,
   ChevronRight,
   Clock,
-  Code2,
   Shield,
   Zap,
   Wallet,
-  FileCode,
   Rocket,
   Home,
   Bot,
   Server,
   BarChart3,
   Layers,
-  HelpCircle
-} from 'lucide-react';
-
-interface DocArticle {
-  id: string;
-  title: string;
+  HelpCircle,
   description: string;
   readTime: string;
   difficulty: 'beginner' | 'intermediate' | 'advanced';
