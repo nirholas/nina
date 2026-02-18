@@ -109,7 +109,7 @@ Consolidated 14 independent repositories into one comprehensive AI toolkit for B
 - `bnbchain-mcp` — BNB Chain + EVM operations (100+ tools)
 - `binance-mcp` — Binance.com exchange (478+ tools)
 - `binance-us-mcp` — Binance.US (US compliance)
-- `universal-crypto-mcp` — 60+ networks (100+ tools)
+- `universal-crypto-mcp` —  networks (100+ tools)
 - `agenti` — Universal EVM + Solana MCP
 - `ucai` — ABI-to-MCP generator (Python)
 

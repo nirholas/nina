@@ -218,7 +218,7 @@ bun install
 
 **Location:** `mcp-servers/universal-crypto-mcp/`
 **Tools:** 59+
-**Networks:** 60+
+**Networks:** 
 **Best for:** Multi-chain DeFi, cross-chain operations
 
 #### What It Can Do
@@ -226,7 +226,7 @@ bun install
 | Category | Examples |
 |----------|---------|
 | **Multi-Chain DEX** | Swap on any chain via aggregators |
-| **Cross-Chain Bridging** | Bridge tokens between 60+ networks |
+| **Cross-Chain Bridging** | Bridge tokens between  networks |
 | **DeFi Protocols** | Interact with lending, yield, derivatives |
 | **Automated Trading** | Set up strategies across chains |
 | **Portfolio Tracking** | Unified view across all chains |

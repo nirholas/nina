@@ -94,7 +94,7 @@ export function useAuth() {
 
   const primaryWallet = useMemo(() => {
     if (!wallets || wallets.length === 0) return null;
-    return wallets.find((w: any) => w.walletClientType === 'privy') || wallets[0];
+    return wallets.find((w: { walletClientType?: string }) => w.walletClientType === 'privy') || wallets[0];
   }, [wallets]);
 
   const profile: UserProfile | null = useMemo(() => {
@@ -109,10 +109,10 @@ export function useAuth() {
       });
     }
     
-    for (const wallet of user.linkedAccounts.filter((a: any) => a.type === 'wallet')) {
+    for (const wallet of user.linkedAccounts.filter((a: { type: string }) => a.type === 'wallet')) {
       linkedAccounts.push({
         type: 'wallet',
-        address: (wallet as any).address,
+        address: (wallet as { address?: string }).address,
       });
     }
     
@@ -143,7 +143,7 @@ export function useAuth() {
       email: user.email?.address,
       wallet: user.wallet?.address,
       name: user.google?.name || user.twitter?.name || user.github?.username,
-      avatar: (user.google as any)?.picture || user.twitter?.profilePictureUrl,
+      avatar: (user.google as { picture?: string })?.picture || user.twitter?.profilePictureUrl,
       createdAt: new Date(user.createdAt),
       linkedAccounts,
     };

@@ -1,6 +1,6 @@
 ---
 title: "DeFi Packages Overview"
-description: "Comprehensive DeFi tools for AI agents - DEXs, lending, bridges across 60+ networks"
+description: "Comprehensive DeFi tools for AI agents - DEXs, lending, bridges across  networks"
 category: "packages"
 keywords: ["defi", "uniswap", "aave", "compound", "curve", "gmx", "lido", "yearn"]
 order: 1
@@ -8,14 +8,14 @@ order: 1
 
 # DeFi Packages
 
-The DeFi packages provide comprehensive tools for AI agents to interact with decentralized finance protocols across 60+ blockchain networks.
+The DeFi packages provide comprehensive tools for AI agents to interact with decentralized finance protocols across  blockchain networks.
 
 ## Overview
 
 | Metric | Value |
 |--------|-------|
 | **Protocols** | 15+ major DeFi protocols |
-| **Networks** | 60+ EVM chains |
+| **Networks** |  EVM chains |
 | **Tools** | 100+ MCP tools |
 | **Categories** | DEXs, Lending, Staking, Bridges |
 

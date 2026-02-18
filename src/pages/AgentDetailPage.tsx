@@ -112,8 +112,8 @@ const MCP_SERVER_INFO: Record<
   },
   "universal-crypto-mcp": {
     name: "Universal Crypto MCP",
-    tools: "60+",
-    description: "Cross-chain data for 60+ networks — prices, TVL, protocols",
+    tools: "",
+    description: "Cross-chain data for  networks — prices, TVL, protocols",
   },
   "free-crypto-news": {
     name: "Crypto News MCP",

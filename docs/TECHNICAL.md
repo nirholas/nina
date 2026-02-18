@@ -1,6 +1,6 @@
 # Technical Document — BNB Chain AI Toolkit
 
-> Hackathon submission: 78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain and 60+ networks.
+> Hackathon submission: 78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain and  networks.
 
 ---
 
@@ -94,7 +94,7 @@ sequenceDiagram
 #### AI Agents (`agents/`)
 
 - **36 BNB Chain agents** — PancakeSwap trading, Venus lending, BNB staking, BSC security audit, opBNB L2, Greenfield storage, and more.
-- **42 DeFi agents** — General-purpose agents for trading, bridging, yield farming, portfolio management across 60+ networks.
+- **42 DeFi agents** — General-purpose agents for trading, bridging, yield farming, portfolio management across  networks.
 - Each agent is a self-contained **JSON file** with: system prompt, MCP server connections, opening questions, and metadata.
 - Build pipeline: `src/*.json` → schema validation → `public/index.json` (searchable API).
 - Key files: `agents/bnb-chain-agents/`, `agents/defi-agents/`, `schema/`, `scripts/`.
@@ -106,7 +106,7 @@ sequenceDiagram
 | `bnbchain-mcp` | TypeScript | 100+ | BNB Chain + EVM operations |
 | `binance-mcp` | TypeScript | 478+ | Binance.com exchange (spot, futures, earn) |
 | `binance-us-mcp` | TypeScript | — | Binance.US (US-compliant subset) |
-| `universal-crypto-mcp` | TypeScript | 100+ | 60+ networks via unified interface |
+| `universal-crypto-mcp` | TypeScript | 100+ |  networks via unified interface |
 | `agenti` | TypeScript | — | EVM + Solana multi-chain |
 | `ucai` | Python | — | ABI-to-MCP code generator |
 

@@ -1,6 +1,6 @@
 # ERC-8004 Agent Creator
 
-> On-chain identity for AI agents. Register, discover, and verify trustless autonomous agents as ERC-721 NFTs on BNB Chain, Ethereum, and 60+ networks.
+> On-chain identity for AI agents. Register, discover, and verify trustless autonomous agents as ERC-721 NFTs on BNB Chain, Ethereum, and  networks.
 
 ## URL
 

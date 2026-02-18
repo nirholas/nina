@@ -23,7 +23,7 @@
 | Document | Audience | Description |
 |----------|----------|-------------|
 | [What Is This?](what-is-this.md) | Everyone | Plain-English project overview — no tech background assumed |
-| [Glossary](GLOSSARY.md) | Everyone | 60+ terms explained simply (blockchain, AI, DeFi, standards) |
+| [Glossary](GLOSSARY.md) | Everyone |  terms explained simply (blockchain, AI, DeFi, standards) |
 | [FAQ](faq.md) | Everyone | Honest answers to the most common questions |
 
 ### Setup & Usage

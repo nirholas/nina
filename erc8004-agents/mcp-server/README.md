@@ -1,6 +1,6 @@
 # @nirholas/erc8004-mcp
 
-> MCP server for ERC-8004 trustless AI agent on-chain identity — register, discover, and manage agents across BSC, Ethereum, and 60+ networks.
+> MCP server for ERC-8004 trustless AI agent on-chain identity — register, discover, and manage agents across BSC, Ethereum, and  networks.
 
 [![npm](https://img.shields.io/npm/v/@nirholas/erc8004-mcp)](https://www.npmjs.com/package/@nirholas/erc8004-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

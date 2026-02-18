@@ -64,7 +64,7 @@ try {
           agents: "78",
           mcpServers: 6,
           tools: "1,100+",
-          chains: "60+",
+          chains: "",
         },
       },
     };

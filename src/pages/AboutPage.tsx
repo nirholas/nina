@@ -37,7 +37,7 @@ const stats = [
   { value: "78", label: "AI Agents", icon: Bot, description: "36 BNB Chain + 42 DeFi agents" },
   { value: "6", label: "MCP Servers", icon: Server, description: "1,100+ tools across all servers" },
   { value: "478+", label: "Binance Tools", icon: BarChart3, description: "Most comprehensive exchange MCP" },
-  { value: "60+", label: "Chains", icon: Globe, description: "BNB Chain, Ethereum, Solana, and more" },
+  { value: "", label: "Chains", icon: Globe, description: "BNB Chain, Ethereum, Solana, and more" },
   { value: "57", label: "Wallet Tools", icon: Wallet, description: "5 wallet MCP servers, 348 tests" },
   { value: "2", label: "Open Standards", icon: Shield, description: "ERC-8004 + W3AG" },
   { value: "30+", label: "Languages", icon: Languages, description: "Agent translations" },
@@ -100,7 +100,7 @@ const mcpHighlights = [
   { name: "bnbchain-mcp", tools: "150+", focus: "BNB Chain + EVM — balances, transfers, tokens, security" },
   { name: "binance-mcp", tools: "478+", focus: "Spot, Futures, Margin, Options, Algo, Earn, Copy Trading, NFT" },
   { name: "binance-us-mcp", tools: "120+", focus: "Regulated US exchange — spot, staking, OTC, custody" },
-  { name: "universal-crypto-mcp", tools: "380+", focus: "60+ chains — 1inch, Aave, Compound, Uniswap, LayerZero" },
+  { name: "universal-crypto-mcp", tools: "380+", focus: " chains — 1inch, Aave, Compound, Uniswap, LayerZero" },
   { name: "agenti", tools: "380+", focus: "EVM + Solana — x402 payments, Flashbots MEV, Wormhole bridges" },
   { name: "ucai", tools: "ABI→MCP", focus: "Generate custom MCP tools from any smart contract ABI" },
 ];
@@ -111,7 +111,7 @@ export default function AboutPage() {
   useSEO({
     title: "About",
     description:
-      "Learn about BNB Chain AI Toolkit — 78 AI agents, 6 MCP servers, and 1,100+ tools for BNB Chain and 60+ networks.",
+      "Learn about BNB Chain AI Toolkit — 78 AI agents, 6 MCP servers, and 1,100+ tools for BNB Chain and  networks.",
     path: "/about",
   });
 
@@ -390,7 +390,7 @@ export default function AboutPage() {
                 href: "https://github.com/nirholas/bnb-chain-toolkit",
                 target: "_blank",
                 rel: "noopener noreferrer",
-              } as any}
+              } as Record<string, string>}
             >
               <Github className="w-5 h-5 mr-2" />
               View on GitHub

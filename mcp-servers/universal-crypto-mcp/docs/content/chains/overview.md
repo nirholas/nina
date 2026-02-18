@@ -1,6 +1,6 @@
 ---
 title: "Chain Support Overview"
-description: "60+ blockchain networks supported by Universal Crypto MCP"
+description: " blockchain networks supported by Universal Crypto MCP"
 category: "chains"
 keywords: ["chains", "networks", "evm", "solana", "multichain"]
 order: 1
@@ -8,7 +8,7 @@ order: 1
 
 # Supported Chains
 
-Universal Crypto MCP supports 60+ blockchain networks, including EVM chains, Solana, and other major ecosystems.
+Universal Crypto MCP supports  blockchain networks, including EVM chains, Solana, and other major ecosystems.
 
 ## Network Summary
 

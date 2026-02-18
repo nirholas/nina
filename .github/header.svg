@@ -96,7 +96,7 @@
     <!-- Chains -->
     <g transform="translate(535, 0)">
       <rect x="-45" y="-12" width="90" height="42" rx="8" fill="#22C55E" opacity="0.1" />
-      <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#22C55E">60+</text>
+      <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#22C55E"></text>
       <text x="0" y="24" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">CHAINS</text>
     </g>
 

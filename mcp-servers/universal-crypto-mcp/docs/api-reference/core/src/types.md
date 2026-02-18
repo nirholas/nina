@@ -104,7 +104,7 @@ Defined in: [core/src/types/index.ts:86](https://github.com/nirholas/universal-c
 Represents a blockchain network configuration.
 
 Networks define the connection parameters and metadata for interacting
-with a specific blockchain. Universal Crypto MCP supports 60+ networks.
+with a specific blockchain. Universal Crypto MCP supports  networks.
 
 ##### Example
 

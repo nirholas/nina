@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.nirholas/bnb-chain-toolkit",
   "title": "BNB Chain AI Toolkit",
-  "description": "78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain and 60+ networks.",
+  "description": "78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain and  networks.",
   "license": "MIT",
   "authors": [
     {

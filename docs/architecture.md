@@ -28,7 +28,7 @@ The toolkit is a **monorepo** (one repository containing many independent projec
        ▼              ▼              ▼                ▼
    Claude/GPT    Blockchains     CoinGecko      Smart Contracts
    Copilot       BSC, opBNB      DeFiLlama      on BSC/Ethereum
-   Any LLM       60+ chains      200+ sources
+   Any LLM        chains      200+ sources
 ```
 
 **How to read this diagram:** The top box is the toolkit. Each column is a component group. The bottom row shows what each group connects to in the outside world.
@@ -72,7 +72,7 @@ bnb-chain-toolkit/
 │   ├── bnbchain-mcp/                # BNB Chain + EVM (466+ tools)
 │   ├── binance-mcp/                 # Binance.com (554+ tools)
 │   ├── binance-us-mcp/              # Binance.US (US compliance)
-│   ├── universal-crypto-mcp/        # 60+ networks (59+ tools)
+│   ├── universal-crypto-mcp/        #  networks (59+ tools)
 │   ├── agenti/                      # EVM + Solana MCP
 │   └── ucai/                        # ABI-to-MCP generator (Python)
 │
@@ -242,7 +242,7 @@ These principles drove every architectural decision. Understanding them will hel
 |---|-----------|--------------|-----|
 | 1 | **Modular** | Use only what you need, skip the rest | Nobody needs all 1,100+ tools. You might only want market data, or just one MCP server. Everything is independently installable. |
 | 2 | **Standard Protocols** | MCP for AI, JSON Schema for validation, Solidity for contracts | Using established standards means the toolkit works with existing tools and doesn't lock you into proprietary formats. |
-| 3 | **Chain Agnostic** | Built for BNB Chain but works with 60+ networks | BNB Chain is the primary focus because of the hackathon, but the architecture doesn't hard-code any specific chain. |
+| 3 | **Chain Agnostic** | Built for BNB Chain but works with  networks | BNB Chain is the primary focus because of the hackathon, but the architecture doesn't hard-code any specific chain. |
 | 4 | **Offline Capable** | Wallet operations and agent definitions work without internet | Critical for security. You should be able to generate wallets and sign transactions on an air-gapped machine. |
 | 5 | **Multi-Language** | 30+ translations for global accessibility | Crypto is global. Agents should speak the user's language. |
 | 6 | **AI-First** | Every component is designed for AI assistant consumption | JSON responses, clear tool names, self-descriptive schemas — everything is optimized for LLM comprehension, not just human consumption. |

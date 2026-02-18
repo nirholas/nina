@@ -392,11 +392,11 @@ export default function InteractiveSandbox() {
           <button
             onClick={() => setShowTemplateSelector(true)}
             className="px-3 py-1.5 bg-black dark:bg-white text-white dark:text-black hover:bg-[#0a0a0a] dark:hover:bg-gray-100 rounded-lg text-sm font-semibold flex items-center gap-2 shadow-sm transition-colors"
-            title="Browse 60+ smart contract & workspace templates"
+            title="Browse  smart contract & workspace templates"
           >
             <Zap className="w-4 h-4" />
             Templates
-            <span className="px-1.5 py-0.5 bg-white/20 dark:bg-black/20 rounded-full text-xs font-bold">60+</span>
+            <span className="px-1.5 py-0.5 bg-white/20 dark:bg-black/20 rounded-full text-xs font-bold"></span>
           </button>
           
           <div className="h-6 w-px bg-gray-300 dark:bg-zinc-800" />

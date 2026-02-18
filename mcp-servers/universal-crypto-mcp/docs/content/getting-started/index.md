@@ -12,7 +12,7 @@ Welcome to Universal Crypto MCP! This guide will get you up and running in 5 min
 
 ## What is Universal Crypto MCP?
 
-Universal Crypto MCP is a Model Context Protocol (MCP) server that gives AI assistants access to 380+ blockchain tools across 60+ networks. It enables AI agents to:
+Universal Crypto MCP is a Model Context Protocol (MCP) server that gives AI assistants access to 380+ blockchain tools across  networks. It enables AI agents to:
 
 - 💰 Check balances and transfer tokens
 - 🔄 Execute DeFi swaps and lending

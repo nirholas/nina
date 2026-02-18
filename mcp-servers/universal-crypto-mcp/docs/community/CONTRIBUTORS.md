@@ -57,7 +57,7 @@ This project integrates and builds upon several open-source MCP servers from the
 - **Original Repository**: [GoPlausible/algorand-mcp](https://github.com/GoPlausible/algorand-mcp)
 - **Original Author**: GoPlausible
 - **License**: MIT
-- **Description**: Comprehensive Algorand blockchain interaction tools (40+ tools, 60+ resources)
+- **Description**: Comprehensive Algorand blockchain interaction tools (40+ tools,  resources)
 - **Integration Path**: `packages/defi/protocols/algorand/`
 - **Our Modifications**: Unified wallet integration, enhanced asset management
 

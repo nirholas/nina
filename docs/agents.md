@@ -308,7 +308,7 @@ Agents provide expertise, but they need MCP servers to access real data. Here ar
 |-------|-------------|--------|
 | PancakeSwap Trader | BNB Chain MCP | AI can quote and execute real DEX trades |
 | Binance Futures Expert | Binance MCP | AI can place and manage futures positions |
-| Portfolio Tracker | Universal Crypto MCP | AI tracks holdings across 60+ chains |
+| Portfolio Tracker | Universal Crypto MCP | AI tracks holdings across  chains |
 | Security Auditor | BNB Chain MCP | AI can read contract code and check on-chain data |
 | BNB Chain News Alpha | Crypto News MCP | AI cross-references news with on-chain activity |
 

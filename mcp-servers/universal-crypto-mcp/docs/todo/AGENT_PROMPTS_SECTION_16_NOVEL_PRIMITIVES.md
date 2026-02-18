@@ -920,7 +920,7 @@
            
            <PrimitiveCard
              title="Cross-Chain"
-             description="Seamless operations across 60+ networks"
+             description="Seamless operations across  networks"
              href="/novel/cross-chain"
              icon="🌐"
            />

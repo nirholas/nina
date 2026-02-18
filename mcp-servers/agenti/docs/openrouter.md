@@ -109,7 +109,7 @@ Agenti provides 380+ tools across these categories:
 | **DeFi** | 100+ | Uniswap, Aave, Compound, Curve operations |
 | **NFT** | 40+ | Collection data, ownership, metadata |
 | **Security** | 30+ | Token audits, contract verification, honeypot detection |
-| **Market Data** | 60+ | Prices, charts, volume, sentiment |
+| **Market Data** |  | Prices, charts, volume, sentiment |
 | **Multi-chain** | 20+ networks | Ethereum, Base, Arbitrum, Polygon, Solana, etc. |
 
 ## Supported Networks

@@ -306,7 +306,7 @@ export default function DocsPage() {
                   { name: "bnbchain-mcp", tools: "150+", focus: "BNB Chain + EVM — balances, transfers, security", lang: "TypeScript" },
                   { name: "binance-mcp", tools: "478+", focus: "Spot, Futures, Margin, Options, Earn, Copy Trading", lang: "TypeScript" },
                   { name: "binance-us-mcp", tools: "120+", focus: "US-regulated — spot, staking, OTC, custody", lang: "TypeScript" },
-                  { name: "universal-crypto-mcp", tools: "380+", focus: "60+ chains — DEX, DeFi, bridges, x402 payments", lang: "TypeScript" },
+                  { name: "universal-crypto-mcp", tools: "380+", focus: " chains — DEX, DeFi, bridges, x402 payments", lang: "TypeScript" },
                   { name: "agenti", tools: "380+", focus: "EVM + Solana — Flashbots MEV, Wormhole, LayerZero", lang: "TypeScript" },
                   { name: "ucai", tools: "∞", focus: "Generate MCP tools from any smart contract ABI", lang: "Python" },
                 ].map((s) => (
@@ -338,7 +338,7 @@ export default function DocsPage() {
               duration={3}
               containerClassName="h-12"
               className="bg-[#F0B90B] text-black font-semibold"
-              {...{ href: "/faq" } as any}
+              {...{ href: "/faq" } as Record<string, string>}
             >
               <HelpCircle className="w-5 h-5 mr-2" />
               View FAQ

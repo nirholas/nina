@@ -45,7 +45,7 @@ const GITHUB_BASE = 'https://github.com/nirholas/bnb-chain-toolkit/tree/main/';
 const stats = [
   { label: 'Total Tools', value: '1,100+', icon: Server },
   { label: 'Servers', value: '6', icon: Layers },
-  { label: 'Networks', value: '60+', icon: Globe },
+  { label: 'Networks', value: '', icon: Globe },
   { label: 'Languages', value: '2', icon: Code2 },
 ];
 
@@ -132,7 +132,7 @@ export default function MCPServersPage() {
   useSEO({
     title: 'MCP Servers — 6 Servers, 1,100+ Tools',
     description:
-      'Explore 6 MCP Servers with 1,100+ tools for BNB Chain, Binance, and 60+ blockchain networks. Compare, copy config, and start building.',
+      'Explore 6 MCP Servers with 1,100+ tools for BNB Chain, Binance, and  blockchain networks. Compare, copy config, and start building.',
     path: '/mcp',
   });
 
@@ -184,7 +184,7 @@ export default function MCPServersPage() {
 
           <div className="mx-auto mt-6 max-w-2xl">
             <TextGenerateEffect
-              words="The most comprehensive AI-blockchain toolkit — trade, bridge, stake, and deploy across 60+ networks through natural language."
+              words="The most comprehensive AI-blockchain toolkit — trade, bridge, stake, and deploy across  networks through natural language."
               className="text-lg text-gray-600 dark:text-gray-400"
             />
           </div>

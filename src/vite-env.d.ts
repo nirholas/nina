@@ -28,8 +28,11 @@ interface ImportMeta {
 // Ethereum provider types
 interface EthereumProvider {
   isMetaMask?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   request: (args: { method: string; params?: any[] }) => Promise<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   on: (event: string, handler: (...args: any[]) => void) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   removeListener: (event: string, handler: (...args: any[]) => void) => void;
   selectedAddress?: string | null;
   chainId?: string;

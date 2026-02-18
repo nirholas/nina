@@ -282,7 +282,7 @@ npx @nirholas/bnb-chain-mcp@latest --sse
 ### Tool Categories
 
 <details>
-<summary><strong>🔗 Core Blockchain (60+ tools)</strong></summary>
+<summary><strong>🔗 Core Blockchain ( tools)</strong></summary>
 
 | Tool | Description |
 |------|-------------|

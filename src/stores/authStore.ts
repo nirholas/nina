@@ -112,9 +112,9 @@ export const useAuthStore = create<AuthState>()(
           });
           
           return {};
-        } catch (error: any) {
+        } catch (error: unknown) {
           set({ isLoading: false });
-          return { error: error.message || 'Failed to sign in' };
+          return { error: error instanceof Error ? error.message : 'Failed to sign in' };
         }
       },
 
@@ -140,9 +140,9 @@ export const useAuthStore = create<AuthState>()(
           });
           
           return {};
-        } catch (error: any) {
+        } catch (error: unknown) {
           set({ isLoading: false });
-          return { error: error.message || 'Failed to sign up' };
+          return { error: error instanceof Error ? error.message : 'Failed to sign up' };
         }
       },
 
@@ -176,9 +176,9 @@ export const useAuthStore = create<AuthState>()(
           
           set({ isLoading: false });
           return {};
-        } catch (error: any) {
+        } catch (error: unknown) {
           set({ isLoading: false });
-          return { error: error.message || `Failed to sign in with ${provider}` };
+          return { error: error instanceof Error ? error.message : `Failed to sign in with ${provider}` };
         }
       },
 
@@ -202,9 +202,9 @@ export const useAuthStore = create<AuthState>()(
           }));
           
           return {};
-        } catch (error: any) {
+        } catch (error: unknown) {
           set({ isLoading: false });
-          return { error: error.message || 'Failed to update profile' };
+          return { error: error instanceof Error ? error.message : 'Failed to update profile' };
         }
       },
     }),

@@ -76,7 +76,7 @@ export default function ContractPlayground() {
   const previewTimer = useRef<number | null>(null);
   const [previewKey, setPreviewKey] = useState(0);
   
-  const editorRef = useRef<any>(null);
+  const editorRef = useRef<unknown>(null);
   
   // Initialize BNB Compiler with progress callback
   const compiler = useMemo(() => new BNBCompiler({
@@ -146,9 +146,9 @@ export default function ContractPlayground() {
       const codeWithPrompt = `// Generated from prompt: "${sanitizedPrompt}"\n\n${template.code}`;
       setCode(codeWithPrompt);
       setDeploymentStatus(null);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Generation error:', err);
-      setError(err.message || 'Failed to generate contract');
+      setError(err instanceof Error ? err.message : 'Failed to generate contract');
     } finally {
       setIsGenerating(false);
     }
@@ -195,9 +195,9 @@ export default function ContractPlayground() {
         const errorMessages = (result.errors ?? []).map(e => e.formattedMessage || e.message).join('\n');
         throw new Error(errorMessages || 'Compilation failed');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Compilation error:', err);
-      setError(err.message || 'Compilation failed');
+      setError(err instanceof Error ? err.message : 'Compilation failed');
       setDeploymentStatus(null);
     } finally {
       setIsCompiling(false);
@@ -258,13 +258,14 @@ export default function ContractPlayground() {
       setDeploymentStatus(
         `✓ Contract deployed successfully!\n\nContract: ${contract.name}\nAddress: ${contractAddress}\nNetwork: ${networkName}\n\nYou can now interact with your contract.`
       );
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Deployment error:', err);
       // Handle user rejection
-      if (err.code === 4001 || err.code === 'ACTION_REJECTED') {
+      const errCode = err instanceof Object && 'code' in err ? (err as { code: unknown }).code : undefined;
+      if (errCode === 4001 || errCode === 'ACTION_REJECTED') {
         setError('Transaction rejected by user');
       } else {
-        setError(err.message || 'Failed to deploy contract');
+        setError(err instanceof Error ? err.message : 'Failed to deploy contract');
       }
       setDeploymentStatus(null);
     } finally {

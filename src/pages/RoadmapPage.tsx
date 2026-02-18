@@ -50,7 +50,7 @@ const phases: Phase[] = [
       { text: "bnbchain-mcp — 150+ tools", detail: "Balances, transfers, contract calls, GoPlus security, gas tracking" },
       { text: "binance-mcp — 478+ tools", detail: "Spot, Futures, Options, Algo (TWAP/VP), Copy Trading, NFTs, Binance Pay" },
       { text: "binance-us-mcp — 120+ tools", detail: "US-regulated spot, staking, OTC, custodial operations" },
-      { text: "universal-crypto-mcp — 380+ tools", detail: "60+ chains, multi-aggregator DEX, Aave, Compound, Lido, LayerZero bridges" },
+      { text: "universal-crypto-mcp — 380+ tools", detail: " chains, multi-aggregator DEX, Aave, Compound, Lido, LayerZero bridges" },
       { text: "agenti — 380+ tools", detail: "EVM + Solana, Flashbots MEV protection, Wormhole bridges, x402 payments" },
       { text: "ucai ABI-to-MCP generator", detail: "pip install abi-to-mcp — registered in Anthropic's MCP Registry" },
     ],
@@ -360,7 +360,7 @@ export default function RoadmapPage() {
               duration={3}
               containerClassName="h-12"
               className="bg-[#F0B90B] text-black font-semibold"
-              {...{ href: "https://github.com/nirholas/bnb-chain-toolkit/discussions", target: "_blank", rel: "noopener noreferrer" } as any}
+              {...{ href: "https://github.com/nirholas/bnb-chain-toolkit/discussions", target: "_blank", rel: "noopener noreferrer" } as Record<string, string>}
             >
               Start a Discussion
             </MovingBorder>

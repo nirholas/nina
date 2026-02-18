@@ -141,7 +141,7 @@ await startServer(server)
 
 ### Supported Chains
 
-The core package includes configuration for 60+ blockchain networks:
+The core package includes configuration for  blockchain networks:
 
 ```typescript
 import { chains, getChain, getChainById } from '@nirholas/crypto-mcp-core/chains'
@@ -154,7 +154,7 @@ const arbitrum = getChain('arbitrum')
 const polygon = getChainById(137)
 
 // All chains
-console.log(chains.length) // 60+
+console.log(chains.length) // 
 ```
 
 ### Chain Type

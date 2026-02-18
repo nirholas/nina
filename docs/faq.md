@@ -94,7 +94,7 @@ Some external services (like CoinGecko Pro API or Binance exchange) may have the
 
 **Primary focus:** BNB Smart Chain (BSC), opBNB, BNB Greenfield
 
-**Also supported:** 60+ networks including Ethereum, Polygon, Arbitrum, Base, Optimism, Avalanche, Solana, and many more.
+**Also supported:**  networks including Ethereum, Polygon, Arbitrum, Base, Optimism, Avalanche, Solana, and many more.
 
 See the full list in the [Architecture](architecture.md) guide.
 
@@ -168,7 +168,7 @@ They work best together — agents provide the domain knowledge, MCP servers pro
 <summary><b>Can I use this without BNB Chain?</b></summary>
 
 Yes! While the toolkit focuses on BNB Chain, many components support other networks:
-- Universal Crypto MCP supports 60+ chains
+- Universal Crypto MCP supports  chains
 - Agenti supports all EVM chains + Solana
 - Market data works for all listed cryptocurrencies
 - DeFi agents work cross-chain
@@ -245,7 +245,7 @@ BNB Chain is a family of blockchains built by Binance (one of the world's larges
 - **opBNB** — A Layer 2 that makes BSC even faster
 - **BNB Greenfield** — A chain for decentralized file storage
 
-This toolkit primarily targets these networks but supports 60+ others.
+This toolkit primarily targets these networks but supports  others.
 
 See the [Glossary](GLOSSARY.md) for detailed definitions of these terms.
 
@@ -282,7 +282,7 @@ However, crypto carries inherent risks (market volatility, smart contract bugs, 
 | Open source | ✅ | Often closed |
 | Number of agents | 78 | 1-5 |
 | MCP servers | 6 | 0-1 |
-| Multi-chain support | 60+ | 1-3 |
+| Multi-chain support |  | 1-3 |
 | Agent definitions as JSON | ✅ | Proprietary format |
 | On-chain agent identity (ERC-8004) | ✅ | ❌ |
 | Accessibility standard (W3AG) | ✅ | ❌ |

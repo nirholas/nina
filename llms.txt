@@ -22,7 +22,7 @@ A monorepo with 78 AI agents, 6 MCP servers (1,100+ tools), market data, DeFi to
 - bnbchain-mcp: BNB Chain + EVM operations (466+ tools)
 - binance-mcp: Binance.com exchange (554+ tools)
 - binance-us-mcp: Binance.US (US compliance)
-- universal-crypto-mcp: 60+ networks (59+ tools)
+- universal-crypto-mcp:  networks (59+ tools)
 - agenti: Universal EVM + Solana
 - ucai: ABI-to-MCP generator (Python)
 

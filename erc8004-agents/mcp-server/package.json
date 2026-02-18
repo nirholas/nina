@@ -1,7 +1,7 @@
 {
   "name": "@nirholas/erc8004-mcp",
   "version": "1.0.0",
-  "description": "MCP server for ERC-8004 trustless AI agent on-chain identity — register, discover, and manage agents across BSC, Ethereum, and 60+ networks",
+  "description": "MCP server for ERC-8004 trustless AI agent on-chain identity — register, discover, and manage agents across BSC, Ethereum, and  networks",
   "keywords": [
     "erc-8004",
     "erc8004",

@@ -27,7 +27,7 @@
 
 ### Overview
 
-The universal-crypto-mcp repository is an ambitious, large-scale monorepo providing a comprehensive Model Context Protocol (MCP) server for cryptocurrency operations across 60+ networks and 100+ tools. The core architecture follows a modular monorepo pattern using pnpm workspaces with a well-structured package hierarchy for EVM blockchain operations, DeFi integrations, wallet management, and the x402 payment protocol.
+The universal-crypto-mcp repository is an ambitious, large-scale monorepo providing a comprehensive Model Context Protocol (MCP) server for cryptocurrency operations across  networks and 100+ tools. The core architecture follows a modular monorepo pattern using pnpm workspaces with a well-structured package hierarchy for EVM blockchain operations, DeFi integrations, wallet management, and the x402 payment protocol.
 
 ### Key Strengths
 

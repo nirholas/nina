@@ -40,7 +40,7 @@ export interface CompileOutput {
 
 export interface CompiledContract {
   name: string;
-  abi: any[];
+  abi: Record<string, unknown>[];
   bytecode: string;
   deployedBytecode: string;
   gasEstimates?: {
@@ -67,8 +67,26 @@ export interface SolcVersion {
   keccak256?: string;
 }
 
+/** Internal interface for the solc.js compiler loaded at runtime */
+interface SolcInstance {
+  compile: (input: string) => string;
+  version: () => string;
+}
+
+/** Shape of a single contract in solc's JSON output */
+interface SolcContractOutput {
+  abi?: Record<string, unknown>[];
+  evm?: {
+    bytecode?: { object?: string };
+    deployedBytecode?: { object?: string };
+    gasEstimates?: {
+      creation?: { codeDepositCost: string; executionCost: string; totalCost: string };
+    };
+  };
+}
+
 // Cache for loaded compiler instances
-const compilerCache: Map<string, any> = new Map();
+const compilerCache: Map<string, SolcInstance> = new Map();
 const importCache: Map<string, string> = new Map();
 
 /**
@@ -76,7 +94,7 @@ const importCache: Map<string, string> = new Map();
  */
 export class BNBCompiler {
   private currentVersion: string | null = null;
-  private solc: any = null;
+  private solc: SolcInstance | null = null;
   private onProgress?: (message: string) => void;
 
   constructor(options?: { onProgress?: (message: string) => void }) {
@@ -119,7 +137,7 @@ export class BNBCompiler {
   async loadVersion(version: string): Promise<void> {
     // Check cache first
     if (compilerCache.has(version)) {
-      this.solc = compilerCache.get(version);
+      this.solc = compilerCache.get(version) ?? null;
       this.currentVersion = version;
       this.log(`Using cached compiler v${version}`);
       return;
@@ -163,8 +181,8 @@ export class BNBCompiler {
       this.currentVersion = version;
       
       this.log(`Compiler v${version} loaded successfully`);
-    } catch (error: any) {
-      this.log(`Failed to load compiler: ${error.message}`);
+    } catch (error: unknown) {
+      this.log(`Failed to load compiler: ${error instanceof Error ? error.message : String(error)}`);
       throw error;
     }
   }
@@ -321,7 +339,7 @@ export class BNBCompiler {
     };
 
     // Compile
-    const outputJson = this.solc.compile(JSON.stringify(compilerInput));
+    const outputJson = this.solc!.compile(JSON.stringify(compilerInput));
     const output = JSON.parse(outputJson);
 
     // Parse errors and warnings
@@ -351,13 +369,13 @@ export class BNBCompiler {
 
     if (output.contracts && output.contracts[filename]) {
       for (const [name, contract] of Object.entries(output.contracts[filename])) {
-        const c = contract as any;
+        const c = contract as SolcContractOutput;
         contracts.push({
           name,
           abi: c.abi || [],
           bytecode: c.evm?.bytecode?.object ? `0x${c.evm.bytecode.object}` : '',
           deployedBytecode: c.evm?.deployedBytecode?.object ? `0x${c.evm.deployedBytecode.object}` : '',
-          gasEstimates: c.evm?.gasEstimates?.creation,
+          gasEstimates: c.evm?.gasEstimates?.creation ? { creation: c.evm.gasEstimates.creation } : undefined,
         });
       }
     }

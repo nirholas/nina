@@ -41,7 +41,7 @@ const mcpServers = [
     { name: 'BNB Chain MCP', tools: '100+', description: 'BSC, opBNB, Greenfield — swaps, transfers, contracts', icon: Blocks },
     { name: 'Binance MCP', tools: '478+', description: 'Spot, futures, margin trading on Binance.com', icon: BarChart3 },
     { name: 'Binance US MCP', tools: '—', description: 'US regulatory-compliant Binance access', icon: Shield },
-    { name: 'Universal Crypto MCP', tools: '100+', description: '60+ networks, cross-chain DeFi', icon: Globe },
+    { name: 'Universal Crypto MCP', tools: '100+', description: ' networks, cross-chain DeFi', icon: Globe },
     { name: 'Agenti', tools: '50+', description: 'EVM + Solana, AI-to-AI payments (x402)', icon: Bot },
     { name: 'UCAI', tools: 'Dynamic', description: 'Turn any smart contract ABI into an MCP server', icon: Wrench },
 ];
@@ -80,7 +80,7 @@ const featuredAgents = [
 const heroStats = [
     { label: 'Agents', value: '78', Icon: Bot },
     { label: 'Tools', value: '1,100+', Icon: Wrench },
-    { label: 'Chains', value: '60+', Icon: Network },
+    { label: 'Chains', value: '', Icon: Network },
     { label: 'MCP Servers', value: '6', Icon: Server },
     { label: 'Languages', value: '30+', Icon: Globe },
 ];
@@ -244,7 +244,7 @@ export default function Homepage() {
     ], [t]);
     useSEO({
         title: 'BNB Chain AI Toolkit — 78 Agents, 6 MCP Servers, 1,100+ Tools',
-        description: 'The most comprehensive open-source AI toolkit for BNB Chain. 78 specialized agents, 6 MCP servers, 1,100+ tools, 60+ chains.',
+        description: 'The most comprehensive open-source AI toolkit for BNB Chain. 78 specialized agents, 6 MCP servers, 1,100+ tools,  chains.',
     });
 
     return (
@@ -719,7 +719,7 @@ export default function Homepage() {
                                         <div>├── bnbchain-mcp/ <span className="text-neutral-600"># BSC + opBNB (100+ tools)</span></div>
                                         <div>├── binance-mcp/ <span className="text-neutral-600"># Binance.com (478+ tools)</span></div>
                                         <div>├── binance-us-mcp/ <span className="text-neutral-600"># Binance.US exchange</span></div>
-                                        <div>├── universal-crypto-mcp/ <span className="text-neutral-600"># 60+ networks</span></div>
+                                        <div>├── universal-crypto-mcp/ <span className="text-neutral-600">#  networks</span></div>
                                         <div>├── agenti/ <span className="text-neutral-600"># EVM + Solana</span></div>
                                         <div>└── ucai/ <span className="text-neutral-600"># ABI-to-MCP generator</span></div>
                                     </div>

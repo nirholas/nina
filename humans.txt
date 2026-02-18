@@ -16,7 +16,7 @@ License: MIT
 Framework: TypeScript, Python, Solidity
 Runtime: Node.js 18+, bun
 Protocols: MCP (Model Context Protocol)
-Chains: BNB Smart Chain, opBNB, BNB Greenfield, Ethereum, 60+ more
+Chains: BNB Smart Chain, opBNB, BNB Greenfield, Ethereum,  more
 Standards: ERC-8004, W3AG
 
 /* TOOLS */

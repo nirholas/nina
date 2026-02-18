@@ -60,7 +60,7 @@ If these concepts feel abstract, these comparisons might help:
 | **Dust** | The loose change in your couch cushions, across 8 different couches. |
 | **Bridge** | A currency exchange booth at the airport, but between blockchains instead of countries. |
 
-> **Don't recognize a term?** Check the [Glossary](GLOSSARY.md) — it explains 60+ terms in plain English.
+> **Don't recognize a term?** Check the [Glossary](GLOSSARY.md) — it explains  terms in plain English.
 
 ---
 
@@ -100,7 +100,7 @@ You load an agent into Claude or ChatGPT, and it behaves like that expert.
 | **BNB Chain MCP** | BSC, opBNB, Greenfield, 10+ EVM chains | Check balances, deploy contracts, execute swaps |
 | **Binance MCP** | Binance.com exchange | Spot/futures trading, portfolio management |
 | **Binance US MCP** | Binance.US (US-compliant) | Trading for US-based users |
-| **Universal Crypto MCP** | 60+ blockchain networks | Cross-chain DeFi, bridging |
+| **Universal Crypto MCP** |  blockchain networks | Cross-chain DeFi, bridging |
 | **Agenti** | EVM chains + Solana | Multi-chain operations, AI-to-AI payments |
 | **UCAI** | Any smart contract, any where | Turn any contract's ABI into an AI tool |
 

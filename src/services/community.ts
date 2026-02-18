@@ -509,9 +509,9 @@ export async function shareProject(project: {
     const shareUrl = `${window.location.origin}/shared/${shareToken}`;
     
     return { data, error: null, shareUrl };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error sharing project:', error);
-    return { data: null, error: error.message, shareUrl: null };
+    return { data: null, error: error instanceof Error ? error.message : String(error), shareUrl: null };
   }
 }
 
@@ -554,9 +554,9 @@ export async function getSharedProject(shareToken: string): Promise<{ data: Shar
       .eq('id', data.id);
 
     return { data, error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching shared project:', error);
-    return { data: null, error: error.message };
+    return { data: null, error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -654,7 +654,7 @@ export async function getPublicProjects(options?: {
     }
 
     return { data: data || [], error: null, total: count || 0 };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching public projects:', error);
     // Fallback to sample data on error
     return { data: SAMPLE_COMMUNITY_PROJECTS, error: null, total: SAMPLE_COMMUNITY_PROJECTS.length };
@@ -681,9 +681,9 @@ export async function getMyProjects(): Promise<{ data: SharedProject[]; error: s
     if (error) throw error;
 
     return { data: data || [], error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching my projects:', error);
-    return { data: [], error: error.message };
+    return { data: [], error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -707,8 +707,8 @@ export async function deleteProject(projectId: string): Promise<{ error: string 
     if (error) throw error;
 
     return { error: null };
-  } catch (error: any) {
-    return { error: error.message };
+  } catch (error: unknown) {
+    return { error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -762,8 +762,8 @@ export async function forkProject(shareToken: string, walletAddress?: string): P
       .eq('id', original.id);
 
     return { data: fork, error: null };
-  } catch (error: any) {
-    return { data: null, error: error.message };
+  } catch (error: unknown) {
+    return { data: null, error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -810,8 +810,8 @@ export async function likeProject(projectId: string, walletAddress?: string): Pr
 
       return { liked: true, error: null };
     }
-  } catch (error: any) {
-    return { liked: false, error: error.message };
+  } catch (error: unknown) {
+    return { liked: false, error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -863,8 +863,8 @@ export async function addComment(projectId: string, content: string, walletAddre
     if (error) throw error;
 
     return { data, error: null };
-  } catch (error: any) {
-    return { data: null, error: error.message };
+  } catch (error: unknown) {
+    return { data: null, error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -888,8 +888,8 @@ export async function getComments(projectId: string): Promise<{ data: ProjectCom
     if (error) throw error;
 
     return { data: data || [], error: null };
-  } catch (error: any) {
-    return { data: [], error: error.message };
+  } catch (error: unknown) {
+    return { data: [], error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -932,8 +932,8 @@ export async function submitTemplate(template: {
     if (error) throw error;
 
     return { data, error: null };
-  } catch (error: any) {
-    return { data: null, error: error.message };
+  } catch (error: unknown) {
+    return { data: null, error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -975,8 +975,8 @@ export async function getCommunityTemplates(options?: {
     if (error) throw error;
 
     return { data: data || [], error: null };
-  } catch (error: any) {
-    return { data: [], error: error.message };
+  } catch (error: unknown) {
+    return { data: [], error: error instanceof Error ? error.message : String(error) };
   }
 }
 
@@ -1020,8 +1020,8 @@ export async function submitTutorial(tutorial: {
     if (error) throw error;
 
     return { data, error: null };
-  } catch (error: any) {
-    return { data: null, error: error.message };
+  } catch (error: unknown) {
+    return { data: null, error: error instanceof Error ? error.message : String(error) };
   }
 }
 

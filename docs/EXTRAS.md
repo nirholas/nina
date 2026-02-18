@@ -94,7 +94,7 @@ Together these five documents cover: **Problem → Solution → Architecture →
 | AI Agents | 78 |
 | MCP Servers | 6 |
 | Total Tools | 1,100+ |
-| Supported Chains | 60+ |
+| Supported Chains |  |
 | Languages | 30+ |
 | Original Standards | 2 |
 | Test Suites | 888 tests passing |

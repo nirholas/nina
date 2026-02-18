@@ -1,7 +1,7 @@
 {
   "name": "@nirholas/universal-crypto-mcp",
   "version": "1.0.0",
-  "description": "The most extensive crypto MCP repository - 60+ networks, 100+ tools, DEX/CEX, DeFi, wallets, market data, automation, and x402 payments",
+  "description": "The most extensive crypto MCP repository -  networks, 100+ tools, DEX/CEX, DeFi, wallets, market data, automation, and x402 payments",
   "type": "module",
   "workspaces": [
     "packages/core",

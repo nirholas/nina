@@ -19,7 +19,7 @@ Universal Crypto MCP provides 380+ tools for interacting with blockchain network
 | [Market Data](#market-data-tools) | 50+ | Prices, charts, analytics |
 | [Trading](#trading-tools) | 40+ | Orders, portfolio, analysis |
 | [NFT](#nft-tools) | 30+ | Minting, trading, metadata |
-| [Chain](#chain-tools) | 60+ | Blocks, transactions, contracts |
+| [Chain](#chain-tools) |  | Blocks, transactions, contracts |
 | [Security](#security-tools) | 20+ | Audits, protection, monitoring |
 | [x402](#x402-tools) | 15+ | Payments, balance, history |
 | [Agent](#agent-tools) | 30+ | Automation, monitoring |

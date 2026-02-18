@@ -142,9 +142,9 @@ export async function translateTexts(
     }
 
     return { translations: texts, fromCache: false, error: 'No translations returned' };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Translation service error:', error);
-    return { translations: texts, fromCache: false, error: error.message };
+    return { translations: texts, fromCache: false, error: error instanceof Error ? error.message : String(error) };
   }
 }
 

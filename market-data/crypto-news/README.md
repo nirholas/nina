@@ -1367,7 +1367,7 @@ Complete examples for all 184 API endpoints across 5 languages:
 | [Python](examples/python/) | 12 files | 150+ | Full SDK with all endpoints |
 | [JavaScript](examples/javascript/) | 11 files | 120+ | Node.js & browser examples |
 | [TypeScript](examples/typescript/) | 3 files | 80+ | Type-safe SDK |
-| [Go](examples/go/) | 1 file | 60+ | Go client library |
+| [Go](examples/go/) | 1 file |  | Go client library |
 | [cURL](examples/curl/) | 1 file | 100+ | Shell script examples |
 
 **Python Example Files:**

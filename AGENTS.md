@@ -1,6 +1,6 @@
 # BNB Chain AI Toolkit — Development Guidelines
 
-> 78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain, BSC, opBNB, and 60+ networks.
+> 78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain, BSC, opBNB, and  networks.
 
 ## Project Overview
 
@@ -17,7 +17,7 @@ bnb-chain-toolkit/
 │   ├── bnbchain-mcp/        # BNB Chain + EVM (TypeScript)
 │   ├── binance-mcp/         # Binance.com exchange (TypeScript)
 │   ├── binance-us-mcp/      # Binance.US (TypeScript)
-│   ├── universal-crypto-mcp/# 60+ networks (TypeScript)
+│   ├── universal-crypto-mcp/#  networks (TypeScript)
 │   ├── agenti/              # Universal EVM + Solana (TypeScript)
 │   └── ucai/                # ABI-to-MCP generator (Python)
 ├── market-data/             # Market data services

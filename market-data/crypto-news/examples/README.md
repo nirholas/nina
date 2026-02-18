@@ -31,7 +31,7 @@ Check out our **[Complete Tutorials](../docs/tutorials/index.md)** — 19 step-b
 | [TypeScript](#typescript) | 1 SDK file | 80+ | ✅ Complete |
 | [React](#react) | 5 files | 50+ | ✅ Complete |
 | [Rust](#rust) | 5 files | 40+ | ✅ Complete |
-| [Go](#go) | 1 client file | 60+ | ✅ Complete |
+| [Go](#go) | 1 client file |  | ✅ Complete |
 | [C# / .NET](#c--net) | 1 file | 30+ | ✅ **NEW** |
 | [Swift](#swift) | 1 file | 30+ | ✅ **NEW** |
 | [Kotlin](#kotlin) | 1 file | 30+ | ✅ **NEW** |

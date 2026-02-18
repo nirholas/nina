@@ -61,7 +61,7 @@ Web3 interfaces are notoriously difficult to use. There are no established acces
 
 ## 2. Solution
 
-BNB Chain AI Toolkit is a monorepo that provides everything a developer needs to build AI-powered applications on BNB Chain and 60+ other networks. It addresses each problem directly.
+BNB Chain AI Toolkit is a monorepo that provides everything a developer needs to build AI-powered applications on BNB Chain and  other networks. It addresses each problem directly.
 
 ### 2.1 Single Monorepo with Everything Integrated
 
@@ -76,7 +76,7 @@ bnb-chain-toolkit/
 │   ├── bnbchain-mcp/       # BNB Chain + EVM (TypeScript)
 │   ├── binance-mcp/        # Binance.com exchange (TypeScript)
 │   ├── binance-us-mcp/     # Binance.US (TypeScript)
-│   ├── universal-crypto-mcp/  # 60+ networks (TypeScript)
+│   ├── universal-crypto-mcp/  #  networks (TypeScript)
 │   ├── agenti/             # Universal EVM + Solana (TypeScript)
 │   └── ucai/               # ABI-to-MCP generator (Python)
 ├── market-data/      # Price feeds and news aggregation
@@ -99,7 +99,7 @@ Model Context Protocol (MCP) servers are the core bridge between AI and blockcha
 | `bnbchain-mcp`         | BSC, opBNB, Greenfield + EVM   | 466+  |
 | `binance-mcp`          | Binance.com exchange API        | 554+  |
 | `binance-us-mcp`       | Binance.US exchange API         | 2+    |
-| `universal-crypto-mcp` | 60+ networks                   | 59+   |
+| `universal-crypto-mcp` |  networks                   | 59+   |
 | `agenti`               | Universal EVM + Solana          | 58+   |
 | `ucai`                 | ABI-to-MCP generator (Python)  | —     |
 
@@ -130,7 +130,7 @@ ERC-8004 contracts are deployed and live on **24 chains**, including BSC mainnet
 
 ### 2.4 Unified Multi-Chain Architecture
 
-All MCP servers share a standardized interface pattern. A developer writes one integration and gets access to 60+ networks. Chain-specific logic is encapsulated inside each server — the AI-facing API remains consistent regardless of the target chain.
+All MCP servers share a standardized interface pattern. A developer writes one integration and gets access to  networks. Chain-specific logic is encapsulated inside each server — the AI-facing API remains consistent regardless of the target chain.
 
 Supported networks include BSC, opBNB, Greenfield, Ethereum, Base, Arbitrum, Optimism, Polygon, Avalanche, Fantom, Solana, and 50+ others.
 
@@ -220,7 +220,7 @@ MCP servers are published to npm and ready for immediate use:
 # BNB Chain-specific server
 npx @nirholas/bnbchain-mcp
 
-# 60+ network universal server
+#  network universal server
 npx @nirholas/universal-crypto-mcp
 ```
 

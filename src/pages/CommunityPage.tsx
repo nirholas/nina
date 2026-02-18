@@ -97,7 +97,7 @@ const projectHighlights = [
   { quote: "78 portable JSON agent definitions covering BNB Chain, DeFi, and general crypto", name: "AI Agents", title: "36 BNB Chain + 42 DeFi", icon: <Bot className="w-5 h-5" /> },
   { quote: "6 MCP servers providing 1,100+ tools — the largest open-source Web3 MCP collection", name: "MCP Servers", title: "TypeScript + Python", icon: <Server className="w-5 h-5" /> },
   { quote: "binance-mcp alone has 478+ tools — spot, futures, options, algo orders, copy trading, NFTs", name: "Binance MCP", title: "478+ tools", icon: <Wrench className="w-5 h-5" /> },
-  { quote: "Supports 60+ blockchain networks with multi-aggregator DEX, lending, bridges, and x402 payments", name: "Universal Crypto", title: "380+ tools, 60+ chains", icon: <Globe className="w-5 h-5" /> },
+  { quote: "Supports  blockchain networks with multi-aggregator DEX, lending, bridges, and x402 payments", name: "Universal Crypto", title: "380+ tools,  chains", icon: <Globe className="w-5 h-5" /> },
   { quote: "ucai — generate custom MCP tools from any ABI. Registered in Anthropic's MCP Registry", name: "ABI → MCP", title: "pip install abi-to-mcp", icon: <Terminal className="w-5 h-5" /> },
   { quote: "57-tool wallet toolkit with 348 tests, BIP-39/BIP-32, offline HTML — zero network dependencies", name: "Wallet Toolkit", title: "Fully offline", icon: <Shield className="w-5 h-5" /> },
   { quote: "W3AG and ERC-8004 standards — deployed on Ethereum mainnet for agent trust verification", name: "Open Standards", title: "ERC-8004 live", icon: <FileText className="w-5 h-5" /> },
@@ -282,7 +282,7 @@ export default function CommunityPage() {
               duration={3}
               containerClassName="h-12"
               className="bg-[#F0B90B] text-black font-semibold"
-              {...{ href: "https://github.com/nirholas/bnb-chain-toolkit/blob/main/CONTRIBUTING.md", target: "_blank", rel: "noopener noreferrer" } as any}
+              {...{ href: "https://github.com/nirholas/bnb-chain-toolkit/blob/main/CONTRIBUTING.md", target: "_blank", rel: "noopener noreferrer" } as Record<string, string>}
             >
               <BookOpen className="w-5 h-5 mr-2" />
               Read Contributing Guide

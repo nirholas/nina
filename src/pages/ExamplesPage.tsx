@@ -490,7 +490,7 @@ export default function ExamplesPage() {
               duration={3}
               containerClassName="h-12"
               className="bg-[#F0B90B] text-black font-semibold"
-              {...{ href: "/docs/getting-started" } as any}
+              {...{ href: "/docs/getting-started" } as Record<string, string>}
             >
               Get Started
             </MovingBorder>

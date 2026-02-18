@@ -7,7 +7,7 @@
 
 **Context:** Adapt existing wallet components to support comprehensive multi-chain wallet management across EVM and Solana networks.
 
-**Objective:** Build robust wallet connection system supporting 60+ networks with seamless switching.
+**Objective:** Build robust wallet connection system supporting  networks with seamless switching.
 
 **Requirements:**
 1. **Wallet Connection Modal** (`website-unified/components/wallets/ConnectWalletModal.tsx`)
@@ -21,7 +21,7 @@
    - Chain detection and switching prompts
 
 2. **Network Switcher** (`website-unified/components/wallets/NetworkSwitcher.tsx`)
-   - 60+ network support (all EVM chains + Solana)
+   -  network support (all EVM chains + Solana)
    - Network categories (Mainnet, Testnet, L2s)
    - Custom RPC configuration
    - Network health indicators (block time, gas)
@@ -52,7 +52,7 @@
 
 **Deliverables:**
 - Universal wallet connection system
-- 60+ network configurations
+-  network configurations
 - Wallet provider context
 - Connection UI components
 

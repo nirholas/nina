@@ -75,7 +75,7 @@ export default function SandboxPage() {
         <div className="text-center mb-16 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium mb-6 border border-white/20">
             <Sparkles className="w-4 h-4" />
-            <span>60+ Templates</span>
+            <span> Templates</span>
             <span className="mx-1 text-white/40">·</span>
             <span>Premium Development Environment</span>
           </div>
@@ -225,7 +225,7 @@ export default function SandboxPage() {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-2xl font-bold text-white">{t('sandbox.start_template')}</h2>
-                <p className="text-gray-400 mt-1">60+ ready-to-use templates across all categories</p>
+                <p className="text-gray-400 mt-1"> ready-to-use templates across all categories</p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="px-3 py-1.5 bg-white text-black rounded-full text-sm font-bold">15 Web</span>
@@ -258,7 +258,7 @@ export default function SandboxPage() {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { value: '60+', label: 'Templates' },
+            { value: '', label: 'Templates' },
             { value: '10+', label: 'Languages' },
             { value: '0.8.24', label: 'Solidity' },
             { value: '∞', label: 'Possibilities' },

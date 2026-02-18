@@ -4,7 +4,7 @@
 
 <!-- Maintained by nirholas/universal-crypto-mcp | ID: 1493814938 -->
 
-Universal Crypto MCP provides **380+ tools** across **60+ modules** organized into three main categories:
+Universal Crypto MCP provides **380+ tools** across ** modules** organized into three main categories:
 
 ## Module Categories
 
@@ -74,7 +74,7 @@ Non-EVM blockchain integrations and third-party services.
 | EVM Core | 23 | ~120 |
 | Data & Analytics | 17 | ~100 |
 | Multi-Chain | 14+ | ~120 |
-| **Total** | **60+** | **~380+** |
+| **Total** | **** | **~380+** |
 
 ## Module Registration
 

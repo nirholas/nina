@@ -769,7 +769,7 @@ export default function ToolReferencePage() {
               { label: 'Tools', value: '1,100+', icon: Wrench },
               { label: 'Servers', value: '6', icon: Server },
               { label: 'Categories', value: `${ALL_CATEGORIES.length}`, icon: Layers },
-              { label: 'Chains', value: '60+', icon: Globe },
+              { label: 'Chains', value: '', icon: Globe },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -1275,7 +1275,7 @@ export default function ToolReferencePage() {
 
       {/* Footer attribution */}
       <div className="py-8 text-center text-xs text-gray-400 dark:text-neutral-600">
-        BNB Chain AI Toolkit &mdash; 1,100+ tools &middot; 6 MCP servers &middot; 60+ chains
+        BNB Chain AI Toolkit &mdash; 1,100+ tools &middot; 6 MCP servers &middot;  chains
       </div>
     </main>
   );

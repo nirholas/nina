@@ -77,7 +77,7 @@ const servers: ServerItem[] = [
   },
   {
     name: "universal-crypto-mcp",
-    description: "Universal MCP for 60+ blockchain networks with advanced capabilities",
+    description: "Universal MCP for  blockchain networks with advanced capabilities",
     toolCount: "380+",
     language: "TypeScript",
     highlights: ["Multi-aggregator DEX", "Aave, Compound, Lido", "LayerZero & Stargate bridges", "x402 Payment Protocol", "AI Service Marketplace"],

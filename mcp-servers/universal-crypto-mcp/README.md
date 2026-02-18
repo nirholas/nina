@@ -131,7 +131,7 @@ packages/
 │   ├── crypto-feargreed/   # Fear & Greed Index (Kukapay) ⭐ NEW
 │   ├── cryptopanic/        # News aggregation (Kukapay)
 │   └── coinmarketcap/      # CMC API (Shinzo Labs) ⭐ NEW
-├── defi/               # On-chain DeFi tools (60+ networks!)
+├── defi/               # On-chain DeFi tools ( networks!)
 │   ├── protocols/      # EVM MCP Server (360⭐), Sperax, DEX
 │   │   ├── algorand/   # Algorand tools (GoPlausible) ⭐ NEW
 │   │   └── bsc-ops/    # BSC operations (TermiX) ⭐ NEW
@@ -162,7 +162,7 @@ This repo consolidates the best MIT-licensed crypto MCP projects with proper att
 
 | Project | Author | Category | Description |
 |---------|--------|----------|-------------|
-| [evm-mcp-server](https://github.com/mcpdotdirect/evm-mcp-server) | mcpdotdirect | defi | 60+ networks, 22+ tools |
+| [evm-mcp-server](https://github.com/mcpdotdirect/evm-mcp-server) | mcpdotdirect | defi |  networks, 22+ tools |
 | [crypto-indicators-mcp](https://github.com/kukapay/crypto-indicators-mcp) ⭐ **NEW** | Kukapay | market-data | Technical indicators (RSI, MACD, Bollinger) |
 | [crypto-sentiment-mcp](https://github.com/kukapay/crypto-sentiment-mcp) ⭐ **NEW** | Kukapay | market-data | Multi-source sentiment analysis |
 | [crypto-feargreed-mcp](https://github.com/kukapay/crypto-feargreed-mcp) ⭐ **NEW** | Kukapay | market-data | Fear & Greed Index |

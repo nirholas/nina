@@ -15,7 +15,7 @@ bnb-chain-toolkit/
 │   ├── bnbchain-mcp/           # BNB Chain + EVM (466+ tools)
 │   ├── binance-mcp/            # Binance.com (554+ tools)
 │   ├── binance-us-mcp/         # Binance.US (US compliance)
-│   ├── universal-crypto-mcp/   # 60+ networks (59+ tools)
+│   ├── universal-crypto-mcp/   #  networks (59+ tools)
 │   ├── agenti/                 # Universal EVM + Solana
 │   └── ucai/                   # ABI-to-MCP generator (Python)
 ├── market-data/                # Market data & news
@@ -107,7 +107,7 @@ US regulatory-compliant Binance access:
 - Sub-account management
 
 ### 4. Universal Crypto MCP (universal-crypto-mcp)
-60+ networks, 59+ tools:
+ networks, 59+ tools:
 - Multi-chain DEX aggregation
 - Cross-chain bridging
 - DeFi protocol interactions

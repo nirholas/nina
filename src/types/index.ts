@@ -23,7 +23,7 @@ export interface WalletState {
   chainId: number | null;
   balance: string | null;
   isConnected: boolean;
-  provider: any | null;
+  provider: unknown;
 }
 
 export interface Theme {

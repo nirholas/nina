@@ -75,7 +75,7 @@ A family of blockchains built by Binance, one of the world's largest cryptocurre
 - **opBNB** — A "Layer 2" that makes BSC even faster and cheaper
 - **BNB Greenfield** — A blockchain for decentralized file storage
 
-**Why it matters here:** This toolkit is primarily built for BNB Chain, though it supports 60+ other networks.
+**Why it matters here:** This toolkit is primarily built for BNB Chain, though it supports  other networks.
 
 ### BSC (BNB Smart Chain)
 
