@@ -8,6 +8,15 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { LiveProvider, LivePreview as ReactLivePreview, LiveError } from 'react-live';
 import { RefreshCw, ExternalLink, Smartphone, Monitor, Tablet, AlertCircle, Play, Loader } from 'lucide-react';
 
+/** Pyodide runtime interface (loaded via CDN) */
+interface PyodideRuntime {
+  runPython: (code: string) => string;
+}
+
+interface WindowWithPyodide extends Window {
+  loadPyodide?: (options: { indexURL: string }) => Promise<PyodideRuntime>;
+}
+
 interface CodeTab {
   id: string;
   label: string;
@@ -20,7 +29,7 @@ interface UniversalLivePreviewProps {
   activeTabId?: string;
   title?: string;
   allowFullscreen?: boolean;
-  scope?: Record<string, any>;
+  scope?: Record<string, unknown>;
 }
 
 type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'full';
@@ -47,7 +56,7 @@ export default function UniversalLivePreview({
   const [pythonOutput, setPythonOutput] = useState<string[]>([]);
   const [htmlPreviewContent, setHtmlPreviewContent] = useState<string>('');
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const pyodideRef = useRef<any>(null);
+  const pyodideRef = useRef<PyodideRuntime | null>(null);
 
   const viewportSizes: Record<ViewportSize, { width: string; label: string; icon: React.ReactNode }> = {
     mobile: { width: '375px', label: 'Mobile', icon: <Smartphone className="w-4 h-4" /> },
@@ -127,8 +136,8 @@ export default function UniversalLivePreview({
       `;
 
       setHtmlPreviewContent(content);
-    } catch (err: any) {
-      setError(err.message || 'Failed to render preview');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to render preview');
     }
   };
 
@@ -147,7 +156,8 @@ export default function UniversalLivePreview({
     setIsPyodideLoading(true);
     try {
       // Dynamically load Pyodide script if not already available
-      if (!(window as any).loadPyodide) {
+      const pyodideWindow = window as unknown as WindowWithPyodide;
+      if (!pyodideWindow.loadPyodide) {
         await new Promise<void>((resolve, reject) => {
           const script = document.createElement('script');
           script.src = 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js';
@@ -156,16 +166,16 @@ export default function UniversalLivePreview({
           document.head.appendChild(script);
         });
       }
-      // @ts-ignore - Pyodide is loaded via CDN
-      const pyodide = await (window as any).loadPyodide({
+      // @ts-expect-error - Pyodide is loaded via CDN, loadPyodide may not yet be on window type
+      const pyodide: PyodideRuntime = await (window as unknown as WindowWithPyodide).loadPyodide({
         indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
       });
       pyodideRef.current = pyodide;
       setIsPyodideLoading(false);
       return pyodide;
-    } catch (err: any) {
+    } catch (err: unknown) {
       setIsPyodideLoading(false);
-      setError('Failed to load Python runtime: ' + err.message);
+      setError('Failed to load Python runtime: ' + (err instanceof Error ? err.message : String(err)));
       return null;
     }
   };
@@ -193,8 +203,8 @@ export default function UniversalLivePreview({
       // Get output
       const output = pyodide.runPython('sys.stdout.getvalue()');
       setPythonOutput(output.split('\n').filter((line: string) => line));
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
     }
   };
 

@@ -204,6 +204,7 @@ export class BNBCompiler {
   private async resolveImport(path: string): Promise<string> {
     // Check cache
     if (importCache.has(path)) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return importCache.get(path)!;
     }
 
@@ -339,6 +340,7 @@ export class BNBCompiler {
     };
 
     // Compile
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const outputJson = this.solc!.compile(JSON.stringify(compilerInput));
     const output = JSON.parse(outputJson);
 

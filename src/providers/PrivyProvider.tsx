@@ -15,6 +15,7 @@ interface PrivyProviderProps {
 const PRIVY_APP_ID = import.meta.env.VITE_PRIVY_APP_ID;
 
 // Check if Privy is configured
+// eslint-disable-next-line react-refresh/only-export-components
 export const isPrivyConfigured = Boolean(PRIVY_APP_ID && !PRIVY_APP_ID.startsWith('cl'));
 
 export default function PrivyProvider({ children }: PrivyProviderProps) {

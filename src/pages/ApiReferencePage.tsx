@@ -427,6 +427,7 @@ export default function ApiReferencePage() {
                             <code>{endpoint.response}</code>
                           </pre>
                           <button
+                            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                             onClick={() => copyCode(endpoint.response!)}
                             className="absolute top-2 right-2 p-2 text-gray-400 hover:text-white"
                           >
@@ -449,6 +450,7 @@ export default function ApiReferencePage() {
                             <code>{endpoint.example}</code>
                           </pre>
                           <button
+                            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                             onClick={() => copyCode(endpoint.example!)}
                             className="absolute top-2 right-2 p-2 text-gray-400 hover:text-white"
                           >

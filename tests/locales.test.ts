@@ -56,21 +56,25 @@ describe('Translation / Locale Validation', () => {
 
         it('has config.systemRole', () => {
           expect(config).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof config!.systemRole).toBe('string');
         });
 
         it('has config.openingMessage', () => {
           expect(config).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof config!.openingMessage).toBe('string');
         });
 
         it('has meta.title', () => {
           expect(meta).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof meta!.title).toBe('string');
         });
 
         it('has meta.description', () => {
           expect(meta).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof meta!.description).toBe('string');
         });
       });

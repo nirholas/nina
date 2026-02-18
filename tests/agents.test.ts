@@ -42,12 +42,15 @@ describe('Agent Definition Validation', () => {
 
         it('has config.systemRole as a non-empty string', () => {
           expect(config).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof config!.systemRole).toBe('string');
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect((config!.systemRole as string).length).toBeGreaterThan(0);
         });
 
         it('has config.openingMessage as a string', () => {
           expect(config).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof config!.openingMessage).toBe('string');
         });
 
@@ -57,11 +60,13 @@ describe('Agent Definition Validation', () => {
 
         it('has meta.title as a string', () => {
           expect(meta).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof meta!.title).toBe('string');
         });
 
         it('has meta.description as a string', () => {
           expect(meta).toBeDefined();
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           expect(typeof meta!.description).toBe('string');
         });
 

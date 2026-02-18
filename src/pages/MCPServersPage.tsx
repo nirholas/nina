@@ -18,7 +18,6 @@ import {
   Check,
   Server,
   Code2,
-  Globe,
   Layers,
   Terminal,
   MessageSquare,

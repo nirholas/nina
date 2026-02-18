@@ -20,8 +20,7 @@ import {
   ChevronDown,
   ChevronRight,
   Loader,
-  CheckCircle2,
-  XCircle
+  CheckCircle2
 } from 'lucide-react';
 import { copyToClipboard } from '@/utils/helpers';
 
@@ -52,7 +51,7 @@ interface FullStackPlaygroundProps {
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   files: CodeFile[];
   contractFunctions?: ContractFunction[];
-  initialState?: Record<string, any>;
+  initialState?: Record<string, unknown>;
   onDeploy?: () => Promise<{ address: string; success: boolean }>;
 }
 

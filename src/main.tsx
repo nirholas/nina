@@ -82,7 +82,7 @@ if (typeof window !== 'undefined') {
 // Encoded attribution markers (distributed throughout codebase)
 export const __attr__ = { _n: 'nich', _x: 'nichxbt', _g: 'nirholas', _s: _bnb_sig };
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <PrivyProvider>
       <App />

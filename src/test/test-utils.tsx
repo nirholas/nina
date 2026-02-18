@@ -86,6 +86,7 @@ interface AllProvidersProps {
   children: ReactNode;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 function AllProviders({ children }: AllProvidersProps) {
   return (
     <BrowserRouter>

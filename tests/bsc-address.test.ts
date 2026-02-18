@@ -102,13 +102,17 @@ describe('Onchain Proof — bsc.address Validation', () => {
 
     it('has a txHash', () => {
       expect(tx).toBeDefined();
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(typeof tx!.txHash).toBe('string');
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect((tx!.txHash as string).length).toBeGreaterThan(0);
     });
 
     it('has an explorerLink', () => {
       expect(tx).toBeDefined();
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect(typeof tx!.explorerLink).toBe('string');
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       expect((tx!.explorerLink as string).startsWith('https://')).toBe(true);
     });
   });

@@ -140,6 +140,7 @@ export default function SharedProjectPage() {
     const result = await addComment(project.id, commentText.trim(), address);
     
     if (result.data) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       setComments(prev => [result.data!, ...prev]);
       setCommentText('');
     }

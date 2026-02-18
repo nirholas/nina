@@ -388,6 +388,7 @@ export function useLivePrices(
   const [error, setError] = useState<Error | null>(null);
   const coinIdsKey = useMemo(() => coinIds.join(','), [coinIds]);
 
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization
   const fetch = useCallback(async () => {
     if (coinIds.length === 0) {
       setData(null);

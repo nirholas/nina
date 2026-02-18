@@ -106,8 +106,8 @@ export default function LivePreview({
       `;
 
       setPreviewContent(content);
-    } catch (err: any) {
-      setError(err.message || 'Failed to render preview');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to render preview');
       console.error('Preview error:', err);
     }
   };
