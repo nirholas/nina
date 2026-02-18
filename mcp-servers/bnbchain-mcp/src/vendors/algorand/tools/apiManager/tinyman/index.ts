@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
 import { poolTools, handlePoolTools } from './pool.js';
 import { liquidityTools, handleLiquidityTools } from './liquidity.js';
 import { swapTools, handleSwapTools } from './swap.js';

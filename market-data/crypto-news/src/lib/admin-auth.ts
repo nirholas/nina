@@ -10,7 +10,7 @@
  * @module lib/admin-auth
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 // ============================================================================
 // Configuration

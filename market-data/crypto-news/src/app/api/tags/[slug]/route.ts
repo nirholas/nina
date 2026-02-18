@@ -4,7 +4,7 @@
  * GET /api/tags/[slug] - Get tag details with articles
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getTagBySlug, getRelatedTags, extractTagsFromArticle, generateTagStructuredData } from '@/lib/tags';
 import { fetchNews } from '@/lib/crypto-news';
 

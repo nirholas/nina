@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/pay/pay-api/getHistory.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { payClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

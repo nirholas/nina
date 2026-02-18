@@ -1,5 +1,5 @@
 // src/tools/binance-staking/SOL-staking-api/subscribeSolStaking.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { stakingClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

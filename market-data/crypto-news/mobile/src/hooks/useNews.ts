@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import api, { Article, NewsResponse } from '../api/client';
+import api, { type Article, NewsResponse } from '../api/client';
 
 interface UseNewsOptions {
   limit?: number;

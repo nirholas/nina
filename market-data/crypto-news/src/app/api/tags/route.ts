@@ -6,7 +6,7 @@
  * GET /api/tags?slug=bitcoin - Get single tag
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getAllTags, getTagsByCategory, getTagBySlug, type Tag } from '@/lib/tags';
 
 export const runtime = 'edge';

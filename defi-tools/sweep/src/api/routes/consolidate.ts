@@ -377,7 +377,7 @@ consolidateRoutes.get("/:id/plan", zValidator("param", statusParamsSchema), asyn
 
   try {
     // Try to get plan by ID (could be plan ID or consolidation ID)
-    let plan = await engine.getPlan(id);
+    const plan = await engine.getPlan(id);
 
     // If not found, try to get from status and use planId
     if (!plan) {

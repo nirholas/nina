@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { generateCounterArguments, isAIConfigured, CounterInput } from '@/lib/ai-counter';
+import { type NextRequest, NextResponse } from 'next/server';
+import { generateCounterArguments, isAIConfigured, type CounterInput } from '@/lib/ai-counter';
 
 export const runtime = 'edge';
 

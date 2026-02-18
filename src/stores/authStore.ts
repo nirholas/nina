@@ -6,8 +6,8 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { supabase, UserProfile } from '@/lib/supabase';
-import { User, Session } from '@supabase/supabase-js';
+import { supabase, type UserProfile } from '@/lib/supabase';
+import { type User, type Session } from '@supabase/supabase-js';
 
 interface AuthState {
   user: User | null;
@@ -15,6 +15,7 @@ interface AuthState {
   session: Session | null;
   isLoading: boolean;
   isInitialized: boolean;
+  _authSubscription: { unsubscribe: () => void } | null;
   
   // Actions
   initialize: () => Promise<void>;
@@ -33,9 +34,16 @@ export const useAuthStore = create<AuthState>()(
       session: null,
       isLoading: false,
       isInitialized: false,
+      _authSubscription: null,
 
       initialize: async () => {
         try {
+          // Unsubscribe from previous listener if any
+          const prev = get()._authSubscription;
+          if (prev) {
+            prev.unsubscribe();
+          }
+
           // Get current session
           const { data: { session } } = await supabase.auth.getSession();
           
@@ -61,7 +69,7 @@ export const useAuthStore = create<AuthState>()(
           }
 
           // Listen for auth changes
-          supabase.auth.onAuthStateChange(async (_event, session) => {
+          const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
             if (session) {
               set({ user: session.user, session });
               
@@ -79,6 +87,8 @@ export const useAuthStore = create<AuthState>()(
               set({ user: null, profile: null, session: null });
             }
           });
+
+          set({ _authSubscription: subscription });
         } catch (error) {
           console.error('Error initializing auth:', error);
           set({ isInitialized: true });

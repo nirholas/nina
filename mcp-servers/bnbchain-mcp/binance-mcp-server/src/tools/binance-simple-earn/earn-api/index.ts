@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-simple-earn/earn-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceSubscribeFlexibleProduct } from "./subscribeFlexibleProduct.js";
 import { registerBinanceRedeemFlexibleProduct } from "./redeemFlexibleProduct.js";
 

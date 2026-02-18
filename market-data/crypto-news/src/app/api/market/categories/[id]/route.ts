@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getCategoryCoins, TokenPrice } from '@/lib/market-data';
+import { type NextRequest, NextResponse } from 'next/server';
+import { getCategoryCoins, type TokenPrice } from '@/lib/market-data';
 
 export const runtime = 'edge';
 export const revalidate = 300;

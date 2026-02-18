@@ -237,7 +237,7 @@ class AgentFormatter {
     writeJSON(resolve(agentsDir, fileName), agent);
 
     // 国际化工作流
-    let rawData = {};
+    const rawData = {};
 
     // 提取需要翻译的字段
     for (const key of config.selectors) {
@@ -330,7 +330,7 @@ class AgentFormatter {
             writeJSON(localeFilePath, finalResult);
 
             // 验证翻译语言是否匹配
-            let validationResult = await validateTranslationLanguage(localeFilePath);
+            const validationResult = await validateTranslationLanguage(localeFilePath);
 
             if (!validationResult.valid) {
               Logger.warn(

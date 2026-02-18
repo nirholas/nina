@@ -8,7 +8,7 @@
  */
 import { describe, it, expect, beforeEach, vi, afterEach } from "vitest"
 
-import { MockMcpServer, createMockMcpServer } from "../mocks/mcp"
+import { type MockMcpServer, createMockMcpServer } from "../mocks/mcp"
 
 // Mock @/evm to register test tools instead of loading real modules
 vi.mock("@/evm", () => ({

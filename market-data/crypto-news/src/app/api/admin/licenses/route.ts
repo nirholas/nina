@@ -6,7 +6,7 @@
  * GET /api/admin/licenses?payments=true - Get recent payments
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { kv } from '@vercel/kv';
 
 export const runtime = 'edge';

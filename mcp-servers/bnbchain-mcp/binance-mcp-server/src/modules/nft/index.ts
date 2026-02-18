@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-fiat/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceGetNFTDepositHistory } from "./nft-api/getNFTDepositHistory.js";
 import { registerBinanceGetNFTWithdrawHistory } from "./nft-api/getNFTWithdrawHistory.js";
 import { registerBinanceGetNFTTransactionHistory } from "./nft-api/getNFTTransactionHistory.js";

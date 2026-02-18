@@ -24,8 +24,8 @@ import {
     Routes,
     SlashCommandBuilder,
     EmbedBuilder,
-    ChatInputCommandInteraction,
-    ColorResolvable,
+    type ChatInputCommandInteraction,
+    type ColorResolvable,
     ApplicationCommandOptionType
 } from "discord.js";
 import { spawn } from "child_process";

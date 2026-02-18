@@ -4,7 +4,7 @@
  * 💫 Code output everyone can understand 📝
  */
 
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { CheckCircle, XCircle, AlertTriangle, Info, Clock, Terminal } from 'lucide-react';
 import { cn } from '@/utils/helpers';
 

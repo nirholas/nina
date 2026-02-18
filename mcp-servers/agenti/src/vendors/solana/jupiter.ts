@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { Connection, PublicKey, VersionedTransaction, Keypair } from "@solana/web3.js"
+import { type Connection, PublicKey, VersionedTransaction, Keypair } from "@solana/web3.js"
 
 const JUPITER_API_BASE = "https://quote-api.jup.ag/v6"
 

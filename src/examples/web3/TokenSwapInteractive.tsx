@@ -6,10 +6,10 @@
 
 import { useState, useCallback } from 'react';
 import SplitView from '@/components/Playground/SplitView';
-import MultiLanguageTabs, { LanguageTab } from '@/components/Playground/MultiLanguageTabs';
+import MultiLanguageTabs, { type LanguageTab } from '@/components/Playground/MultiLanguageTabs';
 import LivePreview from '@/components/Playground/LivePreview';
-import InteractiveTutorial, { TutorialStep } from '@/components/Playground/InteractiveTutorial';
-import { AnnotationsPanel, CodeAnnotation } from '@/components/Playground/InlineAnnotations';
+import InteractiveTutorial, { type TutorialStep } from '@/components/Playground/InteractiveTutorial';
+import { AnnotationsPanel, type CodeAnnotation } from '@/components/Playground/InlineAnnotations';
 import { useInlineNotification } from '@/examples/shared/InlineNotification';
 
 export default function TokenSwapInteractive() {

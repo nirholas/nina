@@ -10,7 +10,7 @@
  * Security: Protected by CRON_SECRET environment variable
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   checkSubscriptionExpiry,
   downgradeKeyToFree,

@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getLatestNews, NewsArticle } from '@/lib/crypto-news';
+import { type NextRequest, NextResponse } from 'next/server';
+import { getLatestNews, type NewsArticle } from '@/lib/crypto-news';
 
 export const runtime = 'edge';
 

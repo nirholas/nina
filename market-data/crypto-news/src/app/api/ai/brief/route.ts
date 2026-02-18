@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { generateDailyBrief, isAIConfigured, BriefFormat } from '@/lib/ai-brief';
+import { type NextRequest, NextResponse } from 'next/server';
+import { generateDailyBrief, isAIConfigured, type BriefFormat } from '@/lib/ai-brief';
 
 export const runtime = 'edge';
 

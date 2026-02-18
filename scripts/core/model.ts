@@ -3,13 +3,28 @@ import OpenAI from 'openai';
 import { config } from './constants';
 
 /**
- * OpenAI 客户端实例
- * 用于各种 AI 生成任务，如分类、翻译、内容生成等
+ * Lazily-initialized OpenAI client singleton.
+ * Created on first access so that commands which don't need AI
+ * (e.g. `format`) can run without an OPENAI_API_KEY.
  */
-export const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  baseURL: process.env.OPENAI_PROXY_URL,
-  maxRetries: 4, // 最大重试次数
+let _openai: OpenAI | undefined;
+
+export function getOpenAI(): OpenAI {
+  if (!_openai) {
+    _openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+      baseURL: process.env.OPENAI_PROXY_URL,
+      maxRetries: 4,
+    });
+  }
+  return _openai;
+}
+
+/** @deprecated Use getOpenAI() for lazy initialization */
+export const openai = new Proxy({} as OpenAI, {
+  get(_target, prop, receiver) {
+    return Reflect.get(getOpenAI(), prop, receiver);
+  },
 });
 
 /**
@@ -26,7 +41,7 @@ export const callOpenAI = async (
     temperature?: number;
   },
 ) => {
-  const response = await openai.chat.completions.create({
+  const response = await getOpenAI().chat.completions.create({
     messages,
     model: options?.model || config.modelName,
     response_format: options?.response_format,

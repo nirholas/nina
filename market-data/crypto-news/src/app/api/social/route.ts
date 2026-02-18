@@ -19,7 +19,7 @@
  * @module api/social
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getSocialIntelligence,
   getSocialTrends,

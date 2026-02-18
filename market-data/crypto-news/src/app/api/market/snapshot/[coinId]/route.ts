@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getHistoricalPrice, HistoricalSnapshot } from '@/lib/market-data';
+import { type NextRequest, NextResponse } from 'next/server';
+import { getHistoricalPrice, type HistoricalSnapshot } from '@/lib/market-data';
 
 export const runtime = 'edge';
 export const revalidate = 86400; // 24 hours - historical data doesn't change

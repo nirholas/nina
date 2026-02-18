@@ -65,7 +65,7 @@ function createTestApp() {
       const expiresAt = now + 5 * 60 * 1000; // 5 minutes
       
       // Get tokens to sweep
-      let tokensToSweep: any[] = [];
+      const tokensToSweep: any[] = [];
       
       if (data.tokens && data.tokens.length > 0) {
         // Use provided tokens

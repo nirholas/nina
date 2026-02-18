@@ -9,7 +9,7 @@
  * GET /api/backtest/performance - Historical performance
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 // Trading strategies
 const STRATEGIES = {

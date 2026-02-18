@@ -8,9 +8,9 @@ import {
   useColorScheme,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../App';
-import { Article } from '../api/client';
+import { type NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { type RootStackParamList } from '../../App';
+import { type Article } from '../api/client';
 
 interface NewsCardProps {
   article: Article;

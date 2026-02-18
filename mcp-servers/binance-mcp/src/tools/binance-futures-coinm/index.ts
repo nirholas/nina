@@ -1,5 +1,5 @@
 // src/tools/binance-futures-coinm/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 // Market Data
 import { registerBinanceFuturesCOINMPing } from "./ping.js";

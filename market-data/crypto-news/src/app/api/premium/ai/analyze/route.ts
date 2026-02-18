@@ -14,7 +14,7 @@
  * @module api/premium/ai/analyze
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { getCoinDetails, getHistoricalPrices, getFearGreedIndex } from '@/lib/market-data';
 import { callGroq, parseGroqJson, isGroqConfigured, type GroqMessage } from '@/lib/groq';

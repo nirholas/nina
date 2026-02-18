@@ -6,7 +6,7 @@
  */
 // MCP tool for generating QR codes for payment addresses and payment URIs
 
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { PaymentService } from '../services/payment-service.js';
 import type { CurrencyService } from '../services/currency-service.js';
 import type { GeneratePaymentQrOutput } from '../types/index.js';

@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { generateSecurityReport, SecurityReport } from "@/lib/security-scanner";
-import { generateBasicExplanation, ContractExplanation } from "@/lib/contract-whisperer";
+import { generateBasicExplanation, type ContractExplanation } from "@/lib/contract-whisperer";
 
 interface ExplorerConfig {
   api: string;

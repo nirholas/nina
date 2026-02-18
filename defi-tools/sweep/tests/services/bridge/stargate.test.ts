@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { StargateBridgeProvider, createStargateProvider } from "../../../src/services/bridge/stargate.js";
+import { type StargateBridgeProvider, createStargateProvider } from "../../../src/services/bridge/stargate.js";
 import { BridgeProvider, BridgeStatus, BRIDGE_CONFIG } from "../../../src/services/bridge/types.js";
 
 // Mock fetch

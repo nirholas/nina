@@ -1,4 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { registerStakingTools } from "./tools.js"
 import { registerStakingPrompts } from "./prompts.js"
 

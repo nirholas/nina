@@ -14,7 +14,7 @@
  * @module api/premium/alerts/custom
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { getCoinDetails, getPricesForCoins } from '@/lib/market-data';
 

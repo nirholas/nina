@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getCoinsList, getTopCoins, CoinListItem, TokenPrice } from '@/lib/market-data';
+import { type NextRequest, NextResponse } from 'next/server';
+import { getCoinsList, getTopCoins, type CoinListItem, type TokenPrice } from '@/lib/market-data';
 import { ApiError, type ApiErrorResponse } from '@/lib/api-error';
 import { createRequestLogger } from '@/lib/logger';
 import { validateQuery } from '@/lib/validation-middleware';

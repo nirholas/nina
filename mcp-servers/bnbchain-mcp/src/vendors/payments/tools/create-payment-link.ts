@@ -6,7 +6,7 @@
  */
 // MCP tool for creating web redirect payments
 
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { PaymentService } from '../services/payment-service.js';
 import type {
   CreatePaymentRedirectOutput,

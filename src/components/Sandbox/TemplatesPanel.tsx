@@ -19,7 +19,7 @@ import {
   Loader2,
   X
 } from 'lucide-react';
-import { webTemplates, searchWebTemplates, WebTemplate } from '@/utils/webTemplates';
+import { webTemplates, searchWebTemplates, type WebTemplate } from '@/utils/webTemplates';
 import { cn } from '@/utils/helpers';
 
 interface TemplatesPanelProps {

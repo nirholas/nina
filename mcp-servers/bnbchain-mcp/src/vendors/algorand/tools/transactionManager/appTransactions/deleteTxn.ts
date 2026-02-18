@@ -4,9 +4,9 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Transaction, makeApplicationDeleteTxnFromObject, OnApplicationComplete } from 'algosdk';
+import { type Transaction, makeApplicationDeleteTxnFromObject, OnApplicationComplete } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { AppDeleteTxnParams } from './types.js';
+import { type AppDeleteTxnParams } from './types.js';
 
 /**
  * Creates an application delete transaction

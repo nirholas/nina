@@ -9,7 +9,7 @@
 // ⚠️ REQUIRES CUSTODIAL SOLUTION API KEY - Not available to regular users
 // Only for users with a Custody Exchange Network agreement
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { makeSignedRequest } from "../../config/binanceUsClient.js";
 

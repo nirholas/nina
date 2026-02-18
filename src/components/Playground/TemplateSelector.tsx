@@ -21,15 +21,15 @@ import {
   FileCode,
 } from 'lucide-react';
 import {
-  TemplateCategory,
-  TemplateDifficulty,
-  ViewMode,
+  type TemplateCategory,
+  type TemplateDifficulty,
+  type ViewMode,
   CATEGORY_INFO,
   DIFFICULTY_INFO,
-  TemplatePreferences,
+  type TemplatePreferences,
   DEFAULT_TEMPLATE_PREFERENCES,
 } from '@/types/contracts';
-import { contractTemplates, searchTemplates, ContractTemplate } from '@/utils/contractTemplates';
+import { contractTemplates, searchTemplates, type ContractTemplate } from '@/utils/contractTemplates';
 
 // Props interface for TemplateSelector - using the existing ContractTemplate type
 interface TemplateSelectorProps {

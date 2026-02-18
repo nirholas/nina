@@ -97,7 +97,28 @@ ls defi-tools/sweep/
 ls wallets/
 ```
 
-### 6. Market Data (1 min)
+### 6. Agent Runtime — ERC-8004 + A2A + x402 (2 min)
+
+The agent runtime is a production-ready TypeScript SDK for autonomous AI agents:
+
+```bash
+cd agent-runtime
+npm install
+
+# Run the simple agent example (no private key needed for dev mode)
+npm run start:simple
+
+# Or the DeFi agent example
+npm run start:defi
+```
+
+Key features:
+- **A2A Protocol** — Agent-to-Agent communication with task routing
+- **x402 Micropayments** — Pay-per-request via HTTP 402 responses
+- **ERC-8004 On-Chain Identity** — Register agents as NFTs on BSC/opBNB
+- **Discovery** — `.well-known/agent.json` endpoints for agent discovery
+
+### 7. Market Data (1 min)
 
 ```bash
 ls market-data/crypto-market-data/
@@ -126,10 +147,10 @@ Zero-dependency price feeds and news aggregation from 200+ sources.
 
 | Criteria | Where to Look |
 |----------|--------------|
-| **Innovation** | ERC-8004 standard, ABI-to-MCP generator (ucai), W3AG |
-| **Technical Complexity** | 6 MCP servers, 900+ tools, 60+ chain support |
-| **Completeness** | Full stack: agents, servers, data, tools, wallets, standards |
-| **Usability** | Live demo, 30+ languages, comprehensive docs |
+| **Innovation** | ERC-8004 standard, ABI-to-MCP generator (ucai), W3AG, Agent Runtime with A2A + x402 |
+| **Technical Complexity** | 6 MCP servers, 900+ tools, 60+ chain support, agent-runtime SDK |
+| **Completeness** | Full stack: agents, servers, data, tools, wallets, standards, runtime |
+| **Usability** | Live demo, 30+ languages, comprehensive docs, 24-chain deployment |
 | **Impact** | Enables any AI to interact with BNB Chain + 60 networks |
 | **Code Quality** | TypeScript, tests, linting, CI/CD |
 | **Documentation** | 12 docs, beginner-friendly guides, FAQ, troubleshooting |

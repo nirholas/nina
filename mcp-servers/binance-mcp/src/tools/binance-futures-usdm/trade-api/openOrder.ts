@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/tools/binance-futures-usdm/trade-api/openOrder.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { futuresClient } from "../../../config/binanceClient.js";
 

@@ -1,6 +1,6 @@
 import { encode } from 'gpt-tokenizer';
 
-import { LobeAgent } from '../schema/agentMeta';
+import { type LobeAgent } from '../schema/agentMeta';
 
 /**
  * 计算 Agent 的 token 使用量
@@ -11,9 +11,39 @@ import { LobeAgent } from '../schema/agentMeta';
 export function calculateTokenUsage(agent: LobeAgent): number {
   let totalTokens = 0;
 
-  // 计算 systemRole 的 tokens
+  // Count systemRole tokens
   if (agent.config.systemRole) {
     totalTokens += encode(agent.config.systemRole).length;
+  }
+
+  // Count openingMessage tokens
+  if ((agent as any).openingMessage) {
+    totalTokens += encode((agent as any).openingMessage).length;
+  }
+
+  // Count openingQuestions tokens
+  if ((agent as any).openingQuestions) {
+    for (const q of (agent as any).openingQuestions) {
+      totalTokens += encode(q).length;
+    }
+  }
+
+  // Count example conversations tokens
+  if ((agent as any).examples) {
+    for (const ex of (agent as any).examples) {
+      if (ex.content) {
+        totalTokens += encode(ex.content).length;
+      }
+    }
+  }
+
+  // Count fewShots tokens
+  if (agent.config.fewShots) {
+    for (const shot of agent.config.fewShots) {
+      if ((shot as any).content) {
+        totalTokens += encode((shot as any).content).length;
+      }
+    }
   }
 
   return totalTokens;

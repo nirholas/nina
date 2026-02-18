@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/tools/binance-futures-usdm/account-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceFuturesAccount } from "./account.js";
 import { registerBinanceFuturesBalance } from "./balance.js";
 import { registerBinanceFuturesPositionRisk } from "./positionRisk.js";

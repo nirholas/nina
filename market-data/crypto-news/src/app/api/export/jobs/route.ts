@@ -6,7 +6,7 @@
  * @route GET /api/export/jobs - List all export jobs
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { listExportJobs, cleanupOldJobs, type ExportJob } from '@/lib/data-export';
 
 export const runtime = 'edge';

@@ -9,7 +9,7 @@
  * GET /api/ai/research?contrarian=true
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { getTopCoins } from '@/lib/market-data';
 import { 

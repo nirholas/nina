@@ -29,7 +29,7 @@ import {
   getProgress, 
   saveProgress, 
   clearProgress, 
-  TutorialProgress 
+  type TutorialProgress 
 } from '@/utils/tutorialProgress';
 
 export interface TutorialStep {

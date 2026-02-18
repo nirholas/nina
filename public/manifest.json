@@ -1,11 +1,11 @@
 {
-  "name": "Lyra Web3 Playground",
-  "short_name": "Lyra",
-  "description": "Learn blockchain development with interactive examples. Compile and deploy Solidity in your browser.",
+  "name": "BNB Chain AI Toolkit",
+  "short_name": "BNB Toolkit",
+  "description": "72+ AI agents, 6 MCP servers, 900+ tools for BNB Chain and 60+ networks. Write, compile and deploy Solidity in your browser.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0ea5e9",
+  "background_color": "#0a0a0a",
+  "theme_color": "#F0B90B",
   "icons": [
     {
       "src": "/icon.svg",

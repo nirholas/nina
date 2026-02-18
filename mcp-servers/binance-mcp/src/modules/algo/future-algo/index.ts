@@ -1,5 +1,5 @@
 // src/tools/binance-spot/market-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceVPNewTrade } from "./VPNewTrade.js";
 import { registerBinanceFutureHistoricalAlgoOrder } from "./historicalAlgoOrder.js";
 import { registerBinanceFutureCancelAlgoOrder } from "./cancelAlgoOrder.js";

@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { registerGovernanceTools } from "./tools.js"
 import { registerGovernancePrompts } from "./prompts.js"
 

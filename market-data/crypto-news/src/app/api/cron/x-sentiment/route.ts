@@ -20,13 +20,13 @@
  * - TELEGRAM_CHAT_ID: Telegram chat ID for alerts
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { kv } from '@vercel/kv';
 import {
   getAllInfluencerLists,
   fetchListSentiment,
   sendSentimentAlert,
-  SentimentResult,
+  type SentimentResult,
 } from '@/lib/x-scraper';
 
 export const dynamic = 'force-dynamic';

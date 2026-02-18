@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-crypto-loans/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceCryptoLoansFlexibleTools } from "./flexible-api/index.js";
 import { registerBinanceCryptoLoansFixedTools } from "./fixed-api/index.js";
 

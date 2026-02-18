@@ -1,5 +1,5 @@
 // src/tools/binance-futures-coinm/exchangeInfo.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { deliveryClient } from "../../config/binanceClient.js";
 
 export function registerBinanceFuturesCOINMExchangeInfo(server: McpServer) {

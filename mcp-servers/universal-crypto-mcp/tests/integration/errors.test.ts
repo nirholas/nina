@@ -8,7 +8,7 @@
  */
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 
-import { MockMcpServer, createMockMcpServer } from "../mocks/mcp"
+import { type MockMcpServer, createMockMcpServer } from "../mocks/mcp"
 import { 
   McpError, 
   NetworkError, 

@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getDerivativesTickers, DerivativeTicker } from '@/lib/market-data';
+import { type NextRequest, NextResponse } from 'next/server';
+import { getDerivativesTickers, type DerivativeTicker } from '@/lib/market-data';
 
 export const runtime = 'edge';
 export const revalidate = 120;

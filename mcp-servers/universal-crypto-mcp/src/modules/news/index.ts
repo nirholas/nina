@@ -18,7 +18,7 @@
  * - Historical Search: $0.01/query
  * - Custom Feeds: $0.50/month
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 import { registerNewsPrompts } from "./prompts.js"
 import { registerNewsTools } from "./tools.js"

@@ -7,7 +7,7 @@
  * - Sends a test payload to the specified webhook
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { validateApiKey } from '@/lib/api-keys';
 import { testWebhook, getWebhookById, verifySignature } from '@/lib/webhooks';
 

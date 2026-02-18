@@ -27,6 +27,7 @@ export default function LivePreview({
   const [viewport, setViewport] = useState<ViewportSize>('full');
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [previewContent, setPreviewContent] = useState<string>('');
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const viewportSizes: Record<ViewportSize, { width: string; label: string; icon: React.ReactNode }> = {
@@ -41,17 +42,8 @@ export default function LivePreview({
   }, [html, css, javascript]);
 
   const updatePreview = () => {
-    if (!iframeRef.current) return;
-
     try {
       setError(null);
-      const iframe = iframeRef.current;
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
-
-      if (!iframeDoc) {
-        setError('Unable to access preview document');
-        return;
-      }
 
       const content = `
         <!DOCTYPE html>
@@ -117,9 +109,7 @@ export default function LivePreview({
         </html>
       `;
 
-      iframeDoc.open();
-      iframeDoc.write(content);
-      iframeDoc.close();
+      setPreviewContent(content);
     } catch (err: any) {
       setError(err.message || 'Failed to render preview');
       console.error('Preview error:', err);
@@ -232,7 +222,8 @@ export default function LivePreview({
               ref={iframeRef}
               title={title}
               className="w-full h-full border-0"
-              sandbox="allow-scripts allow-same-origin allow-modals"
+              sandbox="allow-scripts allow-modals"
+              srcDoc={previewContent}
             />
           </div>
         )}

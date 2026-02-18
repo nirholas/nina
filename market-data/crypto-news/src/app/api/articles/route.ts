@@ -12,7 +12,7 @@
  * @route GET /api/articles?q={query}
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getArticleById,
   getArticleBySlug,

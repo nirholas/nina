@@ -14,7 +14,7 @@ import type {
   Task,
 } from './types.js';
 import { A2A_ERROR_CODES } from './types.js';
-import { TaskManager } from './taskManager.js';
+import { type TaskManager } from './taskManager.js';
 
 export class A2AHandler {
   private readonly taskManager: TaskManager;

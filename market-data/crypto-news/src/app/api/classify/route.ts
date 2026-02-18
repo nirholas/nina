@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   classifyEvent,
   isClassifierConfigured,
   quickClassify,
-  EventClassification,
+  type EventClassification,
 } from '@/lib/event-classifier';
 import {
   checkRateLimitByRequest,

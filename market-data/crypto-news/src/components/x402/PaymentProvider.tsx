@@ -15,7 +15,7 @@ import React, {
   useState,
   useCallback,
   useEffect,
-  ReactNode,
+  type ReactNode,
 } from 'react';
 import type { Address } from 'viem';
 

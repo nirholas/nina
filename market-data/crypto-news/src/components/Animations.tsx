@@ -14,7 +14,7 @@
  */
 'use client';
 
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 interface AnimatedProps {
   children: ReactNode;
@@ -213,7 +213,7 @@ export function HoverGlow({ children, className = '' }: AnimatedProps) {
 
 // Re-export framer-motion for convenience
 export { motion, AnimatePresence } from 'framer-motion';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 
 // Animation variants
 export const fadeInVariant: Variants = {

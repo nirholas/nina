@@ -42,9 +42,51 @@
           "description": "On-chain validation registry for AI agent credentials (testnet)"
         }
       ]
+    },
+    {
+      "name": "opBNB Mainnet",
+      "chainId": 204,
+      "contracts": [
+        {
+          "name": "ERC-8004 IdentityRegistry",
+          "address": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+          "explorerLink": "https://opbnbscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+          "description": "On-chain AI agent identity registry on opBNB L2"
+        },
+        {
+          "name": "ERC-8004 ReputationRegistry",
+          "address": "0x8004BAa17C55a88189AE136b182e5fdA19dE9b63",
+          "explorerLink": "https://opbnbscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63",
+          "description": "On-chain reputation system for AI agents on opBNB L2"
+        }
+      ]
+    },
+    {
+      "name": "opBNB Testnet",
+      "chainId": 5611,
+      "contracts": [
+        {
+          "name": "ERC-8004 IdentityRegistry",
+          "address": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+          "explorerLink": "https://testnet.opbnbscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e",
+          "description": "On-chain AI agent identity registry on opBNB testnet"
+        },
+        {
+          "name": "ERC-8004 ReputationRegistry",
+          "address": "0x8004B663056A597Dffe9eCcC1965A193B7388713",
+          "explorerLink": "https://testnet.opbnbscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713",
+          "description": "On-chain reputation system for AI agents on opBNB testnet"
+        },
+        {
+          "name": "ERC-8004 ValidationRegistry",
+          "address": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+          "explorerLink": "https://testnet.opbnbscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+          "description": "On-chain validation registry for AI agent credentials on opBNB testnet"
+        }
+      ]
     }
   ],
-  "additionalChains": "Contracts deployed on 22 chains total — see erc8004-agents/docs/contracts.md for full list",
+  "additionalChains": "Contracts deployed on 24 chains total — see erc8004-agents/docs/contracts.md for full list",
   "firstTransaction": {
     "network": "BSC Testnet",
     "txHash": "0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962",

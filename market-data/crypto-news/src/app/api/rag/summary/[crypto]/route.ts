@@ -5,7 +5,7 @@
  * Get a summary of recent news for a cryptocurrency.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { summarizeCryptoNews, VALID_CODES, normalizeToCode } from '@/lib/rag';
 
 export const runtime = 'nodejs';

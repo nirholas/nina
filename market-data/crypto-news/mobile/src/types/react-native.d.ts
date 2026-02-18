@@ -4,7 +4,7 @@
  */
 
 declare module 'react-native' {
-  import React from 'react';
+  import type React from 'react';
   
   export interface ViewStyle {
     flex?: number;
@@ -197,8 +197,8 @@ declare module 'react-native' {
 }
 
 declare module 'react-native-safe-area-context' {
-  import React from 'react';
-  import { ViewStyle, StyleProp } from 'react-native';
+  import type React from 'react';
+  import { type ViewStyle, type StyleProp } from 'react-native';
   
   export interface SafeAreaViewProps {
     style?: StyleProp<ViewStyle>;
@@ -211,8 +211,8 @@ declare module 'react-native-safe-area-context' {
 }
 
 declare module 'react-native-webview' {
-  import React from 'react';
-  import { ViewStyle, StyleProp } from 'react-native';
+  import type React from 'react';
+  import { type ViewStyle, type StyleProp } from 'react-native';
   
   export interface WebViewProps {
     source: { uri: string } | { html: string };
@@ -236,7 +236,7 @@ declare module 'react-native-webview' {
 }
 
 declare module '@react-navigation/native' {
-  import React from 'react';
+  import type React from 'react';
   
   export interface Theme {
     dark: boolean;
@@ -271,7 +271,7 @@ declare module '@react-navigation/native' {
 }
 
 declare module '@react-navigation/bottom-tabs' {
-  import React from 'react';
+  import type React from 'react';
   
   export interface BottomTabNavigationOptions {
     tabBarIcon?: (props: { focused: boolean; color: string; size: number }) => React.ReactNode;
@@ -304,7 +304,7 @@ declare module '@react-navigation/bottom-tabs' {
 }
 
 declare module '@react-navigation/native-stack' {
-  import React from 'react';
+  import type React from 'react';
   
   export interface NativeStackNavigationOptions {
     title?: string;
@@ -337,7 +337,7 @@ declare module '@react-navigation/native-stack' {
 }
 
 declare module 'expo-status-bar' {
-  import React from 'react';
+  import type React from 'react';
   
   export interface StatusBarProps {
     style?: 'auto' | 'inverted' | 'light' | 'dark';
@@ -350,7 +350,7 @@ declare module 'expo-status-bar' {
 }
 
 declare module '@expo/vector-icons' {
-  import React from 'react';
+  import type React from 'react';
   
   export interface IconProps {
     name: string;

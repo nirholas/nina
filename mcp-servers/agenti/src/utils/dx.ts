@@ -7,7 +7,7 @@
  * @license Apache-2.0
  */
 
-/* eslint-disable no-console */
+ 
 
 // Reference Node.js globals
 declare const process: {

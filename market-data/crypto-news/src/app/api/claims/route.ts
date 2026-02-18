@@ -1,10 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   extractClaims,
   isExtractorConfigured,
   hasSignificantClaims,
   analyzeClaimQuality,
-  ClaimExtractionResult,
+  type ClaimExtractionResult,
 } from '@/lib/claim-extractor';
 import {
   checkRateLimitByRequest,

@@ -4,7 +4,7 @@
  * 💫 Icons for everyone, seen and heard ♿
  */
 
-import { LucideIcon } from 'lucide-react';
+import { type LucideIcon } from 'lucide-react';
 import { cn } from '@/utils/helpers';
 
 interface AccessibleIconProps {

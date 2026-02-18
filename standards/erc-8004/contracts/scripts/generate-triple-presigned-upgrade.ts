@@ -1,5 +1,5 @@
 import hre from "hardhat";
-import { encodeFunctionData, Hex, parseGwei, keccak256, getCreate2Address } from "viem";
+import { encodeFunctionData, type Hex, parseGwei, keccak256, getCreate2Address } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import dotenv from "dotenv";
 import fs from "fs";

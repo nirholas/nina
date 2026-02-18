@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NETWORKS, fetchAbiFromExplorer } from "@/lib/networks";
-import { parseAbi, generateServerPy, generateRequirementsTxt, generateReadme, extractTools, GeneratedTool, AbiItem } from "@/lib/generator";
+import { parseAbi, generateServerPy, generateRequirementsTxt, generateReadme, extractTools, type GeneratedTool, type AbiItem } from "@/lib/generator";
 
 function PreviewContent() {
   const searchParams = useSearchParams();

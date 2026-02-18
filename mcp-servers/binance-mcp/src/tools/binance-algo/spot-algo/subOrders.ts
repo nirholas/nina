@@ -1,5 +1,5 @@
 // src/tools/binance-algo/spot-algo/subOrders.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { algoClient } from "../../../config/binanceClient.js";
 

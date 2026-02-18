@@ -7,7 +7,7 @@
  * Public endpoint - no payment required
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   createApiKey,
   getKeysByEmail,

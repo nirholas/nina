@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/modules/simple-earn/flexible/getRedemptionRecord.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { simpleEarnClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

@@ -34,11 +34,13 @@ initI18n();
 
 // Eagerly loaded pages (critical path)
 import Homepage from './pages/Homepage';
-import ExamplePage from './pages/ExamplePage';
-import ExamplesPage from './pages/ExamplesPage';
-import TutorialBrowser from './pages/TutorialBrowser';
-import TutorialPage from './pages/TutorialPage';
-import AboutPage from './pages/AboutPage';
+
+// Lazy-loaded pages (code splitting for better performance)
+const ExamplePage = lazy(() => import('./pages/ExamplePage'));
+const ExamplesPage = lazy(() => import('./pages/ExamplesPage'));
+const TutorialBrowser = lazy(() => import('./pages/TutorialBrowser'));
+const TutorialPage = lazy(() => import('./pages/TutorialPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 
 // Lazy-loaded pages (code splitting for better performance)
 const ContractPlayground = lazy(() => import('./pages/ContractPlayground'));
@@ -70,6 +72,7 @@ const ToolReferencePage = lazy(() => import('./pages/ToolReferencePage'));
 const ToolPlaygroundPage = lazy(() => import('./pages/ToolPlaygroundPage'));
 const StandardsPage = lazy(() => import('./pages/StandardsPage'));
 const ERC8004Page = lazy(() => import('./pages/ERC8004Page'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Innovation pages (experimental features - lazy loaded)
 const AICodeWhispererPage = lazy(() => import('./pages/innovation/AICodeWhispererPage'));
@@ -81,7 +84,6 @@ const CrossChainDreamWeaverPage = lazy(() => import('./pages/innovation/CrossCha
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
-import ConsentModal, { useConsent, ConsentTrigger } from './components/ConsentModal';
 import {
   SkipLink,
   LiveAnnouncerProvider,
@@ -185,6 +187,7 @@ function AppContent() {
                   <Route path="/standards" element={<StandardsPage />} />
                   <Route path="/erc8004" element={<ERC8004Page />} />
                   <Route path="/shared/:token" element={<SharedProjectPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </Suspense>
             </motion.div>

@@ -9,7 +9,7 @@
  */
 
 import { create } from 'zustand';
-import { WalletState } from '@/types';
+import { type WalletState } from '@/types';
 
 interface WalletStore extends WalletState {
   setWallet: (wallet: Partial<WalletState>) => void;

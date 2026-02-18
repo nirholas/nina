@@ -4,8 +4,8 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
-import { Bootstrap, SupportedNetwork } from '@tinymanorg/tinyman-js-sdk';
+import { type Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
+import { Bootstrap, type SupportedNetwork } from '@tinymanorg/tinyman-js-sdk';
 import { algodClient } from '../../../algorand-client.js';
 import { env } from '../../../env.js';
 

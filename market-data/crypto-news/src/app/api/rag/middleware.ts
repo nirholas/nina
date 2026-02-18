@@ -9,7 +9,7 @@
  * @module api/rag/middleware
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import type { APIErrorResponse } from './schemas';
 
 // ═══════════════════════════════════════════════════════════════

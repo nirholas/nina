@@ -16,10 +16,10 @@ import { getLatestNews, getBreakingNews } from '@/lib/crypto-news';
 import { db } from '@/lib/database';
 import { generateShortId } from '@/lib/utils/id';
 import {
-  AlertRule,
-  AlertCondition,
-  AlertEvent,
-  AlertChannel,
+  type AlertRule,
+  type AlertCondition,
+  type AlertEvent,
+  type AlertChannel,
   validateCondition,
   generateAlertId,
   generateEventId,
@@ -497,7 +497,7 @@ async function saveAlertEventToDb(event: AlertEvent): Promise<void> {
 
 // Runtime state (not persisted)
 let lastFearGreedValue: number | null = null;
-let volumeBaseline: Map<string, number> = new Map();
+const volumeBaseline: Map<string, number> = new Map();
 
 /**
  * Get all alert rules

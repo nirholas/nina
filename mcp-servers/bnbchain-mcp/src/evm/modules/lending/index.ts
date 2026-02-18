@@ -1,4 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { registerLendingTools } from "./tools.js"
 import { registerLendingPrompts } from "./prompts.js"
 

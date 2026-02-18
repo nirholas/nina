@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, createContext, useContext, useCallback, ReactNode } from 'react';
+import { useEffect, useState, createContext, useContext, useCallback, type ReactNode } from 'react';
 
 // Types
 interface BeforeInstallPromptEvent extends Event {

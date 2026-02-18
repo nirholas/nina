@@ -1,4 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import type { Address, Hex } from "viem"
 import { formatUnits, keccak256, toHex } from "viem"
 import { privateKeyToAccount } from "viem/accounts"

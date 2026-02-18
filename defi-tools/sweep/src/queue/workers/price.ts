@@ -1,4 +1,4 @@
-import { Worker, Job } from "bullmq";
+import { Worker, type Job } from "bullmq";
 import { cacheSet, cacheGet } from "../../utils/redis.js";
 import { getDb, priceCache } from "../../db/index.js";
 import { QUEUE_NAMES, type PriceUpdateJobData } from "../index.js";

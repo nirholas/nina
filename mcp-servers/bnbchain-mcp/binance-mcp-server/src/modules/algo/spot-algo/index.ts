@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-spot/market-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceSpotTwapNewTrade } from "./spotTWAPOrder.js";
 import { registerBinanceSpotCancelOpenTWAPOrder } from "./cancelOpenTWAPOrder.js";
 import { registerBinanceSpotSubOrders } from "./subOrders.js";

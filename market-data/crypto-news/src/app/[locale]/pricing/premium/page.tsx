@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import Link from 'next/link';
 import { Newspaper, BarChart3, Brain, Check, Zap, Bell } from 'lucide-react';
 

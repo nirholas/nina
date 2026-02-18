@@ -6,7 +6,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { MessageCircle, Send, Sparkles, Copy, Check, Trash2 } from 'lucide-react';
-import { generateBNBResponse, getSuggestedPrompts, getWelcomeMessage, ChatMessage } from '@/services/bnbAI';
+import { generateBNBResponse, getSuggestedPrompts, getWelcomeMessage, type ChatMessage } from '@/services/bnbAI';
 import { copyToClipboard } from '@/utils/helpers';
 import DOMPurify from 'dompurify';
 

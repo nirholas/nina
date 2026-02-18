@@ -4,9 +4,9 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Transaction, makeApplicationUpdateTxnFromObject, OnApplicationComplete } from 'algosdk';
+import { type Transaction, makeApplicationUpdateTxnFromObject, OnApplicationComplete } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { AppUpdateTxnParams } from './types.js';
+import { type AppUpdateTxnParams } from './types.js';
 
 /**
  * Creates an application update transaction

@@ -7,7 +7,7 @@
  * @license Apache-2.0
  */
 
-import express, { Request, Response } from "express";
+import express, { type Request, type Response } from "express";
 
 // In production, import from @nirholas/x402-deploy
 // import { wrapExpressWithX402 } from "@nirholas/x402-deploy/express";

@@ -10,7 +10,7 @@
  * Auto-detects duplicate stories and synthesizes them
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { 
   synthesizeStory, 

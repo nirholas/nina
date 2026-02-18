@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
 import { ResponseProcessor } from '../../../utils/responseProcessor.js';
 import { env } from '../../../env.js';
 import algosdk from 'algosdk';
@@ -414,7 +414,7 @@ async function getKeyMessage(params: {
   type: 'User' | 'API';
   walletToken: string;
 }): Promise<any> {
-  let body = {
+  const body = {
     tkAddress: params.tkAddress,
     loginAddress: params.loginAddress,
     loginChainId:params.loginChainId || 8,
@@ -447,7 +447,7 @@ async function addTradingKey(params: {
   type: 'User' | 'API';
 }): Promise<any> {
 console.log('public key: ', Buffer.from(algosdk.decodeAddress(params.loginAddress).publicKey).toString('hex'))
-  let body = {
+  const body = {
     message: params.message,
     signature: params.signature,
     data: {

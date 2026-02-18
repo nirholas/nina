@@ -308,7 +308,7 @@ export const baseTranslations: Record<string, string> = {
 };
 
 // Loaded translations storage (populated from static JSON files)
-let loadedTranslations: Record<Language, Record<string, string>> = {
+const loadedTranslations: Record<Language, Record<string, string>> = {
   en: { ...baseTranslations },
   es: {},
   zh: {},

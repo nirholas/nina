@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/pay/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceGetPayTradeHistory } from "./pay-api/getPayTradeHistory.js";
 import { registerBinancePayCreateOrder } from "./pay-api/createOrder.js";
 import { registerBinancePayQueryOrder } from "./pay-api/queryOrder.js";

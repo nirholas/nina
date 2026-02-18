@@ -7,10 +7,10 @@
 // Bitnovo API client with retry logic and comprehensive error handling
 
 import axios, {
-  AxiosInstance,
-  AxiosResponse,
-  AxiosError,
-  InternalAxiosRequestConfig,
+  type AxiosInstance,
+  type AxiosResponse,
+  type AxiosError,
+  type InternalAxiosRequestConfig,
 } from 'axios';
 import type {
   Configuration,

@@ -6,10 +6,10 @@
  */
 import { StreamAccountStatus } from "@bnb-chain/greenfield-cosmos-types/greenfield/payment/stream_record"
 import { Long } from "@bnb-chain/greenfield-js-sdk"
-import { Hex, parseEther } from "viem"
+import { type Hex, parseEther } from "viem"
 
 import { selectSp } from "@/gnfd/services/sp"
-import { ApiResponse, response } from "../util"
+import { type ApiResponse, response } from "../util"
 import { getAccount } from "./account"
 import { getClient } from "./client"
 import { executeTransaction } from "./common"

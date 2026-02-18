@@ -23,7 +23,7 @@ export interface ContractAddresses {
   usdsToken: `0x${string}`;
 }
 
-// TODO(nich): Update with deployed addresses
+// Contract addresses — zero addresses indicate pending deployment on that chain.\n// Once deployed, replace with the actual CREATE2/deterministic addresses.\n// Deploy with: npx hardhat deploy --network <chain> --tags ToolMarketplace
 export const CONTRACT_ADDRESSES: Record<ChainId, ContractAddresses> = {
   // Arbitrum One (Mainnet)
   42161: {

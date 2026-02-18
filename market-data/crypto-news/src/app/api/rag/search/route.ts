@@ -5,7 +5,7 @@
  * Search the news archive without LLM response generation.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { searchNews, vectorStore } from '@/lib/rag';
 
 export const runtime = 'nodejs';

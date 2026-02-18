@@ -4,7 +4,7 @@
  * and provides historical trend analysis
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 interface FearGreedData {
   value: number;

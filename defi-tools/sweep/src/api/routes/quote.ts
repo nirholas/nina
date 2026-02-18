@@ -102,7 +102,7 @@ quote.post(
       const expiresAt = now + 5 * 60 * 1000; // 5 minutes
 
       // Get tokens to sweep
-      let tokensToSweep: {
+      const tokensToSweep: {
         address: string;
         chain: string;
         symbol: string;

@@ -441,7 +441,7 @@ export async function validateSweep(
       // ========================================
       // Note: Full swap simulation would be done with actual calldata
       // For now, we check transfer tax
-      let simulationResult = undefined;
+      const simulationResult = undefined;
       
       try {
         const taxCheck = await simulateTransferTax(tokenAddress, chain, amount);

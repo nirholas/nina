@@ -8,7 +8,7 @@
  * GET /api/ai/flash-briefing?stories=3
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { generateFlashBriefing, type NewsArticle } from '@/lib/ai-intelligence';
 import { isGroqConfigured } from '@/lib/groq';

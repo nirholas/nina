@@ -4,12 +4,12 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { IQuotaProps, Long, VisibilityType } from "@bnb-chain/greenfield-js-sdk"
-import { BucketInfo } from "@bnb-chain/greenfield-js-sdk/dist/esm/types/sp/Common"
+import { type IQuotaProps, Long, VisibilityType } from "@bnb-chain/greenfield-js-sdk"
+import { type BucketInfo } from "@bnb-chain/greenfield-js-sdk/dist/esm/types/sp/Common"
 import type { Hex } from "viem"
 
 import Logger from "@/utils/logger"
-import { ApiResponse, response } from "../util"
+import { type ApiResponse, response } from "../util"
 import { getAccount } from "./account"
 import { getClient } from "./client"
 import { executeTransaction } from "./common"

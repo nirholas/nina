@@ -1,5 +1,5 @@
 // src/modules/auto-invest/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceAutoInvestTools } from "../../tools/binance-auto-invest/index.js";
 
 export function registerAutoInvest(server: McpServer) {

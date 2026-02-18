@@ -438,7 +438,7 @@ export function registerDefiTools(server: McpServer) {
     }
   )
 
-  // ==================== HACKS ====================
+  // ==================== EXPLOITS / SECURITY INCIDENTS ====================
 
   server.tool(
     "defi_get_hacks",

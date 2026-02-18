@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { COINGECKO_BASE, SITE_URL } from '@/lib/constants';
 
 export const runtime = 'edge';

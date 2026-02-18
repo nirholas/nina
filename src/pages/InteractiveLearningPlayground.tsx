@@ -9,15 +9,15 @@ import { ArrowLeft, Layout, BookOpen, Code2, Zap, FileCode } from 'lucide-react'
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import SplitView from '@/components/Playground/SplitView';
-import MultiLanguageTabs, { LanguageTab } from '@/components/Playground/MultiLanguageTabs';
+import MultiLanguageTabs, { type LanguageTab } from '@/components/Playground/MultiLanguageTabs';
 import LivePreview from '@/components/Playground/LivePreview';
-import InteractiveTutorial, { TutorialStep } from '@/components/Playground/InteractiveTutorial';
-import ChallengeSystem, { Challenge } from '@/components/Playground/ChallengeSystem';
-import ProgressiveLevels, { LevelInfo, DifficultyLevel } from '@/components/Playground/ProgressiveLevels';
-import { AnnotationsPanel, CodeAnnotation } from '@/components/Playground/InlineAnnotations';
+import InteractiveTutorial, { type TutorialStep } from '@/components/Playground/InteractiveTutorial';
+import ChallengeSystem, { type Challenge } from '@/components/Playground/ChallengeSystem';
+import ProgressiveLevels, { type LevelInfo, type DifficultyLevel } from '@/components/Playground/ProgressiveLevels';
+import { AnnotationsPanel, type CodeAnnotation } from '@/components/Playground/InlineAnnotations';
 import TemplateSelector from '@/components/Sandbox/TemplateSelector';
-import { SandboxTemplate } from '@/utils/sandboxTemplates';
-import { ContractTemplate } from '@/utils/contractTemplates';
+import { type SandboxTemplate } from '@/utils/sandboxTemplates';
+import { type ContractTemplate } from '@/utils/contractTemplates';
 import { useVisualFeedback } from '@/components/Accessibility/VisualFeedback';
 
 type ViewMode = 'tutorial' | 'challenge' | 'freeform';

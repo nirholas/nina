@@ -3,7 +3,7 @@
  * Extracts full article content from URLs using multiple strategies
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 interface ExtractionResult {
   url: string;
@@ -258,7 +258,7 @@ function extractMeta(html: string, name: string): string | null {
 
 function extractMainContent(html: string): string {
   // Remove scripts and styles
-  let content = html
+  const content = html
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/<style[\s\S]*?<\/style>/gi, '')
     .replace(/<nav[\s\S]*?<\/nav>/gi, '')

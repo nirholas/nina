@@ -4,9 +4,9 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Transaction, makeApplicationNoOpTxnFromObject, OnApplicationComplete } from 'algosdk';
+import { type Transaction, makeApplicationNoOpTxnFromObject, OnApplicationComplete } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { AppCallTxnParams } from './types.js';
+import { type AppCallTxnParams } from './types.js';
 
 /**
  * Creates an application call (NoOp) transaction

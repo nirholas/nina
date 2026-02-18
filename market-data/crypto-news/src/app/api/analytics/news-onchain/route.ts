@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews, type NewsArticle } from '@/lib/crypto-news';
 import { getTopCoins, type TokenPrice } from '@/lib/market-data';
 

@@ -4,7 +4,7 @@
  * Uses real blockchain data from public APIs and websockets
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { COINGECKO_BASE } from '@/lib/constants';
 
 interface WhaleTransaction {

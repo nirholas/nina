@@ -540,8 +540,8 @@ export class UtilityManager {
       fullBytes.set(bytes, mxBytes.length);
       
       // Convert back to hex
-        let pk = algosdk.decodeAddress(address).publicKey;
-        let verify_nacl = nacl.sign.detached.verify(fullBytes, signature, pk)
+        const pk = algosdk.decodeAddress(address).publicKey;
+        const verify_nacl = nacl.sign.detached.verify(fullBytes, signature, pk)
         //return algosdk.verifyBytes(bytes, signature, address);
       return verify_nacl
     } catch (error) {

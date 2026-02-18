@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/options/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerOptionsMarketApi } from "./market-api/index.js";
 import { registerOptionsTradeApi } from "./trade-api/index.js";
 import { registerOptionsAccountApi } from "./account-api/index.js";

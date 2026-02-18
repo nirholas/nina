@@ -6,7 +6,7 @@
  * Requires API key authentication
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { validateApiKey, API_KEY_TIERS, isKvConfigured } from '@/lib/api-keys';
 import { ApiError } from '@/lib/api-error';
 import { createRequestLogger } from '@/lib/logger';

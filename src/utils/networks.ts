@@ -4,7 +4,7 @@
  * 💫 Write code that makes you proud 🏆
  */
 
-import { NetworkConfig } from '@/types';
+import { type NetworkConfig } from '@/types';
 
 export const NETWORK_CONFIGS: Record<string, NetworkConfig> = {
   ethereum: {

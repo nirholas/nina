@@ -249,7 +249,7 @@ Return ONLY the JSON array, no other text.`;
     const { maxQuestions = 4, minRelevance = 0.5, ensureDiversity = true } = config;
 
     // Filter by relevance
-    let filtered = questions.filter(q => q.relevance >= minRelevance);
+    const filtered = questions.filter(q => q.relevance >= minRelevance);
 
     // Sort by relevance
     filtered.sort((a, b) => b.relevance - a.relevance);

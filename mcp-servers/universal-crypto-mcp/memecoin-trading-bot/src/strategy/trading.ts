@@ -1,4 +1,4 @@
-import { TradingSignal, TokenInfo, PriceData, TechnicalIndicators, OHLCVData } from '../types.js';
+import { type TradingSignal, type TokenInfo, type PriceData, type TechnicalIndicators, type OHLCVData } from '../types.js';
 import { config } from '../config.js';
 import { technicalAnalyzer } from '../analysis/technical.js';
 import { logger } from '../utils/logger.js';

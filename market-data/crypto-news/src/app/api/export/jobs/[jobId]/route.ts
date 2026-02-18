@@ -7,7 +7,7 @@
  * @route DELETE /api/export/jobs/[jobId] - Cancel/delete job
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getExportJob } from '@/lib/data-export';
 
 export const runtime = 'edge';

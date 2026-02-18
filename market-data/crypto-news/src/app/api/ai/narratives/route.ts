@@ -10,7 +10,7 @@
  * GET /api/ai/narratives?predict=bitcoin-etf
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { 
   detectNarratives, 

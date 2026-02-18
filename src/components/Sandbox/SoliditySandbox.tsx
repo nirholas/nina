@@ -6,13 +6,13 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import Editor, { OnMount } from '@monaco-editor/react';
+import Editor, { type OnMount } from '@monaco-editor/react';
 import { useThemeStore } from '@/stores/themeStore';
 import { useWalletStore } from '@/stores/walletStore';
 import ShareModal from './ShareModal';
 import WalletConnect from '@/components/WalletConnect';
 import TemplateSelector from '@/components/Playground/TemplateSelector';
-import { ContractTemplate } from '@/utils/contractTemplates';
+import { type ContractTemplate } from '@/utils/contractTemplates';
 import {
   Play,
   Rocket,

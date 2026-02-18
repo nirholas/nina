@@ -5,7 +5,7 @@
  * This is what traders actually pay for!
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { PREMIUM_PRICING } from '@/lib/x402';
 import { getTopCoins } from '@/lib/market-data';
 
@@ -204,7 +204,7 @@ export async function advancedScreener(request: NextRequest): Promise<NextRespon
     const allCoins = await getTopCoins(500);
 
     // Apply filters
-    let filteredCoins = allCoins.filter((coin) =>
+    const filteredCoins = allCoins.filter((coin) =>
       filters.every((filter) => applyFilter(coin as unknown as Record<string, unknown>, filter))
     );
 

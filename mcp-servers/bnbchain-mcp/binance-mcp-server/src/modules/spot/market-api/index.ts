@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-spot/market-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceKlines } from "./klines.js";
 import { registerBinanceTicker24hr } from "./ticker24hr.js";
 import { registerBinanceDepth } from "./depth.js";

@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/modules/simple-earn/account/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerSimpleEarnAccount } from "./getAccount.js";
 import { registerSimpleEarnCollateralRecord } from "./getCollateralRecord.js";
 import { registerSimpleEarnRewardRecord } from "./getRewardRecord.js";

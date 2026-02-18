@@ -8,7 +8,7 @@
  * POST /api/ai-anchor - Generate new AI anchor video
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 const API_BASE = process.env.NEXT_PUBLIC_BASE_URL || 'https://cryptocurrency.cv';
 

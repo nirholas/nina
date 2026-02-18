@@ -8,8 +8,8 @@
  */
 
 import {
-  SDKConfig,
-  SDKGenerationResult,
+  type SDKConfig,
+  type SDKGenerationResult,
   toPascalCase,
   extractPathParams,
 } from './types.js';

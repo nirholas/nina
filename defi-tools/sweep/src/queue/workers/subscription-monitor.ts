@@ -1,4 +1,4 @@
-import { Worker, Job } from "bullmq";
+import { Worker, type Job } from "bullmq";
 import {
   QUEUE_NAMES,
   type SubscriptionMonitorJobData,

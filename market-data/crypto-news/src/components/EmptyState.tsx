@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 
 type EmptyStateVariant = 'default' | 'search' | 'bookmarks' | 'error' | 'offline' | 'loading';

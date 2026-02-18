@@ -7,7 +7,7 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { spawn, ChildProcess } from "child_process"
+import { spawn, type ChildProcess } from "child_process"
 import { beforeAll, afterAll, afterEach, vi } from "vitest"
 import { Client } from "@modelcontextprotocol/sdk/client/index.js"
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js"

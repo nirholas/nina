@@ -4,8 +4,8 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
-import { generateOptIntoAssetTxns, generateOptIntoValidatorTxns, generateOptOutOfValidatorTxns, SupportedNetwork } from '@tinymanorg/tinyman-js-sdk';
+import { type Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
+import { generateOptIntoAssetTxns, generateOptIntoValidatorTxns, generateOptOutOfValidatorTxns, type SupportedNetwork } from '@tinymanorg/tinyman-js-sdk';
 import { algodClient } from '../../../algorand-client.js';
 import { env } from '../../../env.js';
 

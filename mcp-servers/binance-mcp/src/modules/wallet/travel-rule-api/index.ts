@@ -1,5 +1,5 @@
 //src/tools/binance-wallet/travel-rule-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceWalletBrokerWithdraw } from "./brokerWithdraw.js";
 import { registerBinanceWalletOnboardedVaspList } from "./onboardedVaspList.js";
 import { registerBinanceWalletSubmitDepositQuestionnaire } from "./submitDepositQuestionnaire.js";

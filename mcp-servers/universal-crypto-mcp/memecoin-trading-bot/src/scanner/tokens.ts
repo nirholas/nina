@@ -1,4 +1,4 @@
-import { TokenInfo, PriceData } from '../types.js';
+import { type TokenInfo, type PriceData } from '../types.js';
 import { logger } from '../utils/logger.js';
 
 export class TokenScanner {

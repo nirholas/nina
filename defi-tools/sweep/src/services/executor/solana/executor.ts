@@ -3,10 +3,10 @@ import {
   PublicKey,
   VersionedTransaction,
   TransactionMessage,
-  TransactionInstruction,
+  type TransactionInstruction,
   ComputeBudgetProgram,
   SystemProgram,
-  Keypair,
+  type Keypair,
 } from "@solana/web3.js";
 import type {
   SolanaSwapRequest,

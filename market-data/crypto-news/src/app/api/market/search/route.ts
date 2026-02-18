@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { searchCoins, SearchResult } from '@/lib/market-data';
 import { ApiError, type ApiErrorResponse } from '@/lib/api-error';
 import { createRequestLogger } from '@/lib/logger';

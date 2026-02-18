@@ -5,7 +5,7 @@
  * Translates content on-the-fly for dynamic content
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { type Locale, locales, localeNames } from '@/i18n/config';
 
 export async function POST(request: NextRequest) {

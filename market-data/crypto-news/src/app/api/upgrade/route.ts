@@ -7,7 +7,7 @@
  * Supports upgrading from free to pro tier via x402 micropayments
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   validateApiKey,
   upgradeKeyTier,

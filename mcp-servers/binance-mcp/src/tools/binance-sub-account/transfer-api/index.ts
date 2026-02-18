@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/tools/binance-sub-account/transfer-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceSubAccountTransferToSub } from "./transferToSubAccount.js";
 import { registerBinanceSubAccountTransferToMaster } from "./transferToMaster.js";
 import { registerBinanceSubAccountUniversalTransfer } from "./universalTransfer.js";

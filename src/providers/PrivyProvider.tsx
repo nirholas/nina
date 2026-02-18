@@ -5,7 +5,7 @@
  */
 
 import { PrivyProvider as PrivyAuthProvider } from '@privy-io/react-auth';
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 interface PrivyProviderProps {
   children: ReactNode;

@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-vip-loan/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceVipLoanMarketApiTools } from "./market-api/index.js";
 import { registerBinanceVipLoanTradeApiTools } from "./trade-api/index.js";
 import { registerBinanceVipLoanUserInformationApiTools } from "./userInformation-api/index.js";

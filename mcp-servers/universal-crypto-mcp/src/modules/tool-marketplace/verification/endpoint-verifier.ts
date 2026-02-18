@@ -75,7 +75,7 @@ export class EndpointVerifier {
    */
   async checkEndpoint(toolId: string, endpoint: string): Promise<EndpointCheckResult> {
     const startTime = Date.now()
-    let result: EndpointCheckResult = {
+    const result: EndpointCheckResult = {
       toolId,
       endpoint,
       timestamp: startTime,

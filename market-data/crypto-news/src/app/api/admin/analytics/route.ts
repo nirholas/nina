@@ -6,7 +6,7 @@
  * Falls back to in-memory for development without KV configured.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { requireAdminAuth } from '@/lib/admin-auth';
 
 interface UsageRecord {

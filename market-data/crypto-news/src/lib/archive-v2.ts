@@ -5,7 +5,7 @@
  * Provides query capabilities for the new JSONL-based archive format.
  */
 
-import { NewsArticle, getLatestNews } from './crypto-news';
+import { type NewsArticle, getLatestNews } from './crypto-news';
 
 // ============================================================================
 // SLUG UTILITIES

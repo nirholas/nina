@@ -9,7 +9,7 @@
  * - API key usage by tier
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { ApiError } from '@/lib/api-error';
 import { getMetrics, getAllEndpointMetrics, type AggregatedMetrics } from '@/lib/api-metrics';
 

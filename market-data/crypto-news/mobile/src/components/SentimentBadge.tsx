@@ -5,7 +5,7 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import { Sentiment } from '../api/client';
+import { type Sentiment } from '../api/client';
 
 interface SentimentBadgeProps {
   sentiment: Sentiment;

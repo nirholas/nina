@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getAggregatedAssets, getCoinCapAsset, getCoinCapHistory } from '@/lib/external-apis';
 import { ApiError } from '@/lib/api-error';
 import { logger } from '@/lib/logger';

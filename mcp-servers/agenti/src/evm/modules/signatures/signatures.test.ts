@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { hashMessage, hashTypedData, keccak256, toHex } from "viem"
 import { privateKeyToAccount } from "viem/accounts"
 

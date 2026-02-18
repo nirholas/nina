@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Component, ReactNode, ErrorInfo } from 'react';
+import React, { Component, type ReactNode, type ErrorInfo } from 'react';
 import { Link } from '@/i18n/navigation';
 
 interface ErrorBoundaryProps {

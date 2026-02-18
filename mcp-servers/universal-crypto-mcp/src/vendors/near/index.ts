@@ -6,7 +6,7 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { z } from "zod"
 
 const NEAR_RPC_URL = process.env.NEAR_RPC_URL || "https://rpc.mainnet.near.org"

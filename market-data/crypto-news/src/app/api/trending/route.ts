@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { ApiError } from '@/lib/api-error';
 import { createRequestLogger } from '@/lib/logger';

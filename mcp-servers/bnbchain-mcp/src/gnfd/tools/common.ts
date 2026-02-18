@@ -7,8 +7,12 @@
 import type { Hex } from "viem"
 import { z } from "zod"
 
-// Get default private key from environment variables, use sample key if not set
-export const DEFAULT_PRIVATE_KEY = process.env.PRIVATE_KEY || ""
+// Private key is read exclusively from environment variable — never accept as user input
+const getPrivateKey = (): string => {
+  const key = process.env.PRIVATE_KEY;
+  if (!key) throw new Error('PRIVATE_KEY environment variable is not set. Configure it in your .env file.');
+  return key;
+};
 
 // Common parameters
 export const networkParam = z
@@ -20,10 +24,10 @@ export const networkParam = z
 export const privateKeyParam = z
   .string()
   .optional()
-  .default(DEFAULT_PRIVATE_KEY)
   .describe(
-    "Private key of the account in hex format. SECURITY: This is used only for transaction signing."
+    "Private key read from PRIVATE_KEY environment variable. Do not pass this as user input."
   )
+  .transform(() => getPrivateKey())
 
 export const bucketNameParam = z
   .string()

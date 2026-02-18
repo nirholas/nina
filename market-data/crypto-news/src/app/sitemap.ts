@@ -5,7 +5,7 @@
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
  */
 
-import { MetadataRoute } from 'next';
+import { type MetadataRoute } from 'next';
 import { getAllSlugs, CATEGORIES } from '@/lib/blog';
 import { getAllTags } from '@/lib/tags';
 import { SITE_URL } from '@/lib/constants';

@@ -18,12 +18,12 @@
  * }
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getAllInfluencerLists,
   saveInfluencerList,
-  InfluencerList,
-  XUser,
+  type InfluencerList,
+  type XUser,
   DEFAULT_CRYPTO_INFLUENCERS,
 } from '@/lib/x-scraper';
 

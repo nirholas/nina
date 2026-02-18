@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState, useCallback, RefObject } from 'react';
+import React, { useRef, useEffect, useState, useCallback, type RefObject } from 'react';
 
 interface FocusTrapOptions {
   /** Initial element to focus when trap activates */

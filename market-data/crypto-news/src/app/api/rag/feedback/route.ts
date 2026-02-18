@@ -11,7 +11,7 @@
  * Replaces the basic in-memory array with the full FeedbackStore.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { ragLogger } from '@/lib/rag/observability';
 import { getFeedbackStore } from '@/lib/rag/feedback-system';
 import {

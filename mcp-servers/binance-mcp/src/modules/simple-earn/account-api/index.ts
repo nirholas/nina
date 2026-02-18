@@ -1,5 +1,5 @@
 // src/tools/binance-simple-earn/account-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceSimpleEarnFlexibleProductList } from "./simpleEarnFlexibleProductList.js";
 import { registerBinanceGetFlexibleProductPosition } from "./getFlexibleProductPosition.js";
 

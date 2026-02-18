@@ -5,7 +5,7 @@
  * Provides AI-powered sentiment analysis of crypto news.
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { analyzeSentiment } from '@/lib/premium-ai';
 import { ApiError } from '@/lib/api-error';

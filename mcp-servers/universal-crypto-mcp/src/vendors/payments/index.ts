@@ -29,7 +29,7 @@ import {
 } from './storage/webhook-events.js';
 import {
   createWebhookServer,
-  WebhookServer,
+  type WebhookServer,
 } from './webhook-server.js';
 import type { WebhookConfiguration } from './types/index.js';
 

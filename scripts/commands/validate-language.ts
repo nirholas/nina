@@ -9,8 +9,8 @@ import pMap from 'p-map';
 
 import { Logger } from '../utils/logger';
 import {
-  LanguageValidationResult,
-  ValidationStats,
+  type LanguageValidationResult,
+  type ValidationStats,
   ensureELDInitialized,
   fixLanguageIssues,
   fixLanguageWithFallback,

@@ -1,5 +1,5 @@
 // src/tools/binance-gift-card/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceGiftCardCreateCode } from "./createCode.js";
 import { registerBinanceGiftCardCreateDualTokenCode } from "./createDualTokenCode.js";
 import { registerBinanceGiftCardRedeemCode } from "./redeemCode.js";

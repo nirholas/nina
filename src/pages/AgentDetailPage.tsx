@@ -481,7 +481,7 @@ function OpeningMessageSection({ agent }: { agent: AgentData }) {
 
 function CapabilitiesSection({ agent }: { agent: AgentData }) {
   if (agent.capabilities.length === 0 && agent.keyFacts.length === 0)
-    return null;
+    {return null;}
 
   return (
     <section className="py-24 md:py-32 bg-neutral-50 dark:bg-transparent overflow-hidden">

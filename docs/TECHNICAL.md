@@ -52,7 +52,7 @@ flowchart TB
         Prices[crypto-market-data]
         News[crypto-news — 200+ sources]
     end
-    subgraph Chain["On-Chain (BSC + 22 chains)"]
+    subgraph Chain["On-Chain (BSC + 24 chains)"]
         ERC[ERC-8004 Contracts]
         SC[Smart Contracts]
     end

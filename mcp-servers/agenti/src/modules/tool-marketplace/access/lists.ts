@@ -181,7 +181,7 @@ export class AccessListManager {
     const allowlist = await this.getAllowlist(toolId)
 
     // Check exact IP match
-    let entry = allowlist.find((e) => e.type === "ip" && e.value === ip)
+    const entry = allowlist.find((e) => e.type === "ip" && e.value === ip)
     if (entry) {
       return { allowed: true, entry }
     }
@@ -284,7 +284,7 @@ export class AccessListManager {
     const blocklist = await this.getBlocklist(toolId)
 
     // Check exact IP match
-    let entry = blocklist.find((e) => e.type === "ip" && e.value === ip)
+    const entry = blocklist.find((e) => e.type === "ip" && e.value === ip)
     if (entry) {
       return { blocked: true, entry }
     }

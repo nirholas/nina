@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-spot/account-api/getAccount.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { spotClient } from "../../../config/binanceClient.js";
 

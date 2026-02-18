@@ -10,7 +10,7 @@
  * @module bitcoin-onchain
  */
 
-import { EXTERNAL_APIS, CACHE_TTL, MempoolFees, MempoolBlock } from './external-apis';
+import { EXTERNAL_APIS, CACHE_TTL, type MempoolFees, type MempoolBlock } from './external-apis';
 import { cache } from './cache';
 
 // =============================================================================

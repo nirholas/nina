@@ -193,7 +193,7 @@ export class MarketplaceClient {
    */
   private async resolveTool(idOrName: string): Promise<RegisteredTool | null> {
     // Try by ID first
-    let tool = await toolRegistry.getTool(idOrName)
+    const tool = await toolRegistry.getTool(idOrName)
     if (tool) return tool
 
     // Try by name

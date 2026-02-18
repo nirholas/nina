@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-futures-usdm/market-api/time.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { futuresClient } from "../../../config/binanceClient.js";
 
 export function registerBinanceFuturesTime(server: McpServer) {

@@ -32,7 +32,7 @@ export function createRoutes(
     if (cached) return c.json(cached);
 
     // Full-text search
-    let results = search.search(q, 500);
+    const results = search.search(q, 500);
 
     // Apply filters
     const filters: FilterOptions = {};

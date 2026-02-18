@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import prompts, { PromptObject } from 'prompts';
+import prompts, { type PromptObject } from 'prompts';
 import figlet from 'figlet';
 import chalk from 'chalk';
 import path from 'path';

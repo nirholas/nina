@@ -11,7 +11,7 @@
  * @see https://docs.x402.org/advanced/hybrid-auth
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { paymentProxy } from '@x402/next';
 import { withX402 as withX402Next } from '@x402/next';
 import type { HTTPRequestContext, RouteConfig as X402RouteConfig } from '@x402/core/server';

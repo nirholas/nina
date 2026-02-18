@@ -7,8 +7,8 @@
 import { randomUUID } from "node:crypto";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import startServer from "./server.js";
-import express, { Request, Response } from "express";
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import express, { type Request, type Response } from "express";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 // Environment variables
 const PORT = parseInt(process.env.MCP_PORT || "3001", 10);

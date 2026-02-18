@@ -9,12 +9,12 @@
  *   - severity: high | medium | low (optional, filter by severity)
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { jsonResponse, errorResponse, withTiming } from '@/lib/api-utils';
 import { 
   getAnomalyReport, 
   getAnomalyStats,
-  AnomalySeverity 
+  type AnomalySeverity 
 } from '@/lib/anomaly-detector';
 
 export const runtime = 'edge';

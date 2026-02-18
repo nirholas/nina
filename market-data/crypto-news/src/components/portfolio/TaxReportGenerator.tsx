@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
-import { usePortfolio, Transaction } from './PortfolioProvider';
+import { usePortfolio, type Transaction } from './PortfolioProvider';
 
 type TaxMethod = 'fifo' | 'lifo' | 'hifo' | 'average';
 type TaxYear = '2024' | '2025' | '2026';

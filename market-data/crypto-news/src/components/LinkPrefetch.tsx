@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useRef } from 'react';
-import Link, { LinkProps } from 'next/link';
+import Link, { type LinkProps } from 'next/link';
 import { useRouter } from 'next/navigation';
 
 interface PrefetchLinkProps extends Omit<LinkProps, 'onMouseEnter' | 'onFocus'> {

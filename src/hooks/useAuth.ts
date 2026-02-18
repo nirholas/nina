@@ -4,7 +4,7 @@
  * 💫 Privy authentication hook
  */
 
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { isPrivyConfigured } from '@/providers/PrivyProvider';
 
 export interface UserProfile {
@@ -41,17 +41,39 @@ const emptyAuthState = {
   unlinkWallet: () => {},
 };
 
+/**
+ * Authentication hook that wraps Privy.
+ * Returns a no-op state when Privy is not configured.
+ * 
+ * Note: isPrivyConfigured is a build-time constant so both branches
+ * always call the same number of hooks across renders.
+ */
 export function useAuth() {
-  // If Privy is not configured, return empty state
-  if (!isPrivyConfigured) {
-    return emptyAuthState;
-  }
-
-  // Dynamic import of Privy hooks - they're only available when configured
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { usePrivy, useWallets } = require('@privy-io/react-auth');
+  // If Privy is not configured, we still need to call hooks unconditionally
+  // but we can return early after them.
   
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  // Always call all hooks — order must be stable across renders
+  const privyModule = isPrivyConfigured
+    ? require('@privy-io/react-auth')
+    : null;
+
+  const privyState = privyModule?.usePrivy?.() ?? {
+    ready: true,
+    authenticated: false,
+    user: null,
+    login: () => {},
+    logout: () => {},
+    linkEmail: () => {},
+    linkWallet: () => {},
+    linkGoogle: () => {},
+    linkGithub: () => {},
+    linkTwitter: () => {},
+    unlinkEmail: () => {},
+    unlinkWallet: () => {},
+  };
+
+  const walletsState = privyModule?.useWallets?.() ?? { wallets: [] };
+
   const { 
     ready, 
     authenticated, 
@@ -65,25 +87,20 @@ export function useAuth() {
     linkTwitter,
     unlinkEmail,
     unlinkWallet,
-  } = usePrivy();
+  } = privyState;
   
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { wallets } = useWallets();
+  const { wallets } = walletsState;
 
-  // Get primary wallet
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const primaryWallet = useMemo(() => {
+    if (!wallets || wallets.length === 0) return null;
     return wallets.find((w: any) => w.walletClientType === 'privy') || wallets[0];
   }, [wallets]);
 
-  // Build user profile from Privy user
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const profile: UserProfile | null = useMemo(() => {
     if (!user) return null;
 
     const linkedAccounts = [];
     
-    // Email
     if (user.email) {
       linkedAccounts.push({
         type: 'email',
@@ -91,7 +108,6 @@ export function useAuth() {
       });
     }
     
-    // Wallets
     for (const wallet of user.linkedAccounts.filter((a: any) => a.type === 'wallet')) {
       linkedAccounts.push({
         type: 'wallet',
@@ -99,7 +115,6 @@ export function useAuth() {
       });
     }
     
-    // Google
     if (user.google) {
       linkedAccounts.push({
         type: 'google',
@@ -108,7 +123,6 @@ export function useAuth() {
       });
     }
     
-    // GitHub
     if (user.github) {
       linkedAccounts.push({
         type: 'github',
@@ -116,7 +130,6 @@ export function useAuth() {
       });
     }
     
-    // Twitter
     if (user.twitter) {
       linkedAccounts.push({
         type: 'twitter',
@@ -135,27 +148,25 @@ export function useAuth() {
     };
   }, [user]);
 
+  // If Privy is not configured, return the empty state
+  if (!isPrivyConfigured) {
+    return emptyAuthState;
+  }
+
   return {
-    // State
     ready,
     isAuthenticated: authenticated,
     user,
     profile,
     wallets,
     primaryWallet,
-    
-    // Actions
     login,
     logout,
-    
-    // Link accounts
     linkEmail,
     linkWallet,
     linkGoogle,
     linkGithub,
     linkTwitter,
-    
-    // Unlink accounts
     unlinkEmail,
     unlinkWallet,
   };

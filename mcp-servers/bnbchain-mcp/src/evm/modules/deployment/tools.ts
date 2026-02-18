@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import type { Address, Hex, Hash } from "viem"
 import {
   encodeDeployData,
@@ -42,23 +42,23 @@ const TRANSPARENT_PROXY_ABI = parseAbi([
   "constructor(address _logic, address admin_, bytes _data)",
   "function admin() view returns (address)",
   "function implementation() view returns (address)",
-  "function changeAdmin(address newAdmin) external",
-  "function upgradeTo(address newImplementation) external",
-  "function upgradeToAndCall(address newImplementation, bytes data) payable external"
+  "function changeAdmin(address newAdmin)",
+  "function upgradeTo(address newImplementation)",
+  "function upgradeToAndCall(address newImplementation, bytes data) payable"
 ])
 
 const UUPS_PROXY_ABI = parseAbi([
-  "function upgradeTo(address newImplementation) external",
-  "function upgradeToAndCall(address newImplementation, bytes data) payable external",
+  "function upgradeTo(address newImplementation)",
+  "function upgradeToAndCall(address newImplementation, bytes data) payable",
   "function proxiableUUID() view returns (bytes32)"
 ])
 
 const PROXY_ADMIN_ABI = parseAbi([
   "function getProxyAdmin(address proxy) view returns (address)",
   "function getProxyImplementation(address proxy) view returns (address)",
-  "function upgrade(address proxy, address implementation) external",
-  "function upgradeAndCall(address proxy, address implementation, bytes data) payable external",
-  "function changeProxyAdmin(address proxy, address newAdmin) external"
+  "function upgrade(address proxy, address implementation)",
+  "function upgradeAndCall(address proxy, address implementation, bytes data) payable",
+  "function changeProxyAdmin(address proxy, address newAdmin)"
 ])
 
 // Well-known proxy factory addresses

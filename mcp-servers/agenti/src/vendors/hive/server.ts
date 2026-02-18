@@ -15,7 +15,7 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import dotenv from 'dotenv';
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool } from '@modelcontextprotocol/sdk/types.js';
 import { dynamicTools } from "./dynamic-tools";
 import { supportedTools } from './mcp/allToolList.js';
 import {getToolByCategory} from './toolRegistry'

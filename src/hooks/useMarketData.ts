@@ -11,13 +11,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
   marketData,
-  TokenPrice,
-  TrendingCoin,
-  GlobalMarketData,
-  ProtocolTVL,
-  ChainTVL,
-  YieldPool,
-  MarketChart,
+  type TokenPrice,
+  type TrendingCoin,
+  type GlobalMarketData,
+  type ProtocolTVL,
+  type ChainTVL,
+  type YieldPool,
+  type MarketChart,
 } from '../services/marketData';
 
 // ============================================================

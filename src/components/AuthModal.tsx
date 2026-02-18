@@ -4,7 +4,7 @@
  * 💫 Great things are built by great people like you 👏
  */
 
-import { useState, FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { X, Mail, Lock, User, Github, Chrome, Loader } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 

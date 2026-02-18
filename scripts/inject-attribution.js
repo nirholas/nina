@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * LYRA WEB3 PLAYGROUND - Code Attribution Injector
+ * BNB CHAIN AI TOOLKIT - Code Attribution Injector
  * ═══════════════════════════════════════════════════════════════════════════
  * 
  * This script adds attribution headers to all source files.
@@ -18,14 +18,14 @@ const path = require('path');
 const AUTHOR = 'nich';
 const TWITTER = 'x.com/nichxbt';
 const GITHUB = 'github.com/nirholas';
-const REPO = 'github.com/nirholas/lyra-web3-playground';
-const WEBSITE = 'https://lyra.works';
+const REPO = 'github.com/nirholas/bnb-chain-toolkit';
+const WEBSITE = 'https://bnbchaintoolkit.com';
 const YEAR = new Date().getFullYear();
 
 // Header templates
 const jsHeader = `/**
  * ═══════════════════════════════════════════════════════════════════════════
- * LYRA WEB3 PLAYGROUND
+ * BNB CHAIN AI TOOLKIT
  * ═══════════════════════════════════════════════════════════════════════════
  * ✨ Author: ${AUTHOR} | 🐦 ${TWITTER} | 🐙 ${GITHUB}
  * 📦 ${REPO}
@@ -40,7 +40,7 @@ const jsHeader = `/**
 
 const cssHeader = `/**
  * ═══════════════════════════════════════════════════════════════════════════
- * LYRA WEB3 PLAYGROUND - Styles
+ * BNB CHAIN AI TOOLKIT - Styles
  * ═══════════════════════════════════════════════════════════════════════════
  * ✨ Author: ${AUTHOR} | 🐦 ${TWITTER} | 🐙 ${GITHUB}
  * 📦 ${REPO} | 🌐 ${WEBSITE}
@@ -52,7 +52,7 @@ const cssHeader = `/**
 
 const htmlComment = `<!--
 ═══════════════════════════════════════════════════════════════════════════
-LYRA WEB3 PLAYGROUND
+BNB CHAIN AI TOOLKIT
 ═══════════════════════════════════════════════════════════════════════════
 ✨ Author: ${AUTHOR} | 🐦 ${TWITTER} | 🐙 ${GITHUB}
 📦 ${REPO}
@@ -66,7 +66,7 @@ Copyright (c) 2024-${YEAR} nirholas (${AUTHOR}) - MIT License
 const hasAttribution = (content) => {
   return content.includes('nirholas') || 
          content.includes('nichxbt') ||
-         content.includes('LYRA WEB3 PLAYGROUND') ||
+         content.includes('BNB CHAIN AI TOOLKIT') ||
          content.includes('built by nich');
 };
 
@@ -147,7 +147,7 @@ const findFiles = (dir, files = []) => {
 // Main
 const main = () => {
   console.log('═══════════════════════════════════════════════════════════════════');
-  console.log('LYRA WEB3 PLAYGROUND - Attribution Injector');
+  console.log('BNB CHAIN AI TOOLKIT - Attribution Injector');
   console.log(`Author: ${AUTHOR} | ${TWITTER} | ${GITHUB}`);
   console.log('═══════════════════════════════════════════════════════════════════\n');
   

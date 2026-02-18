@@ -6,8 +6,8 @@
 
 import { useState, useMemo } from 'react';
 import { X, FileCode, Zap, Code2, Layers } from 'lucide-react';
-import { sandboxTemplates, SandboxTemplate } from '@/utils/sandboxTemplates';
-import { contractTemplates, ContractTemplate } from '@/utils/contractTemplates';
+import { sandboxTemplates, type SandboxTemplate } from '@/utils/sandboxTemplates';
+import { contractTemplates, type ContractTemplate } from '@/utils/contractTemplates';
 
 // Union type for both template types
 type AnyTemplate = SandboxTemplate | (ContractTemplate & { _type: 'contract' });

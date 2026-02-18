@@ -1,5 +1,5 @@
 // src/tools/binance-margin/isolated-margin-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceIsolatedMarginTransfer } from "./isolatedMarginTransfer.js";
 import { registerBinanceIsolatedMarginAccount } from "./isolatedMarginAccount.js";
 import { registerBinanceIsolatedMarginPair } from "./isolatedMarginPair.js";

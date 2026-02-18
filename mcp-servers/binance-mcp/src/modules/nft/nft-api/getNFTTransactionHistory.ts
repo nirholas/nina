@@ -1,5 +1,5 @@
 // src/tools/binance-nft/nft-api/getNFTTransactionHistory.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { nftClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

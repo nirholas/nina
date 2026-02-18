@@ -18,7 +18,7 @@ import {
   SPANISH_SOURCES,
   SOURCES_BY_LANGUAGE,
   SOURCES_BY_REGION,
-  InternationalSource,
+  type InternationalSource,
 } from './international-sources';
 import { newsCache } from './cache';
 

@@ -6,7 +6,7 @@
  * with real-time updates on reasoning steps
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { ragService, createRAGService } from '@/lib/rag';
 import { processQuery } from '@/lib/rag/query-processor';
 import { contextualizeQuery, conversationMemory, generateConversationId } from '@/lib/rag/conversation-memory';

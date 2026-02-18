@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-vip-loan/userInformation-api/queryApplicationStatus.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { vipLoanClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

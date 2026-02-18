@@ -13,7 +13,7 @@
  * POST /api/exports - Create new export job
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   createExportJob,
   listExportJobs,

@@ -5,7 +5,7 @@
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
  */
 
-import { MetadataRoute } from 'next';
+import { type MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/constants';
 
 export default function robots(): MetadataRoute.Robots {

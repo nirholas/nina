@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { SuggestedParams, OnApplicationComplete } from 'algosdk';
+import { type SuggestedParams, type OnApplicationComplete } from 'algosdk';
 import { on } from 'events';
 
 // Base transaction parameters interface

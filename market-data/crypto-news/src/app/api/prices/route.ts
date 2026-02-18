@@ -4,7 +4,7 @@
  * Returns { bitcoin: { usd: 50000, usd_24h_change: 1.5 }, ... }
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { COINGECKO_BASE } from '@/lib/constants';
 
 export const revalidate = 120;

@@ -413,7 +413,7 @@ export class KeyManager {
    */
   async cleanupExpiredKeys(): Promise<number> {
     const now = Date.now()
-    let cleanedCount = 0
+    const cleanedCount = 0
 
     // Get all keys (in production, this should be paginated)
     const allKeys = await Promise.all([
@@ -433,7 +433,7 @@ export class KeyManager {
    */
   async markUnusedKeysForExpiration(): Promise<number> {
     const cutoffTime = Date.now() - DEFAULT_UNUSED_KEY_EXPIRY_DAYS * 24 * 60 * 60 * 1000
-    let markedCount = 0
+    const markedCount = 0
 
     // In production, this should query the database for unused keys
     Logger.info(`Marked ${markedCount} unused keys for expiration`)

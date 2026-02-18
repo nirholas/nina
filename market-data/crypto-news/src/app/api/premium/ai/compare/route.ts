@@ -5,7 +5,7 @@
  * AI comparison of multiple cryptocurrencies.
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { compareCoins } from '@/lib/premium-ai';
 import { ApiError } from '@/lib/api-error';

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { compareCoins, CompareData } from '@/lib/market-data';
 import { validateQuery } from '@/lib/validation-middleware';
 import { marketCompareQuerySchema2 } from '@/lib/schemas';

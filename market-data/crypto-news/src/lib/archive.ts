@@ -3,7 +3,7 @@
  * Stores and retrieves historical crypto news data
  */
 
-import { NewsArticle } from './crypto-news';
+import { type NewsArticle } from './crypto-news';
 
 export interface ArchiveEntry {
   date: string; // YYYY-MM-DD format

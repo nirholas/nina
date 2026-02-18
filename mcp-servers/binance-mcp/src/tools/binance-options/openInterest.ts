@@ -1,5 +1,5 @@
 // src/tools/binance-options/openInterest.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { optionsClient } from "../../config/binanceClient.js";
 

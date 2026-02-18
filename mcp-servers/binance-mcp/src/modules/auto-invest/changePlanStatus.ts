@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/modules/auto-invest/changePlanStatus.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { autoInvestClient } from "../../config/binanceClient.js";
 import { z } from "zod";
 

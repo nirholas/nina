@@ -1,5 +1,5 @@
 import hre from "hardhat";
-import { Hex, keccak256, getCreate2Address } from "viem";
+import { type Hex, keccak256, getCreate2Address } from "viem";
 import fs from "fs";
 
 /**

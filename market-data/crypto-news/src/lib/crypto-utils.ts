@@ -374,7 +374,7 @@ export function validateCryptoAddress(
  */
 export function parseCoinId(input: string): string {
   // Remove common prefixes/suffixes
-  let id = input.toLowerCase().trim();
+  const id = input.toLowerCase().trim();
   
   // Handle common variations
   const mappings: Record<string, string> = {

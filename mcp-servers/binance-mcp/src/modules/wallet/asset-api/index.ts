@@ -1,5 +1,5 @@
 // src/tools/binance-wallet/asset-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceWalletUserAsset } from "./userAsset.js";
 import { registerBinanceWalletFundingWallet } from "./fundingWallet.js";
 import { registerBinanceWalletAssetDetail } from "./assetDetail.js";

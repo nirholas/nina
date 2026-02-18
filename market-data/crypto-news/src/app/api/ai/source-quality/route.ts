@@ -8,7 +8,7 @@
  * POST /api/ai/source-quality/article - Score individual article
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { 
   analyzeSourceQuality,

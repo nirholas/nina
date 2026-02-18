@@ -4,8 +4,8 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import { Gateway, GatewayChain, ExternalBlockchain, TatumApiResponse } from '../types.js';
+import { type Tool } from '@modelcontextprotocol/sdk/types.js';
+import { type Gateway, GatewayChain, type ExternalBlockchain, type TatumApiResponse } from '../types.js';
 import { chainProtocolMap, getChainProtocol, getChainApiConfig, ChainApiConfig } from '../utils/chains.js';
 
 // Gateway tool definitions - these belong with the gateway service

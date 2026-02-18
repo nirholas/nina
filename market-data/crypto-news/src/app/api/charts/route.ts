@@ -5,7 +5,7 @@
  * Supports multiple time ranges: 1h, 24h, 7d, 30d, 90d, 1y, all
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 export const revalidate = 60; // Cache for 60 seconds

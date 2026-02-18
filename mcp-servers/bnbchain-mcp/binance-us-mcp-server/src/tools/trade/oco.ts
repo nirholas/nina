@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/trade/oco.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { makeSignedRequest, hasApiCredentials, BINANCE_US_CONFIG } from "../../config/binanceUsClient.js";
 

@@ -6,7 +6,7 @@
  * For true WebSocket, deploy the standalone ws-server.ts to Railway/Render.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getStats } from '@/lib/websocket';
 
 export const runtime = 'edge';

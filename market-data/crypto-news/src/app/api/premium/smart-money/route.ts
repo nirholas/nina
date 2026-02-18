@@ -5,7 +5,7 @@
  * Track institutional and smart money movements.
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { getSmartMoney } from '@/lib/premium-whales';
 import { ApiError } from '@/lib/api-error';

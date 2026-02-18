@@ -6,7 +6,7 @@
  */
 // MCP tool for listing available cryptocurrency catalog with filtering
 
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { CurrencyService } from '../services/currency-service.js';
 import { getLogger } from '../utils/logger.js';
 

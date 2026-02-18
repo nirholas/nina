@@ -118,7 +118,7 @@ async function getAddress(recipient: string) {
 };
 
 async function createMPCWallet() {
-    let wallet = await Wallet.create({ networkId: "base-mainnet" });
+    const wallet = await Wallet.create({ networkId: "base-mainnet" });
     wallet.saveSeedToFile(seedFilePath);
     return (await wallet.getDefaultAddress()).getId();
 }

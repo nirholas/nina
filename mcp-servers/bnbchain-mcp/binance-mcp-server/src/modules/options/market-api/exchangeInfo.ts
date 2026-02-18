@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/options/market-api/exchangeInfo.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { optionsClient } from "../../../config/binanceClient.js";
 
 export function registerOptionsMarketExchangeInfo(server: McpServer) {

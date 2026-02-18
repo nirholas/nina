@@ -131,9 +131,9 @@ export function MarketHeatmap({
       height: number;
     }> = [];
 
-    let x = 0;
+    const x = 0;
     let y = 0;
-    let remainingWidth = containerWidth;
+    const remainingWidth = containerWidth;
     let remainingHeight = containerHeight;
     let row: CoinData[] = [];
     let rowArea = 0;

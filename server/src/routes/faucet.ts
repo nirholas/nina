@@ -12,7 +12,7 @@ import { isValidEthereumAddress } from '../utils/validation.js';
 const router = Router();
 
 // Allowed testnet networks
-const ALLOWED_NETWORKS = ['sepolia', 'goerli', 'mumbai', 'fuji'] as const;
+const ALLOWED_NETWORKS = ['sepolia', 'mumbai'] as const;
 type NetworkType = typeof ALLOWED_NETWORKS[number];
 
 // Request testnet funds

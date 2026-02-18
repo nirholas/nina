@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { generateDebate, isAIConfigured, DebateInput } from '@/lib/ai-debate';
+import { type NextRequest, NextResponse } from 'next/server';
+import { generateDebate, isAIConfigured, type DebateInput } from '@/lib/ai-debate';
 
 export const runtime = 'edge';
 

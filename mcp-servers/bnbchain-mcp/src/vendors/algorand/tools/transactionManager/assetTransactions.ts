@@ -5,13 +5,13 @@
  * @license MIT
  */
 import { 
-  Transaction,
+  type Transaction,
   makeAssetCreateTxnWithSuggestedParamsFromObject,
   makeAssetConfigTxnWithSuggestedParamsFromObject,
   makeAssetDestroyTxnWithSuggestedParamsFromObject,
   makeAssetFreezeTxnWithSuggestedParamsFromObject,
   makeAssetTransferTxnWithSuggestedParamsFromObject,
-  SuggestedParams
+  type SuggestedParams
 } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import { algodClient } from '../../algorand-client.js';

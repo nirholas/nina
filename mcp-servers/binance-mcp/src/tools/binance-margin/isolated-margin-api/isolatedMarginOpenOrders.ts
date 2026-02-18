@@ -1,5 +1,5 @@
 // src/tools/binance-margin/isolated-margin-api/isolatedMarginOpenOrders.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { marginClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

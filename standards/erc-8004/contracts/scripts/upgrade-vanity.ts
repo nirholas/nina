@@ -1,5 +1,5 @@
 import hre from "hardhat";
-import { encodeFunctionData, Hex, keccak256, getCreate2Address } from "viem";
+import { encodeFunctionData, type Hex, keccak256, getCreate2Address } from "viem";
 import dotenv from "dotenv";
 
 // Load environment variables from .env file

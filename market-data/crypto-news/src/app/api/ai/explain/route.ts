@@ -8,7 +8,7 @@
  * GET /api/ai/explain?topic=ETF&includePrice=true
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { explainTrending } from '@/lib/ai-intelligence';
 import { isGroqConfigured } from '@/lib/groq';

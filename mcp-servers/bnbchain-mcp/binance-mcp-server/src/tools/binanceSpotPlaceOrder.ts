@@ -4,10 +4,10 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { algoClient, spotClient } from "../config/client.js";
-import { OrderType, Side } from "@binance/connector-typescript";
+import { OrderType, type Side } from "@binance/connector-typescript";
 
 export function registerBinanceSpotPlaceOrder(server: McpServer) {
   server.tool(

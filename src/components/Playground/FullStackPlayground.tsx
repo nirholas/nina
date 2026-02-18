@@ -80,6 +80,7 @@ export default function FullStackPlayground({
   const [contractAddress, setContractAddress] = useState<string | null>(null);
   const [contractState, setContractState] = useState(initialState);
   const [functionInputs, setFunctionInputs] = useState<Record<string, Record<string, string>>>({});
+  const [previewContent, setPreviewContent] = useState<string>('');
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const activeFile = files.find(f => f.id === activeFileId) || files[0];
@@ -173,17 +174,11 @@ export default function FullStackPlayground({
   }, [files, contractState, contractAddress]);
 
   const updatePreview = () => {
-    if (!iframeRef.current) return;
-
     const htmlFile = files.find(f => f.language === 'html');
     const cssFile = files.find(f => f.language === 'css');
     const jsFile = files.find(f => f.language === 'javascript');
 
     if (!htmlFile) return;
-
-    const iframe = iframeRef.current;
-    const doc = iframe.contentDocument || iframe.contentWindow?.document;
-    if (!doc) return;
 
     // Inject contract state into the preview
     const contractScript = `
@@ -231,9 +226,7 @@ export default function FullStackPlayground({
       </html>
     `;
 
-    doc.open();
-    doc.write(content);
-    doc.close();
+    setPreviewContent(content);
   };
 
   // Listen for console messages from iframe
@@ -386,7 +379,8 @@ export default function FullStackPlayground({
                   ref={iframeRef}
                   title="Live Preview"
                   className="w-full h-full border-0"
-                  sandbox="allow-scripts allow-same-origin"
+                  sandbox="allow-scripts"
+                  srcDoc={previewContent}
                 />
               </div>
             </div>

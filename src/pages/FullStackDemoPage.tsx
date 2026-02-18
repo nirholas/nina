@@ -5,13 +5,13 @@
  */
 
 import { useState } from 'react';
-import { FullStackPlayground, PlaygroundFile } from '@/components/FullStackPlayground';
+import { FullStackPlayground, type PlaygroundFile } from '@/components/FullStackPlayground';
 import { ArrowLeft, Rocket, Sparkles, Zap, FileCode } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '@/hooks/useSEO';
 import TemplateSelector from '@/components/Sandbox/TemplateSelector';
-import { SandboxTemplate } from '@/utils/sandboxTemplates';
-import { ContractTemplate } from '@/utils/contractTemplates';
+import { type SandboxTemplate } from '@/utils/sandboxTemplates';
+import { type ContractTemplate } from '@/utils/contractTemplates';
 
 // Demo files for the full-stack playground
 const demoFiles: PlaygroundFile[] = [

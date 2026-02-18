@@ -4,9 +4,9 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { Transaction, makeApplicationCloseOutTxnFromObject, OnApplicationComplete } from 'algosdk';
+import { type Transaction, makeApplicationCloseOutTxnFromObject, OnApplicationComplete } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { AppCloseOutTxnParams } from './types.js';
+import { type AppCloseOutTxnParams } from './types.js';
 
 /**
  * Creates an application close-out transaction

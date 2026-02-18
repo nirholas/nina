@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-futures-usdm/market-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceFuturesPing } from "./ping.js";
 import { registerBinanceFuturesTime } from "./time.js";
 import { registerBinanceFuturesExchangeInfo } from "./exchangeInfo.js";

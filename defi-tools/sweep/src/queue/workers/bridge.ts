@@ -3,7 +3,7 @@
  * BullMQ worker for executing and tracking bridge transactions
  */
 
-import { Worker, Job } from "bullmq";
+import { Worker, type Job } from "bullmq";
 import { cacheGet, cacheSet } from "../../utils/redis.js";
 import {
   QUEUE_NAMES,
@@ -12,7 +12,7 @@ import {
   addBridgeTrackJob,
 } from "../index.js";
 import {
-  BridgeProvider,
+  type BridgeProvider,
   BridgeStatus,
   BRIDGE_CONFIG,
   type BridgeQuote,

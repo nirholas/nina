@@ -16,15 +16,15 @@ interface FundResult {
 // Network configurations
 const networks: Record<string, { rpc: string; chainId: number; explorer: string }> = {
   sepolia: {
-    rpc: process.env.VITE_ALCHEMY_API_KEY 
-      ? `https://eth-sepolia.g.alchemy.com/v2/${process.env.VITE_ALCHEMY_API_KEY}`
+    rpc: process.env.ALCHEMY_API_KEY 
+      ? `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
       : 'https://rpc.sepolia.org',
     chainId: 11155111,
     explorer: 'https://sepolia.etherscan.io'
   },
   mumbai: {
-    rpc: process.env.VITE_ALCHEMY_API_KEY
-      ? `https://polygon-mumbai.g.alchemy.com/v2/${process.env.VITE_ALCHEMY_API_KEY}`
+    rpc: process.env.ALCHEMY_API_KEY
+      ? `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
       : 'https://rpc-mumbai.maticvigil.com',
     chainId: 80001,
     explorer: 'https://mumbai.polygonscan.com'

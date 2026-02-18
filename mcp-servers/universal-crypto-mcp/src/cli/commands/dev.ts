@@ -7,7 +7,7 @@
  * @license Apache-2.0
  */
 
-import { createServer, IncomingMessage, ServerResponse } from 'http';
+import { createServer, type IncomingMessage, type ServerResponse } from 'http';
 import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 

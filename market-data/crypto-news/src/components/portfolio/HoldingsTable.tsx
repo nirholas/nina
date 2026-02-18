@@ -11,7 +11,7 @@ import {
   Minus,
   History
 } from 'lucide-react';
-import { Holding } from './PortfolioProvider';
+import { type Holding } from './PortfolioProvider';
 
 interface HoldingWithPrice extends Holding {
   currentPrice: number;

@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/crypto-loans/flexible/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerFlexibleLoanAssets } from "./getFlexibleLoanAssets.js";
 import { registerFlexibleCollateralAssets } from "./getFlexibleCollateralAssets.js";
 import { registerFlexibleLoanBorrow } from "./borrow.js";

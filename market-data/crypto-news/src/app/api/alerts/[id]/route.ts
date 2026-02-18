@@ -4,7 +4,7 @@
  * Handles GET, PUT, DELETE operations for individual alert rules.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getAlertRule,
   updateAlertRule,

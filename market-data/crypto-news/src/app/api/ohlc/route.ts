@@ -3,7 +3,7 @@
  * GET /api/ohlc?coinId=bitcoin&days=30
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getOHLC } from '@/lib/market-data';
 
 const VALID_DAYS = [1, 7, 14, 30, 90, 180, 365];

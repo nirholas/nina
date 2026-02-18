@@ -6,7 +6,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import Editor, { OnMount } from '@monaco-editor/react';
+import Editor, { type OnMount } from '@monaco-editor/react';
 import { useThemeStore } from '@/stores/themeStore';
 import { useWalletStore } from '@/stores/walletStore';
 import ShareModal from './ShareModal';
@@ -795,6 +795,7 @@ export default function WebSandbox({
   const [showSidebar, setShowSidebar] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [previewContent, setPreviewContent] = useState<string>('');
   const [layout, setLayout] = useState<'horizontal' | 'vertical' | 'preview-only' | 'editor-only'>(defaultLayout);
   const [splitPosition, setSplitPosition] = useState(50);
   const [devicePreset, setDevicePreset] = useState<DevicePreset | null>(null);
@@ -952,15 +953,8 @@ export default function WebSandbox({
       );
     }
     
-    // Write to iframe
-    if (iframeRef.current) {
-      const doc = iframeRef.current.contentDocument;
-      if (doc) {
-        doc.open();
-        doc.write(htmlContent);
-        doc.close();
-      }
-    }
+    // Set preview content via srcdoc
+    setPreviewContent(htmlContent);
     
     setTimeout(() => setIsRunning(false), 100);
   }, [files]);
@@ -1595,7 +1589,8 @@ export default function WebSandbox({
                     ref={iframeRef}
                     title="Preview"
                     className="w-full h-full bg-white"
-                    sandbox="allow-scripts allow-modals allow-forms allow-same-origin"
+                    sandbox="allow-scripts allow-modals allow-forms"
+                    srcDoc={previewContent}
                   />
                 </div>
               </div>

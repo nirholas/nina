@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/tools/binance-margin/margin-order-api/marginGetAllOco.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { marginClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

@@ -126,7 +126,7 @@ We authored ERC-8004, an original Ethereum standard for registering AI agents as
 - A reputation score updated by verified interactions
 - Cross-chain portability via standard ERC-721 interfaces
 
-ERC-8004 contracts are deployed and live on **22 chains**, including BSC mainnet. The [Agent Creator](https://erc8004.agency/) provides a UI for registering agents without writing code.
+ERC-8004 contracts are deployed and live on **24 chains**, including BSC mainnet and opBNB. The [Agent Creator](https://erc8004.agency/) provides a UI for registering agents without writing code.
 
 ### 2.4 Unified Multi-Chain Architecture
 
@@ -230,14 +230,14 @@ No complex setup. No vendor lock-in. One command, and any MCP-compatible AI has 
 
 We contributed two new standards that benefit the broader ecosystem:
 
-1. **ERC-8004** — On-chain AI agent identity and reputation. Gives agents verifiable identities as ERC-721 NFTs. Deployed on 22 chains.
+1. **ERC-8004** — On-chain AI agent identity and reputation. Gives agents verifiable identities as ERC-721 NFTs. Deployed on 24 chains.
 2. **W3AG** — Web3 Accessibility Guidelines. A framework for making blockchain interfaces usable by everyone, including people with disabilities.
 
 These standards are independent of our toolkit — any project can adopt them.
 
 ### 3.5 Deployment Scale
 
-ERC-8004 contracts are live on 22 chains:
+ERC-8004 contracts are live on 24 chains:
 
 - BNB Smart Chain (BSC) mainnet
 - Ethereum mainnet

@@ -34,14 +34,14 @@ import {
 import { contextualizeQuery, conversationMemory, generateContextualResponse } from './conversation-memory';
 import { agenticRAG } from './agentic-rag';
 import { selfRAG, gradeRetrievals, detectHallucinations } from './self-rag';
-import { compressDocuments, assembleContext, extractKeyFacts, AssembledContext } from './contextual-compression';
-import { generateAttributedAnswer, formatCitationsForDisplay, AttributedAnswer } from './answer-attribution';
-import { ragTracer, ragLogger, RAGTrace } from './observability';
+import { compressDocuments, assembleContext, extractKeyFacts, type AssembledContext } from './contextual-compression';
+import { generateAttributedAnswer, formatCitationsForDisplay, type AttributedAnswer } from './answer-attribution';
+import { ragTracer, ragLogger, type RAGTrace } from './observability';
 import { ragCache } from './cache';
-import { generateSuggestedQuestions, SuggestedQuestion } from './suggested-questions';
-import { ConfidenceScorer, ConfidenceScore, formatConfidenceForUI, ConfidenceScoringContext } from './confidence-scorer';
-import { routeQuery, QueryRoute } from './query-router';
-import { findRelatedArticles, RelatedArticle, RelatedArticlesFinder } from './related-articles';
+import { generateSuggestedQuestions, type SuggestedQuestion } from './suggested-questions';
+import { ConfidenceScorer, type ConfidenceScore, formatConfidenceForUI, type ConfidenceScoringContext } from './confidence-scorer';
+import { routeQuery, type QueryRoute } from './query-router';
+import { findRelatedArticles, type RelatedArticle, RelatedArticlesFinder } from './related-articles';
 import type {
   ScoredDocument,
   SearchFilter,
@@ -354,7 +354,7 @@ export class UltimateRAGService {
       // QUERY PROCESSING
       // ─────────────────────────────────────────────────────────────
       let processedQuery = query;
-      let queryInfo: { intent?: string; complexity?: string; isFollowUp?: boolean } = {};
+      const queryInfo: { intent?: string; complexity?: string; isFollowUp?: boolean } = {};
 
       // Conversation context
       if (useConversationMemory && conversationId) {

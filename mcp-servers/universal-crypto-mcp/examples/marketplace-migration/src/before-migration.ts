@@ -7,7 +7,7 @@
  * Run: pnpm demo:before
  */
 
-import express, { Request, Response, NextFunction } from "express";
+import express, { type Request, type Response, type NextFunction } from "express";
 
 const app = express();
 app.use(express.json());

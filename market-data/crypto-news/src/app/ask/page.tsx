@@ -4,7 +4,7 @@
  * Full-page RAG-powered chat interface
  */
 
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import { RAGChat } from '@/components/rag-chat';
 
 export const metadata: Metadata = {

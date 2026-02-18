@@ -8,7 +8,7 @@
  * Body: { holdings: [{ symbol, name, allocation }] }
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { scorePortfolioRelevance, type NewsArticle } from '@/lib/ai-intelligence';
 import { isGroqConfigured } from '@/lib/groq';

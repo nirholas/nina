@@ -7,7 +7,7 @@
  * @route GET /api/arbitrage/monitor
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   scanArbitrageOpportunities,
   getMonitorState,
@@ -52,7 +52,7 @@ export async function GET(request: NextRequest) {
     const scanResult = await scanArbitrageOpportunities();
     
     // Apply filters
-    let filteredResult: ArbitrageScanResult = { ...scanResult };
+    const filteredResult: ArbitrageScanResult = { ...scanResult };
 
     if (symbol) {
       filteredResult.opportunities = filteredResult.opportunities.filter(

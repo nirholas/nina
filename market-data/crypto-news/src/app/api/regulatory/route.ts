@@ -12,18 +12,18 @@
  * @module api/regulatory
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 import { headers } from 'next/headers';
 import {
-  Jurisdiction,
-  RegulatoryAgency,
-  RegulatoryEvent,
-  JurisdictionProfile,
-  AgencyProfile,
-  ComplianceDeadline,
-  RegulatoryIntelligenceSummary,
+  type Jurisdiction,
+  type RegulatoryAgency,
+  type RegulatoryEvent,
+  type JurisdictionProfile,
+  type AgencyProfile,
+  type ComplianceDeadline,
+  type RegulatoryIntelligenceSummary,
   JURISDICTION_INFO,
   AGENCY_INFO,
   isRegulatoryNews,
@@ -36,9 +36,9 @@ import {
   createRegulatoryEvent,
   getJurisdictionProfile,
   generateIntelligenceSummary,
-  ImpactLevel,
-  RegulatoryActionType,
-  AffectedSector,
+  type ImpactLevel,
+  type RegulatoryActionType,
+  type AffectedSector,
 } from '@/lib/regulatory-intelligence';
 import { db } from '@/lib/database';
 import { getLatestNews } from '@/lib/crypto-news';

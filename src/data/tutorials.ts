@@ -4,7 +4,7 @@
  * 💫 Building something beautiful, one line at a time
  */
 
-import { Tutorial } from '@/components/Tutorial/InteractiveTutorial';
+import { type Tutorial } from '@/components/Tutorial/InteractiveTutorial';
 
 export const tutorials: Tutorial[] = [
   {

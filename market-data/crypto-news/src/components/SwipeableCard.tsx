@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, ReactNode } from 'react';
+import { useState, useRef, type ReactNode } from 'react';
 import { useHapticFeedback } from '@/hooks/useMobile';
 
 interface SwipeableCardProps {

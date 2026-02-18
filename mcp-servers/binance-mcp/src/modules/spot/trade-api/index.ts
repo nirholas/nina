@@ -1,5 +1,5 @@
 // src/tools/binance-spot/trade-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceDeleteOrder } from "./deleteOrder.js";
 import { registerBinanceAllOrders } from "./allOrders.js";
 import { registerBinanceOpenOrderList } from "./openOrderList.js";

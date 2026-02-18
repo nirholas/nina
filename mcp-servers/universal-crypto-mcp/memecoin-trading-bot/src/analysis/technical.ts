@@ -1,4 +1,4 @@
-import { OHLCVData, TechnicalIndicators } from '../types.js';
+import { type OHLCVData, type TechnicalIndicators } from '../types.js';
 import { RSI, EMA, MACD, BollingerBands } from 'technicalindicators';
 import { config } from '../config.js';
 import { logger } from '../utils/logger.js';

@@ -29,7 +29,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { cn } from '@/utils/helpers';
-import { shareProject, generateEmbedCode, ProjectFile } from '@/services/community';
+import { shareProject, generateEmbedCode, type ProjectFile } from '@/services/community';
 import { useWalletStore } from '@/stores/walletStore';
 import WalletConnect from '@/components/WalletConnect';
 

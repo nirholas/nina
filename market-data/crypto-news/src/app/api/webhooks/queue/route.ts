@@ -3,7 +3,7 @@
  * Implements faster webhook delivery with retry logic and batching
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 interface WebhookJob {
   id: string;

@@ -1,5 +1,5 @@
 import {
-  Dirent,
+  type Dirent,
   existsSync,
   mkdirSync,
   readFileSync,

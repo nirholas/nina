@@ -1,5 +1,5 @@
 // src/tools/binance-mining/mining-api/hashrateResaleRequest.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { miningClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

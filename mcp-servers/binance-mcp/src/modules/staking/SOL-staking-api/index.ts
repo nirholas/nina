@@ -1,5 +1,5 @@
 // src/tools/binance-staking/SOL-staking-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceClaimBoostRewards } from "./claimBoostRewards.js";
 import { registerBinanceGetBnsolRateHistory } from "./getBnsolRateHistory.js";
 import { registerBinanceGetBnsolRewardsHistory } from "./getBnsolRewardsHistory.js";

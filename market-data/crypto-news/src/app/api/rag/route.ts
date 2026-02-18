@@ -9,7 +9,7 @@
  * Returns service status, vector store stats, and endpoint directory.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { vectorStore } from '@/lib/rag';
 import { askUltimate } from '@/lib/rag/ultimate-rag-service';
 import type { UltimateRAGOptions } from '@/lib/rag/ultimate-rag-service';

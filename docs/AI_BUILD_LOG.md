@@ -54,7 +54,7 @@ The [`standards/erc-8004/`](../standards/erc-8004/) directory contains a novel o
 - The ERC-8004 specification itself was co-authored with AI — I described the concept (on-chain agent registration with capability discovery), and AI helped formalize it into EIP-style specification language
 - Solidity contract code was AI-generated and then I audited it for security (reentrancy, access control, gas optimization)
 - CREATE2 deployment scripts were AI-assisted for deterministic cross-chain addresses
-- The 22-chain deployment configuration used AI to gather chain-specific parameters (gas prices, block confirmers, RPC endpoints)
+- The 24-chain deployment configuration used AI to gather chain-specific parameters (gas prices, block confirmers, RPC endpoints)
 - The deterministic `0x8004` vanity prefix address mining was AI-optimized
 
 ### 4. Documentation (17 guides)
@@ -166,8 +166,7 @@ The following files serve as direct evidence of continuous AI tool usage through
 | Dec 21, 2025 | v1.0.0 | Initial release — 57 agents, build pipeline, 18 languages | AI generated agent definitions and translations |
 | Dec 21, 2025 | v1.1.0 | Added master agent (58 total) | AI helped design the unified agent combining 16 plugin features |
 | Feb 11, 2026 | v2.0.0 | Monorepo transformation — 72+ agents, 6 MCP servers, 900+ tools | AI-intensive consolidation of 14 repos; scaffolded all MCP servers |
-| Feb 2026 | — | Hackathon submission | All submission docs AI-drafted from structured prompts |
-
+| Feb 2026 | — | Hackathon submission | All submission docs AI-drafted from structured prompts || Feb 18, 2026 | v2.1.0 — opBNB + hackathon polish | opBNB chain support (24 chains), CLI expanded to 26 chains, agent runtime showcase, enhanced judges guide |
 ---
 
 *This build log is itself AI-assisted. Because of course it is.*

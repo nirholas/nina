@@ -8,7 +8,7 @@
 // Binance.US Credit Line Tools
 // For institutional clients with credit line agreements
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { makeSignedRequest } from "../../config/binanceUsClient.js";
 

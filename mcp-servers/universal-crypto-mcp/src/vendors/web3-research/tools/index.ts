@@ -6,8 +6,8 @@
  * @github https://github.com/nirholas
  * @license Apache-2.0
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import ResearchStorage from "../storage/researchStorage.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import type ResearchStorage from "../storage/researchStorage.js";
 import { registerResearchTools } from "./researchTools.js";
 
 export function registerAllTools(

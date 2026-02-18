@@ -110,7 +110,7 @@ export const portfolioTools = [
         }
 
         // Get xSPA pending redemptions
-        let pendingRedemptions: Array<{
+        const pendingRedemptions: Array<{
           amount: string;
           unlockTime: number;
           daysRemaining: number;
@@ -118,7 +118,7 @@ export const portfolioTools = [
         try {
           const redemptionCount = await readContract({
             address: CONTRACTS.XSPA as `0x${string}`,
-            abi: XSpaABI,
+            abi: xSPAABI,
             functionName: 'getUserRedemptionCount',
             args: [userAddress],
           }) as bigint;
@@ -131,7 +131,7 @@ export const portfolioTools = [
               try {
                 const redemption = await readContract({
                   address: CONTRACTS.XSPA as `0x${string}`,
-                  abi: XSpaABI,
+                  abi: xSPAABI,
                   functionName: 'getUserRedemption',
                   args: [userAddress, BigInt(i)],
                 }) as [bigint, bigint];
@@ -283,7 +283,7 @@ export const portfolioTools = [
         const usdsUsd = parseFloat(formatUnits(usdsBalance, 18));
 
         // Get SPA price from oracle (approximate)
-        let spaPrice = 0.01; // Default fallback
+        const spaPrice = 0.01; // Default fallback
         try {
           // This would query the actual SPA oracle
           // For now use a reasonable default

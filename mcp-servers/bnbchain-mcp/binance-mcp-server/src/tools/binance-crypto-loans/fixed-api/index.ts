@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-crypto-loans/fixed-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceCryptoLoansFixedAssets } from "./getFixedLoanData.js";
 import { registerBinanceCryptoLoansFixedCollateral } from "./getFixedCollateralData.js";
 import { registerBinanceCryptoLoansFixedBorrow } from "./borrow.js";

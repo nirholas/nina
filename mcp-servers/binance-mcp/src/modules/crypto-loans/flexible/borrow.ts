@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/modules/crypto-loans/flexible/borrow.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { cryptoLoanClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

@@ -7,7 +7,7 @@
  * Supported periods: 1h, 6h, 24h, 7d, 30d
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { ragTracer, ragLogger } from '@/lib/rag/observability';
 import { MetricsQuerySchema, formatValidationError } from '../schemas';
 import { applyRateLimit, withRateLimitHeaders, handleAPIError, logRequest } from '../middleware';

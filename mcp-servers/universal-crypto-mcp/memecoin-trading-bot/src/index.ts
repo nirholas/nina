@@ -2,12 +2,12 @@ import { config } from './config.js';
 import { logger, notifier } from './utils/logger.js';
 import { PancakeSwapClient } from './dex/pancakeswap.js';
 import { RaydiumClient } from './dex/raydium.js';
-import { IDexClient } from './dex/pancakeswap.js';
+import { type IDexClient } from './dex/pancakeswap.js';
 import { portfolioManager } from './portfolio/manager.js';
 import { riskManager } from './risk/manager.js';
 import { tradingStrategy } from './strategy/trading.js';
 import { tokenScanner } from './scanner/tokens.js';
-import { TokenInfo } from './types.js';
+import { type TokenInfo } from './types.js';
 import cron from 'node-cron';
 
 class MemecoinTradingBot {

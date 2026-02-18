@@ -4,8 +4,8 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { z, ZodType } from 'zod';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { z, type ZodType } from 'zod';
+import { type McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { universalApiHandler } from '../services/request.js';
 import { UNIVERSAL_CRYPTO_API_BASE } from '../config/constants.js';
 import { saveToCache, getFromCache } from '../utils/cache.js';

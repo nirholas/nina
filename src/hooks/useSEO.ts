@@ -26,7 +26,7 @@ export function useSEO({ title, description, path }: SEOProps) {
     }
 
     // Update canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (canonical && path) {
       canonical.href = `${BASE_URL}${path}`;
     }

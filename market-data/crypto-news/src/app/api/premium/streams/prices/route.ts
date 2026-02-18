@@ -13,7 +13,7 @@
  * @module api/premium/streams/prices
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { getPricesForCoins } from '@/lib/market-data';
 import { ApiError } from '@/lib/api-error';

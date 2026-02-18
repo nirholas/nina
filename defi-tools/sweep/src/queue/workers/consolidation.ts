@@ -3,7 +3,7 @@
  * BullMQ worker for executing multi-chain consolidation operations
  */
 
-import { Worker, Job } from "bullmq";
+import { Worker, type Job } from "bullmq";
 import { cacheGet, cacheSet } from "../../utils/redis.js";
 import {
   QUEUE_NAMES,
@@ -11,7 +11,7 @@ import {
   type BridgeTrackJobData,
 } from "../index.js";
 import {
-  BridgeProvider,
+  type BridgeProvider,
   BridgeStatus,
   BRIDGE_CONFIG,
   type BridgeQuote,

@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
 import { walletTools, handleWalletTools } from './wallet.js';
 import { marketTools, handleMarketTools } from './market.js';
 import { systemTools, handleSystemTools } from './system.js';

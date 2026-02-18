@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { getLatestNews } from '@/lib/crypto-news';
 import { promptGroqJsonCached, isGroqConfigured } from '@/lib/groq';
 import { jsonResponse, errorResponse, withTiming } from '@/lib/api-utils';

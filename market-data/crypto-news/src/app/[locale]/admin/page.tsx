@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import AdminDashboard from './AdminDashboard';
 
 export const metadata: Metadata = {

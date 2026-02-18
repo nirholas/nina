@@ -153,7 +153,7 @@ export class EnhancedRAGService {
 
     // Process query
     let processedQuery = query;
-    let queryInfo: { intent?: string; complexity?: string; isFollowUp?: boolean } = {};
+    const queryInfo: { intent?: string; complexity?: string; isFollowUp?: boolean } = {};
 
     // Handle conversation context
     if (useConversationMemory && conversationId) {
@@ -209,7 +209,7 @@ export class EnhancedRAGService {
     }
 
     // Convert to ScoredDocuments
-    let results = toScoredDocuments(searchResults);
+    const results = toScoredDocuments(searchResults);
 
     // Handle no results
     if (results.length === 0) {

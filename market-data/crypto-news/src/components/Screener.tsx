@@ -165,9 +165,9 @@ export function Screener({ coins }: { coins: Coin[] }) {
 
         // Market cap filter
         if (filters.minMarketCap && coin.market_cap < parseFloat(filters.minMarketCap))
-          return false;
+          {return false;}
         if (filters.maxMarketCap && coin.market_cap > parseFloat(filters.maxMarketCap))
-          return false;
+          {return false;}
 
         // Volume filter
         if (filters.minVolume && coin.total_volume < parseFloat(filters.minVolume)) return false;
@@ -178,12 +178,12 @@ export function Screener({ coins }: { coins: Coin[] }) {
           filters.minChange24h &&
           coin.price_change_percentage_24h < parseFloat(filters.minChange24h)
         )
-          return false;
+          {return false;}
         if (
           filters.maxChange24h &&
           coin.price_change_percentage_24h > parseFloat(filters.maxChange24h)
         )
-          return false;
+          {return false;}
 
         // Price filter
         if (filters.minPrice && coin.current_price < parseFloat(filters.minPrice)) return false;
@@ -194,12 +194,12 @@ export function Screener({ coins }: { coins: Coin[] }) {
           filters.minAthDistance &&
           coin.ath_change_percentage < parseFloat(filters.minAthDistance)
         )
-          return false;
+          {return false;}
         if (
           filters.maxAthDistance &&
           coin.ath_change_percentage > parseFloat(filters.maxAthDistance)
         )
-          return false;
+          {return false;}
 
         return true;
       })

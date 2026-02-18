@@ -64,7 +64,7 @@ function formatPercent(num: number | null | undefined): string {
 
 function PriceChange({ value }: { value: number | null | undefined }) {
   if (value === null || value === undefined)
-    return <span className="text-gray-400 dark:text-gray-500">N/A</span>;
+    {return <span className="text-gray-400 dark:text-gray-500">N/A</span>;}
   const isPositive = value >= 0;
   return (
     <span className={isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}>

@@ -1,7 +1,7 @@
 // src/binance.ts
 // Central registration file for all Binance modules
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 // Import module registration functions
 import { registerBinanceSpotTools } from "./modules/spot/index.js"

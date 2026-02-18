@@ -5,7 +5,7 @@
  * Supports real-time usage limits and overage tracking.
  */
 
-import { BILLING_TIERS, USAGE_PRICING, BillingTier, UsageType } from './config';
+import { BILLING_TIERS, USAGE_PRICING, type BillingTier, type UsageType } from './config';
 
 interface UsageEntry {
   type: UsageType;

@@ -7,15 +7,15 @@
 // HTTP webhook server for receiving Bitnovo Pay notifications
 // Runs alongside the MCP stdio server to handle incoming webhooks
 
-import express, { Express, Request, Response, NextFunction } from 'express';
+import express, { type Express, type Request, type Response, type NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { Server } from 'http';
+import { type Server } from 'http';
 import { getLogger } from './utils/logger.js';
-import { createWebhookHandler, WebhookRequest } from './webhook-handler.js';
+import { createWebhookHandler, type WebhookRequest } from './webhook-handler.js';
 import type { Configuration, WebhookConfiguration } from './types/index.js';
 import { getEventStore } from './storage/webhook-events.js';
-import { TunnelManager, TunnelProvider, type TunnelConfiguration } from './tunnel/tunnel-manager.js';
+import { TunnelManager, type TunnelProvider, type TunnelConfiguration } from './tunnel/tunnel-manager.js';
 import { detectContext, getRecommendedTunnelConfig } from './tunnel/context-detector.js';
 
 const logger = getLogger();

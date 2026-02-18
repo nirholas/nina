@@ -9,7 +9,7 @@
 
 import { z } from 'zod';
 import { validateWebhookSignature, getNonceCache } from './utils/crypto.js';
-import { getEventStore, WebhookEvent } from './storage/webhook-events.js';
+import { getEventStore, type WebhookEvent } from './storage/webhook-events.js';
 import { getLogger } from './utils/logger.js';
 import type { Configuration } from './types/index.js';
 

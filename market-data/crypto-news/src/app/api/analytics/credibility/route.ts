@@ -9,7 +9,7 @@
  *   - sortBy: score | accuracy | timeliness (default: score)
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { jsonResponse, errorResponse, withTiming } from '@/lib/api-utils';
 import { 
   getSourceCredibility, 

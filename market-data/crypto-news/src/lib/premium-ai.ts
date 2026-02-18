@@ -7,7 +7,7 @@
  * @module premium-ai
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getTopCoins, getCoinDetails } from '@/lib/market-data';
 import { getLatestNews } from '@/lib/crypto-news';
 import { validateQuery } from '@/lib/validation-middleware';

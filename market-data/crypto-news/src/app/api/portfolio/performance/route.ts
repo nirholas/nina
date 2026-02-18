@@ -3,7 +3,7 @@
  * Generates chart data for portfolio performance visualization
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 interface Holding {
   coinId: string;

@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/modules/options/market-api/ping.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { optionsClient } from "../../../config/binanceClient.js";
 
 export function registerOptionsMarketPing(server: McpServer) {

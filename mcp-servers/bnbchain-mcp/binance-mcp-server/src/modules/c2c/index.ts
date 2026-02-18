@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/c2c/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceGetC2CTradeHistory } from "./C2C/getC2CTradeHistory.js";
 import { registerBinanceC2CGetAds } from "./C2C/getAds.js";
 

@@ -5,12 +5,12 @@
 # 💫 The web is your canvas, code is your brush ��️
 
 
-# Lyra Web3 Playground - Quick Deployment Script
+# BNB Chain AI Toolkit - Quick Deployment Script
 # This script helps you deploy the platform quickly
 
 set -e  # Exit on error
 
-echo "🚀 Lyra Web3 Playground Deployment Script"
+echo "🚀 BNB Chain AI Toolkit Deployment Script"
 echo "=========================================="
 echo ""
 
@@ -41,13 +41,13 @@ fi
 
 print_success "Node.js is installed: $(node --version)"
 
-# Check if npm is installed
-if ! command -v npm &> /dev/null; then
-    print_error "npm is not installed. Please install npm first."
+# Check if bun is installed
+if ! command -v bun &> /dev/null; then
+    print_error "bun is not installed. Please install bun first: curl -fsSL https://bun.sh/install | bash"
     exit 1
 fi
 
-print_success "npm is installed: $(npm --version)"
+print_success "bun is installed: $(bun --version)"
 
 echo ""
 echo "Select deployment option:"
@@ -62,17 +62,17 @@ read -p "Enter option (1-5): " option
 case $option in
     1)
         print_info "Starting local development server..."
-        npm install
+        bun install
         print_success "Dependencies installed"
-        npm run dev
+        bun run dev
         ;;
     2)
         print_info "Building for production..."
-        npm install
-        npm run build
+        bun install
+        bun run build
         print_success "Production build complete! Check the 'dist' folder."
         echo ""
-        print_info "To test the build locally, run: npm run preview"
+        print_info "To test the build locally, run: bun run preview"
         ;;
     3)
         print_info "Deploying to Vercel..."
@@ -89,8 +89,8 @@ case $option in
         print_success "Vercel CLI ready"
         
         print_info "Building project..."
-        npm install
-        npm run build
+        bun install
+        bun run build
         
         print_info "Deploying to Vercel..."
         vercel --prod
@@ -103,34 +103,29 @@ case $option in
             exit 1
         fi
         
-        if ! command -v docker-compose &> /dev/null; then
-            print_error "Docker Compose is not installed. Please install Docker Compose first."
-            exit 1
-        fi
-        
         print_success "Docker is installed"
         
         print_info "Building Docker image..."
-        docker-compose build
+        docker compose build
         
         print_info "Starting container..."
-        docker-compose up -d
+        docker compose up -d
         
         print_success "Deployment complete!"
         echo ""
         print_info "Access your site at: http://localhost:3000"
         echo ""
-        echo "To stop: docker-compose down"
-        echo "To view logs: docker-compose logs -f"
+        echo "To stop: docker compose down"
+        echo "To view logs: docker compose logs -f"
         ;;
     5)
         print_info "Building and previewing production build..."
-        npm install
-        npm run build
+        bun install
+        bun run build
         print_success "Build complete!"
         echo ""
         print_info "Starting preview server..."
-        npm run preview
+        bun run preview
         ;;
     *)
         print_error "Invalid option. Please run the script again."

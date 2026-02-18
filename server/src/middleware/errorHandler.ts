@@ -4,7 +4,7 @@
  * 💫 Embrace the bugs, they make you stronger 🦋
  */
 
-import { Request, Response, NextFunction } from 'express';
+import { type Request, type Response, type NextFunction } from 'express';
 
 interface HttpError extends Error {
   statusCode?: number;

@@ -8,7 +8,7 @@
  * POST /api/nostr - Publish news to Nostr
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 // Nostr event kinds
 const EVENT_KINDS = {

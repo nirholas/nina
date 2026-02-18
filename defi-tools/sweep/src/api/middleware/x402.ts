@@ -1,8 +1,8 @@
-import { Context, Next } from "hono";
+import { type Context, type Next } from "hono";
 import { createMiddleware } from "hono/factory";
 import { HTTPException } from "hono/http-exception";
 import { getRedis } from "../../utils/redis.js";
-import { verifyPaymentOnChain, PaymentVerificationResult } from "../../services/payments/index.js";
+import { verifyPaymentOnChain, type PaymentVerificationResult } from "../../services/payments/index.js";
 import { checkCredits, deductCredits } from "../../services/payments/credits.js";
 import { getEndpointPrice } from "../../services/payments/pricing.js";
 import { getDb, apiPayments, apiUsage } from "../../db/index.js";

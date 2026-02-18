@@ -3,7 +3,7 @@
  * Discord and Telegram public channel aggregation
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/database';
 
 // Use Node.js runtime since database.ts requires fs/path modules

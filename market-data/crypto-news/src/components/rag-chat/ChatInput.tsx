@@ -304,7 +304,7 @@ declare global {
     abort(): void;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+   
   interface SpeechRecognitionConstructor {
     new (): SpeechRecognition;
     prototype: SpeechRecognition;

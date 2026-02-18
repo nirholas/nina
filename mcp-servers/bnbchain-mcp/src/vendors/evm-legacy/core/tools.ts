@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { getSupportedNetworks, getRpcUrl } from "./chains.js";
 import * as services from "./services/index.js";

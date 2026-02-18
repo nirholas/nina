@@ -6,7 +6,7 @@
  * DELETE /api/rag/personalization?userId=X — Delete user data (right to erasure)
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getPersonalizationEngine } from '@/lib/rag/personalization';
 import { UpdatePreferencesSchema, formatValidationError } from '../schemas';
 import { applyRateLimit, withRateLimitHeaders, handleAPIError, logRequest } from '../middleware';

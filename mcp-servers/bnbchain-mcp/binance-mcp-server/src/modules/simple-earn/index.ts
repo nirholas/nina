@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/simple-earn/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceSimpleEarnApiTools } from "./earn-api/index.js";
 import { registerBinanceSimpleEarnAccountApiTools } from "./account-api/index.js";
 import { registerSimpleEarnFlexibleTools } from "./flexible/index.js";

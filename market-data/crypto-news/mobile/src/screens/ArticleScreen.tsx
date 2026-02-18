@@ -10,10 +10,10 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
-import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
+import { useNavigation, useRoute, type RouteProp } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import { RootStackParamList } from '../../App';
+import { type RootStackParamList } from '../../App';
 
 type ArticleRouteProp = RouteProp<RootStackParamList, 'Article'>;
 

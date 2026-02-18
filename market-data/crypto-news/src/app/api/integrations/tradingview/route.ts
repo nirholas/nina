@@ -4,7 +4,7 @@
  * Provides TradingView widgets, Pine Script generation, and technical analysis.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { checkRateLimitFromRequest, getRateLimitErrorResponse } from '@/lib/ratelimit';
 import { 
   tradingView,

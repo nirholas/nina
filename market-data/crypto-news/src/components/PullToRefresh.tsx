@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 
 interface PullToRefreshProps {
   children: ReactNode;

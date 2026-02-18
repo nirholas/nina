@@ -9,7 +9,7 @@
 
 'use client';
 
-import { useMemo, CSSProperties } from 'react';
+import { useMemo, type CSSProperties } from 'react';
 
 export interface SkeletonProps {
   className?: string;

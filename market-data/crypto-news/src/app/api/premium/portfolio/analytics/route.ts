@@ -15,7 +15,7 @@
  * @module api/premium/portfolio/analytics
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { getHistoricalPrices, getCoinDetails } from '@/lib/market-data';
 

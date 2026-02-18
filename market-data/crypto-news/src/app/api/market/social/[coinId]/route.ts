@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { 
   getCoinDeveloperData, 
   getCoinCommunityData,
-  DeveloperData,
-  CommunityData
+  type DeveloperData,
+  type CommunityData
 } from '@/lib/market-data';
 
 export const runtime = 'edge';

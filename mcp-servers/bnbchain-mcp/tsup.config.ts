@@ -23,14 +23,21 @@ export default defineConfig({
     'express',
     'cors',
     'dotenv',
-    'reflect-metadata',
+    'reflect-metadata'
+  ],
+  noExternal: [
     '@bnb-chain/greenfield-js-sdk',
+    '@bnb-chain/greenfield-cosmos-types',
     '@bnb-chain/reed-solomon',
     'mime'
   ],
   esbuildOptions(options) {
     options.alias = {
       '@': './src'
+    }
+    // Inject CJS require shim for bundled packages that use require() for Node builtins
+    options.banner = {
+      js: "import { createRequire } from 'module'; const require = createRequire(import.meta.url);"
     }
   }
 })

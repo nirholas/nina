@@ -2,7 +2,7 @@
 // Binance.US OTC (Over-The-Counter) Trading Tools
 // Large block trades executed outside the regular order book
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { makeSignedRequest } from "../../config/binanceUsClient.js";
 

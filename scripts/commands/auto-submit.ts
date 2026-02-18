@@ -27,8 +27,8 @@ const ERROR_LABEL = '🚨 Auto Check Fail';
  * 负责处理 GitHub Issue 并自动创建 PR
  */
 class AutoSubmit {
-  owner = 'speraxos';
-  repo = 'sperax-ai-agents';
+  owner = 'nirholas';
+  repo = 'bnb-chain-toolkit';
   issueNumber = Number(process.env.ISSUE_NUMBER);
   private octokit: Octokit;
 
@@ -138,8 +138,8 @@ class AutoSubmit {
     }
 
     execSync('git diff');
-    execSync('git config --global user.name "speraxos"');
-    execSync('git config --global user.email "speraxos@users.noreply.github.com"');
+    execSync('git config --global user.name "nirholas"');
+    execSync('git config --global user.email "nirholas@users.noreply.github.com"');
     execSync('git pull');
     // Security: Use execFileSync to avoid shell interpretation of agentName
     execFileSync('git', ['checkout', '-b', `agent/${agentName}`]);
@@ -150,7 +150,7 @@ class AutoSubmit {
     Logger.file('create', filePath);
 
     // 代码格式化
-    execSync(`echo "module.exports = require('@speraxos/lint').prettier;" >> .prettierrc.cjs`);
+    execSync(`echo "module.exports = require('@nirholas/lint').prettier;" >> .prettierrc.cjs`);
     execSync('bun run prettier');
     Logger.info('代码格式化完成');
 

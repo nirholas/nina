@@ -7,8 +7,8 @@ import type {
   SwapCall,
   SignedPermitBatch,
 } from "../types.js";
-import { UserOpBuilder } from "./builder.js";
-import { Permit2Service } from "../permit2.js";
+import { type UserOpBuilder } from "./builder.js";
+import { type Permit2Service } from "../permit2.js";
 
 // ============================================================================
 // Constants

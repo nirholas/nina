@@ -5,7 +5,7 @@
  * payment confirmations, and invoice updates.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { constructWebhookEvent } from '@/lib/billing';
 
 // Disable body parsing for webhook signature verification

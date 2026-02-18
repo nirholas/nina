@@ -6,7 +6,7 @@
 
 import "dotenv/config"
 import { randomUUID } from 'node:crypto'
-import express, { Router, Request, Response, NextFunction } from 'express'
+import express, { Router, type Request, type Response, type NextFunction } from 'express'
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js"
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js"
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"

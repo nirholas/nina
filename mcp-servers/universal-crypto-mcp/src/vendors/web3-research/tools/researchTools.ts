@@ -6,9 +6,9 @@
  * @github https://github.com/nirholas
  * @license Apache-2.0
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import ResearchStorage from "../storage/researchStorage.js";
+import type ResearchStorage from "../storage/researchStorage.js";
 import {
   performSearch,
   fetchContent,

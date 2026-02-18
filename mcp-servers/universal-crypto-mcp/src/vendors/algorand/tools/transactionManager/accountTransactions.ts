@@ -5,10 +5,10 @@
  * @license Apache-2.0
  */
 import { 
-  Transaction,
+  type Transaction,
   makePaymentTxnWithSuggestedParamsFromObject,
   makeKeyRegistrationTxnWithSuggestedParamsFromObject,
-  SuggestedParams
+  type SuggestedParams
 } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import { algodClient } from '../../algorand-client.js';

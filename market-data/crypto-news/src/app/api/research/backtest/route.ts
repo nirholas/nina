@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { runBacktest } from '@/lib/backtesting';
 
 interface BacktestRequest {

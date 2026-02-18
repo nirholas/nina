@@ -4,8 +4,8 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { describe, it, expect, vi, beforeEach, afterEach, Mock } from "vitest"
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { describe, it, expect, vi, beforeEach, afterEach, type Mock } from "vitest"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 import { TEST_ADDRESSES, createMockViemClient } from "../../../../tests/setup"
 
@@ -746,9 +746,7 @@ describe("Lending Module", () => {
       expect(result.content[0].text).toContain("Error")
     })
 
-    it.skip("should use stable rate mode when specified", async () => {
-      // TODO: This test needs investigation - the borrow function may have
-      // additional validation that prevents writeContract from being called
+    it("should use stable rate mode when specified", async () => {
       // Mock getUserAccountData for health factor check
       const mockUserData = [
         100000000000n, 10000000000n, 80000000000n, 8000n, 7500n, 5000000000000000000n

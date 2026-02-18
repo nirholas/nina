@@ -9,7 +9,7 @@ import { zValidator } from "@hono/zod-validator";
 import {
   defiAggregator,
   DeFiProtocol,
-  DeFiProductType,
+  type DeFiProductType,
   RiskLevel,
 } from "../../services/defi/index.js";
 import { defiRouter } from "../../services/defi/router.js";

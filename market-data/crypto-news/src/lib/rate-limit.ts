@@ -17,7 +17,7 @@
  * @module lib/rate-limit
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { kv } from '@vercel/kv';
 
 // Only warn once and not during build time

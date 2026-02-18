@@ -20,7 +20,7 @@ import { Switch } from "@/components/ui/switch";
 import { Skeleton } from "@/components/ui/skeleton";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { NETWORKS, fetchAbiFromExplorer, verifyRpcConnection, detectContractName } from "@/lib/networks";
-import { parseAbi, extractTools, generateServerPy, generateRequirementsTxt, generateReadme, GeneratedTool, AbiItem } from "@/lib/generator";
+import { parseAbi, extractTools, generateServerPy, generateRequirementsTxt, generateReadme, type GeneratedTool, AbiItem } from "@/lib/generator";
 import { TEMPLATES, Template, getTemplatesByCategory } from "@/lib/templates";
 import { ContractAnalyzer } from "@/components/contract-analyzer";
 

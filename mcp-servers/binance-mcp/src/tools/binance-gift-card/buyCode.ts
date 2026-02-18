@@ -1,5 +1,5 @@
 // src/tools/binance-gift-card/buyCode.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { giftCardClient } from "../../config/binanceClient.js";
 

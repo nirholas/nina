@@ -3,7 +3,7 @@
  * CoinTelegraph-style hero section with animated gradient backgrounds
  */
 
-import { NewsArticle } from '@/lib/crypto-news';
+import { type NewsArticle } from '@/lib/crypto-news';
 
 interface FeaturedArticleProps {
   article: NewsArticle;

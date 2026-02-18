@@ -14,13 +14,18 @@
 | BSC Testnet | ValidationRegistry | `0x8004Cb1BF31DAf7788923b405b754f57acEB4272` | [View](https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272) |
 | BSC Mainnet | IdentityRegistry | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` | [View](https://bscscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432) |
 | BSC Mainnet | ReputationRegistry | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` | [View](https://bscscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63) |
+| opBNB Testnet | IdentityRegistry | `0x8004A818BFB912233c491871b3d84c89A494BD9e` | [View](https://testnet.opbnbscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e) |
+| opBNB Testnet | ReputationRegistry | `0x8004B663056A597Dffe9eCcC1965A193B7388713` | [View](https://testnet.opbnbscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713) |
+| opBNB Testnet | ValidationRegistry | `0x8004Cb1BF31DAf7788923b405b754f57acEB4272` | [View](https://testnet.opbnbscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272) |
+| opBNB Mainnet | IdentityRegistry | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` | [View](https://opbnbscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432) |
+| opBNB Mainnet | ReputationRegistry | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` | [View](https://opbnbscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63) |
 
 **Key Transaction(s):**
 - First Deployment TX: [`0xfc55d83d...dc1962`](https://testnet.bscscan.com/tx/0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962) on BSC Testnet
 <!-- Fill in additional agent registration TXs after demo/run-demo.ts is executed -->
 
 > All addresses share the deterministic `0x8004` vanity prefix (CREATE2 via SAFE Singleton Factory).
-> Full 22-chain deployment list: [`erc8004-agents/docs/contracts.md`](erc8004-agents/docs/contracts.md)
+> Full 24-chain deployment list: [`erc8004-agents/docs/contracts.md`](erc8004-agents/docs/contracts.md)
 
 ## Live Demo
 

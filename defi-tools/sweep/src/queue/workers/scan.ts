@@ -1,4 +1,4 @@
-import { Worker, Job } from "bullmq";
+import { Worker, type Job } from "bullmq";
 import { getDb, dustTokens, users } from "../../db/index.js";
 import { eq } from "drizzle-orm";
 import {

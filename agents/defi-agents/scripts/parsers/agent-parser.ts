@@ -2,7 +2,7 @@ import { readJSONSync } from 'fs-extra';
 import { resolve } from 'node:path';
 
 import { agentsDir, config } from '../core/constants';
-import { LobeAgent } from '../schema/agentMeta';
+import { type LobeAgent } from '../schema/agentMeta';
 
 /**
  * Agent 文件解析器

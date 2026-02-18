@@ -1,5 +1,5 @@
 // src/tools/binance-simple-earn/earn-api/subscribeFlexibleProduct.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { simpleEarnClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

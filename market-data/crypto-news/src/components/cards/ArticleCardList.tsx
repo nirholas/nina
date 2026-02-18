@@ -36,7 +36,7 @@
 import { memo, useMemo } from 'react';
 import Link from 'next/link';
 import { generateArticleId } from '@/lib/archive-v2';
-import { Article, getSourceColors } from './cardUtils';
+import { type Article, getSourceColors } from './cardUtils';
 import CardImage from './CardImage';
 import CardBookmarkButton from './CardBookmarkButton';
 import QuickShareButton from './QuickShareButton';

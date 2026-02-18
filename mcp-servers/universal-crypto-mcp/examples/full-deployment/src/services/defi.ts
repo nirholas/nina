@@ -189,7 +189,7 @@ export async function getBestYields(options: {
   
   const { data } = await response.json();
   
-  let pools: YieldPool[] = data
+  const pools: YieldPool[] = data
     .filter((p: any) => {
       if (p.tvlUsd < minTvl) return false;
       if (chain && p.chain.toLowerCase() !== chain.toLowerCase()) return false;

@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { BaseAccount } from "@bnb-chain/greenfield-cosmos-types/cosmos/auth/v1beta1/auth"
+import { type BaseAccount } from "@bnb-chain/greenfield-cosmos-types/cosmos/auth/v1beta1/auth"
 import { type TxResponse } from "@bnb-chain/greenfield-js-sdk"
 import type { Hex } from "viem"
 

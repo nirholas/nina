@@ -1,8 +1,8 @@
 import { Connection, PublicKey, Keypair, Transaction, sendAndConfirmTransaction } from '@solana/web3.js';
-import { TokenInfo, PriceData } from '../types.js';
+import { type TokenInfo, type PriceData } from '../types.js';
 import { config } from '../config.js';
 import { logger } from '../utils/logger.js';
-import { IDexClient } from './pancakeswap.js';
+import { type IDexClient } from './pancakeswap.js';
 import bs58 from 'bs58';
 
 export class RaydiumClient implements IDexClient {

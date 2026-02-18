@@ -23,6 +23,11 @@ export const networkSchema = z
 export const privateKeyParam = z
   .string()
   .describe(
-    "Private key in hex format (with or without 0x prefix). SECURITY: This is used only for address derivation and is not stored. The private key will not be logged or displayed in chat history."
+    "Private key read from PRIVATE_KEY environment variable. Do not pass this as user input."
   )
-  .default(process.env.PRIVATE_KEY as string)
+  .optional()
+  .transform(() => {
+    const key = process.env.PRIVATE_KEY;
+    if (!key) throw new Error('PRIVATE_KEY environment variable is not set. Configure it in your .env file.');
+    return key;
+  })

@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getHistoricalPrices, HistoricalData } from '@/lib/market-data';
+import { type NextRequest, NextResponse } from 'next/server';
+import { getHistoricalPrices, type HistoricalData } from '@/lib/market-data';
 
 export const runtime = 'edge';
 export const revalidate = 60;

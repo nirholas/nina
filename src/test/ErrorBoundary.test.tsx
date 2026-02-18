@@ -89,7 +89,7 @@ describe('ErrorBoundary', () => {
 
   it('shows Try Again button that resets error state', () => {
     // Use a ref to control throwing behavior
-    let shouldThrowRef = { current: true };
+    const shouldThrowRef = { current: true };
     
     const ThrowOnDemand = () => {
       if (shouldThrowRef.current) {

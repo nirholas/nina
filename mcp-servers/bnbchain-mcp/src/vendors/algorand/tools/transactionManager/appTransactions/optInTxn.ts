@@ -4,9 +4,9 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Transaction, makeApplicationOptInTxnFromObject, OnApplicationComplete } from 'algosdk';
+import { type Transaction, makeApplicationOptInTxnFromObject, OnApplicationComplete } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { AppOptInTxnParams } from './types.js';
+import { type AppOptInTxnParams } from './types.js';
 
 /**
  * Creates an application opt-in transaction

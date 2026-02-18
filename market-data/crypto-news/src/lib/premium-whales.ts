@@ -5,7 +5,7 @@
  * This is a high-value premium feature that traders will pay for.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { PREMIUM_PRICING } from '@/lib/x402';
 
 export const runtime = 'edge';

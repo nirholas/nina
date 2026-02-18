@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/auto-invest/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerAutoInvestGetTargetAssetList } from "./getTargetAssetList.js";
 import { registerAutoInvestGetTargetAssetRoiData } from "./getTargetAssetRoiData.js";
 import { registerAutoInvestGetSourceAssetList } from "./getSourceAssetList.js";

@@ -1,5 +1,5 @@
 // src/tools/binance-auto-invest/changePlanStatus.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { autoInvestClient } from "../../config/binanceClient.js";
 

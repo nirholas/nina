@@ -9,7 +9,7 @@ import { z } from 'zod';
 import { ToolRegistry, getAllToolsInCategory } from './toolRegistry';
 import { Tool } from '@modelcontextprotocol/sdk/types';
 
-export function asTextContentResult(result: Object): any {
+export function asTextContentResult(result: object): any {
   // return {data: result}
   // Estimate token count (roughly 4 chars per token)
   const MAX_TOKENS = 25000;
@@ -118,7 +118,7 @@ export function dynamicTools(endpoints) {
       const endpointName = getEndpointSchema.parse(args).endpoint;
 
       // First, look in the original endpoints array
-      let endpoint = endpoints.find((e) => e.name === endpointName);
+      const endpoint = endpoints.find((e) => e.name === endpointName);
       
       if (!endpoint) {
         throw new Error(`Endpoint ${endpointName} not found`);

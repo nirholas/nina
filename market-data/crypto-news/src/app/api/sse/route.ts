@@ -5,7 +5,7 @@
  * Streams news updates to connected clients.
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { getLatestNews, getBreakingNews } from '@/lib/crypto-news';
 
 export const runtime = 'edge';

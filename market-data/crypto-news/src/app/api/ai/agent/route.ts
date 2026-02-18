@@ -11,7 +11,7 @@
  * @endpoint POST /api/ai/agent - Query the AI agent
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { 
   generateMarketIntelligence, 
   queryMarketAgent,

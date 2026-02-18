@@ -18,7 +18,7 @@ import {
   useTopChains,
   useChainDeFi 
 } from '../hooks/useMarketData';
-import { ProtocolTVL, YieldPool, ChainTVL } from '../services/marketData';
+import { type ProtocolTVL, type YieldPool, type ChainTVL } from '../services/marketData';
 
 // ============================================================
 // HELPER FUNCTIONS

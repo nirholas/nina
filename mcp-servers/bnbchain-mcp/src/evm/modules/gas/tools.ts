@@ -1,4 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import type { Address, Hex } from "viem"
 import { formatGwei, parseGwei } from "viem"
 import { z } from "zod"

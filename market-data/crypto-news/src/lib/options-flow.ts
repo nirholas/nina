@@ -601,7 +601,7 @@ export async function getVolatilitySurface(underlying: string = 'BTC'): Promise<
   
   for (const expiry of expiries) {
     const row: number[] = [];
-    let atmStrike = strikes.reduce((prev, curr) => 
+    const atmStrike = strikes.reduce((prev, curr) => 
       Math.abs(curr - spotPrice) < Math.abs(prev - spotPrice) ? curr : prev
     );
     

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getDashboardStats, getSystemHealth, trackAPICall } from '@/lib/analytics';
 import { requireAdminAuth } from '@/lib/admin-auth';
 

@@ -5,7 +5,7 @@
  * GET /api/exports/[id]/download - Download export result
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getExportJob, getExportResult, getMonthlyArchive } from '@/lib/exports';
 
 // =============================================================================

@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-margin/isolated-margin-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceIsolatedMarginAccount } from "./isolatedMarginAccount.js";
 import { registerBinanceIsolatedMarginAccountLimit } from "./isolatedMarginAccountLimit.js";
 import { registerBinanceIsolatedMarginSymbol } from "./isolatedMarginSymbol.js";

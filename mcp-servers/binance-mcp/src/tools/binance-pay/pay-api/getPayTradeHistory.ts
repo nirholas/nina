@@ -1,5 +1,5 @@
 // src/tools/binance-pay/pay-api/getPayTradeHistory.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { payClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

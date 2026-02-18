@@ -8,7 +8,7 @@
  * - Performance analytics
  */
 
-import { getTopCoins, TokenPrice } from '@/lib/market-data';
+import { getTopCoins, type TokenPrice } from '@/lib/market-data';
 
 // Types
 export interface Holding {

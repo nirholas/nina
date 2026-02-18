@@ -34,9 +34,11 @@ export interface Theme {
 export interface UserProfile {
   id: string;
   email?: string;
+  username?: string | null;
+  avatar_url?: string | null;
   walletAddress?: string;
-  createdAt: Date;
-  preferences: {
+  createdAt: Date | string;
+  preferences?: {
     theme: Theme;
     defaultChain: string;
     showTutorials: boolean;

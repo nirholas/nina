@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { searchNews } from '@/lib/crypto-news';
 import { translateArticles, isLanguageSupported, SUPPORTED_LANGUAGES } from '@/lib/translate';
 import { validateQuery } from '@/lib/validation-middleware';

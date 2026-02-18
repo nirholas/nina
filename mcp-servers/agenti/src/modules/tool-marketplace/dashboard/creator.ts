@@ -344,7 +344,7 @@ export class CreatorInsightsService {
     
     let totalRevenue = 0
     let periodRevenue = 0
-    let prevPeriodRevenue = 0
+    const prevPeriodRevenue = 0
     let totalCalls = 0
     let periodCalls = 0
     let uniqueUsers = 0

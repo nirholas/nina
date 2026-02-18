@@ -4,8 +4,8 @@
  * 💫 Buttons that speak to everyone ♿
  */
 
-import { forwardRef, ButtonHTMLAttributes, ReactNode } from 'react';
-import { Loader2, LucideIcon } from 'lucide-react';
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { Loader2, type LucideIcon } from 'lucide-react';
 import { cn } from '@/utils/helpers';
 import { useAnnounce } from './LiveAnnouncer';
 

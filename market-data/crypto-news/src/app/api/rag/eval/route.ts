@@ -7,7 +7,7 @@
  * @module api/rag/eval
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { RAGEvaluator } from '@/lib/rag/evaluator';
 import type { EvalTestCase, EvalPipelineOutput } from '@/lib/rag/evaluator';
 import { askFast } from '@/lib/rag/ultimate-rag-service';

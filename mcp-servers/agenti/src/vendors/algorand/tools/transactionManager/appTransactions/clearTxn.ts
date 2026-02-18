@@ -4,9 +4,9 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { Transaction, makeApplicationClearStateTxnFromObject, OnApplicationComplete } from 'algosdk';
+import { type Transaction, makeApplicationClearStateTxnFromObject, OnApplicationComplete } from 'algosdk';
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { AppClearStateTxnParams } from './types.js';
+import { type AppClearStateTxnParams } from './types.js';
 
 /**
  * Creates an application clear state transaction

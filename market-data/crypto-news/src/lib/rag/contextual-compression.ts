@@ -284,7 +284,7 @@ export async function assembleContext(
   
   // Build context within token budget
   const sources: AssembledContext['sources'] = [];
-  let contextParts: string[] = [];
+  const contextParts: string[] = [];
   let estimatedTokens = 0;
   const tokensPerChar = 0.25; // Rough estimate
 

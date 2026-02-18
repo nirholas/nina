@@ -8,7 +8,7 @@
  */
 import { describe, it, expect, beforeEach, afterEach, vi, beforeAll } from "vitest"
 
-import { MockMcpServer, createMockMcpServer, validateToolInput } from "../mocks/mcp"
+import { type MockMcpServer, createMockMcpServer, validateToolInput } from "../mocks/mcp"
 
 // Mock @/evm to avoid ABI parsing issues
 vi.mock("@/evm", () => ({

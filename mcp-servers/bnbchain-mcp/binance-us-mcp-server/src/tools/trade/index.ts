@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/trade/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceUsOrderTools } from "./orders.js";
 import { registerBinanceUsOcoTools } from "./oco.js";
 

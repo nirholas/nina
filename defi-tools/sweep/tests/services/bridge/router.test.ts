@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { BridgeAggregator, createBridgeAggregator } from "../../../src/services/bridge/index.js";
+import { type BridgeAggregator, createBridgeAggregator } from "../../../src/services/bridge/index.js";
 import { BridgeProvider, BridgeStatus, BRIDGE_CONFIG } from "../../../src/services/bridge/types.js";
 
 // Mock fetch

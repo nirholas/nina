@@ -31,8 +31,8 @@ import {
   getComments,
   forkProject,
   generateEmbedCode,
-  SharedProject,
-  ProjectComment
+  type SharedProject,
+  type ProjectComment
 } from '@/services/community';
 import { useWalletStore } from '@/stores/walletStore';
 import { useThemeStore } from '@/stores/themeStore';

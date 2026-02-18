@@ -5,7 +5,7 @@
  */
 
 import Link from 'next/link';
-import { NewsArticle } from '@/lib/crypto-news';
+import { type NewsArticle } from '@/lib/crypto-news';
 import { generateArticleSlug } from '@/lib/archive-v2';
 
 interface BreakingNewsBannerProps {

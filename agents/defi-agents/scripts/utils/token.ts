@@ -1,6 +1,6 @@
 import { encode } from 'gpt-tokenizer';
 
-import { LobeAgent } from '../schema/agentMeta';
+import { type LobeAgent } from '../schema/agentMeta';
 
 /**
  * 计算 Agent 的 token 使用量

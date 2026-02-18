@@ -2,17 +2,18 @@
   "name": "@nirholas/bnbchain-mcp",
   "version": "1.0.0",
   "description": "Model Context Protocol (MCP) server for BNB Chain - BSC EVM and Greenfield decentralized storage",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
-    "bnbchain-mcp": "./build/index.js"
+    "bnbchain-mcp": "./dist/index.js"
   },
   "scripts": {
     "build": "tsup",
     "dev": "ts-node src/index.ts",
-    "start": "node build/index.js",
-    "start:http": "node build/index.js --http",
-    "start:sse": "node build/index.js --sse",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --http",
+    "start:sse": "node dist/index.js --sse",
     "test": "vitest",
     "lint": "eslint src/",
     "prepublishOnly": "npm run build"

@@ -13,12 +13,12 @@ import type {
   SignedPermitBatch,
 } from "../types.js";
 import {
-  SmartWalletService,
+  type SmartWalletService,
   ENTRY_POINT_V07,
 } from "../smart-wallet.js";
-import { BundlerService } from "../bundler.js";
-import { PaymasterService } from "../paymaster.js";
-import { Permit2Service, PERMIT2_ADDRESS } from "../permit2.js";
+import { type BundlerService } from "../bundler.js";
+import { type PaymasterService } from "../paymaster.js";
+import { type Permit2Service, PERMIT2_ADDRESS } from "../permit2.js";
 
 // ============================================================================
 // Constants

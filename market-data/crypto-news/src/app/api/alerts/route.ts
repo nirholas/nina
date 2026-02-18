@@ -4,7 +4,7 @@
  * Supports both legacy user-based alerts and enhanced rule-based alerts.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   createPriceAlert,
   createKeywordAlert,

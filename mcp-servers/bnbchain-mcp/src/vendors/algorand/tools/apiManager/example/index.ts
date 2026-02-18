@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { McpError, ErrorCode, Tool } from '@modelcontextprotocol/sdk/types.js';
+import { McpError, ErrorCode, type Tool } from '@modelcontextprotocol/sdk/types.js';
 import { getBalanceTool, getBalanceToolSchema } from './get-balance.js';
 
 // Define tool configurations

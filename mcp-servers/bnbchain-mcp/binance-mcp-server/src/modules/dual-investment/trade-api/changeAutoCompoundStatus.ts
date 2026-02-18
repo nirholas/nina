@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-dual-investment/trade-api/changeAutoCompoundStatus.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { dualInvestmentClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

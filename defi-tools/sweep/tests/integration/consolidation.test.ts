@@ -90,7 +90,7 @@ vi.mock("../../src/services/bridge/index.js", () => ({
 }));
 
 import {
-  ConsolidationEngine,
+  type ConsolidationEngine,
   createConsolidationEngine,
   ConsolidationStatus,
   ChainOperationStatus,

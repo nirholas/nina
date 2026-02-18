@@ -5,7 +5,7 @@
  * Includes caching for 7 days and rate limiting.
  */
 
-import { InternationalArticle, InternationalNewsResponse } from './international-sources';
+import { type InternationalArticle, type InternationalNewsResponse } from './international-sources';
 import { newsCache } from './cache';
 
 // ═══════════════════════════════════════════════════════════════

@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { kv } from '@vercel/kv';
-import { isKvConfigured, ApiKeyData } from '@/lib/api-keys';
+import { isKvConfigured, type ApiKeyData } from '@/lib/api-keys';
 import { requireAdminAuth } from '@/lib/admin-auth';
 
 export const runtime = 'nodejs';
@@ -187,7 +187,7 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Key data not found' }, { status: 404 });
     }
 
-    let updatedData = { ...keyData };
+    const updatedData = { ...keyData };
 
     switch (action) {
       case 'revoke':

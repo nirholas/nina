@@ -4,7 +4,7 @@
  * 💫 Navigate freely with your keyboard ⌨️
  */
 
-import { useEffect, useRef, useCallback, RefObject } from 'react';
+import { useEffect, useRef, useCallback, type RefObject } from 'react';
 
 /**
  * useFocusTrap Hook

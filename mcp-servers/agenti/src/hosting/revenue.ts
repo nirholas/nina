@@ -622,7 +622,7 @@ export async function getTransactionHistory(
   }
   
   // Filter transactions
-  let transactions = Array.from(paymentRecords.values()).filter((p) => {
+  const transactions = Array.from(paymentRecords.values()).filter((p) => {
     if (p.createdAt < periodStart) return false
     if (serverId && p.serverId !== serverId) return false
     if (toolId && p.toolId !== toolId) return false

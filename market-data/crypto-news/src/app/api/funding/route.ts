@@ -8,7 +8,7 @@
  * @route GET /api/funding/alerts
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getFundingDashboard,
   getFundingHistory,

@@ -6,7 +6,7 @@
  */
 
 import { newsCache, withCache } from './cache';
-import { getLatestNews, NewsArticle } from './crypto-news';
+import { getLatestNews, type NewsArticle } from './crypto-news';
 import { calculateSentiment } from './headline-tracker';
 
 // ═══════════════════════════════════════════════════════════════

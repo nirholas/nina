@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { TatumApiClient } from '../api-client.js';
+import { type TatumApiClient } from '../api-client.js';
 
 // Hardcoded Data API Tools
 export const DATA_TOOLS = [

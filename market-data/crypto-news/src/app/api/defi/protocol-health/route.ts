@@ -12,7 +12,7 @@
  * @module api/defi/protocol-health
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   fetchProtocolHealth,
   getTopProtocols,

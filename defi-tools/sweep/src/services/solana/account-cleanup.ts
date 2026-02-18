@@ -13,7 +13,7 @@ import {
   Connection,
   PublicKey,
   Transaction,
-  TransactionInstruction,
+  type TransactionInstruction,
   VersionedTransaction,
   TransactionMessage,
   SystemProgram,

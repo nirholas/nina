@@ -5,7 +5,7 @@
  * Powerful crypto screening with unlimited filter combinations.
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { advancedScreener } from '@/lib/premium-screener';
 import { ApiError } from '@/lib/api-error';

@@ -6,7 +6,7 @@
  */
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { z } from "zod"
-import { Client, Wallet, Payment, TrustSet } from "xrpl"
+import { Client, Wallet, type Payment, type TrustSet } from "xrpl"
 
 import Logger from "@/utils/logger.js"
 

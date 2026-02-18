@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { kv } from '@vercel/kv';
-import { isKvConfigured, ApiKeyData, API_KEY_TIERS } from '@/lib/api-keys';
+import { isKvConfigured, type ApiKeyData, API_KEY_TIERS } from '@/lib/api-keys';
 import { requireAdminAuth } from '@/lib/admin-auth';
 
 export const runtime = 'nodejs';

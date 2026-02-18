@@ -117,7 +117,7 @@ Add to your `claude_desktop_config.json`:
 
 ## 🔗 Onchain Proof
 
-ERC-8004 contracts are deployed and verified on **BSC Mainnet**, **BSC Testnet**, and **20 additional chains** (22 total).
+ERC-8004 contracts are deployed and verified on **BSC Mainnet**, **BSC Testnet**, **opBNB Mainnet**, **opBNB Testnet**, and **20 additional chains** (24 total).
 
 ### BSC Mainnet (Chain ID: 56)
 
@@ -134,10 +134,25 @@ ERC-8004 contracts are deployed and verified on **BSC Mainnet**, **BSC Testnet**
 | **ReputationRegistry** | `0x8004B663056A597Dffe9eCcC1965A193B7388713` | [BscScan →](https://testnet.bscscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713) |
 | **ValidationRegistry** | `0x8004Cb1BF31DAf7788923b405b754f57acEB4272` | [BscScan →](https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272) |
 
+### opBNB Testnet (Chain ID: 5611)
+
+| Contract | Address | Explorer |
+|----------|---------|----------|
+| **IdentityRegistry** | `0x8004A818BFB912233c491871b3d84c89A494BD9e` | [opBNBScan →](https://testnet.opbnbscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e) |
+| **ReputationRegistry** | `0x8004B663056A597Dffe9eCcC1965A193B7388713` | [opBNBScan →](https://testnet.opbnbscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713) |
+| **ValidationRegistry** | `0x8004Cb1BF31DAf7788923b405b754f57acEB4272` | [opBNBScan →](https://testnet.opbnbscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272) |
+
+### opBNB Mainnet (Chain ID: 204)
+
+| Contract | Address | Explorer |
+|----------|---------|----------|
+| **IdentityRegistry** | `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` | [opBNBScan →](https://opbnbscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432) |
+| **ReputationRegistry** | `0x8004BAa17C55a88189AE136b182e5fdA19dE9b63` | [opBNBScan →](https://opbnbscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63) |
+
 > 📋 **First deployment TX:** [`0xfc55d83d...dc1962`](https://testnet.bscscan.com/tx/0xfc55d83d20e6d92ff522f302fd3424d3fd5557f25c06f4bfc38ecf3246dc1962) on BSC Testnet
 >
 > All addresses share the deterministic `0x8004` vanity prefix (CREATE2 via SAFE Singleton Factory).
-> Full 22-chain deployment list: [`erc8004-agents/docs/contracts.md`](erc8004-agents/docs/contracts.md) | Machine-readable: [`bsc.address`](bsc.address)
+> Full 24-chain deployment list: [`erc8004-agents/docs/contracts.md`](erc8004-agents/docs/contracts.md) | Machine-readable: [`bsc.address`](bsc.address)
 
 ---
 

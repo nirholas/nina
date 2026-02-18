@@ -5,7 +5,7 @@
  * 💫 Provides real-time updates without interrupting focus
  */
 
-import { useEffect, useState, useRef, createContext, useContext, ReactNode } from 'react';
+import { useEffect, useState, useRef, createContext, useContext, type ReactNode } from 'react';
 
 interface AnnouncerContextType {
   announce: (message: string, priority?: 'polite' | 'assertive') => void;

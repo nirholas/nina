@@ -1,10 +1,10 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import {
   getWatchlist,
   saveWatchlist,
-  WatchlistItem,
+  type WatchlistItem,
   exportWatchlist as exportWatchlistData,
   importWatchlist as importWatchlistData,
   exportWatchlistAsCSV,

@@ -147,7 +147,7 @@ export class BNBCompiler {
       const script = await response.text();
       
       // Execute in a sandboxed context
-      // eslint-disable-next-line no-new-func
+       
       const solcModule = new Function('module', 'exports', script + '\nreturn Module;');
       const module = { exports: {} };
       const Module = solcModule(module, module.exports);

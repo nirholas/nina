@@ -590,9 +590,9 @@ export class SubscriptionManager {
     failed: number
   }> {
     const now = Date.now()
-    let processed = 0
-    let successful = 0
-    let failed = 0
+    const processed = 0
+    const successful = 0
+    const failed = 0
 
     // In a real implementation, you'd query for subscriptions where
     // currentPeriodEnd < now AND autoRenew = true

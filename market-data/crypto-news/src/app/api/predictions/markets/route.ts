@@ -7,7 +7,7 @@
  * POST /api/predictions/markets - Create/bet on markets
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 interface PredictionMarket {
   id: string;

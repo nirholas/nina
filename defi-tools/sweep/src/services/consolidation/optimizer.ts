@@ -7,10 +7,10 @@ import type { SupportedChain } from "../../config/chains.js";
 import { CHAIN_CONFIG } from "../../config/chains.js";
 import {
   type BridgeQuote,
-  BridgeProvider,
+  type BridgeProvider,
   type BridgePriority,
 } from "../bridge/types.js";
-import { BridgeAggregator, createBridgeAggregator } from "../bridge/index.js";
+import { type BridgeAggregator, createBridgeAggregator } from "../bridge/index.js";
 import type {
   ConsolidationSource,
   ChainConsolidationPlan,

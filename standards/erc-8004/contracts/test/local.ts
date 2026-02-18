@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { network } from "hardhat";
-import { getAddress, keccak256, toHex, Hex, zeroAddress } from "viem";
+import { getAddress, keccak256, toHex, type Hex, zeroAddress } from "viem";
 
 /**
  * Deployed vanity addresses (deterministic CREATE2 addresses)

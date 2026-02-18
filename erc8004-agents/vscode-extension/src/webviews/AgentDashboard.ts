@@ -3,7 +3,7 @@
  */
 
 import * as vscode from 'vscode';
-import { ethers } from 'ethers';
+import { type ethers } from 'ethers';
 import {
   getWallet,
   getIdentityContract,

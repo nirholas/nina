@@ -4,8 +4,8 @@
 
 'use client';
 
-import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import { type ReactNode } from 'react';
 
 // Animation variants
 export const fadeIn: Variants = {

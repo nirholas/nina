@@ -1,5 +1,5 @@
 import hre from "hardhat";
-import { getCreate2Address, encodeFunctionData, keccak256, Hex, encodeAbiParameters } from "viem";
+import { getCreate2Address, encodeFunctionData, keccak256, type Hex, encodeAbiParameters } from "viem";
 import { Worker } from "worker_threads";
 import * as os from "os";
 

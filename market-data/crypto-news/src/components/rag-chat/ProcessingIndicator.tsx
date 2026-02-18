@@ -7,7 +7,7 @@
 
 'use client';
 
-import { memo, useEffect, useState, ReactElement } from 'react';
+import { memo, useEffect, useState, type ReactElement } from 'react';
 
 interface ProcessingIndicatorProps {
   step: string | null;

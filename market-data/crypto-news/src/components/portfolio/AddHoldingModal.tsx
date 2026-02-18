@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { X, Search, Calendar, DollarSign, FileText, Building } from 'lucide-react';
-import { usePortfolio, Transaction } from './PortfolioProvider';
+import { usePortfolio, type Transaction } from './PortfolioProvider';
 import { useToast } from '@/components/Toast';
 
 interface AddHoldingModalProps {

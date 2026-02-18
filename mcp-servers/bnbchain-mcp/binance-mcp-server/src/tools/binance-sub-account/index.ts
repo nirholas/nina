@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-sub-account/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceSubAccountManagementTools } from "./management-api/index.js";
 import { registerBinanceSubAccountAssetsTools } from "./assets-api/index.js";
 import { registerBinanceSubAccountTransferTools } from "./transfer-api/index.js";

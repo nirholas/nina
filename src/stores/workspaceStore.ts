@@ -49,8 +49,15 @@ interface WorkspaceState {
   importWorkspace: (data: string) => string;
 }
 
+const generateId = (): string => {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+};
+
 const defaultWorkspace = (): Workspace => ({
-  id: Date.now().toString(),
+  id: generateId(),
   name: 'New Workspace',
   files: [
     {
@@ -83,7 +90,7 @@ export const useWorkspaceStore = create<WorkspaceState>()(
 
       createWorkspace: (name: string) => {
         const newWorkspace: Workspace = {
-          id: Date.now().toString(),
+          id: generateId(),
           name,
           files: [],
           activeFileId: null,
@@ -220,8 +227,13 @@ export const useWorkspaceStore = create<WorkspaceState>()(
 
       importWorkspace: (data: string) => {
         try {
-          const workspace: Workspace = JSON.parse(data);
-          workspace.id = Date.now().toString(); // New ID to avoid conflicts
+          const parsed = JSON.parse(data);
+          // Validate required fields
+          if (!parsed || typeof parsed !== 'object' || !parsed.name || !Array.isArray(parsed.files)) {
+            throw new Error('Invalid workspace data: missing required fields');
+          }
+          const workspace: Workspace = parsed;
+          workspace.id = generateId(); // New ID to avoid conflicts
           
           set((state) => ({
             workspaces: [...state.workspaces, workspace],

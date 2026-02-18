@@ -5,7 +5,7 @@
  * @license MIT
  */
 import { z } from 'zod';
-import { ToolConfig } from './toolFactory.js';
+import { type ToolConfig } from './toolFactory.js';
 
 // Collection of all tool configurations
 export const allToolConfigs: ToolConfig<any>[] = [

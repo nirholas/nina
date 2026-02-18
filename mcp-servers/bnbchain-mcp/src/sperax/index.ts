@@ -8,7 +8,7 @@
  * Total: 72 tools across 12 categories
  */
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 import { allTools, toolCategories } from "./tools/index.js"
 import { prompts } from "./prompts.js"

@@ -13,9 +13,9 @@
 import {
   EXTERNAL_APIS,
   CACHE_TTL,
-  BinanceTicker,
-  BinanceFundingRate,
-  BinanceOpenInterest,
+  type BinanceTicker,
+  type BinanceFundingRate,
+  type BinanceOpenInterest,
 } from './external-apis';
 import { cache } from './cache';
 

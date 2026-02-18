@@ -13,7 +13,7 @@ import {
   RefreshCw,
   AlertCircle
 } from 'lucide-react';
-import { useAlerts, PriceAlert } from './AlertsProvider';
+import { useAlerts, type PriceAlert } from './AlertsProvider';
 import { useToast } from '@/components/Toast';
 
 interface AlertsListProps {

@@ -4,8 +4,8 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { describe, it, expect, vi, beforeEach, afterEach, Mock } from "vitest"
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { describe, it, expect, vi, beforeEach, afterEach, type Mock } from "vitest"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 import { TEST_ADDRESSES, createMockViemClient } from "../../../../tests/setup"
 

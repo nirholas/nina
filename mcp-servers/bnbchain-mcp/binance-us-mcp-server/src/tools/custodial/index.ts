@@ -8,7 +8,7 @@
 // Binance.US Custodial Solution Tools
 // For institutional custody partners (e.g., Anchorage, BitGo)
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { makeSignedRequest } from "../../config/binanceUsClient.js";
 

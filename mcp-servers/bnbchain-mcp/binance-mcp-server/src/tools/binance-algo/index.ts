@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-spot/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceAlgoFutureApiTools } from "./future-algo/index.js";
 import { registerBinanceAlgoSpotApiTools } from "./spot-algo/index.js";
 

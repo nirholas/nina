@@ -11,7 +11,7 @@ import {
   hasSignificantClaims,
   extractQuickAttributions,
   analyzeClaimQuality,
-  ClaimExtractionResult,
+  type ClaimExtractionResult,
 } from './claim-extractor';
 
 // Mock fetch for AI API calls

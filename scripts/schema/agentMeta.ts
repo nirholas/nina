@@ -122,7 +122,7 @@ const lobeAgentConfigSchema = z.object({
 
 export type LobeAgentConfig = z.infer<typeof lobeAgentConfigSchema>;
 
-export const speraxAgentSchema = z.object({
+export const agentSchema = z.object({
 
   /**
    * Author of the agent
@@ -201,6 +201,13 @@ export const speraxAgentSchema = z.object({
   tokenUsage: z.number(),
 });
 
-export type SperaxAgent = z.infer<typeof speraxAgentSchema>;
+export type Agent = z.infer<typeof agentSchema>;
+
+/** @deprecated Use agentSchema / Agent instead */
+export const speraxAgentSchema = agentSchema;
+/** @deprecated Use Agent instead */
+export type SperaxAgent = Agent;
+/** @deprecated Use Agent instead */
+export type LobeAgent = Agent;
 
 

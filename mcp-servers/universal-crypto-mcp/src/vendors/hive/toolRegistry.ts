@@ -6,7 +6,7 @@
  */
 import {supportedTools} from './mcp/allToolList'
 
-export let ToolRegistry = [
+export const ToolRegistry = [
   {
     "category": "Market Data and Price",
     "name": "get_market_and_price_endpoints",
@@ -302,13 +302,13 @@ export let ToolRegistry = [
 // function that takes category name, and returns list of tools in that category return {}
 
 export function getAllToolsInCategory(category: string){
-  let categoryUsed = ToolRegistry.find(tool => tool.category === category);
+  const categoryUsed = ToolRegistry.find(tool => tool.category === category);
   if(!categoryUsed){
     return []
   }
   const allWrappedTools = supportedTools
   // return all the tools from wrapped tools that are in the category (name match)
-  let toolsInCategory = [];
+  const toolsInCategory = [];
   for (const tool of categoryUsed.tools){
     const wrappedTool = allWrappedTools.find(wrappedTool => wrappedTool.name === tool);
     if(wrappedTool){

@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/modules/portfolio-margin/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerPortfolioMarginAccountApi } from "./account/index.js";
 import { registerPortfolioMarginUmTradeApi } from "./um-trade/index.js";
 import { registerPortfolioMarginCmTradeApi } from "./cm-trade/index.js";

@@ -8,7 +8,7 @@ import { useState } from 'react';
 import SplitView from '@/components/Playground/SplitView';
 import Editor from '@monaco-editor/react';
 import UniversalLivePreview from '@/components/Playground/UniversalLivePreview';
-import InteractiveTutorial, { TutorialStep } from '@/components/Playground/InteractiveTutorial';
+import InteractiveTutorial, { type TutorialStep } from '@/components/Playground/InteractiveTutorial';
 import { useThemeStore } from '@/stores/themeStore';
 import { Copy, CheckCircle, Code2, Zap } from 'lucide-react';
 import { copyToClipboard } from '@/utils/helpers';

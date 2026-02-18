@@ -5,9 +5,9 @@
  * consistent error responses for validation failures
  */
 
-import { NextRequest } from 'next/server';
-import { z, ZodError } from 'zod';
-import { ApiError, ValidationError } from './api-error';
+import { type NextRequest } from 'next/server';
+import { type z, type ZodError } from 'zod';
+import { ApiError, type ValidationError } from './api-error';
 
 /**
  * Validate query parameters against schema

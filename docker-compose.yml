@@ -2,8 +2,6 @@
 # 🌐 GitHub: github.com/nirholas
 # 💫 Keep calm and code on 🧘
 
-version: '3.8'
-
 services:
   # Frontend application
   frontend:

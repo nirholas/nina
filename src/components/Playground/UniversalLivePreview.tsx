@@ -45,6 +45,7 @@ export default function UniversalLivePreview({
   const [error, setError] = useState<string | null>(null);
   const [isPyodideLoading, setIsPyodideLoading] = useState(false);
   const [pythonOutput, setPythonOutput] = useState<string[]>([]);
+  const [htmlPreviewContent, setHtmlPreviewContent] = useState<string>('');
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const pyodideRef = useRef<any>(null);
 
@@ -99,17 +100,8 @@ export default function UniversalLivePreview({
   }, [htmlTab?.code, cssTab?.code, jsTab?.code, previewType]);
 
   const updateHtmlPreview = () => {
-    if (!iframeRef.current) return;
-
     try {
       setError(null);
-      const iframe = iframeRef.current;
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
-
-      if (!iframeDoc) {
-        setError('Unable to access preview document');
-        return;
-      }
 
       const content = `
         <!DOCTYPE html>
@@ -141,9 +133,7 @@ export default function UniversalLivePreview({
         </html>
       `;
 
-      iframeDoc.open();
-      iframeDoc.write(content);
-      iframeDoc.close();
+      setHtmlPreviewContent(content);
     } catch (err: any) {
       setError(err.message || 'Failed to render preview');
     }
@@ -455,7 +445,8 @@ export default function UniversalLivePreview({
             ref={iframeRef}
             title={title}
             className="w-full h-full border-0"
-            sandbox="allow-scripts allow-same-origin allow-modals"
+            sandbox="allow-scripts allow-modals"
+            srcDoc={htmlPreviewContent}
           />
         );
       case 'react':

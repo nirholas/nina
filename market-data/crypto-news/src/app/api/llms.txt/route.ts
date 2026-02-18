@@ -5,7 +5,7 @@
  * Following the llms.txt standard: https://llmstxt.org
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 

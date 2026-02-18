@@ -7,7 +7,7 @@
  * @license Apache-2.0
  */
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 declare const globalThis: {
   setInterval?: (fn: () => void, ms: number) => { unref?: () => void };
   clearInterval?: (timer: unknown) => void;

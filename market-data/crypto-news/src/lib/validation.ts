@@ -2,7 +2,7 @@
  * Input validation and sanitization utilities
  */
 
-import { ValidationError } from './api-error';
+import { type ValidationError } from './api-error';
 
 // Max lengths for various inputs
 export const MAX_LENGTHS = {

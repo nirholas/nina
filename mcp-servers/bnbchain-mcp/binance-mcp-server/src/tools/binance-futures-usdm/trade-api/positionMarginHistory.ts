@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-futures-usdm/trade-api/positionMarginHistory.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { futuresClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

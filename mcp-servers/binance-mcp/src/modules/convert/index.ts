@@ -1,5 +1,5 @@
 // src/tools/binance-convert/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceConvertTradeTools } from "./trade-api/index.js";
 import { registerBinanceConvertMarketDataTools } from "./market-data-api/index.js";
 

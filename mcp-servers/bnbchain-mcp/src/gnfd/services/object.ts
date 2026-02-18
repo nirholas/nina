@@ -18,7 +18,7 @@ import {
   RedundancyType,
   VisibilityType
 } from "@bnb-chain/greenfield-js-sdk"
-import { ObjectInfo } from "@bnb-chain/greenfield-js-sdk/dist/esm/types/sp/Common"
+import { type ObjectInfo } from "@bnb-chain/greenfield-js-sdk/dist/esm/types/sp/Common"
 import { NodeAdapterReedSolomon } from "@bnb-chain/reed-solomon/node.adapter"
 import type { Hex } from "viem"
 

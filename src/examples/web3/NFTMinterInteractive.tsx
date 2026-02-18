@@ -6,9 +6,9 @@
 
 import { useState } from 'react';
 import SplitView from '@/components/Playground/SplitView';
-import MultiLanguageTabs, { LanguageTab } from '@/components/Playground/MultiLanguageTabs';
-import InteractiveTutorial, { TutorialStep } from '@/components/Playground/InteractiveTutorial';
-import ChallengeSystem, { Challenge } from '@/components/Playground/ChallengeSystem';
+import MultiLanguageTabs, { type LanguageTab } from '@/components/Playground/MultiLanguageTabs';
+import InteractiveTutorial, { type TutorialStep } from '@/components/Playground/InteractiveTutorial';
+import ChallengeSystem, { type Challenge } from '@/components/Playground/ChallengeSystem';
 import { Code2, Zap } from 'lucide-react';
 
 export default function NFTMinterInteractive() {

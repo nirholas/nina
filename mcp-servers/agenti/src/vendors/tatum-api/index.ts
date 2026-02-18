@@ -17,7 +17,7 @@ import * as dotenv from 'dotenv';
 
 
 import { TatumApiClient } from './api-client.js';
-import { ToolExecutionContext } from './types.js';
+import { type ToolExecutionContext } from './types.js';
 import { GatewayService, GATEWAY_TOOLS } from './services/gateway.js';
 import { DataService, DATA_TOOLS } from './services/data.js';
 

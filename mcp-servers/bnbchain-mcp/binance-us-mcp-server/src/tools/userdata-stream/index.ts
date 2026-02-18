@@ -8,7 +8,7 @@
 // User Data Stream management for real-time account updates
 // These endpoints manage listen keys for WebSocket user data streams
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { makeSignedRequest, BINANCE_US_CONFIG } from "../../config/binanceUsClient.js";
 

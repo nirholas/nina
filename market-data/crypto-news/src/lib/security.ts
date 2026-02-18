@@ -11,7 +11,7 @@
  * @module lib/security
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 
 // =============================================================================
 // REQUEST ID GENERATION

@@ -1,4 +1,4 @@
-import prompts, { PromptObject } from 'prompts';
+import prompts, { type PromptObject } from 'prompts';
 import figlet from 'figlet';
 import chalk from 'chalk';
 import path from 'path';

@@ -11,7 +11,7 @@
  * DELETE /api/watchlist/clear - Clear entire watchlist
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import {
   getWatchlist,

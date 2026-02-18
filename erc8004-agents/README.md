@@ -18,7 +18,7 @@
 <img src="https://img.shields.io/badge/build-none_needed-F0B90B?style=for-the-badge&labelColor=000" alt="Zero Build" />
 <img src="https://img.shields.io/badge/deps-zero-7C3AED?style=for-the-badge&labelColor=000" alt="Zero Deps" />
 <img src="https://img.shields.io/badge/file-1_HTML-00B4D8?style=for-the-badge&labelColor=000" alt="Single File" />
-<img src="https://img.shields.io/badge/chains-22_EVM-22C55E?style=for-the-badge&labelColor=000" alt="22 Chains" />
+<img src="https://img.shields.io/badge/chains-24_EVM-22C55E?style=for-the-badge&labelColor=000" alt="24 Chains" />
 <img src="https://img.shields.io/badge/standard-ERC--8004-FF6B6B?style=for-the-badge&labelColor=000" alt="ERC-8004" />
 
 <br><br>
@@ -370,7 +370,7 @@ Drop `index.html` on Vercel, Netlify, GitHub Pages, IPFS, or any static host. On
 | [What Is ERC-8004?](docs/what-is-erc8004.md) | Everyone | Plain-English explainer |
 | [Getting Started](docs/getting-started.md) | Beginners | 5-minute first agent |
 | [Architecture](docs/architecture.md) | Developers | Smart contract design |
-| [Contracts](docs/contracts.md) | Developers | All deployed addresses (22 chains) |
+| [Contracts](docs/contracts.md) | Developers | All deployed addresses (24 chains) |
 | [Examples](docs/examples.md) | Everyone | Beginner → advanced recipes |
 | [Tutorials](docs/tutorials.md) | Everyone | Step-by-step guides |
 | [Integration](docs/integration.md) | Developers | Embed, iframe, React hook |
@@ -411,7 +411,7 @@ Apache 2.0 © [nirholas](https://github.com/nirholas)
 
 <p align="center">
   <b>Built with 🔶 for the agent economy</b><br>
-  <sub>Zero deps · Single file · 22 chains · On-chain forever · ERC-8004 standard</sub>
+  <sub>Zero deps · Single file · 24 chains · On-chain forever · ERC-8004 standard</sub>
 </p>
 
 <p align="center">

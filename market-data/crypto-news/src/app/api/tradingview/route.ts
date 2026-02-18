@@ -14,7 +14,7 @@
  * GET /api/tradingview/timescale_marks?symbol=...&from=...&to=... - Timeline marks
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getConfig,
   getServerTime,

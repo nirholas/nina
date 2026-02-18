@@ -27,10 +27,10 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { copyToClipboard } from '@/utils/helpers';
-import { contractTemplates, ContractTemplate, searchTemplates } from '@/utils/contractTemplates';
+import { contractTemplates, type ContractTemplate, searchTemplates } from '@/utils/contractTemplates';
 import { useWalletStore } from '@/stores/walletStore';
 import { useThemeStore } from '@/stores/themeStore';
-import { BNBCompiler, CompileOutput, CompiledContract } from '@/services/bnbCompiler';
+import { BNBCompiler, type CompileOutput, CompiledContract } from '@/services/bnbCompiler';
 
 export default function ContractPlayground() {
   const { address, isConnected, chainId } = useWalletStore();
@@ -780,7 +780,7 @@ export default function ContractPlayground() {
                     ref={iframeRef}
                     title="Preview"
                     className="w-full h-full bg-white"
-                    sandbox="allow-scripts allow-modals allow-forms allow-same-origin"
+                    sandbox="allow-scripts allow-modals allow-forms"
                     srcDoc={buildPreviewSrcDoc()}
                   />
                 </div>

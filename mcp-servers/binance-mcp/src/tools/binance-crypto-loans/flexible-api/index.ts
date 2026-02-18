@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/tools/binance-crypto-loans/flexible-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceCryptoLoansFlexibleAssets } from "./getFlexibleLoanAssets.js";
 import { registerBinanceCryptoLoansFlexibleCollateral } from "./getFlexibleCollateralAssets.js";
 import { registerBinanceCryptoLoansFlexibleBorrow } from "./borrow.js";

@@ -11,7 +11,7 @@
  * @module derivatives
  */
 
-import { EXTERNAL_APIS, CACHE_TTL, DydxMarket } from './external-apis';
+import { EXTERNAL_APIS, CACHE_TTL, type DydxMarket } from './external-apis';
 import { cache } from './cache';
 
 // =============================================================================

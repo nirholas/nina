@@ -9,7 +9,7 @@
  * @module coincap
  */
 
-import { EXTERNAL_APIS, CACHE_TTL, CoinCapAsset } from './external-apis';
+import { EXTERNAL_APIS, CACHE_TTL, type CoinCapAsset } from './external-apis';
 import { cache } from './cache';
 
 const BASE_URL = EXTERNAL_APIS.COINCAP;

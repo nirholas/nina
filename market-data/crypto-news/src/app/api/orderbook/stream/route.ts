@@ -13,7 +13,7 @@
  * - update: { type: 'update', ... }
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 
 // WebSocket connections would be managed by the ws-server.js
 // This route provides configuration and fallback HTTP polling

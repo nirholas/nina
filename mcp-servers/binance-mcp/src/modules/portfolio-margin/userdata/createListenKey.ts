@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/modules/portfolio-margin/userdata/createListenKey.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { portfolioMarginClient } from "../../../config/binanceClient.js";
 
 export function registerPortfolioMarginCreateListenKey(server: McpServer) {

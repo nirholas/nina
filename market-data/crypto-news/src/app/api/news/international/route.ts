@@ -7,7 +7,7 @@
  * across 16 languages and 5 regions.
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { 
   getInternationalNews, 
   getInternationalSources,

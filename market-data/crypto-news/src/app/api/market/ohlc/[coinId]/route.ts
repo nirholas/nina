@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getOHLC, OHLCData } from '@/lib/market-data';
+import { type NextRequest, NextResponse } from 'next/server';
+import { getOHLC, type OHLCData } from '@/lib/market-data';
 
 export const runtime = 'edge';
 export const revalidate = 60;

@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/general/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { binanceUsRequest } from "../../config/binanceUsClient.js";
 

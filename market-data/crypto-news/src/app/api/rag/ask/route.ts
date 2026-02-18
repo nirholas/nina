@@ -11,7 +11,7 @@
  * Request body matches AskRequestSchema (see ../schemas.ts).
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { askUltimate } from '@/lib/rag/ultimate-rag-service';
 import type { UltimateRAGOptions } from '@/lib/rag/ultimate-rag-service';
 import { AskRequestSchema, formatValidationError } from '../schemas';

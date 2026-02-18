@@ -5,7 +5,7 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import { MarketCoin } from '../api/client';
+import { type MarketCoin } from '../api/client';
 
 interface CoinCardProps {
   coin: MarketCoin;

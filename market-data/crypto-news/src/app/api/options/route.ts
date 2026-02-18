@@ -11,7 +11,7 @@
  * @route GET /api/options/gamma
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getOptionsFlow,
   getVolatilitySurface,
@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '100');
 
     let data: unknown;
-    let meta: Record<string, unknown> = {
+    const meta: Record<string, unknown> = {
       underlying,
       view,
     };

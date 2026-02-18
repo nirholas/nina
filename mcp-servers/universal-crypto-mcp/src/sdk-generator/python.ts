@@ -8,8 +8,8 @@
  */
 
 import {
-  SDKConfig,
-  SDKGenerationResult,
+  type SDKConfig,
+  type SDKGenerationResult,
   toPascalCase,
   toCamelCase,
   toSnakeCase,

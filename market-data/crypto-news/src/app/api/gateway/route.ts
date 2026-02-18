@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getLatestNews, searchNews, getDefiNews, getBitcoinNews, getBreakingNews, getSources } from '@/lib/crypto-news';
 
 export const runtime = 'edge';

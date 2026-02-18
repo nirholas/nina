@@ -28,8 +28,8 @@ import { useWorkspaceStore } from '@/stores/workspaceStore';
 import { useThemeStore } from '@/stores/themeStore';
 import { BNBCompiler } from '@/services/bnbCompiler';
 import { NETWORK_CONFIGS } from '@/utils/networks';
-import { SandboxTemplate } from '@/utils/sandboxTemplates';
-import { ContractTemplate } from '@/utils/contractTemplates';
+import { type SandboxTemplate } from '@/utils/sandboxTemplates';
+import { type ContractTemplate } from '@/utils/contractTemplates';
 import FileTree from './FileTree.tsx';
 import ContractInteraction from './ContractInteraction.tsx';
 import ConsolePanel from './ConsolePanel.tsx';
@@ -711,7 +711,7 @@ export default function InteractiveSandbox() {
                   ref={iframeRef}
                   title="Preview"
                   className="flex-1 w-full bg-white"
-                  sandbox="allow-scripts allow-modals allow-forms allow-same-origin"
+                  sandbox="allow-scripts allow-modals allow-forms"
                   srcDoc={buildPreviewSrcDoc()}
                 />
               </div>

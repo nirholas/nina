@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-convert/trade-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceConvertAcceptQuote } from "./acceptQuote.js";
 import { registerBinanceConvertCancelLimitOrder } from "./cancelLimitOrder.js";
 import { registerBinanceGetConvertTradeHistory } from "./getConvertTradeHistory.js";

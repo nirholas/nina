@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { TokenInfo, PriceData } from '../types.js';
+import { type TokenInfo, type PriceData } from '../types.js';
 import { config } from '../config.js';
 import { logger } from '../utils/logger.js';
 
@@ -66,7 +66,7 @@ export class PancakeSwapClient implements IDexClient {
       const pairAddress = await factory.getPair(this.wbnbAddress, tokenAddress);
       
       let liquidity = 0;
-      let volume24h = 0;
+      const volume24h = 0;
       
       if (pairAddress !== ethers.ZeroAddress) {
         const pair = new ethers.Contract(pairAddress, this.pairAbi, this.provider);

@@ -6,7 +6,7 @@
  */
 // MCP tool for querying payment status by identifier
 
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { PaymentService } from '../services/payment-service.js';
 import { getLogger } from '../utils/logger.js';
 

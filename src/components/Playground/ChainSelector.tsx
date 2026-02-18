@@ -11,9 +11,9 @@
 import { useState, useMemo } from 'react';
 import { Check, Info, ExternalLink, Filter } from 'lucide-react';
 import { 
-  ChainConfig, 
-  ChainSelectorProps, 
-  ContractLanguage 
+  type ChainConfig, 
+  type ChainSelectorProps, 
+  type ContractLanguage 
 } from '@/types/contracts';
 import { 
   CHAINS_LIST, 

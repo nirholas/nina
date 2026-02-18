@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { AcrossBridgeProvider, createAcrossProvider } from "../../../src/services/bridge/across.js";
+import { type AcrossBridgeProvider, createAcrossProvider } from "../../../src/services/bridge/across.js";
 import { BridgeProvider, BridgeStatus, BRIDGE_CONFIG } from "../../../src/services/bridge/types.js";
 
 // Mock fetch

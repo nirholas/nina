@@ -6,7 +6,7 @@
  */
 // MCP tool for creating on-chain cryptocurrency payments
 
-import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool } from '@modelcontextprotocol/sdk/types.js';
 import type { PaymentService } from '../services/payment-service.js';
 import type { CurrencyService } from '../services/currency-service.js';
 import type { QrCodeData, CreatePaymentOnchainOutput } from '../types/index.js';

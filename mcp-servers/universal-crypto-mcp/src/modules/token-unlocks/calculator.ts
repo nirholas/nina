@@ -98,7 +98,7 @@ function calculateLinearVestingEvents(schedule: VestingSchedule): UnlockEvent[] 
   const tokensToVest = totalTokens - initialUnlock;
   const monthlyUnlock = tokensToVest / (vestingDurationDays / 30);
   
-  let currentDate = new Date(startDate);
+  const currentDate = new Date(startDate);
   const endDate = schedule.vestingEnd;
   
   while (currentDate <= endDate) {

@@ -6,7 +6,7 @@
  * @module api/coverage-gap
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { 
   generateCoverageReport,
   getCoverageGaps,

@@ -1,5 +1,5 @@
 // src/tools/binance-staking/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceETHStakingApiTools } from "./ETH-staking-api/index.js";
 import { registerBinanceSOLStakingApiTools } from "./SOL-staking-api/index.js";
 

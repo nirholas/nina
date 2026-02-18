@@ -15,7 +15,7 @@ import {
   AlertCircle,
   Share2,
 } from 'lucide-react';
-import { getTopCoins, getHistoricalPrices, TokenPrice } from '@/lib/market-data';
+import { getTopCoins, getHistoricalPrices, type TokenPrice } from '@/lib/market-data';
 import { useToast } from '@/components/Toast';
 
 const POPULAR_COINS = [

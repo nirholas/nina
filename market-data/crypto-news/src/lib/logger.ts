@@ -8,7 +8,7 @@
  * - Performance timing
  */
 
-import { NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server';
 
 export enum LogLevel {
   DEBUG = 'debug',

@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { Tool } from "@modelcontextprotocol/sdk/types"
+import { type Tool } from "@modelcontextprotocol/sdk/types"
 
 export const supportedTools :Tool[]= [
   {

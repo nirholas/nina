@@ -8,7 +8,7 @@
  * @schedule 0 * * * * (every hour)
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { archiveNews, getArchiveStats } from '@/lib/archive-service';
 
 export const runtime = 'nodejs';

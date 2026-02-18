@@ -1,5 +1,5 @@
 // src/tools/binance-sub-account/getSubAccountDepositAddress.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { subAccountApiClient } from "../../config/binanceClient.js";
 

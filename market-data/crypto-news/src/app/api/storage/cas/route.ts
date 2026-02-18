@@ -4,7 +4,7 @@
  * IPFS-style content-addressed storage for news articles and market data.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { checkRateLimitFromRequest, getRateLimitErrorResponse } from '@/lib/ratelimit';
 import { 
   cas,

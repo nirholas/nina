@@ -8,7 +8,7 @@
  * Blockchain network configurations for 8 supported chains
  */
 
-import { ChainConfig } from '@/types/contracts';
+import { type ChainConfig } from '@/types/contracts';
 
 // =============================================================================
 // CHAIN CONFIGURATIONS

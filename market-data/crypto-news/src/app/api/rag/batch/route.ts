@@ -6,7 +6,7 @@
  * Useful for dashboard widgets, multi-topic briefings, etc.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { askFast } from '@/lib/rag/ultimate-rag-service';
 import type { UltimateRAGResponse } from '@/lib/rag/ultimate-rag-service';
 import { BatchRequestSchema, formatValidationError } from '../schemas';

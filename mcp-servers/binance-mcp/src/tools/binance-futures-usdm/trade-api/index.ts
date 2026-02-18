@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/tools/binance-futures-usdm/trade-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceFuturesNewOrder } from "./newOrder.js";
 import { registerBinanceFuturesBatchOrders } from "./batchOrders.js";
 import { registerBinanceFuturesGetOrder } from "./getOrder.js";

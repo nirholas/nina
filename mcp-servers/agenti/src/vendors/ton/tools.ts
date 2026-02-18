@@ -16,7 +16,7 @@ import {
   internal,
   SendMode
 } from "@ton/ton"
-import { mnemonicToWalletKey, KeyPair } from "@ton/crypto"
+import { mnemonicToWalletKey, type KeyPair } from "@ton/crypto"
 
 import Logger from "@/utils/logger.js"
 

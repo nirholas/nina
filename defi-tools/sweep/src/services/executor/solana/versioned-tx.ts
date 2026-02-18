@@ -11,11 +11,11 @@ import { Connection,
   PublicKey,
   VersionedTransaction,
   TransactionMessage,
-  TransactionInstruction,
-  AddressLookupTableAccount,
+  type TransactionInstruction,
+  type AddressLookupTableAccount,
   ComputeBudgetProgram,
   Keypair,
-  Signer,
+  type Signer,
 } from "@solana/web3.js";
 import { PriorityFeesService, type PriorityLevel } from "../../solana/priority-fees.js";
 

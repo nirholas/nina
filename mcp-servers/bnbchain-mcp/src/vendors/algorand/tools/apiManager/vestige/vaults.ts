@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import { Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
+import { type Tool, ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
 import { ResponseProcessor } from '../../../utils/responseProcessor.js';
 import { env } from '../../../env.js';
 

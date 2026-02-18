@@ -1,5 +1,5 @@
 // src/tools/binance-wallet/travel-rule-api/submitDepositQuestionnaire.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { walletClient } from "../../../config/binanceClient.js";
 

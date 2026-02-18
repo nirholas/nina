@@ -14,7 +14,7 @@
  * @module api/premium/defi/protocols
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { getTopProtocols, getTopChains } from '@/lib/market-data';
 import { ApiError } from '@/lib/api-error';

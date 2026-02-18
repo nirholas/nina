@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-algo/future-algo/VPNewTrade.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { algoClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

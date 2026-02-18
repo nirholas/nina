@@ -7,7 +7,7 @@
  * events, clusters them, and returns a structured timeline.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getTimelineGenerator } from '@/lib/rag/timeline-generator';
 import { getUltimateRAGService } from '@/lib/rag/ultimate-rag-service';
 import { TimelineRequestSchema, formatValidationError } from '../schemas';

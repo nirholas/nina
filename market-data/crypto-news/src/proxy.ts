@@ -12,7 +12,7 @@
  * @see https://nextjs.org/docs/messages/middleware-to-proxy
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/navigation';
 

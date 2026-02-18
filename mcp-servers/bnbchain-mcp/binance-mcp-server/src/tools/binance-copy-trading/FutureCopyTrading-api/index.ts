@@ -5,7 +5,7 @@
  * @license MIT
  */
 // src/tools/binance-copy-trading/FutureCopyTrading-api/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceGetFuturesLeadTraderStatus } from "./getFuturesLeadTraderStatus.js";
 import { registerBinanceGetFuturesLeadTradingSymbolWhitelist } from "./getFuturesLeadTradingSymbolWhitelist.js";
 import { registerBinanceCopyTradingGetLeaders } from "./getLeadTraders.js";

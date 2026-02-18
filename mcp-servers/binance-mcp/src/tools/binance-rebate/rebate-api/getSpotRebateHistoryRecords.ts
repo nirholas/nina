@@ -1,5 +1,5 @@
 // src/tools/binance-pay/rebate-api/getSpotRebateHistoryRecords.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { rebateClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

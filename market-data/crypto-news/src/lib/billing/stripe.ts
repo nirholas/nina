@@ -10,9 +10,9 @@ import {
   STRIPE_CONFIG, 
   BILLING_TIERS, 
   USAGE_PRICING,
-  BillingTier, 
+  type BillingTier, 
   UsageType,
-  CustomerBilling 
+  type CustomerBilling 
 } from './config';
 
 // Lazy-initialize Stripe client to avoid build-time errors

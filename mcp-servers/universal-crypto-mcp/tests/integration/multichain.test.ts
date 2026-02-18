@@ -8,7 +8,7 @@
  */
 import { describe, it, expect, beforeEach, afterEach, vi, beforeAll } from "vitest"
 
-import { MockMcpServer, createMockMcpServer } from "../mocks/mcp"
+import { type MockMcpServer, createMockMcpServer } from "../mocks/mcp"
 import { TEST_ADDRESSES } from "../setup"
 
 // Define mock service functions

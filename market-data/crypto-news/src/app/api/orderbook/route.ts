@@ -9,7 +9,7 @@
  * @route GET /api/orderbook?view=dashboard - Get full dashboard
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import {
   getAggregatedOrderBook,
   estimateSlippage,

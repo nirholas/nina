@@ -10,7 +10,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import {
-  SDKConfig,
+  type SDKConfig,
   generateTypeScriptSDK,
   generatePythonSDK,
   generateGoSDK,

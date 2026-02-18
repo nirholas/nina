@@ -4,7 +4,8 @@
  * 💫 Breaking language barriers with AI 🌍
  */
 
-import { Router, Request, Response } from 'express';
+import { Router, type Request, type Response } from 'express';
+import { aiRateLimiter } from '../middleware/rateLimiter.js';
 
 const router = Router();
 
@@ -32,7 +33,7 @@ interface TranslateRequest {
  * POST /api/translate
  * Translates a batch of text strings using Groq's Llama API
  */
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', aiRateLimiter, async (req: Request, res: Response) => {
   try {
     const { texts, targetLanguage, sourceLanguage = 'en' }: TranslateRequest = req.body;
 

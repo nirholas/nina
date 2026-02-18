@@ -1,5 +1,5 @@
 // src/tools/binance-mining/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinanceAcquiringAlgorithm } from "./mining-api/acquiringAlgorithm.js";
 import { registerBinanceAcquiringCoinName } from "./mining-api/acquiringCoinname.js";
 import { registerBinanceHashRateResaleList } from "./mining-api/hashrateResaleList.js";

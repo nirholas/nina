@@ -8,7 +8,7 @@
  * @module coinpaprika
  */
 
-import { EXTERNAL_APIS, CACHE_TTL, CoinPaprikaTicker } from './external-apis';
+import { EXTERNAL_APIS, CACHE_TTL, type CoinPaprikaTicker } from './external-apis';
 import { cache } from './cache';
 
 const BASE_URL = EXTERNAL_APIS.COINPAPRIKA;

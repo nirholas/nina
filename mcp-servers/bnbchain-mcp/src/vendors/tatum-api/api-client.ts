@@ -4,8 +4,8 @@
  * @github github.com/nirholas
  * @license MIT
  */
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { TatumApiResponse, ToolExecutionContext } from './types.js';
+import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from 'axios';
+import { type TatumApiResponse, type ToolExecutionContext } from './types.js';
 
 export class TatumApiClient {
   private readonly client: AxiosInstance;

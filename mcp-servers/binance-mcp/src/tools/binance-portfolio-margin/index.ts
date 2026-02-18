@@ -1,5 +1,5 @@
 // src/tools/binance-portfolio-margin/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerBinancePortfolioMarginGetAccount } from "./getPortfolioMarginAccount.js";
 import { registerBinancePortfolioMarginGetCollateralRate } from "./getCollateralRate.js";
 import { registerBinancePortfolioMarginGetBankruptcyLoanAmount } from "./getPortfolioMarginBankruptcyLoanAmount.js";

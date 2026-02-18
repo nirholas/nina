@@ -1,4 +1,4 @@
-import { Portfolio, Position, RiskAssessment, TokenInfo, PriceData } from '../types.js';
+import { type Portfolio, type Position, type RiskAssessment, type TokenInfo, type PriceData } from '../types.js';
 import { config } from '../config.js';
 import { logger } from '../utils/logger.js';
 

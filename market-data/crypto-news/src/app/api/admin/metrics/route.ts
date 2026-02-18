@@ -5,7 +5,7 @@
  * Requires authentication via API key with admin role.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getMetricsSummary, getAllEndpointMetrics, getFailedPayments } from '@/lib/x402-metrics';
 import { performHealthCheck } from '@/lib/health-check';
 import { validateApiKey } from '@/lib/api-keys';

@@ -14,7 +14,7 @@
  * @module api/premium/api-keys
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { withX402 } from '@/lib/x402';
 import { db } from '@/lib/database';
 

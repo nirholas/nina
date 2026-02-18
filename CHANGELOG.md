@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.0] - 2026-02-18
+
+### Added
+
+#### opBNB Chain Support (Chain ID: 204 + 5611)
+
+- **ERC-8004 Contracts deployed on opBNB** — Both mainnet (204) and testnet (5611) with deterministic `0x8004` vanity addresses via CREATE2
+- **CLI support for 26 chains** — Expanded from 6 to 26 chains: BSC, opBNB, Ethereum, Base, Arbitrum, Optimism, Polygon, Avalanche, Linea, Scroll, zkSync Era, Mantle, Fantom, Gnosis, Celo, Moonbeam (testnets + mainnets)
+- **opBNB in erc8004-agents web app** — Full chain support in the agent creator UI
+- **Agent Runtime SDK** — Production-ready TypeScript runtime with A2A protocol, x402 micropayments, ERC-8004 on-chain identity, and discovery endpoints
+
+#### Documentation & Submission
+
+- **JUDGES.md** — Enhanced evaluator guide with agent runtime walkthrough
+- **contracts.md** — 24-chain deployment list (up from 22) including opBNB
+- **HACKATHON.md** — Complete on-chain proof table with opBNB testnet + mainnet
+- **Docker support** — Server environment configuration for docker-compose
+
+---
+
 ## [2.0.0] - 2026-02-11
 
 ### Added

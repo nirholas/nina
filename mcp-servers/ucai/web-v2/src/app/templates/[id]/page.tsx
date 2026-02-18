@@ -11,9 +11,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TEMPLATES, Template } from "@/lib/templates";
+import { TEMPLATES, type Template } from "@/lib/templates";
 import { NETWORKS, fetchAbiFromExplorer } from "@/lib/networks";
-import { parseAbi, generateServerPy, generateRequirementsTxt, AbiItem, extractTools, GeneratedTool } from "@/lib/generator";
+import { parseAbi, generateServerPy, generateRequirementsTxt, type AbiItem, extractTools, type GeneratedTool } from "@/lib/generator";
 
 export default function TemplatePage() {
   const params = useParams();

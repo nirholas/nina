@@ -5,7 +5,7 @@
  * @license Apache-2.0
  */
 // src/modules/copy-trading/FutureCopyTrading-api/unfollowTrader.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { copyTradingClient } from "../../../config/binanceClient.js";
 import { z } from "zod";
 

@@ -4,7 +4,7 @@
  * @github github.com/nirholas
  * @license Apache-2.0
  */
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { type McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import type { Address, Hash, Hex } from "viem"
 import { parseGwei } from "viem"
 import { privateKeyToAccount } from "viem/accounts"
@@ -215,7 +215,7 @@ export function registerTransactionTools(server: McpServer) {
         const account = privateKeyToAccount(privateKey as Hex)
 
         // Calculate new gas price
-        let txParams: any = {
+        const txParams: any = {
           account,
           to: account.address, // Send to self
           value: BigInt(0), // Zero value

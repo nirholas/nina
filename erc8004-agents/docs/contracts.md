@@ -1,13 +1,13 @@
 # Contract Addresses
 
-> All ERC-8004 registry addresses across 22 deployed chains.
+> All ERC-8004 registry addresses across 24 deployed chains.
 
 ---
 
 ## Deterministic Addresses (CREATE2)
 
-All contracts are deployed via the **SAFE Singleton Factory** using CREATE2. This produces **identical vanity addresses** on every chain (with one exception for mainnet bytecode — see below).
-
+All contracts are deployed via the **SAFE Singleton Factory** using CREATE2. This produces **identical vanity addresses** on every chain (with one exception for mainnet bytecode — see below).>
+> **24 chains total** — 8 testnets + 16 mainnets (including opBNB).
 ### Testnet Addresses (All Testnets)
 
 | Contract | Address |
@@ -36,6 +36,14 @@ All contracts are deployed via the **SAFE Singleton Factory** using CREATE2. Thi
 | **IdentityRegistry** | [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://testnet.bscscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e) | ✅ Live |
 | **ReputationRegistry** | [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://testnet.bscscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713) | ✅ Live |
 | **ValidationRegistry** | [`0x8004Cb1BF31DAf7788923b405b754f57acEB4272`](https://testnet.bscscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272) | ✅ Live |
+
+### opBNB Testnet (Chain ID: 5611)
+
+| Contract | Address | Status |
+|---|---|---|
+| **IdentityRegistry** | [`0x8004A818BFB912233c491871b3d84c89A494BD9e`](https://testnet.opbnbscan.com/address/0x8004A818BFB912233c491871b3d84c89A494BD9e) | ✅ Live |
+| **ReputationRegistry** | [`0x8004B663056A597Dffe9eCcC1965A193B7388713`](https://testnet.opbnbscan.com/address/0x8004B663056A597Dffe9eCcC1965A193B7388713) | ✅ Live |
+| **ValidationRegistry** | [`0x8004Cb1BF31DAf7788923b405b754f57acEB4272`](https://testnet.opbnbscan.com/address/0x8004Cb1BF31DAf7788923b405b754f57acEB4272) | ✅ Live |
 
 ### Ethereum Sepolia (Chain ID: 11155111)
 
@@ -90,6 +98,13 @@ All contracts are deployed via the **SAFE Singleton Factory** using CREATE2. Thi
 |---|---|---|
 | **IdentityRegistry** | [`0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`](https://bscscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432) | ✅ Live |
 | **ReputationRegistry** | [`0x8004BAa17C55a88189AE136b182e5fdA19dE9b63`](https://bscscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63) | ✅ Live |
+
+### opBNB (Chain ID: 204)
+
+| Contract | Address | Status |
+|---|---|---|
+| **IdentityRegistry** | [`0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`](https://opbnbscan.com/address/0x8004A169FB4a3325136EB29fA0ceB6D2e539a432) | ✅ Live |
+| **ReputationRegistry** | [`0x8004BAa17C55a88189AE136b182e5fdA19dE9b63`](https://opbnbscan.com/address/0x8004BAa17C55a88189AE136b182e5fdA19dE9b63) | ✅ Live |
 
 ### Ethereum Mainnet (Chain ID: 1)
 
@@ -203,6 +218,8 @@ Examples:
 ```
 eip155:97:0x8004A818BFB912233c491871b3d84c89A494BD9e       # BSC Testnet
 eip155:56:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432       # BSC Mainnet
+eip155:204:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432      # opBNB Mainnet
+eip155:5611:0x8004A818BFB912233c491871b3d84c89A494BD9e     # opBNB Testnet
 eip155:1:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432        # Ethereum Mainnet
 eip155:11155111:0x8004A818BFB912233c491871b3d84c89A494BD9e  # Sepolia
 eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432     # Base
@@ -229,6 +246,14 @@ cast call 0x8004A818BFB912233c491871b3d84c89A494BD9e "getVersion()" \
 # Ethereum Mainnet
 cast call 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432 "getVersion()" \
   --rpc-url https://eth.llamarpc.com
+
+# opBNB Mainnet
+cast call 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432 "getVersion()" \
+  --rpc-url https://opbnb-mainnet-rpc.bnbchain.org
+
+# opBNB Testnet
+cast call 0x8004A818BFB912233c491871b3d84c89A494BD9e "getVersion()" \
+  --rpc-url https://opbnb-testnet-rpc.bnbchain.org
 
 # Base
 cast call 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432 "getVersion()" \

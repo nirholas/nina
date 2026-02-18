@@ -5,7 +5,7 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import { FearGreed } from '../api/client';
+import { type FearGreed } from '../api/client';
 
 interface FearGreedGaugeProps {
   data: FearGreed;

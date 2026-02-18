@@ -5,7 +5,7 @@
  * Find articles similar to a given article.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getSimilarArticles } from '@/lib/rag';
 
 export const runtime = 'nodejs';

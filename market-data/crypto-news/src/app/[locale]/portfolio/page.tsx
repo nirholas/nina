@@ -13,7 +13,7 @@ import {
   TrendingUp,
   AlertCircle,
 } from 'lucide-react';
-import { usePortfolio, Holding } from '@/components/portfolio/PortfolioProvider';
+import { usePortfolio, type Holding } from '@/components/portfolio/PortfolioProvider';
 import { PortfolioSummary } from '@/components/portfolio/PortfolioSummary';
 import { HoldingsTable } from '@/components/portfolio/HoldingsTable';
 import { AddHoldingModal } from '@/components/portfolio/AddHoldingModal';
