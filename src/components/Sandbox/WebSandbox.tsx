@@ -1149,14 +1149,14 @@ export default function WebSandbox({
   
   // Initial run
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     runCode();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   // Update theme when app theme changes
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     setSettings(prev => ({
       ...prev,
       theme: appTheme === 'dark' ? 'vs-dark' : 'light'

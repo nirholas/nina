@@ -383,7 +383,7 @@ export default function UnifiedSandbox({
     await new Promise(resolve => setTimeout(resolve, 300));
     
     const result = func.outputs?.length > 0 
-      ? (func.outputs[0].type.includes('uint') ? Math.floor(Math.random() * 1000).toString() : 'true') // eslint-disable-line react-hooks/purity
+      ? (func.outputs[0].type.includes('uint') ? Math.floor(Math.random() * 1000).toString() : 'true')  
       : 'success';
     
     log('log', `✓ Result: ${result}`);
