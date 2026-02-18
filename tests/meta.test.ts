@@ -49,8 +49,8 @@ describe('Project Metadata', () => {
       expect(data.mcpServerCount).toBeGreaterThanOrEqual(6);
     });
 
-    it('has toolCount >= 900', () => {
-      expect(data.toolCount).toBeGreaterThanOrEqual(900);
+    it('has toolCount >= 1100', () => {
+      expect(data.toolCount).toBeGreaterThanOrEqual(1100);
     });
   });
 

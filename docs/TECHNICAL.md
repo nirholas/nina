@@ -41,9 +41,9 @@ flowchart TB
         DeFi[42 DeFi Agents]
     end
     subgraph MCP["MCP Servers (6)"]
-        BNBMCP[bnbchain-mcp — 100+ tools]
-        BinMCP[binance-mcp — 478+ tools]
-        UniMCP[universal-crypto-mcp — 100+ tools]
+        BNBMCP[bnbchain-mcp — 466+ tools]
+        BinMCP[binance-mcp — 554+ tools]
+        UniMCP[universal-crypto-mcp — 59+ tools]
         AgMCP[agenti — EVM + Solana]
         UCAI[ucai — ABI-to-MCP]
         BUSMCP[binance-us-mcp]

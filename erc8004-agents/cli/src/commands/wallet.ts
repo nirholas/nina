@@ -206,7 +206,7 @@ export async function walletExportCommand(): Promise<void> {
     return;
   }
 
-  let wallet: ethers.Wallet;
+  let wallet: ethers.Wallet | ethers.HDNodeWallet;
   if (config.keystore) {
     const password = await promptKeystorePassword();
     const spinner = ora('Decrypting wallet...').start();

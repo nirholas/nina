@@ -13,6 +13,6 @@
   <rect x="80" y="200" width="120" height="120" rx="24" fill="url(#accent)"/>
   <text x="140" y="290" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">B</text>
   <text x="230" y="290" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white">BNB Chain AI Toolkit</text>
-  <text x="80" y="380" font-family="Arial, sans-serif" font-size="32" fill="#94a3b8">78 AI agents, 6 MCP servers, 900+ tools for BNB Chain</text>
+  <text x="80" y="380" font-family="Arial, sans-serif" font-size="32" fill="#94a3b8">78 AI agents, 6 MCP servers, 1,100+ tools for BNB Chain</text>
   <text x="80" y="440" font-family="Arial, sans-serif" font-size="28" fill="#F0B90B">bnbchaintoolkit.com</text>
 </svg>

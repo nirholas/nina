@@ -13,6 +13,7 @@ import {
   shortenAddress,
   getBalance,
   ensureProvider,
+  getWalletAuthMethod,
 } from '../utils/wallet';
 import { getContracts } from '../utils/contracts';
 import { getTxUrl, getAddressUrl } from '../utils/chains';
@@ -288,14 +289,28 @@ export class WalletTreeProvider implements vscode.TreeDataProvider<vscode.TreeIt
 
     const wallet = getWallet()!;
     const chain = getActiveChain();
+    const authMethod = getWalletAuthMethod();
     const items: vscode.TreeItem[] = [];
+
+    // Auth method
+    const authIcon = authMethod === 'keystore' ? 'lock' : 'key';
+    const authLabel = authMethod === 'keystore' ? 'Keystore' : 'Private Key';
+    const authItem = new vscode.TreeItem(
+      `Auth: ${authLabel}`,
+      vscode.TreeItemCollapsibleState.None
+    );
+    authItem.iconPath = new vscode.ThemeIcon(authIcon);
+    authItem.tooltip = authMethod === 'keystore'
+      ? 'Connected via encrypted keystore file (recommended)'
+      : 'Connected via raw private key';
+    items.push(authItem);
 
     // Address
     const addrItem = new vscode.TreeItem(
       `Address: ${shortenAddress(wallet.address)}`,
       vscode.TreeItemCollapsibleState.None
     );
-    addrItem.iconPath = new vscode.ThemeIcon('key');
+    addrItem.iconPath = new vscode.ThemeIcon('person');
     addrItem.tooltip = wallet.address;
     addrItem.command = {
       command: 'vscode.env.clipboard.writeText',
@@ -346,6 +361,19 @@ export class WalletTreeProvider implements vscode.TreeDataProvider<vscode.TreeIt
       title: 'Disconnect',
     };
     items.push(disconnectItem);
+
+    // Export keystore
+    const exportItem = new vscode.TreeItem(
+      'Export Keystore',
+      vscode.TreeItemCollapsibleState.None
+    );
+    exportItem.iconPath = new vscode.ThemeIcon('export');
+    exportItem.tooltip = 'Export wallet as encrypted keystore JSON file';
+    exportItem.command = {
+      command: 'erc8004.exportKeystore',
+      title: 'Export Keystore',
+    };
+    items.push(exportItem);
 
     return items;
   }

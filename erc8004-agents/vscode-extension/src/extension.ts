@@ -227,6 +227,49 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     })
   );
 
+  // Wallet actions (status bar context menu)
+  context.subscriptions.push(
+    vscode.commands.registerCommand('erc8004.walletActions', async () => {
+      const connected = isConnected();
+      const items: Array<vscode.QuickPickItem & { id: string }> = [];
+
+      if (connected) {
+        items.push(
+          { label: '$(globe) Switch Chain', id: 'switchChain' },
+          { label: '$(export) Export Keystore', description: 'Save wallet as encrypted keystore file', id: 'exportKeystore' },
+          { label: '$(key) Switch Wallet', description: 'Connect a different wallet', id: 'connectWallet' },
+          { label: '$(debug-disconnect) Disconnect', id: 'disconnect' },
+        );
+      } else {
+        items.push(
+          { label: '$(key) Connect Wallet', id: 'connectWallet' },
+          { label: '$(globe) Switch Chain', id: 'switchChain' },
+        );
+      }
+
+      const pick = await vscode.window.showQuickPick(items, {
+        title: 'ERC-8004: Wallet Actions',
+        placeHolder: 'Select an action',
+      });
+
+      if (!pick) { return; }
+      switch (pick.id) {
+        case 'switchChain':
+          await vscode.commands.executeCommand('erc8004.switchChain');
+          break;
+        case 'exportKeystore':
+          await vscode.commands.executeCommand('erc8004.exportKeystore');
+          break;
+        case 'connectWallet':
+          await vscode.commands.executeCommand('erc8004.connectWallet');
+          break;
+        case 'disconnect':
+          await vscode.commands.executeCommand('erc8004.disconnectWallet');
+          break;
+      }
+    })
+  );
+
   // Export keystore
   context.subscriptions.push(
     vscode.commands.registerCommand('erc8004.exportKeystore', async () => {

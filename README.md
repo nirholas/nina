@@ -196,11 +196,11 @@ bnb-chain-toolkit/
 │   └── defi-agents/            #    42 general DeFi agents (30+ languages)
 │
 ├── mcp-servers/                # 🔌 6 Model Context Protocol servers
-│   ├── bnbchain-mcp/           #    BNB Chain + EVM (384 tools)
-│   ├── binance-mcp/            #    Binance.com (478+ tools)
+│   ├── bnbchain-mcp/           #    BNB Chain + EVM (466+ tools)
+│   ├── binance-mcp/            #    Binance.com (554+ tools)
 │   ├── binance-us-mcp/         #    Binance.US (US compliance)
-│   ├── universal-crypto-mcp/   #    60+ networks (100+ tools)
-│   ├── agenti/                 #    Universal EVM + Solana
+│   ├── universal-crypto-mcp/   #    60+ networks (59+ tools)
+│   ├── agenti/                 #    Universal EVM + Solana (58+ tools)
 │   └── ucai/                   #    ABI-to-MCP generator (Python)
 │
 ├── market-data/                # 📊 Market data & news
@@ -274,10 +274,10 @@ Model Context Protocol servers that give AI assistants direct blockchain access.
 
 | Server | Tools | What It Does |
 |--------|:-----:|-------------|
-| **BNB Chain MCP** | 100+ | BSC, opBNB, Greenfield — swaps, transfers, contracts |
-| **Binance MCP** | 478+ | Spot, futures, margin trading on Binance.com |
+| **BNB Chain MCP** | 466+ | BSC, opBNB, Greenfield — swaps, transfers, contracts |
+| **Binance MCP** | 554+ | Spot, futures, margin trading on Binance.com |
 | **Binance US MCP** | — | US regulatory-compliant Binance access |
-| **Universal Crypto MCP** | 100+ | 60+ networks, cross-chain DeFi |
+| **Universal Crypto MCP** | 59+ | 60+ networks, cross-chain DeFi |
 | **Agenti** | — | EVM + Solana, AI-to-AI payments (x402) |
 | **UCAI** | Dynamic | Turn any smart contract ABI into an MCP server |
 
@@ -360,10 +360,10 @@ bun run sweep --wallet 0xYourAddress --target USDC  # Execute
 
 | Category | Count | Source |
 |----------|------:|--------|
-| BNB Chain + EVM on-chain tools | 384 | bnbchain-mcp |
-| Binance exchange tools | 478+ | binance-mcp |
-| Cross-chain DeFi tools | 100+ | universal-crypto-mcp |
-| EVM chain tools | 50+ | agenti |
+| BNB Chain + EVM on-chain tools | 466+ | bnbchain-mcp |
+| Binance exchange tools | 554+ | binance-mcp |
+| Cross-chain DeFi tools | 59+ | universal-crypto-mcp |
+| EVM chain tools | 58+ | agenti |
 | ABI-to-MCP generation | Dynamic | ucai |
 | Market data endpoints | 150+ | crypto-news + crypto-market-data |
 | Wallet operations | 20+ | ethereum-wallet-toolkit |

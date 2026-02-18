@@ -89,7 +89,7 @@
     <!-- Tools -->
     <g transform="translate(400, 0)">
       <rect x="-45" y="-12" width="90" height="42" rx="8" fill="#00B4D8" opacity="0.1" />
-      <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#00B4D8">900+</text>
+      <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#00B4D8">1,100+</text>
       <text x="0" y="24" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666">TOOLS</text>
     </g>
 

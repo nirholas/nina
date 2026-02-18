@@ -2,9 +2,12 @@ package agency.erc8004;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
 
+import java.io.File;
 import java.util.Base64;
 import java.util.List;
 import java.util.Objects;

@@ -48,10 +48,10 @@ bnb-chain-toolkit/
 │       └── scripts/                 # Build tools
 │
 ├── mcp-servers/                     # Model Context Protocol servers
-│   ├── bnbchain-mcp/                # BNB Chain + EVM (100+ tools)
-│   ├── binance-mcp/                 # Binance.com (478+ tools)
+│   ├── bnbchain-mcp/                # BNB Chain + EVM (466+ tools)
+│   ├── binance-mcp/                 # Binance.com (554+ tools)
 │   ├── binance-us-mcp/              # Binance.US (US compliance)
-│   ├── universal-crypto-mcp/        # 60+ networks (100+ tools)
+│   ├── universal-crypto-mcp/        # 60+ networks (59+ tools)
 │   ├── agenti/                      # EVM + Solana MCP
 │   └── ucai/                        # ABI-to-MCP generator (Python)
 │
