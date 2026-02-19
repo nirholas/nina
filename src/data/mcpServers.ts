@@ -32,6 +32,7 @@ export interface MCPServer {
   configSnippet: string;
   chains?: string[];
   highlights: string[];
+  httpEndpoint?: string;
 }
 
 export interface ToolEntry {
@@ -162,6 +163,7 @@ export const mcpServers: MCPServer[] = [
       "DEX aggregation",
       "DeFi analytics",
     ],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/bnbchain-mcp",
   },
   {
     id: "binance-mcp",
@@ -311,6 +313,7 @@ export const mcpServers: MCPServer[] = [
       "Copy trading",
       "Earn & staking",
     ],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/binance-mcp",
   },
   {
     id: "binance-us-mcp",
@@ -413,6 +416,7 @@ export const mcpServers: MCPServer[] = [
       "OTC trading",
       "Custodial API",
     ],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/binance-us-mcp",
   },
   {
     id: "universal-crypto-mcp",
@@ -562,6 +566,7 @@ export const mcpServers: MCPServer[] = [
       "Multi-DEX",
       "Bridge support",
     ],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/universal-crypto-mcp",
   },
   {
     id: "agenti",
@@ -702,6 +707,7 @@ export const mcpServers: MCPServer[] = [
       "x402 payments",
       "Whale tracking",
     ],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/agenti",
   },
   {
     id: "ucai",
@@ -796,6 +802,751 @@ export const mcpServers: MCPServer[] = [
       "Web builder",
       "Python",
     ],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/ucai",
+  },
+  // ── Gateway-deployed MCP servers ──────────────────────────────────────
+  {
+    id: "crypto-market-data",
+    name: "Crypto Market Data",
+    description:
+      "Live cryptocurrency and DeFi market data from CoinGecko",
+    longDescription:
+      "Real-time and historical cryptocurrency market data powered by CoinGecko. Get prices, market caps, volumes, trending coins, and global statistics — perfect for AI agents that need live market context.",
+    language: "TypeScript",
+    toolCount: "6",
+    repoPath: "market-data/crypto-market-data",
+    features: [
+      "Real-time prices for 10,000+ cryptocurrencies",
+      "Market cap and volume data",
+      "Trending coins and global stats",
+      "Historical price data and OHLCV",
+      "CoinGecko API integration",
+      "Zero API key required for basic usage",
+    ],
+    toolCategories: [
+      {
+        name: "Price Data",
+        count: 4,
+        tools: ["get_price", "get_market_overview", "get_trending", "search_coins"],
+      },
+      {
+        name: "Analytics",
+        count: 2,
+        tools: ["get_coin_detail", "get_global_stats"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/crypto-market-data",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "crypto-market-data": { type: "http", url: "https://modelcontextprotocol.name/mcp/crypto-market-data" } } },
+      null, 2,
+    ),
+    highlights: ["6 tools", "CoinGecko", "No API key", "Real-time", "Free tier"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/crypto-market-data",
+  },
+  {
+    id: "crypto-market-data-ts",
+    name: "Crypto Market Data TS",
+    description:
+      "Cryptocurrency market data with CoinGecko, DeFiLlama, and Fear & Greed Index",
+    longDescription:
+      "Comprehensive cryptocurrency market data service combining CoinGecko prices, DeFiLlama TVL and protocol data, and the Fear & Greed Index. Built-in caching, rate limiting, and Edge Runtime compatibility.",
+    language: "TypeScript",
+    toolCount: "10",
+    repoPath: "market-data/crypto-market-data-ts",
+    features: [
+      "CoinGecko price feeds with caching",
+      "DeFiLlama TVL and protocol analytics",
+      "Fear & Greed Index integration",
+      "Built-in rate limiting",
+      "Edge Runtime compatible",
+      "TypeScript-first with full type safety",
+    ],
+    toolCategories: [
+      {
+        name: "Prices",
+        count: 4,
+        tools: ["get_price", "get_market_overview", "get_trending", "search_coins"],
+      },
+      {
+        name: "DeFi Analytics",
+        count: 4,
+        tools: ["get_defi_protocols", "get_protocol_detail", "get_chain_tvl", "get_yield_opportunities"],
+      },
+      {
+        name: "Sentiment",
+        count: 2,
+        tools: ["get_fear_greed_index", "get_global_stats"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/crypto-market-data-ts",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "crypto-market-data-ts": { type: "http", url: "https://modelcontextprotocol.name/mcp/crypto-market-data-ts" } } },
+      null, 2,
+    ),
+    highlights: ["10 tools", "3 data sources", "Edge ready", "TypeScript", "Cached"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/crypto-market-data-ts",
+  },
+  {
+    id: "crypto-data-aggregator",
+    name: "Crypto Data Aggregator",
+    description:
+      "Real-time cryptocurrency market data aggregator — 10,000+ coins, 200+ DeFi protocols, portfolios, alerts, sentiment",
+    longDescription:
+      "Full-featured cryptocurrency market data aggregator. Track 10,000+ coins, monitor 200+ DeFi protocols, manage portfolios, set price alerts, and analyze market sentiment — all in one service.",
+    language: "TypeScript",
+    toolCount: "10",
+    repoPath: "market-data/crypto-data-aggregator",
+    features: [
+      "10,000+ coin tracking",
+      "200+ DeFi protocol monitoring",
+      "Portfolio management",
+      "Price alerts",
+      "Market sentiment analysis",
+      "Multi-source data aggregation",
+    ],
+    toolCategories: [
+      {
+        name: "Market Data",
+        count: 5,
+        tools: ["get_price", "get_market_overview", "get_trending", "search_coins", "get_global_stats"],
+      },
+      {
+        name: "DeFi",
+        count: 3,
+        tools: ["get_defi_protocols", "get_protocol_detail", "get_chain_tvl"],
+      },
+      {
+        name: "Analytics",
+        count: 2,
+        tools: ["get_sentiment", "get_portfolio_summary"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/crypto-data-aggregator",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "crypto-data-aggregator": { type: "http", url: "https://modelcontextprotocol.name/mcp/crypto-data-aggregator" } } },
+      null, 2,
+    ),
+    highlights: ["10 tools", "10K+ coins", "200+ protocols", "Alerts", "Sentiment"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/crypto-data-aggregator",
+  },
+  {
+    id: "free-crypto-news",
+    name: "Free Crypto News",
+    description:
+      "Free crypto news — real-time aggregator for Bitcoin, Ethereum, DeFi, and altcoins",
+    longDescription:
+      "Free crypto news API — real-time aggregator for Bitcoin, Ethereum, DeFi, Solana & altcoins. No API key required. RSS/Atom feeds, JSON REST API, historical archive with market context. AI/LLM ready.",
+    language: "TypeScript",
+    toolCount: "4",
+    repoPath: "market-data/free-crypto-news",
+    features: [
+      "Real-time crypto news aggregation",
+      "No API key required",
+      "RSS/Atom feeds and JSON API",
+      "Historical archive with market context",
+      "AI/LLM optimized output",
+      "Bitcoin, Ethereum, DeFi, altcoin coverage",
+    ],
+    toolCategories: [
+      {
+        name: "News",
+        count: 4,
+        tools: ["get_latest_news", "search_news", "get_trending_topics", "get_news_by_coin"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/free-crypto-news",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "free-crypto-news": { type: "http", url: "https://modelcontextprotocol.name/mcp/free-crypto-news" } } },
+      null, 2,
+    ),
+    highlights: ["4 tools", "No API key", "Real-time", "Free", "AI-ready"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/free-crypto-news",
+  },
+  {
+    id: "sperax-crypto-mcp",
+    name: "Sperax Crypto MCP",
+    description:
+      "MCP server for Sperax Protocol — USDs, SPA, veSPA & Demeter on Arbitrum and BNB Chain",
+    longDescription:
+      "Dedicated MCP server for the Sperax Protocol ecosystem. Access USDs stablecoin data, SPA tokenomics, veSPA governance, and Demeter yield farming — all on Arbitrum and BNB Chain. Listed on Anthropic's official MCP Registry.",
+    language: "TypeScript",
+    toolCount: "6",
+    repoPath: "mcp-servers/sperax-crypto-mcp",
+    features: [
+      "USDs stablecoin balance and yield data",
+      "SPA token price and supply metrics",
+      "veSPA governance and voting power",
+      "Demeter farming pool analytics",
+      "Arbitrum and BNB Chain support",
+      "Listed on Anthropic MCP Registry",
+    ],
+    toolCategories: [
+      {
+        name: "Sperax Protocol",
+        count: 6,
+        tools: ["get_usds_info", "get_spa_price", "get_vespa_stats", "get_demeter_pools", "get_protocol_tvl", "get_yield_data"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/sperax-crypto-mcp",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "sperax-crypto-mcp": { type: "http", url: "https://modelcontextprotocol.name/mcp/sperax-crypto-mcp" } } },
+      null, 2,
+    ),
+    chains: ["Arbitrum", "BNB Chain"],
+    highlights: ["6 tools", "Sperax", "USDs", "Arbitrum", "Official registry"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/sperax-crypto-mcp",
+  },
+  {
+    id: "defi-agents",
+    name: "DeFi Agents",
+    description:
+      "DeFi agent definitions — production-ready agents for Web3, crypto trading, portfolio management, and blockchain automation",
+    longDescription:
+      "42 production-ready AI agent definitions for DeFi, portfolio management, trading, and Web3 workflows. Includes market data tools for prices, protocols, trending coins, and yield opportunities.",
+    language: "TypeScript",
+    toolCount: "10",
+    repoPath: "agents/defi-agents",
+    features: [
+      "42 production-ready agent definitions",
+      "Crypto price feeds via CoinGecko",
+      "DeFi protocol data via DeFiLlama",
+      "Trending coins and market overview",
+      "Yield opportunity discovery",
+      "30+ language translations",
+    ],
+    toolCategories: [
+      {
+        name: "Market Data",
+        count: 6,
+        tools: ["get_price", "get_market_overview", "get_trending", "search_coins", "get_coin_detail", "get_global_stats"],
+      },
+      {
+        name: "DeFi",
+        count: 4,
+        tools: ["get_defi_protocols", "get_protocol_detail", "get_chain_tvl", "get_yield_opportunities"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/defi-agents",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "defi-agents": { type: "http", url: "https://modelcontextprotocol.name/mcp/defi-agents" } } },
+      null, 2,
+    ),
+    highlights: ["10 tools", "42 agents", "DeFi", "Trading", "Multi-language"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/defi-agents",
+  },
+  {
+    id: "ethereum-wallet-toolkit",
+    name: "Ethereum Wallet Toolkit",
+    description:
+      "Ethereum wallet information — ENS resolution, balance lookups, and address validation (read-only)",
+    longDescription:
+      "Python toolkit for Ethereum wallets — ENS resolution, balance lookups, address validation, BIP39/BIP44 HD wallets, Web3 Secret Storage V3 keystores, and EIP-712 typed data signing. Read-only public data via MCP.",
+    language: "Python",
+    toolCount: "3",
+    repoPath: "wallets/ethereum-wallet-toolkit",
+    features: [
+      "ENS name resolution",
+      "ETH balance lookups",
+      "Address validation",
+      "Read-only — no private keys",
+      "BIP39/BIP44 HD wallet generation (CLI)",
+      "EIP-712 typed data signing (CLI)",
+    ],
+    toolCategories: [
+      {
+        name: "Wallet Info",
+        count: 3,
+        tools: ["resolve_ens", "get_balance", "validate_address"],
+      },
+    ],
+    installCommand: "pip install ethereum-wallet-toolkit",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "ethereum-wallet-toolkit": { type: "http", url: "https://modelcontextprotocol.name/mcp/ethereum-wallet-toolkit" } } },
+      null, 2,
+    ),
+    chains: ["Ethereum"],
+    highlights: ["3 tools", "ENS", "Read-only", "Python", "Secure"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/ethereum-wallet-toolkit",
+  },
+  {
+    id: "solana-wallet-toolkit",
+    name: "Solana Wallet Toolkit",
+    description:
+      "Solana Development Toolkit — SOL price, network stats, and token lookups",
+    longDescription:
+      "Solana development toolkit with vanity address generation, SOL price data, network statistics, and token lookups. Multi-threaded search using all CPU cores for efficient address generation.",
+    language: "TypeScript",
+    toolCount: "4",
+    repoPath: "wallets/solana-wallet-toolkit",
+    features: [
+      "SOL price and market data",
+      "Solana network statistics",
+      "Token information lookups",
+      "Vanity address generation (CLI)",
+      "Multi-threaded Rust + TypeScript",
+      "Read-only public data via MCP",
+    ],
+    toolCategories: [
+      {
+        name: "Solana Data",
+        count: 4,
+        tools: ["get_sol_price", "get_network_stats", "get_token_info", "get_account_info"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/solana-wallet-toolkit",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "solana-wallet-toolkit": { type: "http", url: "https://modelcontextprotocol.name/mcp/solana-wallet-toolkit" } } },
+      null, 2,
+    ),
+    chains: ["Solana"],
+    highlights: ["4 tools", "Solana", "SOL price", "Network stats", "TypeScript"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/solana-wallet-toolkit",
+  },
+  {
+    id: "boosty-defi",
+    name: "Boosty DeFi",
+    description:
+      "DeFi yield farming, price analysis, and portfolio tools — compare yields across protocols, find opportunities",
+    longDescription:
+      "All-in-one DeFi toolkit for yield farming analysis, price comparisons, and portfolio management. Compare yields across protocols, discover farming opportunities, analyze token performance, and track portfolio allocations.",
+    language: "TypeScript",
+    toolCount: "14",
+    repoPath: "defi-tools/boosty",
+    features: [
+      "Yield farming comparison across protocols",
+      "Token price analysis and charting",
+      "Portfolio tracking and allocation",
+      "APY/APR calculations",
+      "Impermanent loss estimation",
+      "Multi-chain DeFi coverage",
+    ],
+    toolCategories: [
+      {
+        name: "Yield Farming",
+        count: 5,
+        tools: ["get_yield_farms", "compare_yields", "get_pool_stats", "estimate_rewards", "get_farming_history"],
+      },
+      {
+        name: "Price Analysis",
+        count: 5,
+        tools: ["get_token_price", "get_price_chart", "compare_tokens", "get_market_cap", "get_volume"],
+      },
+      {
+        name: "Portfolio",
+        count: 4,
+        tools: ["get_portfolio", "get_allocation", "get_pnl", "rebalance_suggestion"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/boosty-defi",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "boosty-defi": { type: "http", url: "https://modelcontextprotocol.name/mcp/boosty-defi" } } },
+      null, 2,
+    ),
+    highlights: ["14 tools", "Yield farming", "Portfolio", "Multi-chain", "DeFi"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/boosty-defi",
+  },
+  {
+    id: "x402-stablecoin",
+    name: "x402 Stablecoin",
+    description:
+      "Read-only tools for x402 payment protocol and Sperax USDs stablecoin — check balances, gas estimates, and payment info on Arbitrum",
+    longDescription:
+      "Read-only tools for the x402 payment protocol enabling AI agents to autonomously pay for APIs. Check USDs stablecoin balances, estimate gas costs, and query payment channel info on Arbitrum.",
+    language: "TypeScript",
+    toolCount: "4",
+    repoPath: "standards/x402-stablecoin",
+    features: [
+      "USDs stablecoin balance checks",
+      "Gas estimation for Arbitrum transactions",
+      "Payment channel status queries",
+      "x402 protocol information",
+      "Read-only — no private keys required",
+      "Arbitrum network support",
+    ],
+    toolCategories: [
+      {
+        name: "x402 Protocol",
+        count: 4,
+        tools: ["check_balance", "estimate_gas", "get_payment_info", "get_protocol_status"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/x402-stablecoin",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "x402-stablecoin": { type: "http", url: "https://modelcontextprotocol.name/mcp/x402-stablecoin" } } },
+      null, 2,
+    ),
+    chains: ["Arbitrum"],
+    highlights: ["4 tools", "x402", "USDs", "Read-only", "Arbitrum"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/x402-stablecoin",
+  },
+  {
+    id: "sweep-defi",
+    name: "Sweep DeFi",
+    description:
+      "DeFi dust analysis — find small token balances worth consolidating, estimate gas costs, and discover yield opportunities for idle tokens",
+    longDescription:
+      "Multi-chain dust sweeper that analyzes small token balances worth consolidating into DeFi yield. Find dust across wallets, estimate gas costs for consolidation, and discover yield opportunities for idle tokens.",
+    language: "TypeScript",
+    toolCount: "4",
+    repoPath: "defi-tools/sweep",
+    features: [
+      "Multi-chain dust detection",
+      "Gas cost estimation for consolidation",
+      "Yield opportunity discovery",
+      "Token balance analysis",
+      "ERC-4337 account abstraction support",
+      "MEV-protected swaps via CoW Protocol",
+    ],
+    toolCategories: [
+      {
+        name: "Dust Analysis",
+        count: 4,
+        tools: ["find_dust", "estimate_sweep_cost", "get_yield_options", "analyze_balances"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/sweep-defi",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "sweep-defi": { type: "http", url: "https://modelcontextprotocol.name/mcp/sweep-defi" } } },
+      null, 2,
+    ),
+    chains: ["Ethereum", "Base", "Arbitrum", "Polygon", "Solana"],
+    highlights: ["4 tools", "Dust sweeper", "Multi-chain", "Yield", "Gasless"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/sweep-defi",
+  },
+  {
+    id: "github-to-mcp",
+    name: "GitHub to MCP",
+    description:
+      "Convert GitHub repositories to MCP servers — extract tools from OpenAPI, GraphQL & REST APIs",
+    longDescription:
+      "Automatically convert GitHub repositories into MCP servers. Extract tools from OpenAPI, GraphQL & REST APIs for Claude Desktop, Cursor, Windsurf, Cline & VS Code. AI-powered code generation creates type-safe TypeScript/Python MCP servers.",
+    language: "TypeScript",
+    toolCount: "2",
+    repoPath: "mcp-servers/github-to-mcp",
+    features: [
+      "Auto-extract tools from OpenAPI specs",
+      "GraphQL schema to MCP conversion",
+      "REST API endpoint extraction",
+      "AI-powered code generation",
+      "Type-safe TypeScript/Python output",
+      "Zero config — just paste a repo URL",
+    ],
+    toolCategories: [
+      {
+        name: "Conversion",
+        count: 2,
+        tools: ["convert_repo", "analyze_api"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/github-to-mcp",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "github-to-mcp": { type: "http", url: "https://modelcontextprotocol.name/mcp/github-to-mcp" } } },
+      null, 2,
+    ),
+    highlights: ["2 tools", "Auto-convert", "OpenAPI", "GraphQL", "Zero config"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/github-to-mcp",
+  },
+  {
+    id: "mcp-notify",
+    name: "MCP Notify",
+    description:
+      "Monitor the MCP Registry for new, updated, and removed servers. Get MCP ecosystem stats.",
+    longDescription:
+      "Monitor the Model Context Protocol Registry for changes. Get real-time notifications via Discord, Slack, Email, Telegram, Microsoft Teams, Webhooks, or RSS feeds. Track new servers, updates, and ecosystem statistics.",
+    language: "TypeScript",
+    toolCount: "2",
+    repoPath: "mcp-servers/mcp-notify",
+    features: [
+      "MCP Registry change monitoring",
+      "Multi-channel notifications",
+      "Discord, Slack, Telegram support",
+      "Ecosystem statistics",
+      "RSS feed generation",
+      "CLI and Go SDK available",
+    ],
+    toolCategories: [
+      {
+        name: "Registry",
+        count: 2,
+        tools: ["get_registry_stats", "get_recent_changes"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/mcp-notify",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "mcp-notify": { type: "http", url: "https://modelcontextprotocol.name/mcp/mcp-notify" } } },
+      null, 2,
+    ),
+    highlights: ["2 tools", "Registry monitor", "Notifications", "Stats", "Multi-channel"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/mcp-notify",
+  },
+  {
+    id: "mcp-servers-collection",
+    name: "MCP Servers Collection",
+    description:
+      "Curated collection of production-ready MCP servers for crypto, blockchain, DeFi, and Web3",
+    longDescription:
+      "A curated catalog of production-ready MCP servers focused on crypto, blockchain, DeFi, and Web3. Browse available servers, discover capabilities, and find the right MCP server for your AI agent workflow.",
+    language: "TypeScript",
+    toolCount: "1",
+    repoPath: "mcp-servers/collection",
+    features: [
+      "Curated MCP server catalog",
+      "Crypto and Web3 focused",
+      "Server capability discovery",
+      "Production-ready recommendations",
+      "Category-based browsing",
+      "Integration guides",
+    ],
+    toolCategories: [
+      {
+        name: "Catalog",
+        count: 1,
+        tools: ["list_servers"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/mcp-servers-collection",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "mcp-servers-collection": { type: "http", url: "https://modelcontextprotocol.name/mcp/mcp-servers-collection" } } },
+      null, 2,
+    ),
+    highlights: ["1 tool", "Curated", "Web3", "Catalog", "Discovery"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/mcp-servers-collection",
+  },
+  {
+    id: "lyra-intel",
+    name: "Lyra Intel",
+    description:
+      "Code intelligence — analyze GitHub repos, search code, get repo structure and security insights via GitHub API",
+    longDescription:
+      "Intelligence platform for analyzing repositories of any size. Analyze GitHub repos, search code, get repo structure, and security insights — from small projects to enterprise monorepos with millions of lines of code.",
+    language: "TypeScript",
+    toolCount: "6",
+    repoPath: "packages/lyra-intel",
+    features: [
+      "GitHub repository analysis",
+      "Code search across repos",
+      "Repository structure mapping",
+      "Security vulnerability scanning",
+      "Dependency analysis",
+      "Enterprise monorepo support",
+    ],
+    toolCategories: [
+      {
+        name: "Repo Analysis",
+        count: 4,
+        tools: ["analyze_repo", "search_code", "get_structure", "get_dependencies"],
+      },
+      {
+        name: "Security",
+        count: 2,
+        tools: ["scan_vulnerabilities", "get_security_insights"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/lyra-intel",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "lyra-intel": { type: "http", url: "https://modelcontextprotocol.name/mcp/lyra-intel" } } },
+      null, 2,
+    ),
+    highlights: ["6 tools", "Code intel", "GitHub API", "Security", "Enterprise"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/lyra-intel",
+  },
+  {
+    id: "lyra-registry",
+    name: "Lyra Registry",
+    description:
+      "MCP server registry — search and discover MCP servers, tools, and capabilities across the ecosystem",
+    longDescription:
+      "Standalone API + MCP service that catalogs, scores, and serves metadata for all tools in the Lyra ecosystem. Enables discovery, evaluation, and integration of 800+ crypto, blockchain, DeFi, and Web3 tools.",
+    language: "TypeScript",
+    toolCount: "3",
+    repoPath: "packages/lyra-registry",
+    features: [
+      "800+ tool catalog",
+      "Tool scoring and evaluation",
+      "Full-text search across tools",
+      "Category-based discovery",
+      "Metadata and capability queries",
+      "REST API + MCP interface",
+    ],
+    toolCategories: [
+      {
+        name: "Discovery",
+        count: 3,
+        tools: ["search_tools", "get_tool_detail", "list_categories"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/lyra-registry",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "lyra-registry": { type: "http", url: "https://modelcontextprotocol.name/mcp/lyra-registry" } } },
+      null, 2,
+    ),
+    highlights: ["3 tools", "800+ tools", "Registry", "Search", "Scoring"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/lyra-registry",
+  },
+  {
+    id: "extract-llms-docs",
+    name: "Extract LLMs Docs",
+    description:
+      "Extract documentation from websites supporting llms.txt — the standard for making docs AI-ready",
+    longDescription:
+      "Extract documentation for AI agents from any site with llms.txt support. Features MCP server, REST API, batch processing, and multiple export formats — the standard for making documentation AI-ready.",
+    language: "TypeScript",
+    toolCount: "5",
+    repoPath: "packages/extract-llms-docs",
+    features: [
+      "llms.txt standard support",
+      "Documentation extraction",
+      "Batch URL processing",
+      "Multiple export formats",
+      "REST API interface",
+      "AI-ready output formatting",
+    ],
+    toolCategories: [
+      {
+        name: "Extraction",
+        count: 5,
+        tools: ["extract_docs", "batch_extract", "get_llms_txt", "convert_format", "validate_llms_txt"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/extract-llms-docs",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "extract-llms-docs": { type: "http", url: "https://modelcontextprotocol.name/mcp/extract-llms-docs" } } },
+      null, 2,
+    ),
+    highlights: ["5 tools", "llms.txt", "Docs extraction", "Batch", "AI-ready"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/extract-llms-docs",
+  },
+  {
+    id: "ai-agents-library",
+    name: "AI Agents Library",
+    description:
+      "Browse and search 400+ specialized AI agent templates — crypto, DeFi, trading, research, coding, and more",
+    longDescription:
+      "A comprehensive collection of 400+ specialized AI agents with universal compatibility. Browse, search, and discover agent templates for crypto, DeFi, trading, research, coding, and more — works with any AI platform.",
+    language: "TypeScript",
+    toolCount: "3",
+    repoPath: "agents",
+    features: [
+      "400+ agent templates",
+      "Full-text search",
+      "Category browsing",
+      "Universal format",
+      "No vendor lock-in",
+      "30+ language translations",
+    ],
+    toolCategories: [
+      {
+        name: "Agent Discovery",
+        count: 3,
+        tools: ["search_agents", "get_agent_detail", "list_categories"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/ai-agents-library",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "ai-agents-library": { type: "http", url: "https://modelcontextprotocol.name/mcp/ai-agents-library" } } },
+      null, 2,
+    ),
+    highlights: ["3 tools", "400+ agents", "Universal", "Multi-language", "Search"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/ai-agents-library",
+  },
+  {
+    id: "xactions",
+    name: "XActions",
+    description:
+      "X/Twitter data tools — search tweets, trending topics, and social media intelligence (read-only public data)",
+    longDescription:
+      "The complete X/Twitter toolkit for AI agents. Search tweets, track trending topics, and gather social media intelligence from public data — no API keys or fees required. Read-only public data access.",
+    language: "TypeScript",
+    toolCount: "3",
+    repoPath: "packages/xactions",
+    features: [
+      "Tweet search and discovery",
+      "Trending topic tracking",
+      "Social media intelligence",
+      "No API keys required",
+      "Read-only public data",
+      "Real-time data access",
+    ],
+    toolCategories: [
+      {
+        name: "X/Twitter",
+        count: 3,
+        tools: ["search_tweets", "get_trending", "get_user_tweets"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/xactions",
+    configSnippet: JSON.stringify(
+      { mcpServers: { xactions: { type: "http", url: "https://modelcontextprotocol.name/mcp/xactions" } } },
+      null, 2,
+    ),
+    highlights: ["3 tools", "X/Twitter", "No API key", "Read-only", "Real-time"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/xactions",
+  },
+  {
+    id: "w3ag",
+    name: "W3AG",
+    description:
+      "Web3 Accessibility Guidelines (W3AG) reference — the first open standard for making blockchain applications accessible to everyone",
+    longDescription:
+      "Web3 Accessibility Guidelines (W3AG) MCP server — the first open standard for making blockchain, DeFi, and crypto applications accessible to people with disabilities. Query guidelines, check compliance, and get accessibility recommendations.",
+    language: "TypeScript",
+    toolCount: "2",
+    repoPath: "standards/w3ag",
+    features: [
+      "W3AG guideline reference",
+      "Accessibility compliance checking",
+      "Blockchain UX recommendations",
+      "Wallet accessibility standards",
+      "Transaction signing guidelines",
+      "Address readability standards",
+    ],
+    toolCategories: [
+      {
+        name: "Accessibility",
+        count: 2,
+        tools: ["get_guidelines", "check_compliance"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/w3ag",
+    configSnippet: JSON.stringify(
+      { mcpServers: { w3ag: { type: "http", url: "https://modelcontextprotocol.name/mcp/w3ag" } } },
+      null, 2,
+    ),
+    highlights: ["2 tools", "Accessibility", "Open standard", "Web3 UX", "WCAG"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/w3ag",
+  },
+  {
+    id: "plugin-delivery",
+    name: "Plugin Delivery",
+    description:
+      "AI plugin marketplace toolkit — search plugins, discover integrations, and explore the plugin.delivery ecosystem",
+    longDescription:
+      "AI plugin marketplace SDK and gateway. Search plugins, discover integrations, and explore the plugin.delivery ecosystem. OpenAPI compatible, multi-language support, and Vercel edge deployment.",
+    language: "TypeScript",
+    toolCount: "2",
+    repoPath: "packages/plugin-delivery",
+    features: [
+      "Plugin marketplace search",
+      "Integration discovery",
+      "OpenAPI compatible",
+      "Multi-language support",
+      "Vercel edge deployment",
+      "Developer tools and SDK",
+    ],
+    toolCategories: [
+      {
+        name: "Marketplace",
+        count: 2,
+        tools: ["search_plugins", "get_plugin_detail"],
+      },
+    ],
+    installCommand: "npx -y @nirholas/plugin-delivery",
+    configSnippet: JSON.stringify(
+      { mcpServers: { "plugin-delivery": { type: "http", url: "https://modelcontextprotocol.name/mcp/plugin-delivery" } } },
+      null, 2,
+    ),
+    highlights: ["2 tools", "Marketplace", "OpenAPI", "Edge", "SDK"],
+    httpEndpoint: "https://modelcontextprotocol.name/mcp/plugin-delivery",
   },
 ];
 
@@ -927,10 +1678,11 @@ export const toolCategories: ToolEntry["category"][] = [
   "Packages",
 ];
 
-/** Combined claude_desktop_config.json for all 6 servers */
+/** Combined claude_desktop_config.json for all 27 servers */
 export const allServersConfig = JSON.stringify(
   {
     mcpServers: {
+      // ── Local / stdio servers ──
       "bnb-chain-mcp": {
         command: "npx",
         args: ["-y", "@nirholas/bnb-chain-mcp@latest"],
@@ -965,6 +1717,91 @@ export const allServersConfig = JSON.stringify(
         env: {
           RPC_URL: "https://bsc-dataseed.binance.org",
         },
+      },
+      // ── HTTP gateway servers (modelcontextprotocol.name) ──
+      "crypto-market-data": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/crypto-market-data",
+      },
+      "crypto-market-data-ts": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/crypto-market-data-ts",
+      },
+      "crypto-data-aggregator": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/crypto-data-aggregator",
+      },
+      "free-crypto-news": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/free-crypto-news",
+      },
+      "sperax-crypto-mcp": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/sperax-crypto-mcp",
+      },
+      "defi-agents": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/defi-agents",
+      },
+      "ethereum-wallet-toolkit": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/ethereum-wallet-toolkit",
+      },
+      "solana-wallet-toolkit": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/solana-wallet-toolkit",
+      },
+      "boosty-defi": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/boosty-defi",
+      },
+      "x402-stablecoin": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/x402-stablecoin",
+      },
+      "sweep-defi": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/sweep-defi",
+      },
+      "github-to-mcp": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/github-to-mcp",
+      },
+      "mcp-notify": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/mcp-notify",
+      },
+      "mcp-servers-collection": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/mcp-servers-collection",
+      },
+      "lyra-intel": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/lyra-intel",
+      },
+      "lyra-registry": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/lyra-registry",
+      },
+      "extract-llms-docs": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/extract-llms-docs",
+      },
+      "ai-agents-library": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/ai-agents-library",
+      },
+      xactions: {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/xactions",
+      },
+      w3ag: {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/w3ag",
+      },
+      "plugin-delivery": {
+        type: "http",
+        url: "https://modelcontextprotocol.name/mcp/plugin-delivery",
       },
     },
   },

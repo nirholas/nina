@@ -11,7 +11,7 @@
 
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Copy, Check, ExternalLink, Code2, Globe, Cpu } from 'lucide-react';
+import { ArrowLeft, Copy, Check, ExternalLink, Code2, Globe, Cpu, Cloud } from 'lucide-react';
 import { useState } from 'react';
 import {
   Spotlight,
@@ -42,6 +42,8 @@ export default function MCPServerPage() {
 
   const [copiedInstall, setCopiedInstall] = useState(false);
   const [copiedConfig, setCopiedConfig] = useState(false);
+  const [copiedHttp, setCopiedHttp] = useState(false);
+  const [copiedHttpConfig, setCopiedHttpConfig] = useState(false);
 
   const copyText = (text: string, setter: (v: boolean) => void) => {
     navigator.clipboard.writeText(text);
@@ -254,6 +256,127 @@ export default function MCPServerPage() {
           </div>
         </LampContainer>
       </section>
+
+      {/* Live HTTP Deployment */}
+      {server.httpEndpoint && (
+        <section className="mx-auto max-w-5xl px-4 pb-16">
+          <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gradient-to-b from-gray-50 to-white dark:from-[#0a0a0a]/80 dark:to-black p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10">
+                <Cloud className="h-5 w-5 text-green-500" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Live HTTP Deployment
+                </h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  No local installation required — connect via{' '}
+                  <a
+                    href="https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#F0B90B] hover:underline"
+                  >
+                    MCP Streamable HTTP
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            {/* Endpoint */}
+            <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-black p-1 mb-4">
+              <div className="flex items-center justify-between px-3 py-1.5">
+                <span className="text-xs text-gray-400">Endpoint</span>
+                <button
+                  onClick={() => copyText(server.httpEndpoint!, setCopiedHttp)}
+                  className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  aria-label="Copy endpoint URL"
+                >
+                  {copiedHttp ? (
+                    <Check className="h-3.5 w-3.5 text-green-400" />
+                  ) : (
+                    <Copy className="h-3.5 w-3.5" />
+                  )}
+                </button>
+              </div>
+              <pre className="overflow-x-auto px-3 pb-3 font-mono text-sm text-[#F0B90B]">
+                {server.httpEndpoint}
+              </pre>
+            </div>
+
+            {/* HTTP Config snippet */}
+            <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-black p-1 mb-6">
+              <div className="flex items-center justify-between px-3 py-1.5">
+                <span className="text-xs text-gray-400">MCP Client Config</span>
+                <button
+                  onClick={() =>
+                    copyText(
+                      JSON.stringify(
+                        {
+                          mcpServers: {
+                            [server.id]: {
+                              type: 'http',
+                              url: server.httpEndpoint,
+                            },
+                          },
+                        },
+                        null,
+                        2,
+                      ),
+                      setCopiedHttpConfig,
+                    )
+                  }
+                  className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  aria-label="Copy HTTP config"
+                >
+                  {copiedHttpConfig ? (
+                    <Check className="h-3.5 w-3.5 text-green-400" />
+                  ) : (
+                    <Copy className="h-3.5 w-3.5" />
+                  )}
+                </button>
+              </div>
+              <pre className="overflow-x-auto px-3 pb-3 font-mono text-xs leading-relaxed text-gray-700 dark:text-gray-300">
+                {JSON.stringify(
+                  {
+                    mcpServers: {
+                      [server.id]: {
+                        type: 'http',
+                        url: server.httpEndpoint,
+                      },
+                    },
+                  },
+                  null,
+                  2,
+                )}
+              </pre>
+            </div>
+
+            {/* Links */}
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+              <a
+                href="https://modelcontextprotocol.name"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-gray-500 hover:text-[#F0B90B] dark:text-gray-400"
+              >
+                <Globe className="h-3.5 w-3.5" /> modelcontextprotocol.name
+                <ExternalLink className="h-3 w-3" />
+              </a>
+              <span className="text-gray-300 dark:text-gray-700">|</span>
+              <a
+                href="https://speraxos.vercel.app/community/mcp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-gray-500 hover:text-[#F0B90B] dark:text-gray-400"
+              >
+                SperaxOS MCP Marketplace
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Features — 3D cards */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
